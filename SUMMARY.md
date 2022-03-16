@@ -1,6 +1,10 @@
 # Table of contents
 
-* [What is MyProduct?](README.md)
+* [What is Fief?](README.md)
+
+## Usage
+
+* [Admin API](usage/admin-api.md)
 
 ## miscellaneous
 

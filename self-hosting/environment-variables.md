@@ -6,6 +6,67 @@ description: List of environment variables available and how to set them.
 
 Fief server relies heavily on environment variables for configuration. You'll likely need to adjust those settings for your deployment.
 
+## Set environment variables
+
+### Using `docker run`
+
+When running Fief server with Docker, the most straightforward way is to use the `-e` option on the command line, as shown in the [Quickstart](quickstart.md) section.
+
+```bash
+docker run \
+  --name fief-server \
+  -p 8000:80
+  -d \
+  -e "SECRET=XXX" \
+  -e "FIEF_CLIENT_ID=XXX" \
+  -e "FIEF_CLIENT_SECRET=XXX" \
+  -e "ENCRYPTION_KEY=XXX" \
+  ghcr.io/fief-dev/fief:latest
+```
+
+However, it may become hard to maintain when having lot of variables to set. An alternative way is to use a `.env` file. It's a simple file where each line consists of a key and a value separated by an equal sign:
+
+{% code title=".env" %}
+```systemd
+SECRET=XXX
+FIEF_CLIENT_ID=XXX
+FIEF_CLIENT_SECRET=XXX
+ENCRYPTION_KEY=XXX
+```
+{% endcode %}
+
+Then, you can reference this file in the Docker command:
+
+```bash
+docker run \
+  --name fief-server \
+  -p 8000:80
+  -d \
+  --env-file .env \
+  ghcr.io/fief-dev/fief:latest
+```
+
+### Using Docker Compose
+
+For more complex setups, you may need to configure a Docker Compose file to help you manage all your containers. You can directly define your environment variables in the Compose file.
+
+You'll find below an example of a Docker Compose file to run the Fief server.
+
+```yaml
+version: "3.9"
+
+services:
+  fief:
+    image: ghcr.io/fief-dev/fief:latest
+    ports:
+      - "80:8000"
+    environment:
+      - SECRET=XXX
+      - FIEF_CLIENT_ID=XXX
+      - FIEF_CLIENT_SECRET=XXX
+      - ENCRYPTION_KEY=XXX
+```
+
 ## Reference
 
 For each variable, we'll try to provide a sensible example value to help you configure it correctly. Throughout the examples, we'll assume that you host your Fief server on the sub-domain `fief.bretagne.duchy`.

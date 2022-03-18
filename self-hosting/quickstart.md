@@ -9,7 +9,7 @@ We provide a [Docker](https://www.docker.com/get-started) image to help you star
 Run the following command:
 
 ```bash
-    docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker
+docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker
 ```
 
 The result of this command is a complete **`docker run` command** with the required **secrets** generated to help you get started. It'll look like the following:
@@ -64,3 +64,7 @@ You'll then be prompted for a password. If everything goes well, you should see 
 ```
 Main Fief user created
 ```
+
+### Good to go!
+
+At this point, your Fief server should be up-and-running! Open http://localhost:8000/admin/

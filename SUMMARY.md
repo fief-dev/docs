@@ -9,6 +9,7 @@
 ## Self-hosting
 
 * [Quickstart](self-hosting/quickstart.md)
+* [Setup a database](self-hosting/setup-a-database.md)
 * [Environment variables](self-hosting/environment-variables.md)
 
 ## miscellaneous

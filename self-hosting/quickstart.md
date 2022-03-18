@@ -38,7 +38,7 @@ If you need restart or recreate your container, you'll probably need to set the 
 The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.&#x20;
 {% endhint %}
 
-### Create main workspace
+## Create main workspace
 
 Next, you'll need to create the main **workspace**. Simply run the following command:
 
@@ -52,7 +52,7 @@ You should see the following output:
 Main Fief workspace created
 ```
 
-### Create admin user
+## Create admin user
 
 Finally, you need to create an **admin user** for this main workspace that'll have access to the admin dashboard. Run the following command:
 
@@ -70,7 +70,7 @@ You'll then be prompted for a password. If everything goes well, you should see 
 Main Fief user created
 ```
 
-### Good to go!
+## Good to go!
 
 At this point, your Fief server should be up-and-running! Open [http://localhost:8000/admin/](http://localhost:8000/admin/) to access the admin dashboard. You'll be redirected to a login page. Authenticate with the user credentials you created in the previous section.
 
@@ -86,13 +86,13 @@ Congratulations! Your Fief server instance is up-and-running 🎉 You can now tr
 For production deployment, we strongly recommend you to read the next sections.
 {% endhint %}
 
-### Limitations
+## Limitations
 
 While quick and convenient, this way of running Fief is **not suitable for production environments**. Under the hood, it stores the data in the form of **SQLite databases**. If you ever happen to destroy your container, you'll lose all your data.
 
 The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
 
-#### Use a Docker volume to persist SQLite data
+### Use a Docker volume to persist SQLite data
 
 If you really want to use SQLite, or mitigate the risk of losing data in your local environment, you can attach your container to a [Docker volume](https://docs.docker.com/storage/volumes/). This way, even if the container is destroyed, you can create a new one and attach again the data.
 

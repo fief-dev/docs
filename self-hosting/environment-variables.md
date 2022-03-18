@@ -52,6 +52,7 @@ For more complex setups, you may need to configure a Docker Compose file to help
 
 You'll find below an example of a Docker Compose file to run the Fief server.
 
+{% code title="docker-compose.yml" %}
 ```yaml
 version: "3.9"
 
@@ -66,6 +67,7 @@ services:
       - FIEF_CLIENT_SECRET=XXX
       - ENCRYPTION_KEY=XXX
 ```
+{% endcode %}
 
 ## Reference
 

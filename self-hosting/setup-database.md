@@ -2,7 +2,7 @@
 description: Instructions to configure your Fief server on a PostgreSQL or MySQL database.
 ---
 
-# Setup a database
+# Setup database
 
 For production environments, your Fief server should store its data in a proper database server for better performance and reliability. Fief is compatible with **PostgreSQL** and **MySQL** databases.
 
@@ -20,7 +20,7 @@ DATABASE_NAME=fief
 ```
 
 {% hint style="info" %}
-You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md).
+You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md#set-environment-variables).
 {% endhint %}
 
 ## Setup MySQL
@@ -37,7 +37,7 @@ DATABASE_NAME=fief
 ```
 
 {% hint style="info" %}
-You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md).
+You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md#set-environment-variables).
 {% endhint %}
 
 ## Create main workspace and admin user

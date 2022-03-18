@@ -80,5 +80,43 @@ You'll then be redirected to the admin dashboard.
 
 ![Admin dashboard](<../.gitbook/assets/Capture d’écran 2022-03-18 à 09.39.36.png>)
 
-Congratulations! Your Fief server instance is up-and-running 🎉
+Congratulations! Your Fief server instance is up-and-running 🎉 You can now try Fief features and start to integrate authentication in your app.
 
+{% hint style="info" %}
+For production deployment, we strongly recommend you to read the next sections.
+{% endhint %}
+
+### Limitations
+
+While quick and convenient, this way of running Fief is **not suitable for production environments**. Under the hood, it stores the data in the form of **SQLite databases**. If you ever happen to destroy your container, you'll lose all your data.
+
+The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
+
+#### Use a Docker volume to persist SQLite data
+
+If you really want to use SQLite, or mitigate the risk of losing data in your local environment, you can attach your container to a [Docker volume](https://docs.docker.com/storage/volumes/). This way, even if the container is destroyed, you can create a new one and attach again the data.
+
+The first thing to do is to create a Docker volume:
+
+```
+docker volume create fief-server-data
+```
+
+Then, create your Fief server container and attach this volume to the `/data` folder on the container:
+
+```bash
+docker run \
+  --name fief-server \
+  -p 8000:80
+  -d \
+  -v fief-server-volume:/data \
+  -e "SECRET=XXX" \
+  -e "FIEF_CLIENT_ID=XXX" \
+  -e "FIEF_CLIENT_SECRET=XXX" \
+  -e "ENCRYPTION_KEY=XXX" \
+  ghcr.io/fief-dev/fief:latest
+```
+
+{% hint style="info" %}
+If you created your container with the instructions in the previous section, you'll need to recreate one from scratch to bind the volume.
+{% endhint %}

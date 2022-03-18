@@ -92,6 +92,10 @@ While quick and convenient, this way of running Fief is **not suitable for produ
 
 The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
 
+{% content-ref url="setup-database.md" %}
+[setup-database.md](setup-database.md)
+{% endcontent-ref %}
+
 ### Use a Docker volume to persist SQLite data
 
 If you really want to use SQLite, or mitigate the risk of losing data in your local environment, you can attach your container to a [Docker volume](https://docs.docker.com/storage/volumes/). This way, even if the container is destroyed, you can create a new one and attach again the data.

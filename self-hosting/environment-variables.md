@@ -96,9 +96,21 @@ That's why we necessarily need to create a first workspace and an admin user bef
 
 The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!
 
-| Name                 | Description                                      | Default          | Allowed values | Example                     |
-| -------------------- | ------------------------------------------------ | ---------------- | -------------- | --------------------------- |
-| `FIEF_DOMAIN`        | Domain of your main Fief workspace               | localhost        |                | fief.bretagne.duchy         |
-| `FIEF_BASE_URL`      | URL of the main Fief workspace. It calls itself! | http://localhost |                | https://fief.bretagne.duchy |
-| `FIEF_CLIENT_ID`     | Client ID in your main Fief workspace.           |                  |                |                             |
-| `FIEF_CLIENT_SECRET` | Client secret in your main Fief workspace.       |                  |                |                             |
+| Name                  | Description                                      | Default          | Allowed values | Example                     |
+| --------------------- | ------------------------------------------------ | ---------------- | -------------- | --------------------------- |
+| `FIEF_DOMAIN`         | Domain of your main Fief workspace               | localhost        |                | fief.bretagne.duchy         |
+| `FIEF_BASE_URL`       | URL of the main Fief workspace. It calls itself! | http://localhost |                | https://fief.bretagne.duchy |
+| `FIEF_CLIENT_ID`      | Client ID in your main Fief workspace            |                  |                |                             |
+| `FIEF_CLIENT_SECRET`  | Client secret in your main Fief workspace        |                  |                |                             |
+| `FIEF_ENCRYPTION_KEY` | Optional RSA key used to encrypt the JWT tokens  |                  |                |                             |
+
+### Admin session
+
+An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.
+
+| Name                               | Description                             | Default              | Allowed values | Example |
+| ---------------------------------- | --------------------------------------- | -------------------- | -------------- | ------- |
+| `FIEF_ADMIN_SESSION_COOKIE_NAME`   | Name of the admin session cookie        | fief\_admin\_session |                |         |
+| `FIEF_ADMIN_SESSION_COOKIE_DOMAIN` | Domain of the admin session cookie      | _Empty string_       |                |         |
+| `FIEF_ADMIN_SESSION_COOKIE_SECURE` | Secure flag of the admin session cookie | True                 |                |         |
+

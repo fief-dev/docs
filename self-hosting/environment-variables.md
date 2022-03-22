@@ -91,15 +91,16 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### Database
 
-| Name                | Description                                                  | Default                   | Allowed values            | Example      |
-| ------------------- | ------------------------------------------------------------ | ------------------------- | ------------------------- | ------------ |
-| `DATABASE_TYPE`     | Type of the main database                                    | SQLITE                    | POSTGRESQL, MYSQL, SQLITE | POSTGRESQL   |
-| `DATABASE_HOST`     | Host of the main database                                    |                           |                           | localhost    |
-| `DATABASE_PORT`     | Listening port of the main database                          |                           |                           | 5432         |
-| `DATABASE_USERNAME` | Main database user                                           |                           |                           | fief         |
-| `DATABASE_PASSWORD` | Main database user's password                                |                           |                           | fiefpassword |
-| `DATABASE_NAME`     | Main database name                                           | fief.db                   |                           | fief         |
-| `DATABASE_LOCATION` | For SQLite databases, path where to store the database files | Current working directory |                           |              |
+| Name                | Description                                                                                                               | Default                   | Allowed values            | Example      |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------- | ------------ |
+| `DATABASE_TYPE`     | Type of the main database                                                                                                 | SQLITE                    | POSTGRESQL, MYSQL, SQLITE | POSTGRESQL   |
+| `DATABASE_HOST`     | Host of the main database                                                                                                 |                           |                           | localhost    |
+| `DATABASE_PORT`     | Listening port of the main database                                                                                       |                           |                           | 5432         |
+| `DATABASE_USERNAME` | Main database user                                                                                                        |                           |                           | fief         |
+| `DATABASE_PASSWORD` | Main database user's password                                                                                             |                           |                           | fiefpassword |
+| `DATABASE_NAME`     | Main database name                                                                                                        | fief.db                   |                           | fief         |
+| `DATABASE_LOCATION` | For SQLite databases, path where to store the database files                                                              | Current working directory |                           |              |
+| `DATABASE_URL`      | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above. |                           |                           |              |
 
 More details about how to setup a database in the dedicated section.
 
@@ -127,6 +128,15 @@ More details about how to setup an email provider in the dedicated section.
 {% content-ref url="setup-email-provider.md" %}
 [setup-email-provider.md](setup-email-provider.md)
 {% endcontent-ref %}
+
+### CSRF cookie
+
+To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html) attacks on authentication pages, we use the [double-submit cookie](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html#double-submit-cookie) pattern.
+
+| Name                 | Description                             | Default         | Allowed values | Example |
+| -------------------- | --------------------------------------- | --------------- | -------------- | ------- |
+| `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie           | fief\_csrftoken |                |         |
+| `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie | True            |                |         |
 
 ### Login session
 

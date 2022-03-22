@@ -40,6 +40,25 @@ DATABASE_NAME=fief
 You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md#set-environment-variables).
 {% endhint %}
 
+## Use a connection string
+
+Some cloud providers like Heroku will provide you a full database connection string like the one below instead of each parts separately:
+
+```
+postgresql://fief:fiefpassword@localhost:5432/fief
+```
+
+Fief supports this kind of configuration with the `DATABASE_URL` environment variable.
+
+```systemd
+DATABASE_TYPE=POSTGRESQL
+DATABASE_URL=postgresql://fief:fiefpassword@localhost:5432/fief
+```
+
+{% hint style="warning" %}
+This variable will **always** take precedence over the single parameters: if you define `DATABASE_URL`, it'll use this variable to connect to your database, even if other parameters are defined.
+{% endhint %}
+
 ## Create main workspace and admin user
 
 Once your database is configured, don't forget to create the main workspace and admin user, as described in the [Quickstart](quickstart.md) section.

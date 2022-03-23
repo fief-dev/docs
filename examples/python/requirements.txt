@@ -1,0 +1,6 @@
+fief-client
+
+black
+mypy
+isort
+tryceratops

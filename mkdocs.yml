@@ -16,6 +16,7 @@ theme:
     - navigation.indexes
     - search.suggest
     - search.highlight
+    - content.code.annotate
 
 plugins:
   - search
@@ -28,6 +29,7 @@ markdown_extensions:
   - pymdownx.snippets
   - attr_list
   - tables
+  - def_list
 
 extra:
   header_links:

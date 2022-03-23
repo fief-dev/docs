@@ -67,7 +67,7 @@ Main Fief user created
 
 At this point, your Fief server should be up-and-running! Open [http://localhost:8000/admin/](http://localhost:8000/admin/) to access the admin dashboard. You'll be redirected to a login page. Authenticate with the user credentials you created in the previous section.
 
-![Fief login page](../assets/images/quickstart-login.png)
+![Fief login page](../assets/images/fief-login.png)
 
 You'll then be redirected to the admin dashboard.
 

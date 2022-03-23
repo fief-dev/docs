@@ -2,9 +2,13 @@
 
 * [What is Fief?](README.md)
 
-## Usage
+## Integrate
 
-* [Admin API](usage/admin-api.md)
+* [🐍 Python](integrate/python/README.md)
+  * [⚡ FastAPI](integrate/python/fastapi.md)
+  * [⚗ Flask](integrate/python/flask.md)
+* [🟨 JavaScript](integrate/javascript.md)
+* [🟢 NodeJS](integrate/nodejs.md)
 
 ## Self-hosting
 

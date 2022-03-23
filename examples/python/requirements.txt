@@ -1,4 +1,6 @@
-fief-client
+fastapi
+fief-client[fastapi]
+uvicorn[standard]
 
 black
 mypy

@@ -1,0 +1,1286 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="List of environment variables available and how to set them.">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+    
+    
+      
+        <title>Environment variables - Fief</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9d5733d3.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#environment-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Fief" class="md-header__button md-logo" aria-label="Fief" data-md-component="logo">
+      
+  <img src="../../assets/fief-logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Environment variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="md-header__option">
+      
+        <a href="https://www.fief.dev" class="md-header__link">About</a>
+      
+        <a href="https://www.fief.dev" class="md-header__link">Join the beta</a>
+      
+    </div>
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Fief" class="md-nav__button md-logo" aria-label="Fief" data-md-component="logo">
+      
+  <img src="../../assets/fief-logo-white.svg" alt="logo">
+
+    </a>
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        What is Fief?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Integrate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Integrate" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Integrate
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" data-md-state="indeterminate" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../integrate/python/">Python</a>
+          
+            <label for="__nav_2_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/python/fastapi/" class="md-nav__link">
+        FastAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/python/flask/" class="md-nav__link">
+        Flask
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Self-hosting
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Self-hosting" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Self-hosting
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-database/" class="md-nav__link">
+        Setup database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-email-provider/" class="md-nav__link">
+        Setup email provider
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Environment variables
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Environment variables
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    Set environment variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Set environment variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-docker-run" class="md-nav__link">
+    Using docker run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-docker-compose" class="md-nav__link">
+    Using Docker Compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    Redis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-provider" class="md-nav__link">
+    Email provider
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrf-cookie" class="md-nav__link">
+    CSRF cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-session" class="md-nav__link">
+    Login session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fief-ception" class="md-nav__link">
+    Fief-ception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-session" class="md-nav__link">
+    Admin session
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Miscellaneous
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Miscellaneous" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Miscellaneous
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../miscellaneous/resources/" class="md-nav__link">
+        Resources
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    Set environment variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Set environment variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-docker-run" class="md-nav__link">
+    Using docker run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-docker-compose" class="md-nav__link">
+    Using Docker Compose
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    General
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    Database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    Redis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-provider" class="md-nav__link">
+    Email provider
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrf-cookie" class="md-nav__link">
+    CSRF cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-session" class="md-nav__link">
+    Login session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    Session
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fief-ception" class="md-nav__link">
+    Fief-ception
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-session" class="md-nav__link">
+    Admin session
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  
+
+
+
+<h1 id="environment-variables">Environment variables</h1>
+<p>Fief server relies heavily on environment variables for configuration. You'll likely need to adjust those settings for your deployment.</p>
+<h2 id="set-environment-variables">Set environment variables</h2>
+<h3 id="using-docker-run">Using <code>docker run</code></h3>
+<p>When running Fief server with Docker, the most straightforward way is to use the <code>-e</code> option on the command line, as shown in the <a href="../quickstart/">Quickstart</a> section.</p>
+<div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
+  --name fief-server <span class="se">\</span>
+  -p <span class="m">8000</span>:80
+  -d <span class="se">\</span>
+  -e <span class="s2">&quot;SECRET=XXX&quot;</span> <span class="se">\</span>
+  -e <span class="s2">&quot;FIEF_CLIENT_ID=XXX&quot;</span> <span class="se">\</span>
+  -e <span class="s2">&quot;FIEF_CLIENT_SECRET=XXX&quot;</span> <span class="se">\</span>
+  -e <span class="s2">&quot;ENCRYPTION_KEY=XXX&quot;</span> <span class="se">\</span>
+  ghcr.io/fief-dev/fief:latest
+</code></pre></div>
+<p>However, it may become hard to maintain when having lot of variables to set. An alternative way is to use a <code>.env</code> file. It's a simple file where each line consists of a key and a value separated by an equal sign:</p>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code><span class="na">SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<span class="na">FIEF_CLIENT_ID</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<span class="na">FIEF_CLIENT_SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<span class="na">ENCRYPTION_KEY</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+</code></pre></div>
+<p>Then, you can reference this file in the Docker command:</p>
+<div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
+  --name fief-server <span class="se">\</span>
+  -p <span class="m">8000</span>:80
+  -d <span class="se">\</span>
+  --env-file .env <span class="se">\</span>
+  ghcr.io/fief-dev/fief:latest
+</code></pre></div>
+<h3 id="using-docker-compose">Using Docker Compose</h3>
+<p>For more complex setups, you may need to configure a Docker Compose file to help you manage all your containers. You can directly define your environment variables in the Compose file.</p>
+<p>You'll find below an example of a Docker Compose file to run the Fief server.</p>
+<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="w"></span>
+
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">fief</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/fief-dev/fief:latest</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:8000&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET=XXX</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_ID=XXX</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_SECRET=XXX</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENCRYPTION_KEY=XXX</span><span class="w"></span>
+</code></pre></div>
+<h2 id="reference">Reference</h2>
+<p>For each variable, we'll try to provide a sensible example value to help you configure it correctly. Throughout the examples, we'll assume that you host your Fief server on the sub-domain <code>fief.bretagne.duchy</code>.</p>
+<h3 id="general">General</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ENVIRONMENT</code></td>
+<td>Name of the deployment environment</td>
+<td>development</td>
+<td>development, staging, production</td>
+<td>production</td>
+</tr>
+<tr>
+<td><code>LOG_LEVEL</code></td>
+<td>Log verbosity</td>
+<td>DEBUG</td>
+<td>DEBUG, INFO, WARNING, ERROR</td>
+<td>INFO</td>
+</tr>
+<tr>
+<td><code>ROOT_DOMAIN</code></td>
+<td>Root domain where your server will be running. Mainly used for generating workspace subdomains.</td>
+<td>localhost</td>
+<td></td>
+<td>bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>ALLOW_ORIGIN_REGEX</code></td>
+<td>Regex used to control CORS access to your API</td>
+<td>http://.*localhost:[0-9]+</td>
+<td></td>
+<td>https://.*\.bretagne.duchy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="secrets">Secrets</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SECRET</code></td>
+<td>Secret value used to sign reset password tokens.</td>
+<td></td>
+<td>Any sufficiently long string</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ENCRYPTION_KEY</code></td>
+<td>Key used to encrypt the external databases credentials inside the main database</td>
+<td></td>
+<td>A valid Fernet key encoded in UTF-8</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="database">Database</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_TYPE</code></td>
+<td>Type of the main database</td>
+<td>SQLITE</td>
+<td>POSTGRESQL, MYSQL, SQLITE</td>
+<td>POSTGRESQL</td>
+</tr>
+<tr>
+<td><code>DATABASE_HOST</code></td>
+<td>Host of the main database</td>
+<td></td>
+<td></td>
+<td>localhost</td>
+</tr>
+<tr>
+<td><code>DATABASE_PORT</code></td>
+<td>Listening port of the main database</td>
+<td></td>
+<td></td>
+<td>5432</td>
+</tr>
+<tr>
+<td><code>DATABASE_USERNAME</code></td>
+<td>Main database user</td>
+<td></td>
+<td></td>
+<td>fief</td>
+</tr>
+<tr>
+<td><code>DATABASE_PASSWORD</code></td>
+<td>Main database user's password</td>
+<td></td>
+<td></td>
+<td>fiefpassword</td>
+</tr>
+<tr>
+<td><code>DATABASE_NAME</code></td>
+<td>Main database name</td>
+<td>fief.db</td>
+<td></td>
+<td>fief</td>
+</tr>
+<tr>
+<td><code>DATABASE_LOCATION</code></td>
+<td>For SQLite databases, path where to store the database files</td>
+<td>Current working directory</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>More details about how to setup a database in the dedicated section.</p>
+<p><a class="md-button" href="../setup-database/">Setup database</a></p>
+<h3 id="redis">Redis</h3>
+<p>We use a Redis instance to manage background jobs (send emails, heavy computations...). A Redis instance is already up-and-running in the official Docker image, but you can provide your own one if needed.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REDIS_URL</code></td>
+<td>URL of a Redis server</td>
+<td>redis://localhost:6379</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="email-provider">Email provider</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EMAIL_PROVIDER</code></td>
+<td>Type of email provider</td>
+<td>NULL</td>
+<td>NULL, POSTMARK</td>
+<td>POSTMARK</td>
+</tr>
+<tr>
+<td><code>EMAIL_PROVIDER_PARAMS</code></td>
+<td>Configuration dictionary of the email provider</td>
+<td>{}</td>
+<td></td>
+<td>{"server_token": "XXX-XXX"}</td>
+</tr>
+</tbody>
+</table>
+<p>More details about how to setup an email provider in the dedicated section.</p>
+<p><a class="md-button" href="../setup-email-provider/">Setup email provider</a></p>
+<h3 id="csrf-cookie">CSRF cookie</h3>
+<p>To protect against <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">Cross-Site-Request-Forgery</a> attacks on authentication pages, we use the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie">double-submit cookie</a> pattern.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CSRF_COOKIE_NAME</code></td>
+<td>Name of the CSRF token cookie</td>
+<td>fief_csrftoken</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CSRF_COOKIE_SECURE</code></td>
+<td>Secure flag of the login session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="login-session">Login session</h3>
+<p>A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_NAME</code></td>
+<td>Name of the login session cookie</td>
+<td>fief_login_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the login session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the login session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="session">Session</h3>
+<p>A session is a cookie used to maintain the session of a user <strong>on the Fief authentication pages</strong>. It's different from the session you'll maintain in your own application.</p>
+<p>Its purpose is to allow a user to re-authenticate quickly to your app without having them to input their credentials again.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SESSION_COOKIE_NAME</code></td>
+<td>Name of the session cookie</td>
+<td>fief_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the session cookie in seconds</td>
+<td>86400 * 30 <em>(30 days</em>)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fief-ception">Fief-ception</h3>
+<p>Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief users to the app 🤯</p>
+<p>That's why we necessarily need to create a first workspace and an admin user before being able to use Fief, as described in the <a href="../quickstart/">Quickstart</a> section.</p>
+<p>The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIEF_DOMAIN</code></td>
+<td>Domain of your main Fief workspace</td>
+<td>localhost</td>
+<td></td>
+<td>fief.bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>FIEF_BASE_URL</code></td>
+<td>URL of the main Fief workspace. It calls itself!</td>
+<td>http://localhost</td>
+<td></td>
+<td>https://fief.bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>FIEF_CLIENT_ID</code></td>
+<td>Client ID in your main Fief workspace</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_CLIENT_SECRET</code></td>
+<td>Client secret in your main Fief workspace</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ENCRYPTION_KEY</code></td>
+<td>Optional RSA key used to encrypt the JWT tokens</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="admin-session">Admin session</h3>
+<p>An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_NAME</code></td>
+<td>Name of the admin session cookie</td>
+<td>fief_admin_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the admin session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the admin session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../setup-email-provider/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Setup email provider" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Setup email provider
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../miscellaneous/resources/" class="md-footer__link md-footer__link--next" aria-label="Next: Resources" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Resources
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>
+      
+    
+  </body>
+</html>

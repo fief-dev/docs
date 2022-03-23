@@ -1,0 +1,54 @@
+site_name: Fief
+
+theme:
+  name: material
+  custom_dir: overrides
+  logo: assets/fief-logo-white.svg
+  font:
+    text: Inter
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+
+plugins:
+  - search
+  - tags
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - attr_list
+  - tables
+
+extra:
+  header_links:
+    - title: About
+      href: https://www.fief.dev
+    - title: Join the beta
+      href: https://www.fief.dev
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - index.md
+  - 'Integrate':
+    - 'Python':
+      - integrate/python/index.md
+      - integrate/python/fastapi.md
+      - integrate/python/flask.md
+  - 'Self-hosting':
+    - self-hosting/quickstart.md
+    - self-hosting/setup-database.md
+    - self-hosting/setup-email-provider.md
+    - self-hosting/environment-variables.md
+  - Miscellaneous:
+    - miscellaneous/resources.md

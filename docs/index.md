@@ -12,7 +12,5 @@ Fief is an **open-source platform** to manage **users** and **authentication** i
 
 We are offering two ways of using Fief:
 
-1. [Cloud](https://www.fief.dev): fair-priced hosted instance, maintained by the Fief's team ;
+1. [Cloud](https://www.fief.dev): fair-priced hosted instance, maintained by the Fief's team;
 2. Self-hosted: you host the service yourself on your own infrastructure, for free.
-
-Test

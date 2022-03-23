@@ -26,14 +26,12 @@ docker run \
 
 However, it may become hard to maintain when having lot of variables to set. An alternative way is to use a `.env` file. It's a simple file where each line consists of a key and a value separated by an equal sign:
 
-{% code title=".env" %}
-```systemd
+```ini title=".env"
 SECRET=XXX
 FIEF_CLIENT_ID=XXX
 FIEF_CLIENT_SECRET=XXX
 ENCRYPTION_KEY=XXX
 ```
-{% endcode %}
 
 Then, you can reference this file in the Docker command:
 
@@ -52,8 +50,7 @@ For more complex setups, you may need to configure a Docker Compose file to help
 
 You'll find below an example of a Docker Compose file to run the Fief server.
 
-{% code title="docker-compose.yml" %}
-```yaml
+```yaml title="docker-compose.yml"
 version: "3.9"
 
 services:
@@ -67,7 +64,6 @@ services:
       - FIEF_CLIENT_SECRET=XXX
       - ENCRYPTION_KEY=XXX
 ```
-{% endcode %}
 
 ## Reference
 
@@ -81,6 +77,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `LOG_LEVEL`          | Log verbosity                                                                                   | DEBUG                       | DEBUG, INFO, WARNING, ERROR      | INFO                         |
 | `ROOT_DOMAIN`        | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost                   |                                  | bretagne.duchy               |
 | `ALLOW_ORIGIN_REGEX` | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
+
 
 ### Secrets
 
@@ -104,9 +101,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 More details about how to setup a database in the dedicated section.
 
-{% content-ref url="setup-database.md" %}
-[setup-database.md](setup-database.md)
-{% endcontent-ref %}
+[Setup database](setup-database.md){ .md-button }
 
 ### Redis
 
@@ -125,9 +120,7 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 
 More details about how to setup an email provider in the dedicated section.
 
-{% content-ref url="setup-email-provider.md" %}
-[setup-email-provider.md](setup-email-provider.md)
-{% endcontent-ref %}
+[Setup email provider](setup-email-provider.md){ .md-button }
 
 ### CSRF cookie
 

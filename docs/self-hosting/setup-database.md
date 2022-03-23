@@ -10,7 +10,7 @@ For production environments, your Fief server should store its data in a proper 
 
 We'll assume that you have a working PostgreSQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.
 
-```systemd
+```ini
 DATABASE_TYPE=POSTGRESQL
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
@@ -19,15 +19,13 @@ DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
 
-{% hint style="info" %}
-You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md#set-environment-variables).
-{% endhint %}
+--8<-- "docs/partials/environment-variables-callout.md"
 
 ## Setup MySQL
 
 We'll assume that you have a working MySQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.
 
-```systemd
+```ini
 DATABASE_TYPE=MYSQL
 DATABASE_HOST=localhost
 DATABASE_PORT=3306
@@ -36,9 +34,7 @@ DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
 
-{% hint style="info" %}
-You can read about different ways of setting environment variables in the [dedicated section](environment-variables.md#set-environment-variables).
-{% endhint %}
+--8<-- "docs/partials/environment-variables-callout.md"
 
 ## Use a connection string
 
@@ -50,14 +46,13 @@ postgresql://fief:fiefpassword@localhost:5432/fief
 
 Fief supports this kind of configuration with the `DATABASE_URL` environment variable.
 
-```systemd
+```ini
 DATABASE_TYPE=POSTGRESQL
 DATABASE_URL=postgresql://fief:fiefpassword@localhost:5432/fief
 ```
 
-{% hint style="warning" %}
-This variable will **always** take precedence over the single parameters: if you define `DATABASE_URL`, it'll use this variable to connect to your database, even if other parameters are defined.
-{% endhint %}
+!!! warning
+    This variable will **always** take precedence over the single parameters: if you define `DATABASE_URL`, it'll use this variable to connect to your database, even if other parameters are defined.
 
 ## Create main workspace and admin user
 

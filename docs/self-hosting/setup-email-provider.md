@@ -16,7 +16,7 @@ There are two environment variables to configure the email provider: `EMAIL_PROV
 
 The NULL provider is the default one if you don't set any. It **means that no transactional email will be sent**.
 
-```systemd
+```ini
 EMAIL_PROVIDER=NULL
 ```
 
@@ -28,7 +28,9 @@ Postmark provider will send transactional emails using [Postmark](https://postma
 | -------------- | ----------------------------------------------------------------------------------------------- |
 | `server_token` | Your Postmark [Server API token](https://postmarkapp.com/developer/api/overview#authentication) |
 
-```systemd
+```ini
 EMAIL_PROVIDER=POSTMARK
 EMAIL_PROVIDER_PARAMS={"server_token": "XXX-XXX"}
 ```
+
+--8<-- "docs/partials/environment-variables-callout.md"

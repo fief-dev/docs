@@ -26,17 +26,11 @@ docker run \
   ghcr.io/fief-dev/fief:latest
 ```
 
-{% hint style="warning" %}
-**Save those secrets somewhere safe!**
+!!! warning "Save those secrets somewhere safe!"
+    If you need restart or recreate your container, you'll probably need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
 
-If you need restart or recreate your container, you'll probably need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration.
-
-[Read more about secrets and environment variables](environment-variables.md)
-{% endhint %}
-
-{% hint style="info" %}
-The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.&#x20;
-{% endhint %}
+!!! info
+    The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.&#x20;
 
 ## Create main workspace
 
@@ -60,9 +54,8 @@ Finally, you need to create an **admin user** for this main workspace that'll ha
 docker exec -it fief-server fief create-main-user --user-email anne@bretagne.duchy
 ```
 
-{% hint style="info" %}
-Of course, make sure to replace `--user-email` value with your own email address!
-{% endhint %}
+!!! info
+    Of course, make sure to replace `--user-email` value with your own email address!
 
 You'll then be prompted for a password. If everything goes well, you should see the following output:
 
@@ -74,17 +67,16 @@ Main Fief user created
 
 At this point, your Fief server should be up-and-running! Open [http://localhost:8000/admin/](http://localhost:8000/admin/) to access the admin dashboard. You'll be redirected to a login page. Authenticate with the user credentials you created in the previous section.
 
-![Fief login page](<../.gitbook/assets/Capture d’écran 2022-03-18 à 09.35.12.png>)
+![Fief login page](../assets/quickstart-login.png)
 
 You'll then be redirected to the admin dashboard.
 
-![Admin dashboard](<../.gitbook/assets/Capture d’écran 2022-03-18 à 09.39.36.png>)
+![Admin dashboard](../assets/quickstart-admin.png)
 
 Congratulations! Your Fief server instance is up-and-running 🎉 You can now try Fief features and start to integrate authentication in your app.
 
-{% hint style="info" %}
-For production deployment, we strongly recommend you to read the next sections.
-{% endhint %}
+!!! info
+    For production deployment, we strongly recommend you to read the next sections.
 
 ## Limitations
 
@@ -92,9 +84,7 @@ While quick and convenient, this way of running Fief is **not suitable for produ
 
 The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
 
-{% content-ref url="setup-database.md" %}
-[setup-database.md](setup-database.md)
-{% endcontent-ref %}
+[Setup database](setup-database.md){ .md-button }
 
 ### Use a Docker volume to persist SQLite data
 
@@ -121,6 +111,5 @@ docker run \
   ghcr.io/fief-dev/fief:latest
 ```
 
-{% hint style="info" %}
-If you created your container with the instructions in the previous section, you'll need to recreate one from scratch to bind the volume.
-{% endhint %}
+!!! info
+    If you created your container with the instructions in the previous section, you'll need to recreate one from scratch to bind the volume.

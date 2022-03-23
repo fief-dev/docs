@@ -506,6 +506,81 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#perform-an-oauth2-flow-manually" class="md-nav__link">
+    Perform an OAuth2 flow manually
+  </a>
+  
+    <nav class="md-nav" aria-label="Perform an OAuth2 flow manually">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-it" class="md-nav__link">
+    Test it
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's next?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auth_url" class="md-nav__link">
+    auth_url
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_callback" class="md-nav__link">
+    auth_callback
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth_refresh_token" class="md-nav__link">
+    auth_refresh_token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_access_token" class="md-nav__link">
+    validate_access_token
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userinfo" class="md-nav__link">
+    userinfo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -529,6 +604,228 @@
 </code></pre></div>
 <h2 id="create-a-fief-client">Create a <code>Fief</code> client</h2>
 <p>The Fief client provides all the necessary methods to manage OAuth2 authentication, validate access tokens and refresh them.</p>
+<div class="highlight"><span class="filename">client.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
+
+<span class="hll"><span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>
+</span><span class="hll">    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>  <span class="c1"># (1)!</span>
+</span><span class="hll">    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>  <span class="c1"># (2)!</span>
+</span><span class="hll">    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>  <span class="c1"># (3)!</span>
+</span><span class="hll"><span class="p">)</span>
+</span>
+<span class="n">redirect_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/callback&quot;</span>
+
+<span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_url</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Open this URL in your browser: </span><span class="si">{</span><span class="n">auth_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Paste the callback code: &quot;</span><span class="p">)</span>
+
+<span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Userinfo: </span><span class="si">{</span><span class="n">userinfo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Base URL of your Fief tenant</strong></p>
+<p>You can find it in the admin dashboard, in the <strong>Tenants</strong> list.</p>
+<p><img alt="Find base URL in admin dashboard" src="../../assets/images/quickstart-admin.png" /></p>
+</li>
+<li>
+<p><strong>ID of your Fief client</strong></p>
+<p>You can find it in the admin dashboard, in the <strong>Clients</strong> list.</p>
+<p><img alt="Find Client ID in admin dashboard" src="../../assets/images/integration-client-id-secret.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A first client is always created for you when you create your workspace. When getting started, you should use this one.</p>
+</div>
+</li>
+<li>
+<p><strong>Secret of your Fief client</strong></p>
+<p>You can find it in the admin dashboard, in the <strong>Clients</strong> list.</p>
+<p><img alt="Find Client Secret in admin dashboard" src="../../assets/images/integration-client-id-secret.png" /></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A first client is always created for you when you create your workspace. When getting started, you should use this one.</p>
+</div>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Async support</p>
+<p>For <code>asyncio</code> enthusiasts, we also provide a <code>FiefAsync</code> class with the same methods.</p>
+</div>
+<h2 id="perform-an-oauth2-flow-manually">Perform an OAuth2 flow manually</h2>
+<p>The simple script below shows you how to authenticate with OAuth2 "manually". The goal is to show you how to use the client. You'll then be able to integrate it in your own project with your framework and stack.</p>
+<p>The first step is to generate an <strong>authorization URL</strong>, which is an URL on the Fief server that'll ask you for your email address and password.</p>
+<div class="highlight"><span class="filename">client.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
+
+<span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>
+    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>  <span class="c1"># (1)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>  <span class="c1"># (2)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>  <span class="c1"># (3)!</span>
+<span class="p">)</span>
+
+<span class="hll"><span class="n">redirect_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/callback&quot;</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_url</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>
+</span><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Open this URL in your browser: </span><span class="si">{</span><span class="n">auth_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span>
+<span class="n">code</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Paste the callback code: &quot;</span><span class="p">)</span>
+
+<span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Userinfo: </span><span class="si">{</span><span class="n">userinfo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>Then, we make the script prompt for the <strong>authorization code</strong>.</p>
+<div class="highlight"><span class="filename">client.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
+
+<span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>
+    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>  <span class="c1"># (1)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>  <span class="c1"># (2)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>  <span class="c1"># (3)!</span>
+<span class="p">)</span>
+
+<span class="n">redirect_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/callback&quot;</span>
+
+<span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_url</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Open this URL in your browser: </span><span class="si">{</span><span class="n">auth_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">code</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Paste the callback code: &quot;</span><span class="p">)</span>
+</span>
+<span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Userinfo: </span><span class="si">{</span><span class="n">userinfo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This temporary code is generated by Fief upon successful login and can be used to obtain valid tokens. Fief returns both an <strong>access token</strong> and an <strong>ID token</strong>, which contains information about the user.</p>
+<div class="highlight"><span class="filename">client.py</span><pre><span></span><code><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
+
+<span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>
+    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>  <span class="c1"># (1)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>  <span class="c1"># (2)!</span>
+    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>  <span class="c1"># (3)!</span>
+<span class="p">)</span>
+
+<span class="n">redirect_url</span> <span class="o">=</span> <span class="s2">&quot;http://localhost:8000/callback&quot;</span>
+
+<span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_url</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Open this URL in your browser: </span><span class="si">{</span><span class="n">auth_url</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Paste the callback code: &quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_url</span><span class="p">)</span>
+</span><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Userinfo: </span><span class="si">{</span><span class="n">userinfo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="test-it">Test it</h3>
+<p>You can run this script from a command line:</p>
+<div class="highlight"><pre><span></span><code>python client.py
+</code></pre></div>
+<p>You'll get the following output:</p>
+<div class="highlight"><pre><span></span><code>Open this URL in your browser: https://example.fief.dev/authorize?response_type=code&amp;client_id=YOUR_CLIENT_ID&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fcallback&amp;scope=openid
+Paste the callback code:
+</code></pre></div>
+<p>You can <strong>copy and paste this URL manually in your browser</strong>. You'll be redirected to a Fief login page.</p>
+<p><img alt="Fief login page" src="../../assets/images/fief-login.png" /></p>
+<p>Upon successful login, Fief will redirect to the redirect URL you defined above, including a query parameter named <code>code</code>. It'll look like this:</p>
+<div class="highlight"><pre><span></span><code>http://localhost:8000/redirect?code=wPEDiSRkoYOtA-4QCJHpsLne0P2PXVYAlW6hcH5OVBg
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Your browser will probably show an error at this point</p>
+<p>In this simple implementation, we don't have a web server running on our local machine, so the browser won't be able to open the redirect URL. It's not a problem: what we care about is retrieving the authorization code by hand.</p>
+</div>
+<p>Copy the code value, get back to the command line where the script is running and paste it. You'll get the following output:</p>
+<div class="highlight"><pre><span></span><code>Paste the callback code: wPEDiSRkoYOtA-4QCJHpsLne0P2PXVYAlW6hcH5OVBg
+Tokens: {&#39;access_token&#39;: &#39;eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiRE9JaGpfNzJIYTlyWWg5dURnbmRTdTYyRVhKdUZmUTVsa2t4MS1rc1VJbyJdLCJhenAiOiJET0loal83MkhhOXJZaDl1RGduZFN1NjJFWEp1RmZRNWxra3gxLWtzVUlvIiwiZXhwIjoxNjQ4MDUwNDIzLCJpYXQiOjE2NDgwNDY4MjMsImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5maWVmLmRldiIsInNjb3BlIjoib3BlbmlkIiwic3ViIjoiYTM4NDZjYzEtN2MwOC00Mzg5LThjOGUtYzBlNzlmNzA3NWZlIn0.R5JnZW9Vq6lWai-FZcqsihYxmtFRbIjZ7D0Ck9XAG0d2YnQQ7ms3bUwtXEAnLhos4C3paGDa0PzQRtXSAx4IH85ZdeVJoBk9GrOj1ZV7E6dtZZSZlvtY2msMeXFC9gNg-A86R9ZU_T0PoROof0u1eJHYVlmo_dv2fodyNqkDB8V6HK3vqf7jaqNQtk8Fg6eHKhwb-3bAtjb5cpWAAWhMSrHZzTWIYUvYsvwAas5ihgenv3UOkpcl_p7b7G9SDhGE5abPQQ7lvyfhYZE7CV1DzVRU6UL4N0D2l4uI3RJNOQoECvltfo2etYzp5viwAwvg9LUS3466Ra1i8beBKXsPFQ&#39;, &#39;id_token&#39;: &#39;eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiRE9JaGpfNzJIYTlyWWg5dURnbmRTdTYyRVhKdUZmUTVsa2t4MS1rc1VJbyJdLCJhenAiOiJET0loal83MkhhOXJZaDl1RGduZFN1NjJFWEp1RmZRNWxra3gxLWtzVUlvIiwiZW1haWwiOiJmcmFuY29pcyt0ZXN0QGZpZWYuZGV2IiwiZXhwIjoxNjQ4MDUwNDIzLCJpYXQiOjE2NDgwNDY4MjMsImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5maWVmLmRldiIsInN1YiI6ImEzODQ2Y2MxLTdjMDgtNDM4OS04YzhlLWMwZTc5ZjcwNzVmZSIsInRlbmFudF9pZCI6IjcwNDEzNWI2LTRiZmQtNGM1NS04MDkwLWM2MzhhNmJhNTNhMiJ9.ULQy7TlgF5_oQwwgA6ydTahTYE31obr4F3olJy-mgyPw67XstoJLM1VwUNawzyz2Iu2QDmgcBrH3OMVfgCkBAFk2sp-QQIDr9arIF1QXNKG65El3zgPQ5-niTTsIuAkemyjNGcpdrcN2b9FaeodzauO5eOjno60h5dTBbcLnqv00V-Jv6sq8lB8_o5JXHKWUoZZA2VFEDox9MXfhDqrvyHcitsIRWIy7XhILKcZ-JG_AMcXnuDcyMnsoy91-gJznvMk7_ty9eNWs8Cm0ZhK3nMqEKML4tXIREmIN-vYUGDtbDWX3O45N98ovu9gJi9S3aVOh-gZQsnwauJmlW82ZQQ&#39;, &#39;token_type&#39;: &#39;bearer&#39;, &#39;expires_in&#39;: 3600}
+Userinfo: {&#39;aud&#39;: [&#39;YOUR_CLIENT_ID&#39;], &#39;azp&#39;: &#39;YOUR_CLIENT_ID&#39;, &#39;email&#39;: &#39;anne@bretagne.duchy&#39;, &#39;exp&#39;: 1648050423, &#39;iat&#39;: 1648046823, &#39;iss&#39;: &#39;https://example.fief.dev&#39;, &#39;sub&#39;: &#39;a3846cc1-7c08-4389-8c8e-c0e79f7075fe&#39;, &#39;tenant_id&#39;: &#39;704135b6-4bfd-4c55-8090-c638a6ba53a2&#39;}
+</code></pre></div>
+<p>As you can see, we obtained a first dictionary <code>tokens</code> containing an access token, an ID token and other standard OAuth2 information.</p>
+<p>The second variable, <code>userinfo</code>, is a dictionary with the user data. It's actually the information contained in the ID token that the client decoded for you.</p>
+<h2 id="whats-next">What's next?</h2>
+<p>You have the fundamental basics for performing an OAuth2 authentication with the Fief Python client.</p>
+<p>To help you further, we provide you helpers and examples for popular Python frameworks like Flask or FastAPI.</p>
+<p class="buttons"><a class="md-button" href="fastapi/">Integrate with FastAPI</a>
+<a class="md-button" href="flask/">Integrate with Flask</a></p>
+<h2 id="reference">Reference</h2>
+<h3 id="auth_url"><code>auth_url</code></h3>
+<p>Returns an authorization URL.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>redirect_uri: str</code>: Your callback URI where the user will be redirected after the service prompt.</li>
+<li><code>state: str = None</code>: Optional string that will be returned back in the callback parameters to allow you to retrieve state information.</li>
+<li><code>scope: Optional[List[str]] = None</code>: Optional list of scopes to ask for.</li>
+<li><code>extras_params: Optional[Dict[str, Any]] = None</code>: Optional dictionary containing specific parameters.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/callback&quot;</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>
+</code></pre></div>
+</div>
+<h3 id="auth_callback"><code>auth_callback</code></h3>
+<p>Returns valid tokens and user info in exchange of an authorization code.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>code: str</code>: The authorization code.</li>
+<li><code>redirect_uri: str</code>: The exact same <code>redirect_uri</code> you passed to the authorization URL.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="s2">&quot;CODE&quot;</span><span class="p">,</span> <span class="s2">&quot;http://localhost:8000/callback&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="auth_refresh_token"><code>auth_refresh_token</code></h3>
+<p>Returns fresh tokens and user info in exchange of a refresh token.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>refresh_token: str</code>: A valid refresh token.</li>
+<li><code>scope: Optional[List[str]] = None</code>: Optional list of scopes to ask for. If not provided, the access token will share the same list of scopes as requested the first time. Otherwise, it should be a subset of the original list of scopes.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_refresh_token</span><span class="p">(</span><span class="s2">&quot;REFRESH_TOKEN&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="validate_access_token"><code>validate_access_token</code></h3>
+<p>Checks if an access token is valid and optionally that it has a required list of scopes.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>access_token: str</code>: The access token to validate.</li>
+<li><code>required_scope: Optional[List[str]] = None</code>: Optional list of scopes to check for.</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">FiefAccessTokenInvalid</span><span class="p">,</span> <span class="n">FiefAccessTokenExpired</span><span class="p">,</span> <span class="n">FiefAccessTokenMissingScope</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">access_token_info</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">validate_access_token</span><span class="p">(</span><span class="s2">&quot;ACCESS_TOKEN&quot;</span><span class="p">,</span> <span class="n">required_scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;required_scope&quot;</span><span class="p">])</span>
+<span class="k">except</span> <span class="n">FiefAccessTokenInvalid</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid access token&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">FiefAccessTokenExpired</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expired access token&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">FiefAccessTokenMissingScope</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Missing required scope&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">access_token_info</span><span class="p">)</span>  <span class="c1"># {&quot;id&quot;: &quot;USER_ID&quot;, &quot;scope&quot;: [&quot;openid&quot;, &quot;required_scope&quot;], &quot;access_token&quot;: &quot;ACCESS_TOKEN&quot;}</span>
+</code></pre></div>
+</div>
+<h3 id="userinfo"><code>userinfo</code></h3>
+<p>Returns fresh user information from the Fief API using a valid access token.</p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>access_token: str</code>: A valid access token</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">userinfo</span><span class="p">(</span><span class="s2">&quot;ACCESS_TOKEN&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
 
               
             </article>
@@ -599,7 +896,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
     
     
       <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>

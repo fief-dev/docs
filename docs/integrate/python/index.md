@@ -22,7 +22,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
     You can find it in the admin dashboard, in the **Tenants** list.
 
-    ![Find base URL in admin dashboard](../../assets/images/quickstart-admin.png)
+    ![Find base URL in admin dashboard](../../assets/images/admin-dashboard.png)
 
 2. **ID of your Fief client**
 

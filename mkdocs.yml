@@ -26,8 +26,12 @@ plugins:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
   - attr_list
@@ -46,11 +50,18 @@ extra_css:
 
 nav:
   - index.md
+  - 'Getting started':
+    - getting-started/introduction.md
+    - getting-started/workspace.md
+    - getting-started/admin-dashboard.md
   - 'Integrate':
     - 'Python':
       - integrate/python/index.md
       - integrate/python/fastapi.md
       - integrate/python/flask.md
+  - 'Going further':
+    - going-further/byod.md
+    - going-further/id-token-encryption.md
   - 'Self-hosting':
     - self-hosting/quickstart.md
     - self-hosting/setup-database.md

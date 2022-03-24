@@ -71,7 +71,7 @@ At this point, your Fief server should be up-and-running! Open [http://localhost
 
 You'll then be redirected to the admin dashboard.
 
-![Admin dashboard](../assets/images/quickstart-admin.png)
+![Admin dashboard](../assets/images/admin-dashboard.png)
 
 Congratulations! Your Fief server instance is up-and-running 🎉 You can now try Fief features and start to integrate authentication in your app.
 

@@ -6,6 +6,31 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.fief.dev/getting-started/admin-dashboard/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/getting-started/introduction/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/getting-started/workspace/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/going-further/byod/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/going-further/id-token-encryption/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.fief.dev/integrate/javascript/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
@@ -37,6 +62,11 @@
     </url>
     <url>
          <loc>https://docs.fief.dev/partials/environment-variables-callout/</loc>
+         <lastmod>2022-03-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/partials/workspace-callout/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>

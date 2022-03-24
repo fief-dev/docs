@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/integrate/javascript/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/integrate/nodejs/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/integrate/python/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/integrate/python/fastapi/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/integrate/python/flask/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/miscellaneous/resources/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/partials/environment-variables-callout/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/self-hosting/environment-variables/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/self-hosting/quickstart/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/self-hosting/setup-database/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-03-23</lastmod>
+         <loc>https://docs.fiev.dev/self-hosting/setup-email-provider/</loc>
+         <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

@@ -28,6 +28,8 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - attr_list
   - tables
   - def_list

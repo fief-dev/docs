@@ -7,7 +7,7 @@ default:
 
 install:
   python -m pip install --upgrade pip
-  pip install -r requirements.txt
+  pip install -U -r requirements.txt
 
 examples-python *ARGS:
   {{examples_python_bin}} {{ARGS}}

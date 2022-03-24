@@ -20,24 +20,24 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
 1. **Base URL of your Fief tenant**
 
-    You can find it in the admin dashboard, in the **Tenants** list.
+    You can find it in the admin dashboard, in the **Tenants** list. [More info](../../getting-started/tenants.md#base-url)
 
-    ![Find base URL in admin dashboard](../../assets/images/admin-dashboard.png)
+    ![Find base URL in admin dashboard](../../assets/images/admin-tenants.png)
 
 2. **ID of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list.
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
 
-    ![Find Client ID in admin dashboard](../../assets/images/integration-client-id-secret.png)
+    ![Find Client ID in admin dashboard](../../assets/images/admin-clients-detail.png)
 
     !!! info
         A first client is always created for you when you create your workspace. When getting started, you should use this one.
 
 3. **Secret of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list.
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
 
-    ![Find Client Secret in admin dashboard](../../assets/images/integration-client-id-secret.png)
+    ![Find Client Secret in admin dashboard](../../assets/images/admin-clients-detail.png)
 
     !!! info
         A first client is always created for you when you create your workspace. When getting started, you should use this one.

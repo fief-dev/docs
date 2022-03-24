@@ -54,6 +54,8 @@ nav:
     - getting-started/introduction.md
     - getting-started/workspace.md
     - getting-started/admin-dashboard.md
+    - getting-started/tenants.md
+    - getting-started/clients.md
   - 'Integrate':
     - 'Python':
       - integrate/python/index.md

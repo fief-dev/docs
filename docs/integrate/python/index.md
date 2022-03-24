@@ -92,7 +92,7 @@ Upon successful login, Fief will redirect to the redirect URL you defined above,
 http://localhost:8000/redirect?code=wPEDiSRkoYOtA-4QCJHpsLne0P2PXVYAlW6hcH5OVBg
 ```
 
-!!! info "Your browser will probably show an error at this point"
+!!! tip "Your browser will probably show an error at this point"
     In this simple implementation, we don't have a web server running on our local machine, so the browser won't be able to open the redirect URL. It's not a problem: what we care about is retrieving the authorization code by hand.
 
 Copy the code value, get back to the command line where the script is running and paste it. You'll get the following output:

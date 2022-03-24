@@ -54,7 +54,7 @@ Finally, you need to create an **admin user** for this main workspace that'll ha
 docker exec -it fief-server fief create-main-user --user-email anne@bretagne.duchy
 ```
 
-!!! info
+!!! tip
     Of course, make sure to replace `--user-email` value with your own email address!
 
 You'll then be prompted for a password. If everything goes well, you should see the following output:
@@ -75,7 +75,7 @@ You'll then be redirected to the admin dashboard.
 
 Congratulations! Your Fief server instance is up-and-running 🎉 You can now try Fief features and start to integrate authentication in your app.
 
-!!! info
+!!! tip
     For production deployment, we strongly recommend you to read the next sections.
 
 ## Limitations
@@ -85,6 +85,7 @@ While quick and convenient, this way of running Fief is **not suitable for produ
 The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
 
 [Setup database](setup-database.md){ .md-button }
+{: .buttons }
 
 ### Use a Docker volume to persist SQLite data
 
@@ -111,5 +112,5 @@ docker run \
   ghcr.io/fief-dev/fief:latest
 ```
 
-!!! info
+!!! warning
     If you created your container with the instructions in the previous section, you'll need to recreate one from scratch to bind the volume.

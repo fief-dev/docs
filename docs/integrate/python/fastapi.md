@@ -125,7 +125,7 @@ Basically, here's what we'll do:
 
 2. **We build the redirect URL**
 
-    This points to our `/oauth-callback` route that we define below.
+    This points to our `/auth-callback` route that we define below.
 
 3. **We generate an authorization URL on the Fief server**
 
@@ -155,7 +155,7 @@ Basically, here's what we'll do:
 
     Of course, now that we overloaded the behavior of this helper class, we shouldn't forget to actually use it!
 
-8. **We implement an `/oauth-callback` route**
+8. **We implement an `/auth-callback` route**
 
     This is the route that'll take care of exchanging the authorization code with a fresh access token and save it in a cookie.
 

@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://docs.fiev.dev/</loc>
+         <loc>https://docs.fief.dev/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/integrate/javascript/</loc>
+         <loc>https://docs.fief.dev/integrate/javascript/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/integrate/nodejs/</loc>
+         <loc>https://docs.fief.dev/integrate/nodejs/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/integrate/python/</loc>
+         <loc>https://docs.fief.dev/integrate/python/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/integrate/python/fastapi/</loc>
+         <loc>https://docs.fief.dev/integrate/python/fastapi/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/integrate/python/flask/</loc>
+         <loc>https://docs.fief.dev/integrate/python/flask/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/miscellaneous/resources/</loc>
+         <loc>https://docs.fief.dev/miscellaneous/resources/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/partials/environment-variables-callout/</loc>
+         <loc>https://docs.fief.dev/partials/environment-variables-callout/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/self-hosting/environment-variables/</loc>
+         <loc>https://docs.fief.dev/self-hosting/environment-variables/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/self-hosting/quickstart/</loc>
+         <loc>https://docs.fief.dev/self-hosting/quickstart/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/self-hosting/setup-database/</loc>
+         <loc>https://docs.fief.dev/self-hosting/setup-database/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.fiev.dev/self-hosting/setup-email-provider/</loc>
+         <loc>https://docs.fief.dev/self-hosting/setup-email-provider/</loc>
          <lastmod>2022-03-24</lastmod>
          <changefreq>daily</changefreq>
     </url>

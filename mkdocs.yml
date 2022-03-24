@@ -1,4 +1,5 @@
 site_name: Fief
+site_url: https://docs.fiev.dev
 
 theme:
   name: material

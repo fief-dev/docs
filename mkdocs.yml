@@ -10,7 +10,6 @@ theme:
     text: Inter
   features:
     - navigation.instant
-    - navigation.tracking
     - navigation.expand
     - navigation.sections
     - navigation.top
@@ -24,6 +23,8 @@ plugins:
   - tags
 
 markdown_extensions:
+  - toc:
+      permalink: true
   - admonition
   - pymdownx.details
   - pymdownx.highlight:
@@ -61,6 +62,7 @@ nav:
     - getting-started/clients.md
     - getting-started/users.md
     - getting-started/api-keys.md
+    - getting-started/oauth2.md
   - 'Integrate':
     - 'Python':
       - integrate/python/index.md

@@ -57,29 +57,29 @@ uvicorn app:app
 
 Open [http://localhost:8000/docs](http://localhost:8000/docs) to access the interactive documentation.
 
-![FastAPI interactive documentation](../../assets/images/swagger-index.png)
+![FastAPI interactive documentation](/assets/images/swagger-index.png)
 
 Let's try first the `/user` endpoint:
 
-![Unauthenticated request from the interactive documentation](../../assets/images/swagger-unauthenticated.png)
+![Unauthenticated request from the interactive documentation](/assets/images/swagger-unauthenticated.png)
 
 We get an 401 error! That's expected: **we are not authenticated yet**!
 
 Let's fix that: click on the **Authorize** button to start the authentication process. You'll need to provide your client ID and secret and select the scopes.
 
-![Authorize from interactive documentation](../../assets/images/swagger-authorize.png)
+![Authorize from interactive documentation](/assets/images/swagger-authorize.png)
 
 Click on the **Authorize** button: you are redirected to the Fief login page.
 
-![Fief login page](../../assets/images/fief-login.png)
+![Fief login page](/assets/images/fief-login.png)
 
 Upon successful login, you will be redirected back to the interactive documentation: a valid access token has been generated!
 
-![Authenticated interactive documentation](../../assets/images/swagger-authenticated.png)
+![Authenticated interactive documentation](/assets/images/swagger-authenticated.png)
 
 You can now try the `/user` endpoint to check the result:
 
-![Authenticated request from the interactive documentation](../../assets/images/swagger-request.png)
+![Authenticated request from the interactive documentation](/assets/images/swagger-request.png)
 
 Notice how the interactive documentation passed the access token in the `Authorization` header of the request!
 

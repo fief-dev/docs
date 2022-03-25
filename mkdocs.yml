@@ -56,6 +56,8 @@ nav:
     - getting-started/admin-dashboard.md
     - getting-started/tenants.md
     - getting-started/clients.md
+    - getting-started/users.md
+    - getting-started/api-keys.md
   - 'Integrate':
     - 'Python':
       - integrate/python/index.md

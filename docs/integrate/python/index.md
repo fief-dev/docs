@@ -22,13 +22,13 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
     You can find it in the admin dashboard, in the **Tenants** list. [More info](../../getting-started/tenants.md#base-url)
 
-    ![Find base URL in admin dashboard](../../assets/images/admin-tenants.png)
+    ![Find base URL in admin dashboard](/assets/images/admin-tenants.png)
 
 2. **ID of your Fief client**
 
     You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
 
-    ![Find Client ID in admin dashboard](../../assets/images/admin-clients-detail.png)
+    ![Find Client ID in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
         A first client is always created for you when you create your workspace. When getting started, you should use this one.
@@ -37,7 +37,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
     You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
 
-    ![Find Client Secret in admin dashboard](../../assets/images/admin-clients-detail.png)
+    ![Find Client Secret in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
         A first client is always created for you when you create your workspace. When getting started, you should use this one.
@@ -84,7 +84,7 @@ Paste the callback code:
 
 You can **copy and paste this URL manually in your browser**. You'll be redirected to a Fief login page.
 
-![Fief login page](../../assets/images/fief-login.png)
+![Fief login page](/assets/images/fief-login.png)
 
 Upon successful login, Fief will redirect to the redirect URL you defined above, including a query parameter named `code`. It'll look like this:
 

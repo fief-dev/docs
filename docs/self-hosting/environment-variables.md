@@ -156,6 +156,14 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 | `SESSION_COOKIE_SECURE`    | Secure flag of the session cookie         | True                    |                |         |
 | `SESSION_LIFETIME_SECONDS` | Lifetime of the session cookie in seconds | 86400 \* 30 _(30 days_) |                |         |
 
+### Authorization code
+
+Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md).
+
+| Name                                       | Description                                                                                                                                                                                                              | Default                      | Allowed values | Example |
+| ------------------------------------------ | ----------------------------------------- | ----------------------- | -------------- | ------- |
+| `AUTHORIZATION_CODE_LIFETIME_SECONDS`      | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_           |                |         |
+
 ### Fief-ception
 
 Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief users to the app 🤯

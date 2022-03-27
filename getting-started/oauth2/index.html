@@ -6,18 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Instructions to configure your Fief server on a PostgreSQL or MySQL database.">
       
       
-      
-        <link rel="canonical" href="https://docs.fief.dev/self-hosting/setup-database/">
+        <link rel="canonical" href="https://docs.fief.dev/getting-started/oauth2/">
       
       <link rel="icon" href="../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.7">
     
     
       
-        <title>Setup database - Fief</title>
+        <title>Understand OAuth2 - Fief</title>
       
     
     
@@ -65,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setup-database" class="md-skip">
+        <a href="#understand-oauth2" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setup database
+              Understand OAuth2
             
           </span>
         </div>
@@ -202,14 +200,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -250,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/workspace/" class="md-nav__link">
+      <a href="../workspace/" class="md-nav__link">
         Create your workspace
       </a>
     </li>
@@ -278,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/admin-dashboard/" class="md-nav__link">
+      <a href="../admin-dashboard/" class="md-nav__link">
         Admin dashboard
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/tenants/" class="md-nav__link">
+      <a href="../tenants/" class="md-nav__link">
         Tenants
       </a>
     </li>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/clients/" class="md-nav__link">
+      <a href="../clients/" class="md-nav__link">
         Clients
       </a>
     </li>
@@ -320,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/users/" class="md-nav__link">
+      <a href="../users/" class="md-nav__link">
         Users
       </a>
     </li>
@@ -334,7 +334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/api-keys/" class="md-nav__link">
+      <a href="../api-keys/" class="md-nav__link">
         API Keys
       </a>
     </li>
@@ -346,11 +346,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../getting-started/oauth2/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Understand OAuth2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Understand OAuth2
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#authentication-flow" class="md-nav__link">
+    Authentication flow
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scopes" class="md-nav__link">
+    Scopes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#access-token-and-id-token" class="md-nav__link">
+    Access Token and ID Token
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -557,16 +612,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -599,7 +652,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../self-hosting/quickstart/" class="md-nav__link">
         Quickstart
       </a>
     </li>
@@ -611,73 +664,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setup database
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../self-hosting/setup-database/" class="md-nav__link">
         Setup database
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setup-postgresql" class="md-nav__link">
-    Setup PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-mysql" class="md-nav__link">
-    Setup MySQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-a-connection-string" class="md-nav__link">
-    Use a connection string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-main-workspace-and-admin-user" class="md-nav__link">
-    Create main workspace and admin user
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -689,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup-email-provider/" class="md-nav__link">
+      <a href="../../self-hosting/setup-email-provider/" class="md-nav__link">
         Setup email provider
       </a>
     </li>
@@ -703,7 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../environment-variables/" class="md-nav__link">
+      <a href="../../self-hosting/environment-variables/" class="md-nav__link">
         Environment variables
       </a>
     </li>
@@ -798,29 +789,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-postgresql" class="md-nav__link">
-    Setup PostgreSQL
+  <a href="#authentication-flow" class="md-nav__link">
+    Authentication flow
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-mysql" class="md-nav__link">
-    Setup MySQL
+  <a href="#scopes" class="md-nav__link">
+    Scopes
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-a-connection-string" class="md-nav__link">
-    Use a connection string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-main-workspace-and-admin-user" class="md-nav__link">
-    Create main workspace and admin user
+  <a href="#access-token-and-id-token" class="md-nav__link">
+    Access Token and ID Token
   </a>
   
 </li>
@@ -842,48 +826,70 @@
 
 
 
-<h1 id="setup-database">Setup database<a class="headerlink" href="#setup-database" title="Permanent link">&para;</a></h1>
-<p>For production environments, your Fief server should store its data in a proper database server for better performance and reliability. Fief is compatible with <strong>PostgreSQL</strong> and <strong>MySQL</strong> databases.</p>
-<h2 id="setup-postgresql">Setup PostgreSQL<a class="headerlink" href="#setup-postgresql" title="Permanent link">&para;</a></h2>
-<p>We'll assume that you have a working PostgreSQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">POSTGRESQL</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DATABASE_HOST</span><span class="o">=</span><span class="s">localhost</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DATABASE_PORT</span><span class="o">=</span><span class="s">5432</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">DATABASE_USERNAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DATABASE_PASSWORD</span><span class="o">=</span><span class="s">fiefpassword</span><span class="w"></span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">DATABASE_NAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-</code></pre></div>
+<h1 id="understand-oauth2">Understand OAuth2<a class="headerlink" href="#understand-oauth2" title="Permanent link">&para;</a></h1>
+<p>Fief uses the <a href="https://openid.net/connect/">OpenID Connect</a> protocol, an identity layer on top of the well-known <a href="https://oauth.net/2/">OAuth2 protocol</a> to <strong>securely authenticate users</strong>.</p>
+<p>If you understand the basics of this protocol, you'll better understand how to integrate Fief to your own application.</p>
+<p>You probably already used OAuth2 before: whenever you use a button like <strong>Sign In with Google</strong> or <strong>Sign In with Facebook</strong> on a website, you actually authenticate yourself using the OAuth2 protocol!</p>
+<h2 id="authentication-flow">Authentication flow<a class="headerlink" href="#authentication-flow" title="Permanent link">&para;</a></h2>
+<p>Schematically, a complete OAuth2 flow looks like this:</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor U as User
+    participant A as Your app
+    participant F as Fief
+    U-&gt;&gt;A: Wants to login
+    A-&gt;&gt;U: Redirects to Fief login page
+    U-&gt;&gt;F: Authenticates on Fief
+    F-&gt;&gt;A: Redirects with a temporary code
+    A-&gt;&gt;F: Exchanges the temporary code
+    F-&gt;&gt;A: Generates a valid token
+    A-&gt;&gt;U: Answers with a valid session</code></pre>
+<p>You see that we have three actors in this flow:</p>
+<ol>
+<li>The <strong>user</strong></li>
+<li>Your <strong>application</strong> that needs to know the authenticated user</li>
+<li><strong>Fief</strong>, which is able to authenticate users and provide their information</li>
+</ol>
+<p>This flow relies a lot on redirections:</p>
+<ol>
+<li>The user first tries to access your application.</li>
+<li>If they're not logged in, they are redirected to the Fief login page.</li>
+<li>On this login page, the user will input its credentials, typically an email address and a password to authenticate themself.</li>
+</ol>
+<p><img alt="Fief consent screen" src="/assets/images/fief-login.png" /></p>
+<p>At this point, <strong>we don't have a valid user session yet</strong>. In traditional applications, after a successful login, we do obtain a valid user session. However, in this context, the application needing the user session, your application, is not the same as the one that provides authentication, Fief.</p>
+<p>That's why we have an additional step: Fief redirects to your application with a temporary code, called the <strong>authorization code</strong>. This code is then used by your application to call the Fief API and obtain a valid token in exchange. Finally, your application can save this token somewhere to maintain the user session.</p>
+<p>The benefit of this approach is that your application never has access to the user credentials: the sensitive and difficult part is handled by Fief.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can read about different ways of setting environment variables in the <a href="/self-hosting/environment-variables#set-environment-variables">dedicated section</a>.</p>
+<p class="admonition-title">There are other OAuth2 variants</p>
+<p>OAuth2 proposes several ways to achieve this kind of authentication flow.</p>
+<p>We showed here the <strong>authorization code grant</strong>, which is the most widely-used and the default in Fief.</p>
 </div>
-<h2 id="setup-mysql">Setup MySQL<a class="headerlink" href="#setup-mysql" title="Permanent link">&para;</a></h2>
-<p>We'll assume that you have a working MySQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">MYSQL</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">DATABASE_HOST</span><span class="o">=</span><span class="s">localhost</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DATABASE_PORT</span><span class="o">=</span><span class="s">3306</span><span class="w"></span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">DATABASE_USERNAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DATABASE_PASSWORD</span><span class="o">=</span><span class="s">fiefpassword</span><span class="w"></span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">DATABASE_NAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-</code></pre></div>
+<h2 id="scopes">Scopes<a class="headerlink" href="#scopes" title="Permanent link">&para;</a></h2>
+<p>A central part in OAuth2 is the concept of <strong>scopes</strong>. Basically, it determines what the application will be able to do or not with the user data.</p>
+<p>For the user, this translates to the famous <strong>consent screen</strong>: it's a special page after a successful login telling them what the application wants to do with their data.</p>
+<p><img alt="Fief consent screen" src="/assets/images/fief-consent-screen.png" /></p>
+<p>Once the access token is generated, it'll be tied to this <strong>specific list of scopes</strong> the user has granted. In your application, you'll be able to limit some actions based on those scopes.</p>
+<p>As we said in introduction, we use the <strong>OpenID Connect</strong> protocol on top of OAuth2. With this protocol, we <strong>always</strong> have at least one scope, <code>openid</code>. It's a core scope giving access to the basic information of the user.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can read about different ways of setting environment variables in the <a href="/self-hosting/environment-variables#set-environment-variables">dedicated section</a>.</p>
+<p class="admonition-title">First-party clients</p>
+<p>Since you'll use Fief to authenticate users on your own, official application, we introduced the concept of <strong>first-party</strong> clients. When a user logs in on a client configured as first-party, the consent screen is bypassed and every scopes asked are implicitly granted.</p>
+<p>You can read more about this in the <a href="../clients/#first-party-clients">dedicated section</a>.</p>
 </div>
-<h2 id="use-a-connection-string">Use a connection string<a class="headerlink" href="#use-a-connection-string" title="Permanent link">&para;</a></h2>
-<p>Some cloud providers like Heroku will provide you a full database connection string like the one below instead of each parts separately:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>postgresql://fief:fiefpassword@localhost:5432/fief
-</code></pre></div>
-<p>Fief supports this kind of configuration with the <code>DATABASE_URL</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">POSTGRESQL</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DATABASE_URL</span><span class="o">=</span><span class="s">postgresql://fief:fiefpassword@localhost:5432/fief</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This variable will <strong>always</strong> take precedence over the single parameters: if you define <code>DATABASE_URL</code>, it'll use this variable to connect to your database, even if other parameters are defined.</p>
+<div class="admonition bug">
+<p class="admonition-title">Limitations</p>
+<p>In the future, you'll be able to create your own set of scopes in Fief.</p>
 </div>
-<h2 id="create-main-workspace-and-admin-user">Create main workspace and admin user<a class="headerlink" href="#create-main-workspace-and-admin-user" title="Permanent link">&para;</a></h2>
-<p>Once your database is configured, don't forget to create the main workspace and admin user, as described in the <a href="../quickstart/">Quickstart</a> section.</p>
+<h2 id="access-token-and-id-token">Access Token and ID Token<a class="headerlink" href="#access-token-and-id-token" title="Permanent link">&para;</a></h2>
+<p>After a successful authentication flow, your application will get two different tokens: an <strong>access token</strong> and an <strong>ID token</strong>.</p>
+<p>The first one, the <strong>access token</strong>, is a secret value that'll authenticate the user on your application. It's tied to a specific user and a list of scopes.</p>
+<p>On the other hand, the <strong>ID token</strong> is a value containing all the basic information about the authenticated user, like its email and other personal information. It'll be very useful in your application if you need for example to display the email of the current user.</p>
+<p>For security reasons, both of them have a <strong>limited lifetime</strong>. At some point, we'll need to make another OAuth2 authentication flow again to retrieve fresh tokens.</p>
+<div class="admonition tip">
+<p class="admonition-title">Those are JWT</p>
+<p>The access token and the ID token are both generated as <strong>JSON Web Tokens</strong> (JWT). JWT is a widely-used standard to secure data contained in a standard JSON object.</p>
+<p>Typically, JWT are <strong>cryptographically signed</strong>. It means that your application is able to <strong>certify that the tokens you get are true and authentic</strong> tokens generated by Fief, and not forged by a malicious attacker. This is critical since we use those to authenticate users into your app.</p>
+<p>The technical details around this are a bit complex but you can read more about on the <a href="https://jwt.io/introduction">official JWT documentation</a>.</p>
+</div>
 
               
             </article>
@@ -902,7 +908,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart" rel="prev">
+        <a href="../api-keys/" class="md-footer__link md-footer__link--prev" aria-label="Previous: API Keys" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -911,20 +917,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Quickstart
+              API Keys
             </div>
           </div>
         </a>
       
       
         
-        <a href="../setup-email-provider/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup email provider" rel="next">
+        <a href="../../integrate/python/" class="md-footer__link md-footer__link--next" aria-label="Next: Python" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Setup email provider
+              Python
             </div>
           </div>
           <div class="md-footer__button md-icon">

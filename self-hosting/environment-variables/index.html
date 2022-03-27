@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.fief.dev/self-hosting/environment-variables/">
       
       <link rel="icon" href="../../assets/images/favicon.svg">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.7">
     
     
       
@@ -224,6 +224,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -302,6 +308,48 @@
     <li class="md-nav__item">
       <a href="../../getting-started/clients/" class="md-nav__link">
         Clients
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/users/" class="md-nav__link">
+        Users
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/api-keys/" class="md-nav__link">
+        API Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/oauth2/" class="md-nav__link">
+        Understand OAuth2
       </a>
     </li>
   
@@ -718,6 +766,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#authorization-code" class="md-nav__link">
+    Authorization code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fief-ception" class="md-nav__link">
     Fief-ception
   </a>
@@ -923,6 +978,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#authorization-code" class="md-nav__link">
+    Authorization code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fief-ception" class="md-nav__link">
     Fief-ception
   </a>
@@ -958,54 +1020,54 @@
 
 
 
-<h1 id="environment-variables">Environment variables</h1>
+<h1 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h1>
 <p>Fief server relies heavily on environment variables for configuration. You'll likely need to adjust those settings for your deployment.</p>
-<h2 id="set-environment-variables">Set environment variables</h2>
-<h3 id="using-docker-run">Using <code>docker run</code></h3>
+<h2 id="set-environment-variables">Set environment variables<a class="headerlink" href="#set-environment-variables" title="Permanent link">&para;</a></h2>
+<h3 id="using-docker-run">Using <code>docker run</code><a class="headerlink" href="#using-docker-run" title="Permanent link">&para;</a></h3>
 <p>When running Fief server with Docker, the most straightforward way is to use the <code>-e</code> option on the command line, as shown in the <a href="../quickstart/">Quickstart</a> section.</p>
-<div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
-  --name fief-server <span class="se">\</span>
-  -p <span class="m">8000</span>:80
-  -d <span class="se">\</span>
-  -e <span class="s2">&quot;SECRET=XXX&quot;</span> <span class="se">\</span>
-  -e <span class="s2">&quot;FIEF_CLIENT_ID=XXX&quot;</span> <span class="se">\</span>
-  -e <span class="s2">&quot;FIEF_CLIENT_SECRET=XXX&quot;</span> <span class="se">\</span>
-  -e <span class="s2">&quot;ENCRYPTION_KEY=XXX&quot;</span> <span class="se">\</span>
-  ghcr.io/fief-dev/fief:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker run <span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  --name fief-server <span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>  -p <span class="m">8000</span>:80
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  -d <span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>  -e <span class="s2">&quot;SECRET=XXX&quot;</span> <span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>  -e <span class="s2">&quot;FIEF_CLIENT_ID=XXX&quot;</span> <span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>  -e <span class="s2">&quot;FIEF_CLIENT_SECRET=XXX&quot;</span> <span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>  -e <span class="s2">&quot;ENCRYPTION_KEY=XXX&quot;</span> <span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>  ghcr.io/fief-dev/fief:latest
 </code></pre></div>
 <p>However, it may become hard to maintain when having lot of variables to set. An alternative way is to use a <code>.env</code> file. It's a simple file where each line consists of a key and a value separated by an equal sign:</p>
-<div class="highlight"><span class="filename">.env</span><pre><span></span><code><span class="na">SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
-<span class="na">FIEF_CLIENT_ID</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
-<span class="na">FIEF_CLIENT_SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
-<span class="na">ENCRYPTION_KEY</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FIEF_CLIENT_ID</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">FIEF_CLIENT_SECRET</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">ENCRYPTION_KEY</span><span class="o">=</span><span class="s">XXX</span><span class="w"></span>
 </code></pre></div>
 <p>Then, you can reference this file in the Docker command:</p>
-<div class="highlight"><pre><span></span><code>docker run <span class="se">\</span>
-  --name fief-server <span class="se">\</span>
-  -p <span class="m">8000</span>:80
-  -d <span class="se">\</span>
-  --env-file .env <span class="se">\</span>
-  ghcr.io/fief-dev/fief:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker run <span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>  --name fief-server <span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>  -p <span class="m">8000</span>:80
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>  -d <span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>  --env-file .env <span class="se">\</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>  ghcr.io/fief-dev/fief:latest
 </code></pre></div>
-<h3 id="using-docker-compose">Using Docker Compose</h3>
+<h3 id="using-docker-compose">Using Docker Compose<a class="headerlink" href="#using-docker-compose" title="Permanent link">&para;</a></h3>
 <p>For more complex setups, you may need to configure a Docker Compose file to help you manage all your containers. You can directly define your environment variables in the Compose file.</p>
 <p>You'll find below an example of a Docker Compose file to run the Fief server.</p>
-<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="w"></span>
-
-<span class="nt">services</span><span class="p">:</span><span class="w"></span>
-<span class="w">  </span><span class="nt">fief</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/fief-dev/fief:latest</span><span class="w"></span>
-<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:8000&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET=XXX</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_ID=XXX</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_SECRET=XXX</span><span class="w"></span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENCRYPTION_KEY=XXX</span><span class="w"></span>
+<div class="highlight"><span class="filename">docker-compose.yml</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.9&quot;</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">fief</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/fief-dev/fief:latest</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;80:8000&quot;</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET=XXX</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_ID=XXX</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FIEF_CLIENT_SECRET=XXX</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ENCRYPTION_KEY=XXX</span><span class="w"></span>
 </code></pre></div>
-<h2 id="reference">Reference</h2>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <p>For each variable, we'll try to provide a sensible example value to help you configure it correctly. Throughout the examples, we'll assume that you host your Fief server on the sub-domain <code>fief.bretagne.duchy</code>.</p>
-<h3 id="general">General</h3>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1047,7 +1109,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="secrets">Secrets</h3>
+<h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1075,7 +1137,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="database">Database</h3>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1147,7 +1209,7 @@
 </table>
 <p>More details about how to setup a database in the dedicated section.</p>
 <p class="buttons"><a class="md-button" href="../setup-database/">Setup database</a></p>
-<h3 id="redis">Redis</h3>
+<h3 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h3>
 <p>We use a Redis instance to manage background jobs (send emails, heavy computations...). A Redis instance is already up-and-running in the official Docker image, but you can provide your own one if needed.</p>
 <table>
 <thead>
@@ -1169,7 +1231,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="email-provider">Email provider</h3>
+<h3 id="email-provider">Email provider<a class="headerlink" href="#email-provider" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1199,7 +1261,7 @@
 </table>
 <p>More details about how to setup an email provider in the dedicated section.</p>
 <p class="buttons"><a class="md-button" href="../setup-email-provider/">Setup email provider</a></p>
-<h3 id="csrf-cookie">CSRF cookie</h3>
+<h3 id="csrf-cookie">CSRF cookie<a class="headerlink" href="#csrf-cookie" title="Permanent link">&para;</a></h3>
 <p>To protect against <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">Cross-Site-Request-Forgery</a> attacks on authentication pages, we use the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie">double-submit cookie</a> pattern.</p>
 <table>
 <thead>
@@ -1228,7 +1290,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="login-session">Login session</h3>
+<h3 id="login-session">Login session<a class="headerlink" href="#login-session" title="Permanent link">&para;</a></h3>
 <p>A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.</p>
 <table>
 <thead>
@@ -1264,7 +1326,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="session">Session</h3>
+<h3 id="session">Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
 <p>A session is a cookie used to maintain the session of a user <strong>on the Fief authentication pages</strong>. It's different from the session you'll maintain in your own application.</p>
 <p>Its purpose is to allow a user to re-authenticate quickly to your app without having them to input their credentials again.</p>
 <table>
@@ -1308,7 +1370,29 @@
 </tr>
 </tbody>
 </table>
-<h3 id="fief-ception">Fief-ception</h3>
+<h3 id="authorization-code">Authorization code<a class="headerlink" href="#authorization-code" title="Permanent link">&para;</a></h3>
+<p>Authorization codes are temporary codes generated during the <a href="../../getting-started/oauth2/">OAuth2 authentication flow</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AUTHORIZATION_CODE_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2">recommends a value of 10 minutes</a>.</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fief-ception">Fief-ception<a class="headerlink" href="#fief-ception" title="Permanent link">&para;</a></h3>
 <p>Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief users to the app 🤯</p>
 <p>That's why we necessarily need to create a first workspace and an admin user before being able to use Fief, as described in the <a href="../quickstart/">Quickstart</a> section.</p>
 <p>The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!</p>
@@ -1360,7 +1444,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="admin-session">Admin session</h3>
+<h3 id="admin-session">Admin session<a class="headerlink" href="#admin-session" title="Permanent link">&para;</a></h3>
 <p>An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.</p>
 <table>
 <thead>
@@ -1466,7 +1550,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>

@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://docs.fief.dev/getting-started/clients/">
       
       <link rel="icon" href="../../assets/images/favicon.svg">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.7">
     
     
       
@@ -224,6 +224,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -358,6 +364,48 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../users/" class="md-nav__link">
+        Users
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-keys/" class="md-nav__link">
+        API Keys
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../oauth2/" class="md-nav__link">
+        Understand OAuth2
+      </a>
     </li>
   
 
@@ -778,7 +826,7 @@
 
 
 
-<h1 id="clients">Clients</h1>
+<h1 id="clients">Clients<a class="headerlink" href="#clients" title="Permanent link">&para;</a></h1>
 <p>This is where you'll see and manage the clients of your workspace.</p>
 <div class="admonition tip">
 <p class="admonition-title">What is a client?</p>
@@ -786,21 +834,21 @@
 <p>Each client has a Client ID and a Client Secret. Those values are used during OAuth2 authentification to recognize the client.</p>
 <p>Each workspace comes with one client, tied to the default <a href="../tenants/">tenant</a>.</p>
 </div>
-<p><img alt="Clients from admin dashboard" src="../../assets/images/admin-clients.png" /></p>
-<h2 id="first-party-clients">First-party clients</h2>
+<p><img alt="Clients from admin dashboard" src="/assets/images/admin-clients.png" /></p>
+<h2 id="first-party-clients">First-party clients<a class="headerlink" href="#first-party-clients" title="Permanent link">&para;</a></h2>
 <p>You probably noticed that your first client has a <strong>first-party</strong> badge. It means that this client is intended to be used by your own, official application.</p>
 <p>In this context, when users log in to your application, the traditional <strong>OAuth2 consent screen is bypassed</strong>. Since you are the developer of the application, it makes sense to not ask the user for their consent to use their data on the same application!</p>
 <p>For third-party applications, like developers from another company who want to integrate your API in their product, you'll provide them a client without this first-party flag. In this context, we want the user consent to be explicit.</p>
-<h2 id="view-client-details">View client details</h2>
+<h2 id="view-client-details">View client details<a class="headerlink" href="#view-client-details" title="Permanent link">&para;</a></h2>
 <p>If you click on one of the client in the list, you'll see its details on the right. Especially, you'll be able to copy its ID and Secret by using the clipboard buttons.</p>
-<p><img alt="Client details from admin dashboard" src="../../assets/images/admin-clients-detail.png" /></p>
-<h2 id="create-a-new-client">Create a new client</h2>
+<p><img alt="Client details from admin dashboard" src="/assets/images/admin-clients-detail.png" /></p>
+<h2 id="create-a-new-client">Create a new client<a class="headerlink" href="#create-a-new-client" title="Permanent link">&para;</a></h2>
 <p>You can create a new client by clicking the <strong>Create Client</strong> button. A modal will open where you'll be able to input its name, if it's a first-party and its associated tenant.</p>
-<p><img alt="Create client from admin dashboard" src="../../assets/images/admin-clients-create.png" /></p>
+<p><img alt="Create client from admin dashboard" src="/assets/images/admin-clients-create.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">When should I create a new client?</p>
-<p>If you have several applications authenticating to your Fief workspace, you should consider creating new clients. Typically, if you have both a web applicationd and a mobile application, it's usually a good idea to have a client for each one.</p>
-<p>This way, it's easier to track down where the tokens come from and mitigate the risk of compromising data if one of the application has a security breach.</p>
+<p>If you have several applications authenticating to your Fief workspace, you should consider creating new clients. Typically, if you have both a web and a mobile application, it's usually a good idea to have a client for each one.</p>
+<p>This way, it's easier to track down where the tokens come from and mitigates the risk of compromising data if one of the application has a security breach.</p>
 </div>
 
               
@@ -836,13 +884,13 @@
       
       
         
-        <a href="../../integrate/python/" class="md-footer__link md-footer__link--next" aria-label="Next: Python" rel="next">
+        <a href="../users/" class="md-footer__link md-footer__link--next" aria-label="Next: Users" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Python
+              Users
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -872,7 +920,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.5e67fbfe.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.e87a5f81.min.js"></script>

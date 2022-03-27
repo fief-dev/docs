@@ -6,18 +6,16 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Instructions to configure your Fief server on a PostgreSQL or MySQL database.">
       
       
-      
-        <link rel="canonical" href="https://docs.fief.dev/self-hosting/setup-database/">
+        <link rel="canonical" href="https://docs.fief.dev/getting-started/api-keys/">
       
       <link rel="icon" href="../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.7">
     
     
       
-        <title>Setup database - Fief</title>
+        <title>API Keys - Fief</title>
       
     
     
@@ -65,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setup-database" class="md-skip">
+        <a href="#api-keys" class="md-skip">
           Skip to content
         </a>
       
@@ -94,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Setup database
+              API Keys
             
           </span>
         </div>
@@ -202,14 +200,16 @@
 
   
   
+    
+  
   
     
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -250,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -264,7 +264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/workspace/" class="md-nav__link">
+      <a href="../workspace/" class="md-nav__link">
         Create your workspace
       </a>
     </li>
@@ -278,7 +278,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/admin-dashboard/" class="md-nav__link">
+      <a href="../admin-dashboard/" class="md-nav__link">
         Admin dashboard
       </a>
     </li>
@@ -292,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/tenants/" class="md-nav__link">
+      <a href="../tenants/" class="md-nav__link">
         Tenants
       </a>
     </li>
@@ -306,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/clients/" class="md-nav__link">
+      <a href="../clients/" class="md-nav__link">
         Clients
       </a>
     </li>
@@ -320,7 +320,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/users/" class="md-nav__link">
+      <a href="../users/" class="md-nav__link">
         Users
       </a>
     </li>
@@ -332,11 +332,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../getting-started/api-keys/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          API Keys
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         API Keys
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-api-key" class="md-nav__link">
+    Create a new API Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-an-api-key" class="md-nav__link">
+    Delete an API Key
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -348,7 +396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/oauth2/" class="md-nav__link">
+      <a href="../oauth2/" class="md-nav__link">
         Understand OAuth2
       </a>
     </li>
@@ -557,16 +605,14 @@
 
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -599,7 +645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quickstart/" class="md-nav__link">
+      <a href="../../self-hosting/quickstart/" class="md-nav__link">
         Quickstart
       </a>
     </li>
@@ -611,73 +657,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setup database
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../self-hosting/setup-database/" class="md-nav__link">
         Setup database
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setup-postgresql" class="md-nav__link">
-    Setup PostgreSQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setup-mysql" class="md-nav__link">
-    Setup MySQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-a-connection-string" class="md-nav__link">
-    Use a connection string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-main-workspace-and-admin-user" class="md-nav__link">
-    Create main workspace and admin user
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -689,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../setup-email-provider/" class="md-nav__link">
+      <a href="../../self-hosting/setup-email-provider/" class="md-nav__link">
         Setup email provider
       </a>
     </li>
@@ -703,7 +687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../environment-variables/" class="md-nav__link">
+      <a href="../../self-hosting/environment-variables/" class="md-nav__link">
         Environment variables
       </a>
     </li>
@@ -798,29 +782,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-postgresql" class="md-nav__link">
-    Setup PostgreSQL
+  <a href="#create-a-new-api-key" class="md-nav__link">
+    Create a new API Key
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#setup-mysql" class="md-nav__link">
-    Setup MySQL
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#use-a-connection-string" class="md-nav__link">
-    Use a connection string
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-main-workspace-and-admin-user" class="md-nav__link">
-    Create main workspace and admin user
+  <a href="#delete-an-api-key" class="md-nav__link">
+    Delete an API Key
   </a>
   
 </li>
@@ -842,48 +812,26 @@
 
 
 
-<h1 id="setup-database">Setup database<a class="headerlink" href="#setup-database" title="Permanent link">&para;</a></h1>
-<p>For production environments, your Fief server should store its data in a proper database server for better performance and reliability. Fief is compatible with <strong>PostgreSQL</strong> and <strong>MySQL</strong> databases.</p>
-<h2 id="setup-postgresql">Setup PostgreSQL<a class="headerlink" href="#setup-postgresql" title="Permanent link">&para;</a></h2>
-<p>We'll assume that you have a working PostgreSQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">POSTGRESQL</span><span class="w"></span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="na">DATABASE_HOST</span><span class="o">=</span><span class="s">localhost</span><span class="w"></span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="na">DATABASE_PORT</span><span class="o">=</span><span class="s">5432</span><span class="w"></span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="na">DATABASE_USERNAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="na">DATABASE_PASSWORD</span><span class="o">=</span><span class="s">fiefpassword</span><span class="w"></span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="na">DATABASE_NAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-</code></pre></div>
+<h1 id="api-keys">API Keys<a class="headerlink" href="#api-keys" title="Permanent link">&para;</a></h1>
+<p>This is where you'll see and manage the api keys of your workspace.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can read about different ways of setting environment variables in the <a href="/self-hosting/environment-variables#set-environment-variables">dedicated section</a>.</p>
+<p class="admonition-title">What is an API key?</p>
+<p>An API key is a secret token that'll allow you to make authenticated requests to the <strong>Fief Admin API</strong>.</p>
+<p>It'll be useful if you need, for example, to manage tenants or clients programmatically from your own application.</p>
 </div>
-<h2 id="setup-mysql">Setup MySQL<a class="headerlink" href="#setup-mysql" title="Permanent link">&para;</a></h2>
-<p>We'll assume that you have a working MySQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">MYSQL</span><span class="w"></span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">DATABASE_HOST</span><span class="o">=</span><span class="s">localhost</span><span class="w"></span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">DATABASE_PORT</span><span class="o">=</span><span class="s">3306</span><span class="w"></span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">DATABASE_USERNAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">DATABASE_PASSWORD</span><span class="o">=</span><span class="s">fiefpassword</span><span class="w"></span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">DATABASE_NAME</span><span class="o">=</span><span class="s">fief</span><span class="w"></span>
-</code></pre></div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can read about different ways of setting environment variables in the <a href="/self-hosting/environment-variables#set-environment-variables">dedicated section</a>.</p>
-</div>
-<h2 id="use-a-connection-string">Use a connection string<a class="headerlink" href="#use-a-connection-string" title="Permanent link">&para;</a></h2>
-<p>Some cloud providers like Heroku will provide you a full database connection string like the one below instead of each parts separately:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>postgresql://fief:fiefpassword@localhost:5432/fief
-</code></pre></div>
-<p>Fief supports this kind of configuration with the <code>DATABASE_URL</code> environment variable.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="na">DATABASE_TYPE</span><span class="o">=</span><span class="s">POSTGRESQL</span><span class="w"></span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="na">DATABASE_URL</span><span class="o">=</span><span class="s">postgresql://fief:fiefpassword@localhost:5432/fief</span><span class="w"></span>
-</code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This variable will <strong>always</strong> take precedence over the single parameters: if you define <code>DATABASE_URL</code>, it'll use this variable to connect to your database, even if other parameters are defined.</p>
+<p class="admonition-title">Keep it secret and safe</p>
+<p>An API key gives <strong>complete accesss</strong> to your workspace data. Keep it somewhere safe and don't share it with anyone.</p>
 </div>
-<h2 id="create-main-workspace-and-admin-user">Create main workspace and admin user<a class="headerlink" href="#create-main-workspace-and-admin-user" title="Permanent link">&para;</a></h2>
-<p>Once your database is configured, don't forget to create the main workspace and admin user, as described in the <a href="../quickstart/">Quickstart</a> section.</p>
+<p><img alt="API keys from admin dashboard" src="/assets/images/admin-api-keys.png" /></p>
+<h2 id="create-a-new-api-key">Create a new API Key<a class="headerlink" href="#create-a-new-api-key" title="Permanent link">&para;</a></h2>
+<p>To create a new API Key, click on the <strong>Create API Key</strong> button. A modal will open where you'll be able to input the name of the API Key. Choose a name that'll help you remember where and how it's used.</p>
+<p><img alt="Create api key from admin dashboard" src="/assets/images/admin-api-keys-create.png" /></p>
+<p>When you submit the form, a new modal will open with the actual <strong>API key token</strong>. For security reasons, it'll be shown <strong>only once</strong>. Copy and paste it somewhere safe before closing the modal.</p>
+<p><img alt="Created api key from admin dashboard" src="/assets/images/admin-api-keys-created.png" /></p>
+<h2 id="delete-an-api-key">Delete an API Key<a class="headerlink" href="#delete-an-api-key" title="Permanent link">&para;</a></h2>
+<p>If one of your API Key is not useful anymore, you can delete it by clicking on the <strong>Delete</strong> button in the list.</p>
+<p><img alt="Delete api key from admin dashboard" src="/assets/images/admin-api-keys-delete.png" /></p>
 
               
             </article>
@@ -902,7 +850,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart" rel="prev">
+        <a href="../users/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Users" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -911,20 +859,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Quickstart
+              Users
             </div>
           </div>
         </a>
       
       
         
-        <a href="../setup-email-provider/" class="md-footer__link md-footer__link--next" aria-label="Next: Setup email provider" rel="next">
+        <a href="../oauth2/" class="md-footer__link md-footer__link--next" aria-label="Next: Understand OAuth2" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Setup email provider
+              Understand OAuth2
             </div>
           </div>
           <div class="md-footer__button md-icon">

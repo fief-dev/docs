@@ -2,7 +2,7 @@
 
 This is where you'll see and manage the api keys of your workspace.
 
---8<-- "docs/partials/api-key-callout.md"
+--8<-- "reusables/api-key-callout.md"
 
 ![API keys from admin dashboard](/assets/images/admin-api-keys.png)
 

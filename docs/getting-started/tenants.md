@@ -2,7 +2,7 @@
 
 This is where you'll see and manage the tenants of your workspace.
 
---8<-- "docs/partials/tenant-callout.md"
+--8<-- "reusables/tenant-callout.md"
 
 ![Tenants from admin dashboard](/assets/images/admin-tenants.png)
 

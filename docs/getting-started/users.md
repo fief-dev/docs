@@ -2,7 +2,7 @@
 
 This is where you'll see and manage the users of your workspace.
 
---8<-- "docs/partials/user-callout.md"
+--8<-- "reusables/user-callout.md"
 
 ![Users from admin dashboard](/assets/images/admin-users.png)
 

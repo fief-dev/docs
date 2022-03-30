@@ -33,4 +33,4 @@ EMAIL_PROVIDER=POSTMARK
 EMAIL_PROVIDER_PARAMS={"server_token": "XXX-XXX"}
 ```
 
---8<-- "docs/partials/environment-variables-callout.md"
+--8<-- "reusables/environment-variables-callout.md"

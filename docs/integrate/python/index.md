@@ -42,7 +42,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
     !!! info
         A first client is always created for you when you create your workspace. When getting started, you should use this one.
 
---8<-- "docs/partials/hardcoded-secrets-callout.md"
+--8<-- "reusables/hardcoded-secrets-callout.md"
 
 !!! info "Async support"
     For `asyncio` enthusiasts, we also provide a `FiefAsync` class with the same methods.

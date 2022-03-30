@@ -19,7 +19,7 @@ DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
 
---8<-- "docs/partials/environment-variables-callout.md"
+--8<-- "reusables/environment-variables-callout.md"
 
 ## Setup MySQL
 
@@ -34,7 +34,7 @@ DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
 
---8<-- "docs/partials/environment-variables-callout.md"
+--8<-- "reusables/environment-variables-callout.md"
 
 ## Use a connection string
 

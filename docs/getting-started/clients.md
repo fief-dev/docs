@@ -2,7 +2,7 @@
 
 This is where you'll see and manage the clients of your workspace.
 
---8<-- "docs/partials/client-callout.md"
+--8<-- "reusables/client-callout.md"
 
 ![Clients from admin dashboard](/assets/images/admin-clients.png)
 

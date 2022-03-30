@@ -2,7 +2,7 @@
 
 The easiest way to get started is to create your workspace on our [official Fief instance](https://www.fief.dev). After having created your user account, you'll be guided through the creation of your **workspace**.
 
---8<-- "docs/partials/workspace-callout.md"
+--8<-- "reusables/workspace-callout.md"
 
 ## Step 1: name your workspace
 

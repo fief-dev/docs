@@ -1072,8 +1072,7 @@
 </li>
 <li>
 <p><strong>We generate an authorization URL on the Fief server</strong></p>
-<p>The base class is implemented with an API scenario in mind. Nevertheless, it's designed in a way you can customize its behavior when the user is not authenticated or has not the required scope.</p>
-<p>That's what'll do with the <code>get_unauthorized_response</code>.</p>
+<p>Thanks to the <code>auth_url</code> method on the Fief client, we can automatically generate the authorization URL on the Fief server.</p>
 </li>
 <li>
 <p><strong>We build a redirect response</strong></p>

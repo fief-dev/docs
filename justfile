@@ -15,7 +15,7 @@ examples-python *ARGS:
 examples-python-install:
   if [ ! -d "examples/python/venv" ]; then python -m venv examples/python/venv; fi
   {{examples_python_bin}} -m pip install --upgrade pip
-  {{examples_python_bin}} -m pip install -r examples/python/requirements.txt
+  {{examples_python_bin}} -m pip install -U -r examples/python/requirements.txt
 
 examples-python-lint:
   {{examples_python_bin}} -m isort --profile black examples/python

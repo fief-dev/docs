@@ -1,5 +1,5 @@
 fastapi
-fief-client[fastapi]
+fief-client[fastapi, flask]
 uvicorn[standard]
 
 black

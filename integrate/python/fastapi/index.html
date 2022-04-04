@@ -993,8 +993,8 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Your application is intended to be used in a browser.</li>
 </ul>
 </div>
-<p>The examples we showed previously are working well in a pure REST API context: a frontend, like the interactive documentation, a JavaScript application or a mobile app will take care of the OAuth2 authentication flow to retrieve an access token before making request to your API.</p>
-<p>Another common context is traditional web application, where the server takes care of generating HTML pages before returning it to the browser. In this case, we'll need some routes to redirect the user to the Fief login page if they're not authenticated and take care of storing the access token somewhere. This is what'll show in this example.</p>
+<p>The examples we showed previously are working well in a pure REST API context: a frontend, like interactive documentation, a JavaScript application or a mobile app will take care of the OAuth2 authentication flow to retrieve an access token before making request to your API.</p>
+<p>Another common context is <strong>traditional web application</strong>, where the server takes care of generating HTML pages before returning it to the browser. In this case, we'll need some routes to redirect the user to the Fief login page if they're not authenticated and take care of storing the access token somewhere. This is what'll show in this example.</p>
 <p>Basically, here's what we'll do:</p>
 <ol>
 <li>This time, we'll expect the access token to be passed through a traditional <strong>cookie</strong> instead of an HTTP header. Cookies are very convenient when designing web apps because they are handled automatically by the browser.</li>

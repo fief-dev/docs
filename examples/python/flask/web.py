@@ -14,8 +14,8 @@ SESSION_COOKIE_NAME = "user_session"
 
 fief = Fief(  # (1)!
     "https://example.fief.dev",
-    "DOIhj_72Ha9rYh9uDgndSu62EXJuFfQ5lkkx1-ksUIo",
-    "WwOOiLopc5m_d_sjKk563oZDnbJDCWjJVmxkX1LffaQ",
+    "YOUR_CLIENT_ID",
+    "YOUR_CLIENT_SECRET",
 )
 
 auth = FiefAuth(fief, get_cookie(SESSION_COOKIE_NAME))  # (2)!

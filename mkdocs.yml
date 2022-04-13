@@ -8,6 +8,15 @@ theme:
   favicon: assets/images/favicon.svg
   font:
     text: Inter
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.instant
     - navigation.expand
@@ -68,8 +77,13 @@ nav:
       - integrate/python/index.md
       - integrate/python/fastapi.md
       - integrate/python/flask.md
+    - 'JavaScript':
+      - integrate/javascript/index.md
+      - integrate/javascript/browser.md
+      - integrate/javascript/react.md
   - 'Going further':
     - going-further/byod.md
+    - going-further/pkce.md
     - going-further/id-token-encryption.md
   - 'Self-hosting':
     - self-hosting/quickstart.md

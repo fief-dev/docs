@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fief JavaScript Browser example</title>
+  </head>
+  <body>
+    <div id="logged-out" style="display: none"> <!-- (1)! -->
+      <h1>You are not logged in</h1>
+      <button type="button" id="login-button">Login</button>
+    </div>
+    <div id="logged-in" style="display: none"> <!-- (2)! -->
+      <h1>Hello <span id="user-email"></span> 👋</h1>
+      <button type="button" id="logout-button">Logout</button>
+    </div>
+    <script src="https://unpkg.com/@fief/fief"></script>
+    <script>
+      const initialize = () => {
+        const fiefClient = new fief.Fief({  // (3)!
+          baseURL: 'https://example.fief.dev',
+          clientId: 'YOUR_CLIENT_ID',
+        });
+        const fiefAuth = new fief.browser.FiefAuth(fiefClient);  // (4)!
+
+        document.getElementById('login-button').addEventListener('click', () => {
+          fiefAuth.redirectToLogin('http://localhost:8080/callback.html');  // (5)!
+        });
+
+        document.getElementById('logout-button').addEventListener('click', () => {
+          fiefAuth.logout('http://localhost:8080');  // (6)!
+        });
+
+        const userinfo = fiefAuth.getUserinfo();  // (7)!
+
+        if (userinfo !== null) {  // (8)!
+          document.getElementById('logged-in').style.display = 'block';
+          document.getElementById('logged-out').style.display = 'none';
+
+          document.getElementById('user-email').textContent = userinfo.email;
+        } else {  // (9)!
+          document.getElementById('logged-in').style.display = 'none';
+          document.getElementById('logged-out').style.display = 'block';
+        }
+      };
+
+      document.addEventListener('DOMContentLoaded', initialize, false);
+    </script>
+  </body>
+</html>

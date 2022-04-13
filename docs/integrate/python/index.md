@@ -12,6 +12,9 @@ pip install fief-client
 
 ## Create a `Fief` client
 
+!!! abstract "Prerequisites"
+    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/callback`
+
 The Fief client provides all the necessary methods to manage OAuth2 authentication, validate access tokens and refresh them.
 
 ```py title="client.py" hl_lines="3-7"
@@ -119,14 +122,20 @@ To help you further, we provide you helpers and examples for popular Python fram
 [Integrate with Flask](flask.md){ .md-button }
 {: .buttons }
 
-## Reference
+## `Fief` reference
+
+!!! abstract "Initializer"
+    * `base_url: str`: Base URL of your Fief tenant.
+    * `client_id: str`: ID of your Fief client.
+    * `client_secret: str`: Secret of your Fief client.
+    * `encryption_key: Optional[str]`: Encryption key of your Fief client. Necessary only if [ID Token encryption](../../going-further/id-token-encryption.md) is enabled.
 
 ### `auth_url`
 
 Returns an authorization URL.
 
 !!! abstract "Parameters"
-    * `redirect_uri: str`: Your callback URI where the user will be redirected after the service prompt.
+    * `redirect_uri: str`: Your callback URI where the user will be redirected after Fief authentication.
     * `state: str = None`: Optional string that will be returned back in the callback parameters to allow you to retrieve state information.
     * `scope: Optional[List[str]] = None`: Optional list of scopes to ask for.
     * `extras_params: Optional[Dict[str, Any]] = None`: Optional dictionary containing specific parameters.
@@ -196,4 +205,18 @@ Returns fresh user information from the Fief API using a valid access token.
 !!! example
     ```py
     userinfo = fief.userinfo("ACCESS_TOKEN")
+    ```
+
+### `logout_url`
+
+Returns a logout URL. If you redirect the user to this page, Fief will clear the session stored on its side.
+
+**You're still responsible for clearing your own session mechanism if any.**
+
+!!! abstract "Parameters"
+    * `redirect_uri: str`: A valid URL where the user will be redirected after the logout process
+
+!!! example
+    ```py
+    logout_url = fief.logout_url("http://localhost:8000")
     ```

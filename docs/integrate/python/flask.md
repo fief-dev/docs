@@ -75,6 +75,9 @@ And that's about it!
     - [x] Your Flask backend will render HTML pages.
     - [x] Your application is intended to be used in a browser.
 
+!!! abstract "Prerequisites"
+    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/auth-callback`
+
 --8<-- "reusables/web-application-motivation.md"
 
 ```py title="app.py"

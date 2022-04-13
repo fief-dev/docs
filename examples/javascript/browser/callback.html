@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fief JavaScript Browser example</title>
+  </head>
+  <body>
+    <script src="https://unpkg.com/@fief/fief"></script>
+    <script>
+      const initialize = () => {
+        const fiefClient = new fief.Fief({
+          baseURL: 'https://example.fief.dev',
+          clientId: 'YOUR_CLIENT_ID',
+        });
+        const fiefAuth = new fief.browser.FiefAuth(fiefClient);  // (1)!
+
+        fiefAuth.authCallback('http://localhost:8080/callback.html').then(  // (2)!
+          () => {
+            window.location.href = 'http://localhost:8080';
+          }
+        );
+      };
+
+      document.addEventListener('DOMContentLoaded', initialize, false);
+    </script>
+  </body>
+</html>

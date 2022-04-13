@@ -52,12 +52,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -109,6 +113,28 @@
       
     </div>
     
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
     
     
     
@@ -384,6 +410,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3">
@@ -479,6 +507,85 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" data-md-state="indeterminate" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../javascript/">JavaScript</a>
+          
+            <label for="__nav_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="JavaScript" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/browser/" class="md-nav__link">
+        Browser
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javascript/react/" class="md-nav__link">
+        React
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -507,6 +614,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -529,6 +638,20 @@
     <li class="md-nav__item">
       <a href="../../going-further/byod/" class="md-nav__link">
         Bring your own database
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/pkce/" class="md-nav__link">
+        PKCE
       </a>
     </li>
   
@@ -772,11 +895,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
-    Reference
+  <a href="#fief-reference" class="md-nav__link">
+    Fief reference
   </a>
   
-    <nav class="md-nav" aria-label="Reference">
+    <nav class="md-nav" aria-label="Fief reference">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -814,6 +937,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#logout_url" class="md-nav__link">
+    logout_url
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -841,6 +971,12 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip install fief-client
 </code></pre></div>
 <h2 id="create-a-fief-client">Create a <code>Fief</code> client<a class="headerlink" href="#create-a-fief-client" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Prerequisites</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Allow the following <a href="../../getting-started/clients/#redirect-uris">Redirect URI</a> on your Fief Client: <code>http://localhost:8000/callback</code></li>
+</ul>
+</div>
 <p>The Fief client provides all the necessary methods to manage OAuth2 authentication, validate access tokens and refresh them.</p>
 <div class="highlight"><span class="filename">client.py</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
@@ -987,15 +1123,26 @@
 <p>To help you further, we provide you helpers and examples for popular Python frameworks like Flask or FastAPI.</p>
 <p class="buttons"><a class="md-button" href="fastapi/">Integrate with FastAPI</a>
 <a class="md-button" href="flask/">Integrate with Flask</a></p>
-<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<h2 id="fief-reference"><code>Fief</code> reference<a class="headerlink" href="#fief-reference" title="Permanent link">&para;</a></h2>
+<div class="admonition abstract">
+<p class="admonition-title">Initializer</p>
+<ul>
+<li><code>base_url: str</code>: Base URL of your Fief tenant.</li>
+<li><code>client_id: str</code>: ID of your Fief client.</li>
+<li><code>client_secret: str</code>: Secret of your Fief client.</li>
+<li><code>encryption_key: Optional[str] = None</code>: Encryption key of your Fief client. Necessary only if <a href="../../going-further/id-token-encryption/">ID Token encryption</a> is enabled.</li>
+</ul>
+</div>
 <h3 id="auth_url"><code>auth_url</code><a class="headerlink" href="#auth_url" title="Permanent link">&para;</a></h3>
 <p>Returns an authorization URL.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Parameters</p>
 <ul>
-<li><code>redirect_uri: str</code>: Your callback URI where the user will be redirected after the service prompt.</li>
+<li><code>redirect_uri: str</code>: Your callback URI where the user will be redirected after Fief authentication.</li>
 <li><code>state: str = None</code>: Optional string that will be returned back in the callback parameters to allow you to retrieve state information.</li>
 <li><code>scope: Optional[List[str]] = None</code>: Optional list of scopes to ask for.</li>
+<li><code>code_challenge: Optional[str] = None</code>: Optional code challenge for <a href="../../going-further/pkce/">PKCE process</a>.</li>
+<li><code>code_challenge_method: Optional[str] = None</code>: Method used to hash the PKCE code challenge.</li>
 <li><code>extras_params: Optional[Dict[str, Any]] = None</code>: Optional dictionary containing specific parameters.</li>
 </ul>
 </div>
@@ -1011,6 +1158,7 @@
 <ul>
 <li><code>code: str</code>: The authorization code.</li>
 <li><code>redirect_uri: str</code>: The exact same <code>redirect_uri</code> you passed to the authorization URL.</li>
+<li><code>code_verifier: Optional[str] = None</code>: The raw <a href="../../going-further/pkce/">PCKE</a> code used to generate the code challenge during authorization.</li>
 </ul>
 </div>
 <div class="admonition example">
@@ -1068,6 +1216,20 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">userinfo</span><span class="p">(</span><span class="s2">&quot;ACCESS_TOKEN&quot;</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="logout_url"><code>logout_url</code><a class="headerlink" href="#logout_url" title="Permanent link">&para;</a></h3>
+<p>Returns a logout URL. If you redirect the user to this page, Fief will clear the session stored on its side.</p>
+<p><strong>You're still responsible for clearing your own session mechanism if any.</strong></p>
+<div class="admonition abstract">
+<p class="admonition-title">Parameters</p>
+<ul>
+<li><code>redirect_uri: str</code>: A valid URL where the user will be redirected after the logout process</li>
+</ul>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">logout_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">logout_url</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
 

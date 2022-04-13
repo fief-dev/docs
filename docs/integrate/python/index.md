@@ -128,7 +128,7 @@ To help you further, we provide you helpers and examples for popular Python fram
     * `base_url: str`: Base URL of your Fief tenant.
     * `client_id: str`: ID of your Fief client.
     * `client_secret: str`: Secret of your Fief client.
-    * `encryption_key: Optional[str]`: Encryption key of your Fief client. Necessary only if [ID Token encryption](../../going-further/id-token-encryption.md) is enabled.
+    * `encryption_key: Optional[str] = None`: Encryption key of your Fief client. Necessary only if [ID Token encryption](../../going-further/id-token-encryption.md) is enabled.
 
 ### `auth_url`
 
@@ -138,6 +138,8 @@ Returns an authorization URL.
     * `redirect_uri: str`: Your callback URI where the user will be redirected after Fief authentication.
     * `state: str = None`: Optional string that will be returned back in the callback parameters to allow you to retrieve state information.
     * `scope: Optional[List[str]] = None`: Optional list of scopes to ask for.
+    * `code_challenge: Optional[str] = None`: Optional code challenge for [PKCE process](../../going-further/pkce.md).
+    * `code_challenge_method: Optional[str] = None`: Method used to hash the PKCE code challenge.
     * `extras_params: Optional[Dict[str, Any]] = None`: Optional dictionary containing specific parameters.
 
 !!! example
@@ -152,6 +154,7 @@ Returns valid tokens and user info in exchange of an authorization code.
 !!! abstract "Parameters"
     * `code: str`: The authorization code.
     * `redirect_uri: str`: The exact same `redirect_uri` you passed to the authorization URL.
+    * `code_verifier: Optional[str] = None`: The raw [PCKE](../../going-further/pkce.md) code used to generate the code challenge during authorization.
 
 !!! example
     ```py

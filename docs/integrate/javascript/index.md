@@ -70,7 +70,7 @@ Returns an authorization URL.
     * `redirectURI: string`: Your callback URI where the user will be redirected after Fief authentication.
     * `state: string | undefined`: Optional string that will be returned back in the callback parameters to allow you to retrieve state information.
     * `scope: string[] | undefined`: Optional list of scopes to ask for.
-    * `codeChallenge: string | undefined`: Optional code challenge for PKCE process.
+    * `codeChallenge: string | undefined`: Optional code challenge for [PKCE process](.../../../../going-further/pkce.md).
     * `codeChallengeMethod: 'plain' | 'S256' | undefined`: Method used to hash the PKCE code challenge.
     * `extras_params: Record<string, string> | undefined`: Optional object containing specific parameters.
 
@@ -89,7 +89,7 @@ Returns valid tokens and user info in exchange of an authorization code.
 !!! abstract "Parameters"
     * `code: string`: The authorization code.
     * `redirectURI: string`: The exact same `redirectURI` you passed to the authorization URL.
-    * `codeVerifier: string | undefined`: The raw PCKE code used to generate the code challenge during authorization.
+    * `codeVerifier: string | undefined`: The raw [PCKE](../../going-further/pkce.md) code used to generate the code challenge during authorization.
 
 !!! example
     ```ts

@@ -17,7 +17,7 @@ The result of this command is a complete **`docker run` command** with the requi
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:80
+  -p 8000:8000
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
@@ -30,7 +30,7 @@ docker run \
     If you need restart or recreate your container, you'll probably need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
 
 !!! info
-    The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.&#x20;
+    The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.
 
 ## Create main workspace
 
@@ -102,7 +102,7 @@ Then, create your Fief server container and attach this volume to the `/data` fo
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:80
+  -p 8000:8000
   -d \
   -v fief-server-volume:/data \
   -e "SECRET=XXX" \

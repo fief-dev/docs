@@ -15,7 +15,7 @@ When running Fief server with Docker, the most straightforward way is to use the
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:80
+  -p 8000:8000
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
@@ -38,7 +38,7 @@ Then, you can reference this file in the Docker command:
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:80
+  -p 8000:8000
   -d \
   --env-file .env \
   ghcr.io/fief-dev/fief:latest
@@ -57,7 +57,7 @@ services:
   fief:
     image: ghcr.io/fief-dev/fief:latest
     ports:
-      - "80:8000"
+      - "8000:8000"
     environment:
       - SECRET=XXX
       - FIEF_CLIENT_ID=XXX
@@ -75,7 +75,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | -------------------- | ----------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
 | `ENVIRONMENT`        | Name of the deployment environment                                                              | development                 | development, staging, production | production                   |
 | `LOG_LEVEL`          | Log verbosity                                                                                   | DEBUG                       | DEBUG, INFO, WARNING, ERROR      | INFO                         |
-| `ROOT_DOMAIN`        | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost                   |                                  | bretagne.duchy               |
+| `ROOT_DOMAIN`        | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
 | `ALLOW_ORIGIN_REGEX` | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
 
 
@@ -172,13 +172,13 @@ That's why we necessarily need to create a first workspace and an admin user bef
 
 The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!
 
-| Name                  | Description                                      | Default          | Allowed values | Example                     |
-| --------------------- | ------------------------------------------------ | ---------------- | -------------- | --------------------------- |
-| `FIEF_DOMAIN`         | Domain of your main Fief workspace               | localhost        |                | fief.bretagne.duchy         |
-| `FIEF_BASE_URL`       | URL of the main Fief workspace. It calls itself! | http://localhost |                | https://fief.bretagne.duchy |
-| `FIEF_CLIENT_ID`      | Client ID in your main Fief workspace            |                  |                |                             |
-| `FIEF_CLIENT_SECRET`  | Client secret in your main Fief workspace        |                  |                |                             |
-| `FIEF_ENCRYPTION_KEY` | Optional RSA key used to encrypt the JWT tokens  |                  |                |                             |
+| Name                  | Description                                      | Default               | Allowed values | Example                     |
+| --------------------- | ------------------------------------------------ | --------------------- | -------------- | --------------------------- |
+| `FIEF_DOMAIN`         | Domain of your main Fief workspace               | localhost:8000        |                | fief.bretagne.duchy         |
+| `FIEF_BASE_URL`       | URL of the main Fief workspace. It calls itself! | http://localhost:8000 |                | https://fief.bretagne.duchy |
+| `FIEF_CLIENT_ID`      | Client ID in your main Fief workspace            |                       |                |                             |
+| `FIEF_CLIENT_SECRET`  | Client secret in your main Fief workspace        |                       |                |                             |
+| `FIEF_ENCRYPTION_KEY` | Optional RSA key used to encrypt the JWT tokens  |                       |                |                             |
 
 ### Admin session
 

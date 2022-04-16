@@ -58,7 +58,7 @@ extra:
     - title: Discussions
       href: https://github.com/fief-dev/fief/discussions
     - title: Join the beta
-      href: https://fief.fief.dev/admin/create-workspace
+      href: https://fief.fief.dev/admin/api/auth/login?screen=register
 
 extra_css:
   - assets/stylesheets/extra.css

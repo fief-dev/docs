@@ -55,8 +55,10 @@ extra:
   header_links:
     - title: About
       href: https://www.fief.dev
+    - title: Discussions
+      href: https://github.com/fief-dev/fief/discussions
     - title: Join the beta
-      href: https://www.fief.dev
+      href: https://fief.fief.dev/admin/create-workspace
 
 extra_css:
   - assets/stylesheets/extra.css

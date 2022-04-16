@@ -14,3 +14,36 @@ We are offering two ways of using Fief:
 
 1. [Cloud](https://www.fief.dev): fair-priced hosted instance, maintained by the Fief's team;
 2. [Self-hosted](./self-hosting/quickstart.md): you host the service yourself on your own infrastructure, for free.
+
+## Project roadmap
+
+Fief is a **young project** and still has many features to implement and room for improvements!
+
+### What we have now?
+
+* [X] User registration
+* [X] User authentication using OAuth2 and OpenID Connect protocols
+* [X] Forgot password process
+* [X] Bring your own database
+* [X] Official Docker image for self-hosting
+* [X] Official Python client with FastAPI and Flask integrations
+* [X] Official JavaScript client with browser and React integrations
+* [X] Admin dashboard
+* [X] ID Token encryption support
+* [X] PKCE support
+
+### What we'll have in the future?
+
+* [ ] Roles and permissions model
+* [ ] Custom API scopes
+* [ ] Custom user fields
+* [ ] Customizable transactional emails
+* [ ] Social authentication (Google, Facebook...)
+* [ ] 2FA authentication with authenticator apps and U2F keys
+* [ ] Official NodeJS Express integration
+* [ ] Official Bubble integration
+
+...and more 🚀
+
+[View the project backlog](https://github.com/orgs/fief-dev/projects/1/views/4){ .md-button }
+{: .buttons }

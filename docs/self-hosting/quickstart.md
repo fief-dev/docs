@@ -37,7 +37,7 @@ docker run \
 Next, you'll need to create the main **workspace**. Simply run the following command:
 
 ```bash
-docker exec fief-server fief create-main-workspace
+docker exec fief-server fief workspaces create-main
 ```
 
 You should see the following output:
@@ -51,7 +51,7 @@ Main Fief workspace created
 Finally, you need to create an **admin user** for this main workspace that'll have access to the admin dashboard. Run the following command:
 
 ```bash
-docker exec -it fief-server fief create-main-user --user-email anne@bretagne.duchy
+docker exec -it fief-server fief workspaces create-main-user --user-email anne@bretagne.duchy
 ```
 
 !!! tip

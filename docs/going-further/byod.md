@@ -27,6 +27,11 @@ Then, you'll need to enter the details about your database.
 !!! success "Credentials are encrypted on Fief"
     To protect your database credentials, we encrypt them using the [Fernet method](https://github.com/fernet/spec/). It means that even if a malicious individual achieves to access our systems, they couldn't steal your credentials.
 
+!!! warning "My database server requires external IP to be allowlisted"
+    Unfortunately, our current hosting infrastructure doesn't allow us to provide you a stable list of IP addresses to allow. This is something we are aware of and are actively looking for a solution.
+
+    In the meantime, you can try to [self-host](../self-hosting/quickstart.md) the full Fief server.
+
 After this step, we'll try to connect to your database and create the schema Fief needs to work. You'll then be redirected to your admin dashboard, where you'll be able to manage your workspace.
 
 ![Admin dashboard](/assets/images/admin-dashboard.png)

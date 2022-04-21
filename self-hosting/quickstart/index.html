@@ -1019,14 +1019,14 @@
 </div>
 <h2 id="create-main-workspace">Create main workspace<a class="headerlink" href="#create-main-workspace" title="Permanent link">&para;</a></h2>
 <p>Next, you'll need to create the main <strong>workspace</strong>. Simply run the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker <span class="nb">exec</span> fief-server fief create-main-workspace
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker <span class="nb">exec</span> fief-server fief workspaces create-main
 </code></pre></div>
 <p>You should see the following output:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Main Fief workspace created
 </code></pre></div>
 <h2 id="create-admin-user">Create admin user<a class="headerlink" href="#create-admin-user" title="Permanent link">&para;</a></h2>
 <p>Finally, you need to create an <strong>admin user</strong> for this main workspace that'll have access to the admin dashboard. Run the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker <span class="nb">exec</span> -it fief-server fief create-main-user --user-email anne@bretagne.duchy
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker <span class="nb">exec</span> -it fief-server fief workspaces create-main-user --user-email anne@bretagne.duchy
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>

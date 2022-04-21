@@ -1015,6 +1015,11 @@
 <p class="admonition-title">Credentials are encrypted on Fief</p>
 <p>To protect your database credentials, we encrypt them using the <a href="https://github.com/fernet/spec/">Fernet method</a>. It means that even if a malicious individual achieves to access our systems, they couldn't steal your credentials.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">My database server requires external IP to be allowlisted</p>
+<p>Unfortunately, our current hosting infrastructure doesn't allow us to provide you a stable list of IP addresses to allow. This is something we are aware of and are actively looking for a solution.</p>
+<p>In the meantime, you can try to <a href="../../self-hosting/quickstart/">self-host</a> the full Fief server.</p>
+</div>
 <p>After this step, we'll try to connect to your database and create the schema Fief needs to work. You'll then be redirected to your admin dashboard, where you'll be able to manage your workspace.</p>
 <p><img alt="Admin dashboard" src="/assets/images/admin-dashboard.png" /></p>
 <h2 id="how-fief-uses-your-database">How Fief uses your database?<a class="headerlink" href="#how-fief-uses-your-database" title="Permanent link">&para;</a></h2>

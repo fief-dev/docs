@@ -672,6 +672,19 @@
     Setup your database
   </a>
   
+    <nav class="md-nav" aria-label="Setup your database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-allow-list" class="md-nav__link">
+    IP allow-list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -938,6 +951,19 @@
     Setup your database
   </a>
   
+    <nav class="md-nav" aria-label="Setup your database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-allow-list" class="md-nav__link">
+    IP allow-list
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1015,13 +1041,14 @@
 <p class="admonition-title">Credentials are encrypted on Fief</p>
 <p>To protect your database credentials, we encrypt them using the <a href="https://github.com/fernet/spec/">Fernet method</a>. It means that even if a malicious individual achieves to access our systems, they couldn't steal your credentials.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">My database server requires external IP to be allowlisted</p>
-<p>Unfortunately, our current hosting infrastructure doesn't allow us to provide you a stable list of IP addresses to allow. This is something we are aware of and are actively looking for a solution.</p>
-<p>In the meantime, you can try to <a href="../../self-hosting/quickstart/">self-host</a> the full Fief server.</p>
-</div>
 <p>After this step, we'll try to connect to your database and create the schema Fief needs to work. You'll then be redirected to your admin dashboard, where you'll be able to manage your workspace.</p>
 <p><img alt="Admin dashboard" src="/assets/images/admin-dashboard.png" /></p>
+<h3 id="ip-allow-list">IP allow-list<a class="headerlink" href="#ip-allow-list" title="Permanent link">&para;</a></h3>
+<p>If your database server controls which IP are allowed to connect, you can allow the following list of IP. Those are the ones used by our cloud server:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>18.156.158.53
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>18.156.42.200
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>52.59.103.54
+</code></pre></div>
 <h2 id="how-fief-uses-your-database">How Fief uses your database?<a class="headerlink" href="#how-fief-uses-your-database" title="Permanent link">&para;</a></h2>
 <h3 id="schema">Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h3>
 <p>Fief won't directly use the database instance you provide. Instead, it'll create another dedicated <strong>schema</strong>.</p>

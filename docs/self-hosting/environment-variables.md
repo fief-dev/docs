@@ -74,7 +74,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | Name                 | Description                                                                                     | Default                     | Allowed values                   | Example                      |
 | -------------------- | ----------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
 | `ENVIRONMENT`        | Name of the deployment environment                                                              | development                 | development, staging, production | production                   |
-| `LOG_LEVEL`          | Log verbosity                                                                                   | DEBUG                       | DEBUG, INFO, WARNING, ERROR      | INFO                         |
+| `LOG_LEVEL`          | Log verbosity                                                                                   | INFO                        | DEBUG, INFO, WARNING, ERROR      | INFO                         |
 | `ROOT_DOMAIN`        | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
 | `ALLOW_ORIGIN_REGEX` | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
 

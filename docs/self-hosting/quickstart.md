@@ -12,17 +12,26 @@ Run the following command:
 docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker
 ```
 
-The result of this command is a complete **`docker run` command** with the required **secrets** generated to help you get started. It'll look like the following:
+The result of this command is a complete **`docker run` command** with the required **secrets** generated and environment variables to help you get started. It'll look like the following:
 
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:8000
+  -p 8000:8000 \
+  --add-host localhost:127.0.0.1 \
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
   -e "FIEF_CLIENT_SECRET=XXX" \
   -e "ENCRYPTION_KEY=XXX" \
+  -e "PORT=8000" \
+  -e "ROOT_DOMAIN=localhost:8000" \
+  -e "FIEF_DOMAIN=localhost:8000" \
+  -e "FIEF_BASE_URL=http://localhost:8000" \
+  -e "CSRF_COOKIE_SECURE=False" \
+  -e "LOGIN_SESSION_COOKIE_SECURE=False" \
+  -e "SESSION_COOKIE_SECURE=False" \
+  -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
   ghcr.io/fief-dev/fief:latest
 ```
 
@@ -30,7 +39,7 @@ docker run \
     If you need restart or recreate your container, you'll probably need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
 
 !!! info
-    The container is exposed on the port **8000** of your local machine by default, but you can set any port you want.
+    The container is exposed on the port **8000** of your local machine by default.
 
 ## Create main workspace
 
@@ -102,15 +111,85 @@ Then, create your Fief server container and attach this volume to the `/data` fo
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:8000
+  -p 8000:8000 \
   -d \
   -v fief-server-volume:/data \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
   -e "FIEF_CLIENT_SECRET=XXX" \
   -e "ENCRYPTION_KEY=XXX" \
+  -e "PORT=8000" \
+  -e "ROOT_DOMAIN=localhost:8000" \
+  -e "FIEF_DOMAIN=localhost:8000" \
+  -e "FIEF_BASE_URL=http://localhost:8000" \
+  -e "CSRF_COOKIE_SECURE=False" \
+  -e "LOGIN_SESSION_COOKIE_SECURE=False" \
+  -e "SESSION_COOKIE_SECURE=False" \
+  -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
   ghcr.io/fief-dev/fief:latest
 ```
 
 !!! warning
     If you created your container with the instructions in the previous section, you'll need to recreate one from scratch to bind the volume.
+
+## Custom local domain and port
+
+The quickstart command assume your Fief server will be served over `localhost:8000`. Besides, additional workspaces will be automatically assigned a subdomain like `bretagne.localhost:8000`.
+
+However, you might want to serve it locally on a custom domain you have wired manually on your local machine, like `fief.test`. In this case, you can use the `--host` parameter of the quickstart command to slightly adapt the Docker command.
+
+```bash
+docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker --host fief.test
+```
+
+```bash
+docker run \
+  --name fief-server \
+  -p 8000:8000 \
+  --add-host fief.test:127.0.0.1 \
+  -d \
+  -e "SECRET=XXX" \
+  -e "FIEF_CLIENT_ID=XXX" \
+  -e "FIEF_CLIENT_SECRET=XXX" \
+  -e "ENCRYPTION_KEY=XXX" \
+  -e "PORT=8000" \
+  -e "ROOT_DOMAIN=fief.test:8000" \
+  -e "FIEF_DOMAIN=fief.test:8000" \
+  -e "FIEF_BASE_URL=http://fief.test:8000" \
+  -e "CSRF_COOKIE_SECURE=False" \
+  -e "LOGIN_SESSION_COOKIE_SECURE=False" \
+  -e "SESSION_COOKIE_SECURE=False" \
+  -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
+  ghcr.io/fief-dev/fief:latest
+```
+
+The main area of interest here is the the `--add-host` parameter. To authenticate users to its admin panel, Fief needs to make requests to itself. That's what we call the *Fief-ception*. To allow this, we need to tell Docker to route our domain to itself when called from the inside. That's the purpose of this parameter.
+
+You can also customize the exposed port by using the `--port` parameter of the quickstart command:
+
+```bash
+docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker --host fief.test --port 9000
+```
+
+```bash
+docker run \
+  --name fief-server \
+  -p 9000:9000 \
+  --add-host fief.test:127.0.0.1 \
+  -d \
+  -e "SECRET=XXX" \
+  -e "FIEF_CLIENT_ID=XXX" \
+  -e "FIEF_CLIENT_SECRET=XXX" \
+  -e "ENCRYPTION_KEY=XXX" \
+  -e "PORT=9000" \
+  -e "ROOT_DOMAIN=fief.test:9000" \
+  -e "FIEF_DOMAIN=fief.test:9000" \
+  -e "FIEF_BASE_URL=http://fief.test:9000" \
+  -e "CSRF_COOKIE_SECURE=False" \
+  -e "LOGIN_SESSION_COOKIE_SECURE=False" \
+  -e "SESSION_COOKIE_SECURE=False" \
+  -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
+  ghcr.io/fief-dev/fief:latest
+```
+
+Notice how the different variables changed to adapt to the custom port.

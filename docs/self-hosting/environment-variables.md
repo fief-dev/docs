@@ -15,12 +15,21 @@ When running Fief server with Docker, the most straightforward way is to use the
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:8000
+  -p 8000:8000 \
+  --add-host localhost:127.0.0.1 \
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
   -e "FIEF_CLIENT_SECRET=XXX" \
   -e "ENCRYPTION_KEY=XXX" \
+  -e "PORT=8000" \
+  -e "ROOT_DOMAIN=localhost:8000" \
+  -e "FIEF_DOMAIN=localhost:8000" \
+  -e "FIEF_BASE_URL=http://localhost:8000" \
+  -e "CSRF_COOKIE_SECURE=False" \
+  -e "LOGIN_SESSION_COOKIE_SECURE=False" \
+  -e "SESSION_COOKIE_SECURE=False" \
+  -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
   ghcr.io/fief-dev/fief:latest
 ```
 
@@ -31,6 +40,14 @@ SECRET=XXX
 FIEF_CLIENT_ID=XXX
 FIEF_CLIENT_SECRET=XXX
 ENCRYPTION_KEY=XXX
+PORT=8000
+ROOT_DOMAIN=localhost:8000
+FIEF_DOMAIN=localhost:8000
+FIEF_BASE_URL=http://localhost:8000
+CSRF_COOKIE_SECURE=False
+LOGIN_SESSION_COOKIE_SECURE=False
+SESSION_COOKIE_SECURE=False
+FIEF_ADMIN_SESSION_COOKIE_SECURE=False
 ```
 
 Then, you can reference this file in the Docker command:
@@ -38,7 +55,8 @@ Then, you can reference this file in the Docker command:
 ```bash
 docker run \
   --name fief-server \
-  -p 8000:8000
+  -p 8000:8000 \
+  --add-host localhost:127.0.0.1 \
   -d \
   --env-file .env \
   ghcr.io/fief-dev/fief:latest
@@ -63,6 +81,14 @@ services:
       - FIEF_CLIENT_ID=XXX
       - FIEF_CLIENT_SECRET=XXX
       - ENCRYPTION_KEY=XXX
+      - PORT=8000
+      - ROOT_DOMAIN=localhost:8000
+      - FIEF_DOMAIN=localhost:8000
+      - FIEF_BASE_URL=http://localhost:8000
+      - CSRF_COOKIE_SECURE=False
+      - LOGIN_SESSION_COOKIE_SECURE=False
+      - SESSION_COOKIE_SECURE=False
+      - FIEF_ADMIN_SESSION_COOKIE_SECURE=False
 ```
 
 ## Reference
@@ -98,7 +124,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `DATABASE_NAME`                      | Main database name                                                                                                                        | fief.db                   |                           | fief         |
 | `DATABASE_LOCATION`                  | For SQLite databases, path where to store the database files                                                                              | Current working directory |                           |              |
 | `DATABASE_URL`                       | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                 |                           |                           |              |
-| `DATABASE_POOL_RECYCLE_SECONDS`      | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. | 600                       |                           |              |
+| `DATABASE_POOL_RECYCLE_SECONDS`      | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. | 600 *(10 minutes)*	       |                           |              |
 
 More details about how to setup a database in the dedicated section.
 
@@ -134,6 +160,8 @@ To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.o
 | `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie           | fief\_csrftoken |                |         |
 | `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie | True            |                |         |
 
+--8<-- "reusables/cookie-secure-callout.md"
+
 ### Login session
 
 A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.
@@ -143,6 +171,8 @@ A login session is a cookie used to maintain the state of the login flow of a us
 | `LOGIN_SESSION_COOKIE_NAME`   | Name of the login session cookie        | fief\_login\_session |                |         |
 | `LOGIN_SESSION_COOKIE_DOMAIN` | Domain of the login session cookie      | _Empty string_       |                |         |
 | `LOGIN_SESSION_COOKIE_SECURE` | Secure flag of the login session cookie | True                 |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
 
 ### Session
 
@@ -156,6 +186,8 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 | `SESSION_COOKIE_DOMAIN`    | Domain of the session cookie              | _Empty string_          |                |         |
 | `SESSION_COOKIE_SECURE`    | Secure flag of the session cookie         | True                    |                |         |
 | `SESSION_LIFETIME_SECONDS` | Lifetime of the session cookie in seconds | 86400 \* 30 _(30 days_) |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
 
 ### Authorization code
 
@@ -181,6 +213,11 @@ The variables below are here to configure the Fief server with a proper Fief cli
 | `FIEF_CLIENT_SECRET`  | Client secret in your main Fief workspace        |                       |                |                             |
 | `FIEF_ENCRYPTION_KEY` | Optional RSA key used to encrypt the JWT tokens  |                       |                |                             |
 
+!!! tip "`FIEF_BASE_URL` should be accessible to the server itself"
+    Because of the Fief-ception, Fief needs to make requests to itself. That's why the `FIEF_BASE_URL` should be accessible by the server.
+
+    It's especially tricky when using a local domain and running Fief from a Docker container. That's why the Docker command generated by [Quickstart](quickstart.md) uses the `--add-host` parameter.
+
 ### Admin session
 
 An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.
@@ -191,3 +228,4 @@ An admin session is a cookie used to maintain the session of a user on the Fief 
 | `FIEF_ADMIN_SESSION_COOKIE_DOMAIN` | Domain of the admin session cookie      | _Empty string_       |                |         |
 | `FIEF_ADMIN_SESSION_COOKIE_SECURE` | Secure flag of the admin session cookie | True                 |                |         |
 
+--8<-- "reusables/cookie-secure-callout.md"

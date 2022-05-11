@@ -97,13 +97,13 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### General
 
-| Name                 | Description                                                                                     | Default                     | Allowed values                   | Example                      |
-| -------------------- | ----------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
-| `ENVIRONMENT`        | Name of the deployment environment                                                              | development                 | development, staging, production | production                   |
-| `LOG_LEVEL`          | Log verbosity                                                                                   | INFO                        | DEBUG, INFO, WARNING, ERROR      | INFO                         |
-| `ROOT_DOMAIN`        | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
-| `ALLOW_ORIGIN_REGEX` | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
-
+| Name                  | Description                                                                                                                                             | Default                     | Allowed values                   | Example                      |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
+| `ENVIRONMENT`         | Name of the deployment environment                                                                                                                      | development                 | development, staging, production | production                   |
+| `LOG_LEVEL`           | Log verbosity                                                                                                                                           | INFO                        | DEBUG, INFO, WARNING, ERROR      | INFO                         |
+| `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains.                                                         | localhost:8000              |                                  | bretagne.duchy               |
+| `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                                                                           | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
+| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. If you serve Fief behind a proxy handling SSL, you'll likely need to set this to value to `*`. | 127.0.0.1                   |                                  |                              |
 
 ### Secrets
 
@@ -114,17 +114,17 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### Database
 
-| Name                                 | Description                                                                                                                               | Default                   | Allowed values            | Example      |
-| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------- | ------------ |
-| `DATABASE_TYPE`                      | Type of the main database                                                                                                                 | SQLITE                    | POSTGRESQL, MYSQL, SQLITE | POSTGRESQL   |
-| `DATABASE_HOST`                      | Host of the main database                                                                                                                 |                           |                           | localhost    |
-| `DATABASE_PORT`                      | Listening port of the main database                                                                                                       |                           |                           | 5432         |
-| `DATABASE_USERNAME`                  | Main database user                                                                                                                        |                           |                           | fief         |
-| `DATABASE_PASSWORD`                  | Main database user's password                                                                                                             |                           |                           | fiefpassword |
-| `DATABASE_NAME`                      | Main database name                                                                                                                        | fief.db                   |                           | fief         |
-| `DATABASE_LOCATION`                  | For SQLite databases, path where to store the database files                                                                              | Current working directory |                           |              |
-| `DATABASE_URL`                       | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                 |                           |                           |              |
-| `DATABASE_POOL_RECYCLE_SECONDS`      | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. | 600 *(10 minutes)*	       |                           |              |
+| Name                            | Description                                                                                                                               | Default                   | Allowed values            | Example      |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------------------- | ------------ |
+| `DATABASE_TYPE`                 | Type of the main database                                                                                                                 | SQLITE                    | POSTGRESQL, MYSQL, SQLITE | POSTGRESQL   |
+| `DATABASE_HOST`                 | Host of the main database                                                                                                                 |                           |                           | localhost    |
+| `DATABASE_PORT`                 | Listening port of the main database                                                                                                       |                           |                           | 5432         |
+| `DATABASE_USERNAME`             | Main database user                                                                                                                        |                           |                           | fief         |
+| `DATABASE_PASSWORD`             | Main database user's password                                                                                                             |                           |                           | fiefpassword |
+| `DATABASE_NAME`                 | Main database name                                                                                                                        | fief.db                   |                           | fief         |
+| `DATABASE_LOCATION`             | For SQLite databases, path where to store the database files                                                                              | Current working directory |                           |              |
+| `DATABASE_URL`                  | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                 |                           |                           |              |
+| `DATABASE_POOL_RECYCLE_SECONDS` | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. | 600 *(10 minutes)*        |                           |              |
 
 More details about how to setup a database in the dedicated section.
 
@@ -135,9 +135,9 @@ More details about how to setup a database in the dedicated section.
 
 We use a Redis instance to manage background jobs (send emails, heavy computations...). A Redis instance is already up-and-running in the official Docker image, but you can provide your own one if needed.
 
-| Name         | Description           | Default                | Allowed values | Example |
-| ------------ | --------------------- | ---------------------- | -------------- | ------- |
-| `REDIS_URL`  | URL of a Redis server | redis://localhost:6379 |                |         |
+| Name        | Description           | Default                | Allowed values | Example |
+| ----------- | --------------------- | ---------------------- | -------------- | ------- |
+| `REDIS_URL` | URL of a Redis server | redis://localhost:6379 |                |         |
 
 ### Email provider
 
@@ -193,9 +193,9 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md).
 
-| Name                                       | Description                                                                                                                                                                                                              | Default                      | Allowed values | Example |
-| ------------------------------------------ | ----------------------------------------- | ----------------------- | -------------- | ------- |
-| `AUTHORIZATION_CODE_LIFETIME_SECONDS`      | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_           |                |         |
+| Name                                  | Description                                                                                                                                                                                                              | Default            | Allowed values | Example |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | -------------- | ------- |
+| `AUTHORIZATION_CODE_LIFETIME_SECONDS` | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_ |                |         |
 
 ### Fief-ception
 

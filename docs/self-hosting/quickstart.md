@@ -18,7 +18,6 @@ The result of this command is a complete **`docker run` command** with the requi
 docker run \
   --name fief-server \
   -p 8000:8000 \
-  --add-host localhost:127.0.0.1 \
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
@@ -27,7 +26,6 @@ docker run \
   -e "PORT=8000" \
   -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
-  -e "FIEF_BASE_URL=http://localhost:8000" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
@@ -121,7 +119,6 @@ docker run \
   -e "PORT=8000" \
   -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
-  -e "FIEF_BASE_URL=http://localhost:8000" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
@@ -146,7 +143,6 @@ docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker --host fie
 docker run \
   --name fief-server \
   -p 8000:8000 \
-  --add-host fief.test:127.0.0.1 \
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
@@ -155,15 +151,12 @@ docker run \
   -e "PORT=8000" \
   -e "ROOT_DOMAIN=fief.test:8000" \
   -e "FIEF_DOMAIN=fief.test:8000" \
-  -e "FIEF_BASE_URL=http://fief.test:8000" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
   -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
   ghcr.io/fief-dev/fief:latest
 ```
-
-The main area of interest here is the the `--add-host` parameter. To authenticate users to its admin panel, Fief needs to make requests to itself. That's what we call the *Fief-ception*. To allow this, we need to tell Docker to route our domain to itself when called from the inside. That's the purpose of this parameter.
 
 You can also customize the exposed port by using the `--port` parameter of the quickstart command:
 
@@ -175,7 +168,6 @@ docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker --host fie
 docker run \
   --name fief-server \
   -p 9000:9000 \
-  --add-host fief.test:127.0.0.1 \
   -d \
   -e "SECRET=XXX" \
   -e "FIEF_CLIENT_ID=XXX" \
@@ -184,7 +176,6 @@ docker run \
   -e "PORT=9000" \
   -e "ROOT_DOMAIN=fief.test:9000" \
   -e "FIEF_DOMAIN=fief.test:9000" \
-  -e "FIEF_BASE_URL=http://fief.test:9000" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \

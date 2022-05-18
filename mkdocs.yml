@@ -72,6 +72,7 @@ nav:
     - getting-started/tenants.md
     - getting-started/clients.md
     - getting-started/users.md
+    - getting-started/user-fields.md
     - getting-started/api-keys.md
     - getting-started/oauth2.md
   - 'Integrate':

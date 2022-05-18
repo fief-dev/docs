@@ -2,117 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.fief.dev/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/admin-dashboard/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/api-keys/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/clients/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/introduction/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/oauth2/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/tenants/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.fief.dev/getting-started/user-fields/</loc>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/users/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/getting-started/workspace/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/going-further/byod/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/going-further/id-token-encryption/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/going-further/pkce/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/javascript/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/javascript/browser/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/javascript/react/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/python/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/python/fastapi/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/integrate/python/flask/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/miscellaneous/resources/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/self-hosting/environment-variables/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/self-hosting/quickstart/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/self-hosting/setup-database/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.fief.dev/self-hosting/setup-email-provider/</loc>
-         <lastmod>2022-05-13</lastmod>
+         <lastmod>2022-05-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

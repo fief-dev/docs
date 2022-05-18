@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.fief.dev/getting-started/tenants/">
+        <link rel="canonical" href="https://docs.fief.dev/getting-started/user-fields/">
       
       <link rel="icon" href="../../assets/images/favicon.svg">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>Tenants - Fief</title>
+        <title>User fields - Fief</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tenants" class="md-skip">
+        <a href="#user-fields" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Tenants
+              User fields
             
           </span>
         </div>
@@ -320,52 +320,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Tenants
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../tenants/" class="md-nav__link">
         Tenants
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#base-url" class="md-nav__link">
-    Base URL
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -403,11 +362,183 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../user-fields/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          User fields
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         User fields
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-user-field" class="md-nav__link">
+    Create a new user field
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-an-existing-user-field" class="md-nav__link">
+    Edit an existing user field
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-an-existing-user-field" class="md-nav__link">
+    Delete an existing user field
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-field-properties" class="md-nav__link">
+    User field properties
+  </a>
+  
+    <nav class="md-nav" aria-label="User field properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slug" class="md-nav__link">
+    Slug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    Type
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer" class="md-nav__link">
+    Integer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    Choice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phone-number" class="md-nav__link">
+    Phone number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address" class="md-nav__link">
+    Address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timezone" class="md-nav__link">
+    Timezone
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    Default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-at-registration" class="md-nav__link">
+    Ask at registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-at-update" class="md-nav__link">
+    Ask at update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required" class="md-nav__link">
+    Required
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -916,9 +1047,140 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#base-url" class="md-nav__link">
-    Base URL
+  <a href="#create-a-new-user-field" class="md-nav__link">
+    Create a new user field
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#edit-an-existing-user-field" class="md-nav__link">
+    Edit an existing user field
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-an-existing-user-field" class="md-nav__link">
+    Delete an existing user field
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-field-properties" class="md-nav__link">
+    User field properties
+  </a>
+  
+    <nav class="md-nav" aria-label="User field properties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#name" class="md-nav__link">
+    Name
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slug" class="md-nav__link">
+    Slug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type" class="md-nav__link">
+    Type
+  </a>
+  
+    <nav class="md-nav" aria-label="Type">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    String
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integer" class="md-nav__link">
+    Integer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boolean" class="md-nav__link">
+    Boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choice" class="md-nav__link">
+    Choice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phone-number" class="md-nav__link">
+    Phone number
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#address" class="md-nav__link">
+    Address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timezone" class="md-nav__link">
+    Timezone
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#default" class="md-nav__link">
+    Default
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-at-registration" class="md-nav__link">
+    Ask at registration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ask-at-update" class="md-nav__link">
+    Ask at update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#required" class="md-nav__link">
+    Required
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -939,27 +1201,104 @@
 
 
 
-<h1 id="tenants">Tenants<a class="headerlink" href="#tenants" title="Permanent link">&para;</a></h1>
-<p>This is where you'll see and manage the tenants of your workspace.</p>
+<h1 id="user-fields">User fields<a class="headerlink" href="#user-fields" title="Permanent link">&para;</a></h1>
+<p>This is where you'll see and manage the custom user fields of your workspace.</p>
 <div class="admonition tip">
-<p class="admonition-title">What is a tenant?</p>
-<p>A tenant is a sub-division of your workspace. Each client and user is tied to a specific tenant.</p>
-<p>This is mostly useful if you want to create a product sold in white-label where each of your client has its own space. It allows for example for a user to have <strong>several accounts with the same email address</strong> inside one workspace, but actually tied to different tenants. From a user point-of-view, this is a different application on which they login with different credentials.</p>
-<p>If you don't plan to do this, that's okay: you'll always use a single tenant in your workspace.</p>
-<p>Each workspace has at least one default tenant.</p>
+<p class="admonition-title">What is a user field?</p>
+<p>Most of the time, you'll need to store data about your users, e.g., their first and last names, their birthdate, their newsletter preferences, etc. Your application will probably need to have quite a lot of data about them!</p>
+<p>To help you with this, Fief allows you to create custom <strong>user fields</strong>. Each one will have a name, an identifier and a type.</p>
+<p>Each user will have attached its values for those fields. They will be available directly through the <a href="../oauth2/#access-token-and-id-token">ID token</a> or through the <code>/userinfo</code> endpoint.</p>
 </div>
-<p><img alt="Tenants from admin dashboard" src="/assets/images/admin-tenants.png" /></p>
-<h2 id="base-url">Base URL<a class="headerlink" href="#base-url" title="Permanent link">&para;</a></h2>
-<p>Each tenant is tied to a <strong>base URL</strong>: each routes, like login or registration, will be derived from this base. When you integrate Fief in your application, you'll need this base URL.</p>
-<p>Each workspace has <strong>one default tenant</strong> with a base URL pointing to your root subdomain, like <em>https://example.fief.dev</em>.</p>
-<p>Other tenants gets a path prefix, like <em>https://example.fief.dev/other-tenant</em>.</p>
+<p><img alt="User fields from admin dashboard" src="/assets/images/admin-user-fields.png" /></p>
+<h2 id="create-a-new-user-field">Create a new user field<a class="headerlink" href="#create-a-new-user-field" title="Permanent link">&para;</a></h2>
+<p>You can create a new client by clicking the <strong>Create User field</strong> button. A modal will open where you'll be able to input its different properties.</p>
+<p><img alt="Create user field from admin dashboard" src="/assets/images/admin-user-fields-create.png" /></p>
+<h2 id="edit-an-existing-user-field">Edit an existing user field<a class="headerlink" href="#edit-an-existing-user-field" title="Permanent link">&para;</a></h2>
+<p>If you click on one of the user field in the list, you'll see its details on the right and be able to change its properties.</p>
+<p><img alt="Edit user field from admin dashboard" src="/assets/images/admin-user-fields-edit.png" /></p>
+<h2 id="delete-an-existing-user-field">Delete an existing user field<a class="headerlink" href="#delete-an-existing-user-field" title="Permanent link">&para;</a></h2>
+<p>If one of your user field is not useful anymore, you can delete it: click on the user field you want to delete in the list and click on the <strong>Delete</strong> button.</p>
+<p><img alt="Delete user field from admin dashboard" src="/assets/images/admin-user-fields-delete.png" /></p>
+<div class="admonition danger">
+<p class="admonition-title">Associated user values will be deleted as well</p>
+<p>When you delete a user field, the <strong>associated data on the user will also be deleted</strong>. Make sure you don't need this information anymore or that you saved it somewhere else before proceeding.</p>
+</div>
+<h2 id="user-field-properties">User field properties<a class="headerlink" href="#user-field-properties" title="Permanent link">&para;</a></h2>
+<p>User fields can be configured through their properties.</p>
+<h3 id="name">Name<a class="headerlink" href="#name" title="Permanent link">&para;</a></h3>
+<p>This is the name of your user field. It'll be used as <strong>label in the registration form</strong> and in the <strong>admin dashboard</strong>.</p>
+<h3 id="slug">Slug<a class="headerlink" href="#slug" title="Permanent link">&para;</a></h3>
+<p>This will be the <strong>identifier of the field</strong> in the <a href="../oauth2/#access-token-and-id-token">ID token</a> and in API responses.</p>
+<p>By default, it'll be automatically generated from the <a href="#name">name</a>, but you can customize it at will.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can copy the base URL directly using the clipboard button in the list.</p>
+<p class="admonition-title">The slug is unique in a workspace</p>
+<p>Each field should have a unique identifier. If you try to create a new user field with a slug that already exists, an error will be raised.</p>
 </div>
-<div class="admonition bug">
-<p class="admonition-title">Limitation</p>
-<p>At the moment, new tenants can't be created from the admin dashboard.</p>
+<h3 id="type">Type<a class="headerlink" href="#type" title="Permanent link">&para;</a></h3>
+<p>This is probably the most important setting for your user field. It'll determine the <strong>type of data you want to store</strong>. We currently support n types:</p>
+<h4 id="string">String<a class="headerlink" href="#string" title="Permanent link">&para;</a></h4>
+<p>Common type for textual values. Examples:</p>
+<ul>
+<li>A first or last name</li>
+<li>A company name</li>
+<li>A tagline</li>
+</ul>
+<p>It'll be shown as a simple text input in forms.</p>
+<h4 id="integer">Integer<a class="headerlink" href="#integer" title="Permanent link">&para;</a></h4>
+<p>Type to store integer values. Examples:</p>
+<ul>
+<li>A reputation score</li>
+<li>An height</li>
+<li>An age</li>
+</ul>
+<p>It'll be shown as a numeric input in forms.</p>
+<h4 id="boolean">Boolean<a class="headerlink" href="#boolean" title="Permanent link">&para;</a></h4>
+<p>Type to store boolean values. Examples:</p>
+<ul>
+<li>Subscription status to a newsletter</li>
+<li>Terms consent</li>
+<li>A validation status</li>
+</ul>
+<p>It'll be shown as a checkbox in forms.</p>
+<h4 id="choice">Choice<a class="headerlink" href="#choice" title="Permanent link">&para;</a></h4>
+<p>Type accepting a predefined set of values. Examples:</p>
+<ul>
+<li>A gender</li>
+<li>A job sector</li>
+<li>A level of experience</li>
+</ul>
+<p>When selecting this type, you'll be able to configure the allowed choices.</p>
+<p><img alt="Create choice user field from admin dashboard" src="/assets/images/admin-user-fields-create-choice.png" /></p>
+<p>Each choice consists of two things: the <strong>value</strong> (<code>A</code>), which is the actual underlying value that will be stored in database and returned in the user data, and the <strong>label</strong> (<code>Choice A</code>) which will be used to show a user-friendly label in forms and the admin dashboard.</p>
+<p>It'll be shown as a select menu in forms.</p>
+<h4 id="phone-number">Phone number<a class="headerlink" href="#phone-number" title="Permanent link">&para;</a></h4>
+<p>Type that'll validate if the value is a valid phone number. It shall be formatted with the international country code, <code>+331020405</code>.</p>
+<p>It'll be shown as a text input in forms.</p>
+<h4 id="address">Address<a class="headerlink" href="#address" title="Permanent link">&para;</a></h4>
+<p>Type that'll display several inputs to validate a full postal address.</p>
+<p><img alt="Address user field input" src="/assets/images/user-fields-address-input.png" /></p>
+<h4 id="timezone">Timezone<a class="headerlink" href="#timezone" title="Permanent link">&para;</a></h4>
+<p>Type that'll display a list of valid timezones.</p>
+<h3 id="default">Default<a class="headerlink" href="#default" title="Permanent link">&para;</a></h3>
+<p>For some types, you can define a <strong>default value</strong>.</p>
+<p>If the field is shown in a form, the field will automatically be pre-filled with this value.</p>
+<p>If the field is not presented in a form, this value will be automatically assigned to new users when they register.</p>
+<h3 id="ask-at-registration">Ask at registration<a class="headerlink" href="#ask-at-registration" title="Permanent link">&para;</a></h3>
+<p>If checked, the user field will be presented in the <strong>user registration form</strong>.</p>
+<h3 id="ask-at-update">Ask at update<a class="headerlink" href="#ask-at-update" title="Permanent link">&para;</a></h3>
+<p>If checked, the user will be able to update its value through the <code>/profile</code> API.</p>
+<div class="admonition tip">
+<p class="admonition-title">Private field</p>
+<p>In some cases, you need values that can't be set by the user, e.g., an onboarding status or a reputation score.</p>
+<p>To do this, you can simply uncheck both <strong>Ask at registration</strong> and <strong>Ask at update</strong> field.</p>
+<p>You'll always be able to update this value through the admin dashboard or the Admin API.</p>
+</div>
+<h3 id="required">Required<a class="headerlink" href="#required" title="Permanent link">&para;</a></h3>
+<p>If checked, the value will have to be filled when presented in forms.</p>
+<div class="admonition tip">
+<p class="admonition-title">Required boolean field</p>
+<p>You can set a user field of type <a href="#boolean">Boolean</a> as <strong>required</strong>. In this case, the value <strong>must be True</strong>.</p>
+<p>It can be useful for consent checkbox where you need the user to accept the terms before creating its account.</p>
 </div>
 
               
@@ -979,7 +1318,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../admin-dashboard/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Admin dashboard" rel="prev">
+        <a href="../users/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Users" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -988,20 +1327,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Admin dashboard
+              Users
             </div>
           </div>
         </a>
       
       
         
-        <a href="../clients/" class="md-footer__link md-footer__link--next" aria-label="Next: Clients" rel="next">
+        <a href="../api-keys/" class="md-footer__link md-footer__link--next" aria-label="Next: API Keys" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Clients
+              API Keys
             </div>
           </div>
           <div class="md-footer__button md-icon">

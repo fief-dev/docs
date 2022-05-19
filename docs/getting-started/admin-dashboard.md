@@ -9,6 +9,7 @@ The left menu lets you access to the most important aspects of Fief:
 * [Tenants](./tenants.md)
 * [Clients](./clients.md)
 * [Users](./users.md)
+* [User fields](./user-fields.md)
 * [API Keys](./api-keys.md)
 
 ## Switch workspace

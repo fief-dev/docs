@@ -122,7 +122,9 @@ To help you further, we provide you helpers and examples for popular Python fram
 [Integrate with Flask](flask.md){ .md-button }
 {: .buttons }
 
-## `Fief` reference
+## Reference
+
+### `Fief` client
 
 !!! abstract "Initializer"
     * `base_url: str`: Base URL of your Fief tenant.
@@ -130,7 +132,7 @@ To help you further, we provide you helpers and examples for popular Python fram
     * `client_secret: str`: Secret of your Fief client.
     * `encryption_key: Optional[str] = None`: Encryption key of your Fief client. Necessary only if [ID Token encryption](../../going-further/id-token-encryption.md) is enabled.
 
-### `auth_url`
+#### `auth_url`
 
 Returns an authorization URL.
 
@@ -147,9 +149,9 @@ Returns an authorization URL.
     auth_url = fief.auth_url("http://localhost:8000/callback", scope=["openid"])
     ```
 
-### `auth_callback`
+#### `auth_callback`
 
-Returns valid tokens and user info in exchange of an authorization code.
+Returns a [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fiefuserinfo) in exchange of an authorization code.
 
 !!! abstract "Parameters"
     * `code: str`: The authorization code.
@@ -161,9 +163,9 @@ Returns valid tokens and user info in exchange of an authorization code.
     tokens, userinfo = fief.auth_callback("CODE", "http://localhost:8000/callback")
     ```
 
-### `auth_refresh_token`
+#### `auth_refresh_token`
 
-Returns fresh tokens and user info in exchange of a refresh token.
+Returns fresh [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fiefuserinfo) in exchange of a refresh token.
 
 !!! abstract "Parameters"
     * `refresh_token: str`: A valid refresh token.
@@ -174,9 +176,9 @@ Returns fresh tokens and user info in exchange of a refresh token.
     tokens, userinfo = fief.auth_refresh_token("REFRESH_TOKEN")
     ```
 
-### `validate_access_token`
+#### `validate_access_token`
 
-Checks if an access token is valid and optionally that it has a required list of scopes.
+Checks if an access token is valid and optionally that it has a required list of scopes. Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
 
 !!! abstract "Parameters"
     * `access_token: str`: The access token to validate.
@@ -195,12 +197,12 @@ Checks if an access token is valid and optionally that it has a required list of
     except FiefAccessTokenMissingScope:
         print("Missing required scope")
 
-    print(access_token_info)  # {"id": "USER_ID", "scope": ["openid", "required_scope"], "access_token": "ACCESS_TOKEN"}
+    print(access_token_info)
     ```
 
-### `userinfo`
+#### `userinfo`
 
-Returns fresh user information from the Fief API using a valid access token.
+Returns fresh [`FiefUserInfo`](#fiefuserinfo) from the Fief API using a valid access token.
 
 !!! abstract "Parameters"
     * `access_token: str`: A valid access token
@@ -210,7 +212,32 @@ Returns fresh user information from the Fief API using a valid access token.
     userinfo = fief.userinfo("ACCESS_TOKEN")
     ```
 
-### `logout_url`
+#### `update_profile`
+
+Updates user information with the Fief API using a valid access token.
+
+!!! abstract "Parameters"
+    * `access_token: str`: A valid access token
+    * `data: Dict[str, Any]`: A dictionary containing the data to update
+
+!!! example "Update email address"
+    ```py
+    userinfo = fief.update_profile("ACCESS_TOKEN", { "email": "anne@nantes.city" })
+    ```
+
+!!! example "Update password"
+    ```py
+    userinfo = fief.update_profile("ACCESS_TOKEN", { "password": "hermine1" })
+    ```
+
+!!! example "Update user field"
+    To update [user field](../../getting-started/user-fields.md) values, you need to nest them into a `fields` dictionary, indexed by their slug.
+
+    ```py
+    userinfo = fief.update_profile("ACCESS_TOKEN", { "fields": { "first_name": "Anne" } })
+    ```
+
+#### `logout_url`
 
 Returns a logout URL. If you redirect the user to this page, Fief will clear the session stored on its side.
 
@@ -222,4 +249,56 @@ Returns a logout URL. If you redirect the user to this page, Fief will clear the
 !!! example
     ```py
     logout_url = fief.logout_url("http://localhost:8000")
+    ```
+
+### `FiefTokenResponse`
+
+Typed dictionary containing the tokens and related information returned by Fief after a successful authentication.
+
+!!! abstract "Structure"
+    * `access_token: str`: Access token you can use to call the Fief API
+    * `id_token: str`: ID token containing user information
+    * `token_type: str`: Type of token, usually `bearer`
+    * `expires_int: int`: Number of seconds after which the tokens will expire
+    * `refresh_token: Optional[str]`: Token provided only if scope `offline_access` was granted. Allows you to retrieve fresh tokens using the [`auth_refresh_token`](#auth_refresh_token) method.
+
+
+### `FiefAccessTokenInfo`
+
+Typed dictionary containing information about the access token.
+
+!!! abstract "Structure"
+    * `id: uuid.UUID`: ID of the user
+    * `scope: List[str]`: List of granted scopes for this access token
+    * `access_token: str`: Access token you can use to call the Fief API
+
+
+!!! example
+    ```py
+    {
+        "id": "aeeb8bfa-e8f4-4724-9427-c3d5af66190e",
+        "scope": ["openid", "required_scope"],
+        "access_token": "ACCESS_TOKEN",
+    }
+    ```
+
+### `FiefUserInfo`
+
+Dictionary containing user information.
+
+!!! abstract "Structure"
+    * `sub: str`: ID of the user
+    * `email: str`: Email address of the user
+    * `tenant_id: str`: ID of the [tenant](../../getting-started/tenants.md) associated to the user
+    * Available [user fields](../../getting-started/user-fields.md) values for this user, indexed by their slug.
+
+!!! example
+    ```py
+    {
+        "sub": "aeeb8bfa-e8f4-4724-9427-c3d5af66190e",
+        "email": "anne@bretagne.duchy",
+        "tenant_id": "c91ecb7f-359c-4244-8385-51ecd6c0d06b",
+        "first_name": "Anne",
+        "last_name": "De Bretagne",
+    }
     ```

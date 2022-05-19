@@ -22,7 +22,6 @@ theme:
     - navigation.expand
     - navigation.sections
     - navigation.top
-    - navigation.indexes
     - search.suggest
     - search.highlight
     - content.code.annotate
@@ -77,11 +76,11 @@ nav:
     - getting-started/oauth2.md
   - 'Integrate':
     - 'Python':
-      - integrate/python/index.md
+      - 'General': integrate/python/index.md
       - integrate/python/fastapi.md
       - integrate/python/flask.md
     - 'JavaScript':
-      - integrate/javascript/index.md
+      - 'General': integrate/javascript/index.md
       - integrate/javascript/browser.md
       - integrate/javascript/react.md
   - 'Going further':

@@ -54,7 +54,9 @@ To help you further, we provide you helpers and examples for popular JavaScript 
 [Integrate with React](react.md){ .md-button }
 {: .buttons }
 
-## `Fief` reference
+## Reference
+
+### `Fief` client
 
 !!! abstract "Constructor"
     * `baseURL: string`: Base URL of your Fief tenant.
@@ -62,7 +64,7 @@ To help you further, we provide you helpers and examples for popular JavaScript 
     * `clientSecret: string | undefined`: Secret of your Fief client. **It's not recommended to use it in the context of a browser app, since it can be easily found by the end-user in the source code. The recommended way is to use a [Public client](../../getting-started/clients.md#public-clients).**
     * `encryptionKey: string | undefined`: Encryption key of your Fief client. Necessary only if [ID Token encryption](../../going-further/id-token-encryption.md) is enabled.
 
-### `getAuthURL`
+#### `getAuthURL`
 
 Returns an authorization URL.
 
@@ -82,9 +84,9 @@ Returns an authorization URL.
     );
     ```
 
-### `authCallback`
+#### `authCallback`
 
-Returns valid tokens and user info in exchange of an authorization code.
+Returns a [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fiefuserinfo) in exchange of an authorization code.
 
 !!! abstract "Parameters"
     * `code: string`: The authorization code.
@@ -96,9 +98,9 @@ Returns valid tokens and user info in exchange of an authorization code.
     const [tokens, userinfo] = await fief.authCallback('CODE', 'http://localhost:8000/callback');
     ```
 
-### `authRefreshToken`
+#### `authRefreshToken`
 
-Returns fresh tokens and user info in exchange of a refresh token.
+Returns fresh [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fiefuserinfo) in exchange of a refresh token.
 
 !!! abstract "Parameters"
     * `refresh_token: string`: A valid refresh token.
@@ -109,9 +111,9 @@ Returns fresh tokens and user info in exchange of a refresh token.
     const [tokens, userinfo] = await fief.authRefreshToken('REFRESH_TOKEN');
     ```
 
-### `validateAccessToken`
+#### `validateAccessToken`
 
-Checks if an access token is valid and optionally that it has a required list of scopes.
+Checks if an access token is valid and optionally that it has a required list of scopes. Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
 
 !!! abstract "Parameters"
     * `accessToken: string`: The access token to validate.
@@ -123,7 +125,7 @@ Checks if an access token is valid and optionally that it has a required list of
 
     try {
         accessTokenInfo = await fief.validateAccessToken('ACCESS_TOKEN', required_scope=['required_scope']);
-        console.log(accessTokenInfo); // {"id": "USER_ID", "scope": ["openid", "required_scope"], "access_token": "ACCESS_TOKEN"}
+        console.log(accessTokenInfo);
     } catch (err) {
         if (err instanceof FiefAccessTokenInvalid) {
             console.error('Invalid access token');
@@ -135,9 +137,9 @@ Checks if an access token is valid and optionally that it has a required list of
     }
     ```
 
-### `userinfo`
+#### `userinfo`
 
-Returns fresh user information from the Fief API using a valid access token.
+Returns fresh [`FiefUserInfo`](#fiefuserinfo) from the Fief API using a valid access token.
 
 !!! abstract "Parameters"
     * `accessToken: string`: A valid access token
@@ -147,7 +149,33 @@ Returns fresh user information from the Fief API using a valid access token.
     userinfo = await fief.userinfo('ACCESS_TOKEN');
     ```
 
-### `getLogoutURL`
+
+#### `updateProfile`
+
+Updates user information with the Fief API using a valid access token.
+
+!!! abstract "Parameters"
+    * `accessToken: string`: A valid access token
+    * `data: Record<string, any>`: An object containing the data to update
+
+!!! example "Update email address"
+    ```ts
+    userinfo = await fief.updateProfile('ACCESS_TOKEN', { email: 'anne@nantes.city' })
+    ```
+
+!!! example "Update password"
+    ```ts
+    userinfo = await fief.updateProfile('ACCESS_TOKEN', { password: 'hermine1' })
+    ```
+
+!!! example "Update user field"
+    To update [user field](../../getting-started/user-fields.md) values, you need to nest them into a `fields` object, indexed by their slug.
+
+    ```ts
+    userinfo = await fief.update_profile('ACCESS_TOKEN', { fields: { first_name: 'Anne' } })
+    ```
+
+#### `getLogoutURL`
 
 Returns a logout URL. If you redirect the user to this page, Fief will clear the session stored on its side.
 
@@ -161,4 +189,56 @@ Returns a logout URL. If you redirect the user to this page, Fief will clear the
     const logoutURL = await fief.getLogoutURL({
         redirectURI: 'http://localhost:8000',
     });
+    ```
+
+### `FiefTokenResponse`
+
+Object containing the tokens and related information returned by Fief after a successful authentication.
+
+!!! abstract "Structure"
+    * `access_token: string`: Access token you can use to call the Fief API
+    * `id_token: string`: ID token containing user information
+    * `token_type: string`: Type of token, usually `bearer`
+    * `expires_int: number`: Number of seconds after which the tokens will expire
+    * `refresh_token: string | undefined`: Token provided only if scope `offline_access` was granted. Allows you to retrieve fresh tokens using the [`authRefreshToken`](#authrefreshtoken) method.
+
+
+### `FiefAccessTokenInfo`
+
+Object containing information about the access token.
+
+!!! abstract "Structure"
+    * `id: string`: ID of the user
+    * `scope: string[]`: Array of granted scopes for this access token
+    * `access_token: string`: Access token you can use to call the Fief API
+
+
+!!! example
+    ```js
+    {
+        id: 'aeeb8bfa-e8f4-4724-9427-c3d5af66190e',
+        scope: ['openid', 'required_scope'],
+        access_token: 'ACCESS_TOKEN',
+    }
+    ```
+
+### `FiefUserInfo`
+
+Object containing user information.
+
+!!! abstract "Structure"
+    * `sub: string`: ID of the user
+    * `email: string`: Email address of the user
+    * `tenant_id: string`: ID of the [tenant](../../getting-started/tenants.md) associated to the user
+    * Available [user fields](../../getting-started/user-fields.md) values for this user, indexed by their slug.
+
+!!! example
+    ```js
+    {
+        sub: 'aeeb8bfa-e8f4-4724-9427-c3d5af66190e',
+        email: 'anne@bretagne.duchy',
+        tenant_id: 'c91ecb7f-359c-4244-8385-51ecd6c0d06b',
+        first_name: 'Anne',
+        last_name: 'De Bretagne',
+    }
     ```

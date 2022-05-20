@@ -959,16 +959,16 @@
 <a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">403</span>
 <a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
 <a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
-<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/user&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>  <span class="c1"># (5)!</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">def</span> <span class="nf">get_user</span><span class="p">():</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">user</span>  <span class="c1"># (6)!</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/authenticated&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">authenticated</span><span class="p">()</span>  <span class="c1"># (5)!</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">def</span> <span class="nf">get_authenticated</span><span class="p">():</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">access_token_info</span>  <span class="c1"># (6)!</span>
 <a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>
 <a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>
-<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/user-scope&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span> <span class="s2">&quot;required_scope&quot;</span><span class="p">])</span>  <span class="c1"># (7)!</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="k">def</span> <span class="nf">get_user_scope</span><span class="p">():</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">user</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/authenticated-scope&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">authenticated</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span> <span class="s2">&quot;required_scope&quot;</span><span class="p">])</span>  <span class="c1"># (7)!</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="k">def</span> <span class="nf">get_authenticated_scope</span><span class="p">():</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">access_token_info</span>
 </code></pre></div>
 <ol>
 <li>
@@ -992,18 +992,18 @@
 <p>By registering a Flask error handler, we can catch this error and customize the response returned to the user. Here, we just return an empty response with the 403 status code.</p>
 </li>
 <li>
-<p><strong><code>current_user</code> decorator</strong></p>
-<p>This is where the magic happens: <code>FiefAuth</code> gives you a <code>current_user</code> decorator to check for the access token and optionally for required scopes.</p>
+<p><strong><code>authenticated</code> decorator</strong></p>
+<p>This is where the magic happens: <code>FiefAuth</code> gives you a <code>authenticated</code> decorator to check for the access token and optionally for required scopes.</p>
 <p>If everything goes well, the route logic will be executed.</p>
 </li>
 <li>
-<p><strong><code>user</code> dictionary is available in <code>g</code></strong></p>
-<p>When a valid access token is found in the request, the <code>current_user</code> decorator will automatically add the <code>user</code> property to the global <a href="https://flask.palletsprojects.com/en/api/#flask.g"><code>g</code> application context of Flask</a>.</p>
-<p>This <code>user</code> property is a dictionary containing the ID of the user, the list of allowed scopes and the raw access token.</p>
+<p><strong><code>access_token_info</code> dictionary is available in <code>g</code></strong></p>
+<p>When a valid access token is found in the request, the <code>access_token_info</code> decorator will automatically add the <code>access_token_info</code> property to the global <a href="https://flask.palletsprojects.com/en/api/#flask.g"><code>g</code> application context of Flask</a>.</p>
+<p>This <code>access_token_info</code> property is a <a href="../#fiefaccesstokeninfo"><code>FiefAccessTokenInfo</code></a> dictionary containing the ID of the user, the list of allowed scopes and the raw access token.</p>
 </li>
 <li>
 <p><strong>Check for scopes</strong></p>
-<p>The <code>current_user</code> decorator accepts an optional <code>scope</code> argument where you can list the scope required to access this route.</p>
+<p>The <code>access_token_info</code> decorator accepts an optional <code>scope</code> argument where you can list the scope required to access this route.</p>
 <p>If the access token doesn't have the required scope, the <code>FiefAuthForbidden</code> is raised.</p>
 </li>
 </ol>
@@ -1024,6 +1024,7 @@
 </div>
 <p>The examples we showed previously are working well in a pure REST API context: a frontend, like interactive documentation, a JavaScript application or a mobile app will take care of the OAuth2 authentication flow to retrieve an access token before making request to your API.</p>
 <p>Another common context is <strong>traditional web application</strong>, where the server takes care of generating HTML pages before returning it to the browser. In this case, we'll need some routes to redirect the user to the Fief login page if they're not authenticated and take care of storing the access token somewhere. This is what'll show in this example.</p>
+<p>Besides, we'll usually need the basic information about the authenticated user, like its email or the values of the custom <a href="../../../getting-started/user-fields/">user fields</a>. We'll see how we can use it.</p>
 <p>Basically, here's what we'll do:</p>
 <ol>
 <li>This time, we'll expect the access token to be passed through a traditional <strong>cookie</strong> instead of an HTTP header. Cookies are very convenient when designing web apps because they are handled automatically by the browser.</li>
@@ -1031,75 +1032,123 @@
 <li>Upon successful login, Fief will automatically <strong>redirect the user to the callback route</strong>. This callback route will take care of <strong>setting a new cookie containing the access token</strong>. It means that the access token will be safely stored in the browser memory.</li>
 <li>Finally, the user is redirected back to the protected route. The browser will automatically send the cookie containing the access token: our request is now authenticated!</li>
 </ol>
-<div class="highlight"><span class="filename">app.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kn">from</span> <span class="nn">fief_client.integrations.flask</span> <span class="kn">import</span> <span class="p">(</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">FiefAuth</span><span class="p">,</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">FiefAuthForbidden</span><span class="p">,</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">FiefAuthUnauthorized</span><span class="p">,</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">get_cookie</span><span class="p">,</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">)</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">url_for</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="n">SESSION_COOKIE_NAME</span> <span class="o">=</span> <span class="s2">&quot;user_session&quot;</span>
+<div class="highlight"><span class="filename">app.py</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span> <span class="nn">uuid</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">Fief</span><span class="p">,</span> <span class="n">FiefUserInfo</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kn">from</span> <span class="nn">fief_client.integrations.flask</span> <span class="kn">import</span> <span class="p">(</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">FiefAuth</span><span class="p">,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="n">FiefAuthForbidden</span><span class="p">,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    <span class="n">FiefAuthUnauthorized</span><span class="p">,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>    <span class="n">get_cookie</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">)</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url_for</span>
 <a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>  <span class="c1"># (1)!</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">)</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="n">auth</span> <span class="o">=</span> <span class="n">FiefAuth</span><span class="p">(</span><span class="n">fief</span><span class="p">,</span> <span class="n">get_cookie</span><span class="p">(</span><span class="n">SESSION_COOKIE_NAME</span><span class="p">))</span>  <span class="c1"># (2)!</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">SESSION_COOKIE_NAME</span> <span class="o">=</span> <span class="s2">&quot;user_session&quot;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="s2">&quot;SECRET&quot;</span>  <span class="c1"># (1)!</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="n">fief</span> <span class="o">=</span> <span class="n">Fief</span><span class="p">(</span>  <span class="c1"># (2)!</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="s2">&quot;https://example.fief.dev&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>    <span class="s2">&quot;YOUR_CLIENT_ID&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="s2">&quot;YOUR_CLIENT_SECRET&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="p">)</span>
 <a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>
 <a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="nd">@app</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="n">FiefAuthUnauthorized</span><span class="p">)</span>  <span class="c1"># (3)!</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="k">def</span> <span class="nf">fief_unauthorized_error</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>    <span class="n">redirect_uri</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth_callback&quot;</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (4)!</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>    <span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_uri</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>  <span class="c1"># (5)!</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">auth_url</span><span class="p">)</span>  <span class="c1"># (6)!</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="k">def</span> <span class="nf">get_userinfo_cache</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FiefUserInfo</span><span class="p">]:</span>  <span class="c1"># (3)!</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>    <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;userinfo-</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="k">def</span> <span class="nf">set_userinfo_cache</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">,</span> <span class="n">userinfo</span><span class="p">:</span> <span class="n">FiefUserInfo</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># (4)!</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a>    <span class="n">session</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;userinfo-</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">userinfo</span>
 <a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="nd">@app</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="n">FiefAuthForbidden</span><span class="p">)</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="k">def</span> <span class="nf">fief_forbidden_error</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">403</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/auth-callback&quot;</span><span class="p">)</span>  <span class="c1"># (7)!</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="k">def</span> <span class="nf">auth_callback</span><span class="p">():</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a>    <span class="n">redirect_uri</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth_callback&quot;</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>    <span class="n">code</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>    <span class="n">tokens</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="p">)</span>  <span class="c1"># (8)!</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="n">auth</span> <span class="o">=</span> <span class="n">FiefAuth</span><span class="p">(</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a>    <span class="n">fief</span><span class="p">,</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a>    <span class="n">get_cookie</span><span class="p">(</span><span class="n">SESSION_COOKIE_NAME</span><span class="p">),</span>  <span class="c1"># (5)</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a>    <span class="n">get_userinfo_cache</span><span class="o">=</span><span class="n">get_userinfo_cache</span><span class="p">,</span>  <span class="c1"># (6)!</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a>    <span class="n">set_userinfo_cache</span><span class="o">=</span><span class="n">set_userinfo_cache</span><span class="p">,</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="p">)</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="n">app</span><span class="o">.</span><span class="n">secret_key</span> <span class="o">=</span> <span class="n">SECRET_KEY</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a>
 <a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;protected&quot;</span><span class="p">))</span>  <span class="c1"># (9)!</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a>    <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span>  <span class="c1"># (10)!</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>        <span class="n">SESSION_COOKIE_NAME</span><span class="p">,</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>        <span class="n">tokens</span><span class="p">[</span><span class="s2">&quot;access_token&quot;</span><span class="p">],</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>        <span class="n">expires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="s2">&quot;expires_in&quot;</span><span class="p">]),</span>
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>        <span class="n">httponly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># (11)!</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>        <span class="n">secure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># ❌ Set this to `True` in production (12)!</span>
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>    <span class="p">)</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a>
-<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>    <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="nd">@app</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="n">FiefAuthUnauthorized</span><span class="p">)</span>  <span class="c1"># (7)!</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="k">def</span> <span class="nf">fief_unauthorized_error</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>    <span class="n">redirect_uri</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth_callback&quot;</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># (8)!</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a>    <span class="n">auth_url</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_url</span><span class="p">(</span><span class="n">redirect_uri</span><span class="p">,</span> <span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">])</span>  <span class="c1"># (9)!</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">auth_url</span><span class="p">)</span>  <span class="c1"># (10)!</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="nd">@app</span><span class="o">.</span><span class="n">errorhandler</span><span class="p">(</span><span class="n">FiefAuthForbidden</span><span class="p">)</span>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="k">def</span> <span class="nf">fief_forbidden_error</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a>    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="mi">403</span>
 <a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a>
 <a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a>
-<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>  <span class="c1"># (13)!</span>
-<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
-<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">user</span>
-<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;h1&gt;You are authenticated. Your user ID is </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/h1&gt;&quot;</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/auth-callback&quot;</span><span class="p">)</span>  <span class="c1"># (11)!</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="k">def</span> <span class="nf">auth_callback</span><span class="p">():</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a>    <span class="n">redirect_uri</span> <span class="o">=</span> <span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;auth_callback&quot;</span><span class="p">,</span> <span class="n">_external</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a>    <span class="n">code</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;code&quot;</span><span class="p">]</span>
+<a id="__codelineno-2-59" name="__codelineno-2-59" href="#__codelineno-2-59"></a>    <span class="n">tokens</span><span class="p">,</span> <span class="n">userinfo</span> <span class="o">=</span> <span class="n">fief</span><span class="o">.</span><span class="n">auth_callback</span><span class="p">(</span><span class="n">code</span><span class="p">,</span> <span class="n">redirect_uri</span><span class="p">)</span>  <span class="c1"># (12)!</span>
+<a id="__codelineno-2-60" name="__codelineno-2-60" href="#__codelineno-2-60"></a>
+<a id="__codelineno-2-61" name="__codelineno-2-61" href="#__codelineno-2-61"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;protected&quot;</span><span class="p">))</span>  <span class="c1"># (13)!</span>
+<a id="__codelineno-2-62" name="__codelineno-2-62" href="#__codelineno-2-62"></a>    <span class="n">response</span><span class="o">.</span><span class="n">set_cookie</span><span class="p">(</span>  <span class="c1"># (14)!</span>
+<a id="__codelineno-2-63" name="__codelineno-2-63" href="#__codelineno-2-63"></a>        <span class="n">SESSION_COOKIE_NAME</span><span class="p">,</span>
+<a id="__codelineno-2-64" name="__codelineno-2-64" href="#__codelineno-2-64"></a>        <span class="n">tokens</span><span class="p">[</span><span class="s2">&quot;access_token&quot;</span><span class="p">],</span>
+<a id="__codelineno-2-65" name="__codelineno-2-65" href="#__codelineno-2-65"></a>        <span class="n">expires</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span> <span class="o">+</span> <span class="n">tokens</span><span class="p">[</span><span class="s2">&quot;expires_in&quot;</span><span class="p">]),</span>
+<a id="__codelineno-2-66" name="__codelineno-2-66" href="#__codelineno-2-66"></a>        <span class="n">httponly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># (15)!</span>
+<a id="__codelineno-2-67" name="__codelineno-2-67" href="#__codelineno-2-67"></a>        <span class="n">secure</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># ❌ Set this to `True` in production (16)!</span>
+<a id="__codelineno-2-68" name="__codelineno-2-68" href="#__codelineno-2-68"></a>    <span class="p">)</span>
+<a id="__codelineno-2-69" name="__codelineno-2-69" href="#__codelineno-2-69"></a>
+<a id="__codelineno-2-70" name="__codelineno-2-70" href="#__codelineno-2-70"></a>    <span class="n">set_userinfo_cache</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="n">userinfo</span><span class="p">[</span><span class="s2">&quot;sub&quot;</span><span class="p">]),</span> <span class="n">userinfo</span><span class="p">)</span>  <span class="c1"># (17)!</span>
+<a id="__codelineno-2-71" name="__codelineno-2-71" href="#__codelineno-2-71"></a>
+<a id="__codelineno-2-72" name="__codelineno-2-72" href="#__codelineno-2-72"></a>    <span class="k">return</span> <span class="n">response</span>
+<a id="__codelineno-2-73" name="__codelineno-2-73" href="#__codelineno-2-73"></a>
+<a id="__codelineno-2-74" name="__codelineno-2-74" href="#__codelineno-2-74"></a>
+<a id="__codelineno-2-75" name="__codelineno-2-75" href="#__codelineno-2-75"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-76" name="__codelineno-2-76" href="#__codelineno-2-76"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>  <span class="c1"># (18)!</span>
+<a id="__codelineno-2-77" name="__codelineno-2-77" href="#__codelineno-2-77"></a><span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+<a id="__codelineno-2-78" name="__codelineno-2-78" href="#__codelineno-2-78"></a>    <span class="n">user</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">user</span>  <span class="c1"># (19)!</span>
+<a id="__codelineno-2-79" name="__codelineno-2-79" href="#__codelineno-2-79"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;&lt;h1&gt;You are authenticated. Your user email is </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/h1&gt;&quot;</span>
 </code></pre></div>
 <ol>
+<li>
+<p><strong>Define a secret key for Flask</strong></p>
+<p>We'll use the <a href="https://flask.palletsprojects.com/en/2.1.x/api/#sessions">Sessions mechanism from Flask</a> to keep user information in cache. To enable it, we need to set a secret key for Flask.</p>
+<p>Generate a <strong>strong</strong> passphrase and <strong>don't share it</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Avoid to hardcode your secrets in your code</p>
+<p>It's usually not recommended to hardcode secrets like Client ID and Secret in your code like this. If your code gets published on the web, for example on GitHub, the security of your workspace would be compromised.</p>
+<p>Besides, it'll be harder if you need to deploy on several environments, like a staging or testing one, in addition to your production environment.</p>
+<p>A standard and widely-used approach is to use <a href="https://12factor.net/config">environment variables</a>.</p>
+</div>
+</li>
 <li>
 <p><strong>This doesn't change from the previous example</strong></p>
 <p>The <code>Fief</code> client is always at the heart of the integration 😉</p>
 </li>
 <li>
+<p><strong>We define a function to retrieve user information from cache</strong></p>
+<p>To make sure we don't call the Fief API every time we want the user data, we'll cache it in our application. It'll be way more performant!</p>
+<p>To do this, we implement a simple function allowing us to retrieve the user information given a user ID.</p>
+<p>In this example, we simply use the <a href="https://flask.palletsprojects.com/en/2.1.x/api/#sessions">Sessions mechanism from Flask</a>, but it can be something more complex, like reading from a Redis store.</p>
+</li>
+<li>
+<p><strong>We define a function to set user information in cache</strong></p>
+<p>As you probably have guessed, we need the other side of the operation: saving user information in cache.</p>
+<p>To do this, we implement a simple function accepting a user ID and a <a href="../#fiefuserinfo"><code>FiefUserInfo</code></a> dictionary as arguments. There, you'll need to store this data in cache.</p>
+<p>In this example, we simply use the <a href="https://flask.palletsprojects.com/en/2.1.x/api/#sessions">Sessions mechanism from Flask</a>, but it can be something more complex, like writing to a Redis store.</p>
+</li>
+<li>
 <p><strong>We use a cookie getter</strong></p>
 <p>Contrary to the previous examples, we expect the access token to be passed in a cookie. Thus, we use the <code>get_cookie</code> getter.</p>
 <p>Notice that we set the name of this cookie through the <code>SESSION_COOKIE_NAME</code> constant.</p>
+</li>
+<li>
+<p><strong>We pass both <code>get_userinfo_cache</code> and <code>set_userinfo_cache</code> as arguments</strong></p>
+<p>Basically, we tell <code>FiefAuth</code> to use the caching functions we implemented when we want to get the user information.</p>
+<p>That's why it's important to strictly follow the functions signature presented above: <code>FiefAuth</code> will call them inside its logic.</p>
 </li>
 <li>
 <p><strong>We change the error handler for <code>FiefAuthUnauthorized</code></strong></p>
@@ -1144,9 +1193,20 @@
 <p>However, in a local environment, you usually don't serve your application with SSL. That's why we set it to <code>False</code> in this example. A common approach to handle this is to have an environment variable to control this parameter, so you can disable it in local and enable it in production.</p>
 </li>
 <li>
-<p><strong>Use the <code>current_user</code> decorator as usual</strong></p>
-<p>This doesn't change from the previous example. The dependency will check if the cookie is available in the request and proceed if everything goes well.</p>
-<p>Otherwise, an <code>FiefAuthUnauthorized</code> error will be raised and the user will be redirected to the Fief login page.</p>
+<p><strong>We cache the user information</strong></p>
+<p>When a user has successfully authenticated, we do not only get the access token: we also get an <a href="../../../getting-started/oauth2/#access-token-and-id-token">ID token</a> which already contains the user information.</p>
+<p>Hence, we'll take this opportunity to store it in our cache! The ID token is automatically decoded by <a href="../#auth_callback"><code>fief.auth_callback</code></a> method.</p>
+<p>Thus, we just have to use our cache function to store it!</p>
+</li>
+<li>
+<p><strong>Use the <code>current_user</code> decorator</strong></p>
+<p>This time, we use the <code>current_user</code> decorator instead of <code>authenticated</code>. Under the hood, it'll stil call <code>authenticated</code> and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a <a href="../#fiefuserinfo"><code>FiefUserInfo</code></a> dictionary containing the data of the user.</p>
+<p>If the request is not authenticated, an <code>FiefAuthUnauthorized</code> error will be raised and the user will be redirected to the Fief login page.</p>
+</li>
+<li>
+<p><strong><code>user</code> dictionary is available in <code>g</code></strong></p>
+<p>If the request is properly authenticated, the <code>current_user</code> decorator will automatically add the <code>user</code> property to the global <a href="https://flask.palletsprojects.com/en/api/#flask.g"><code>g</code> application context of Flask</a>.</p>
+<p>This <code>user</code> property is a <a href="../#fiefuserinfo"><code>FiefUserInfo</code></a> dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.</p>
 </li>
 </ol>
 <p>That's it! If you run this application and go to <a href="http://localhost:8000/protected">http://localhost:8000/protected</a>, you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.</p>

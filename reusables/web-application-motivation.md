@@ -2,6 +2,8 @@ The examples we showed previously are working well in a pure REST API context: a
 
 Another common context is **traditional web application**, where the server takes care of generating HTML pages before returning it to the browser. In this case, we'll need some routes to redirect the user to the Fief login page if they're not authenticated and take care of storing the access token somewhere. This is what'll show in this example.
 
+Besides, we'll usually need the basic information about the authenticated user, like its email or the values of the custom [user fields](../../getting-started/user-fields.md). We'll see how we can use it.
+
 Basically, here's what we'll do:
 
 1. This time, we'll expect the access token to be passed through a traditional **cookie** instead of an HTTP header. Cookies are very convenient when designing web apps because they are handled automatically by the browser.

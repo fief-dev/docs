@@ -3,7 +3,7 @@ from datetime import datetime
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import APIKeyCookie
-from fief_client import FiefAccessTokenInfo, FiefAsync
+from fief_client import FiefAsync, FiefUserInfo
 from fief_client.integrations.fastapi import FiefAuth
 
 
@@ -50,8 +50,8 @@ async def auth_callback(request: Request, response: Response, code: str = Query(
 
 @app.get("/protected", name="protected")
 async def protected(
-    access_token_info: FiefAccessTokenInfo = Depends(auth.current_user()),  # (14)!
+    user: FiefUserInfo = Depends(auth.current_user()),  # (14)!
 ):
     return HTMLResponse(
-        f"<h1>You are authenticated. Your user ID is {access_token_info['id']}</h1>"
+        f"<h1>You are authenticated. Your user email is {user['email']}</h1>"
     )

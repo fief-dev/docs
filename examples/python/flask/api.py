@@ -28,13 +28,13 @@ def fief_forbidden_error(e):
     return "", 403
 
 
-@app.get("/user")
-@auth.current_user()  # (5)!
-def get_user():
-    return g.user  # (6)!
+@app.get("/authenticated")
+@auth.authenticated()  # (5)!
+def get_authenticated():
+    return g.access_token_info  # (6)!
 
 
-@app.get("/user-scope")
-@auth.current_user(scope=["openid", "required_scope"])  # (7)!
-def get_user_scope():
-    return g.user
+@app.get("/authenticated-scope")
+@auth.authenticated(scope=["openid", "required_scope"])  # (7)!
+def get_authenticated_scope():
+    return g.access_token_info

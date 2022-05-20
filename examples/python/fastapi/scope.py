@@ -23,7 +23,7 @@ app = FastAPI()
 @app.get("/user")
 async def get_user(
     access_token_info: FiefAccessTokenInfo = Depends(
-        auth.current_user(["openid", "required_scope"])
+        auth.authenticated(["openid", "required_scope"])
     ),
 ):
     return access_token_info

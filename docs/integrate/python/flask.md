@@ -49,21 +49,21 @@ In this first example, we won't implement routes to perform the OAuth2 authentic
 
     By registering a Flask error handler, we can catch this error and customize the response returned to the user. Here, we just return an empty response with the 403 status code.
 
-5. **`current_user` decorator**
+5. **`authenticated` decorator**
 
-    This is where the magic happens: `FiefAuth` gives you a `current_user` decorator to check for the access token and optionally for required scopes.
+    This is where the magic happens: `FiefAuth` gives you a `authenticated` decorator to check for the access token and optionally for required scopes.
 
     If everything goes well, the route logic will be executed.
 
-6. **`user` dictionary is available in `g`**
+6. **`access_token_info` dictionary is available in `g`**
 
-    When a valid access token is found in the request, the `current_user` decorator will automatically add the `user` property to the global [`g` application context of Flask](https://flask.palletsprojects.com/en/api/#flask.g).
+    When a valid access token is found in the request, the `access_token_info` decorator will automatically add the `access_token_info` property to the global [`g` application context of Flask](https://flask.palletsprojects.com/en/api/#flask.g).
 
-    This `user` property is a dictionary containing the ID of the user, the list of allowed scopes and the raw access token.
+    This `access_token_info` property is a [`FiefAccessTokenInfo`](./index.md#fiefaccesstokeninfo) dictionary containing the ID of the user, the list of allowed scopes and the raw access token.
 
 7. **Check for scopes**
 
-    The `current_user` decorator accepts an optional `scope` argument where you can list the scope required to access this route.
+    The `access_token_info` decorator accepts an optional `scope` argument where you can list the scope required to access this route.
 
     If the access token doesn't have the required scope, the `FiefAuthForbidden` is raised.
 
@@ -84,64 +84,108 @@ And that's about it!
 --8<-- "examples/python/flask/web.py"
 ```
 
-1. **This doesn't change from the previous example**
+1. **Define a secret key for Flask**
+
+    We'll use the [Sessions mechanism from Flask](https://flask.palletsprojects.com/en/2.1.x/api/#sessions) to keep user information in cache. To enable it, we need to set a secret key for Flask.
+
+    Generate a **strong** passphrase and **don't share it**.
+
+    --8<-- "reusables/hardcoded-secrets-callout.md"
+
+2. **This doesn't change from the previous example**
 
     The `Fief` client is always at the heart of the integration 😉
 
-2. **We use a cookie getter**
+3. **We define a function to retrieve user information from cache**
+
+    To make sure we don't call the Fief API every time we want the user data, we'll cache it in our application. It'll be way more performant!
+
+    To do this, we implement a simple function allowing us to retrieve the user information given a user ID.
+
+    In this example, we simply use the [Sessions mechanism from Flask](https://flask.palletsprojects.com/en/2.1.x/api/#sessions), but it can be something more complex, like reading from a Redis store.
+
+4. **We define a function to set user information in cache**
+
+    As you probably have guessed, we need the other side of the operation: saving user information in cache.
+
+    To do this, we implement a simple function accepting a user ID and a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary as arguments. There, you'll need to store this data in cache.
+
+    In this example, we simply use the [Sessions mechanism from Flask](https://flask.palletsprojects.com/en/2.1.x/api/#sessions), but it can be something more complex, like writing to a Redis store.
+
+5. **We use a cookie getter**
 
     Contrary to the previous examples, we expect the access token to be passed in a cookie. Thus, we use the `get_cookie` getter.
 
     Notice that we set the name of this cookie through the `SESSION_COOKIE_NAME` constant.
 
-3. **We change the error handler for `FiefAuthUnauthorized`**
+6. **We pass both `get_userinfo_cache` and `set_userinfo_cache` as arguments**
+
+    Basically, we tell `FiefAuth` to use the caching functions we implemented when we want to get the user information.
+
+    That's why it's important to strictly follow the functions signature presented above: `FiefAuth` will call them inside its logic.
+
+7. **We change the error handler for `FiefAuthUnauthorized`**
 
     This time, we'll generate a redirect response so the user can login on Fief.
 
-4. **We build the redirect URL**
+8. **We build the redirect URL**
 
     This points to our `/auth-callback` route that we define below.
 
-5. **We generate an authorization URL on the Fief server**
+9.  **We generate an authorization URL on the Fief server**
 
     Thanks to the `auth_url` method on the Fief client, we can automatically generate the authorization URL on the Fief server.
 
-6. **We build a redirect response**
+10. **We build a redirect response**
 
     We redirect the user to the Fief authorization URL.
 
-7. **We implement an `/auth-callback` route**
+11. **We implement an `/auth-callback` route**
 
     This is the route that'll take care of exchanging the authorization code with a fresh access token and save it in a cookie.
 
-8.  **We generate an access token**
+12. **We generate an access token**
 
     We finish the OAuth2 flow by exchanging the authorization code with a fresh access token.
 
-9.  **We build a redirection to the `/protected` route**
+13. **We build a redirection to the `/protected` route**
 
     The user will now be correctly authenticated to our web application. Thus, we can redirect them to a protected page.
 
-10. **We build a new cookie containing the access token**
+14. **We build a new cookie containing the access token**
 
     The response will contain a `Set-Cookie` header instructing the browser to save the access token in its memory. This method allows us to configure each properties of the cookie.
 
     You can read more about HTTP cookies on the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies).
 
-11. **Set the cookie as `HTTPOnly`**
+15. **Set the cookie as `HTTPOnly`**
 
     For such sensitive values, it's strongly recommended to set the cookie as `HTTPOnly`. It means that it won't be possible to read its value from JavaScript, reducing potential attacks.
 
-12. **Set the cookie as secure in production**
+16. **Set the cookie as secure in production**
 
     For such sensitive values, it's strongly recommended to set the cookie as `Secure`. It tells the browser to send the cookie **only on HTTPS (SSL)** connection, reducing the risk of the access token to be stolen by a attacker between the client and the server.
 
     However, in a local environment, you usually don't serve your application with SSL. That's why we set it to `False` in this example. A common approach to handle this is to have an environment variable to control this parameter, so you can disable it in local and enable it in production.
 
-13. **Use the `current_user` decorator as usual**
+17. **We cache the user information**
 
-    This doesn't change from the previous example. The dependency will check if the cookie is available in the request and proceed if everything goes well.
+    When a user has successfully authenticated, we do not only get the access token: we also get an [ID token](../../getting-started/oauth2.md#access-token-and-id-token) which already contains the user information.
 
-    Otherwise, an `FiefAuthUnauthorized` error will be raised and the user will be redirected to the Fief login page.
+    Hence, we'll take this opportunity to store it in our cache! The ID token is automatically decoded by [`fief.auth_callback`](./index.md#auth_callback) method.
+
+    Thus, we just have to use our cache function to store it!
+
+18. **Use the `current_user` decorator**
+
+    This time, we use the `current_user` decorator instead of `authenticated`. Under the hood, it'll stil call `authenticated` and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the data of the user.
+
+    If the request is not authenticated, an `FiefAuthUnauthorized` error will be raised and the user will be redirected to the Fief login page.
+
+19. **`user` dictionary is available in `g`**
+
+    If the request is properly authenticated, the `current_user` decorator will automatically add the `user` property to the global [`g` application context of Flask](https://flask.palletsprojects.com/en/api/#flask.g).
+
+    This `user` property is a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.
 
 That's it! If you run this application and go to [http://localhost:8000/protected](http://localhost:8000/protected), you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.

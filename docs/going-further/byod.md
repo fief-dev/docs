@@ -1,6 +1,6 @@
 # Bring your own database
 
-This is one of the most iconic feature of Fief. "Bring your own database" allows you to configure **your very own SQL database**, hosted anywhere you want, and let Fief stores all your data into it. This is especially useful if you have special requirements about where and how your data should be stored.
+This is one of the most iconic feature of Fief. "Bring your own database" allows you to configure **your very own SQL database**, hosted anywhere you want, and let Fief store all your data into it. This is especially useful if you have special requirements about where and how your data should be stored.
 
 Then, Fief will execute its logic by reading and writing data to your database, and nowhere else.
 

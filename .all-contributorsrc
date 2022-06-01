@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "davidbrochart",
+      "name": "David Brochart",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4711805?v=4",
+      "profile": "https://github.com/davidbrochart",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "docs",
+  "projectOwner": "fief-dev",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

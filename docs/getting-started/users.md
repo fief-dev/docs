@@ -19,9 +19,50 @@ You'll also be able to fill the values for your [custom user fields](./user-fiel
 
 ## Edit an existing user
 
-If you click on one of the user field in the list, you'll see its details on the right and be able to update them.
+If you click on one of the user in the list, you'll see its details on the right and be able to update them.
 
 ![Edit users from admin dashboard](/assets/images/admin-users-edit.png)
+
+## Assign roles and permissions to a user
+
+--8<-- "reusables/access-control-callout.md"
+
+Fief allows you to define [permissions and roles](./access-control.md) to determine what your users are allowed to do or not in your application. From the dashboard, you are able to assign permissions and roles to users.
+
+### Assign a role
+
+You can assign a role to a user by clicking on it in the list. It details will open on the right. Click on the **Roles** tab to see the roles they already have. From here, you can look for roles in the select menu. Click on **Add role** to assign it to the user.
+
+![Add role to user from admin dashboard](/assets/images/admin-users-add-role.png)
+
+!!! tip "Asssociated permissions are automatically granted"
+    Of course, when you assign a role to a user, the permissions associated to this role are automatically granted to the user. Nothing more to do!
+
+### Revoke a role
+
+You can revoke a role from a user by clicking on the trash button in front of the role you want to remove.
+
+![Revoke role from user from admin dashboard](/assets/images/admin-users-delete-role.png)
+
+!!! tip "Asssociated permissions are automatically revoked"
+    Of course, when you revoke a role from a user, the permissions associated to this role are automatically revoked from this user. Nothing more to do!
+
+### Assign a permission
+
+You can assign a single permission to a user by clicking on it in the list. It details will open on the right. Click on the **Permissions** tab to see the permissions they already have. Notice that **permissions granted through roles are also displayed**, in italic.
+
+From here, you can look for permissions in the select menu. Click on **Add permission** to assign it to the user.
+
+![Add permission to user from admin dashboard](/assets/images/admin-users-add-permission.png)
+
+!!! warning "In general, you should prefer roles"
+    Assigning a single permission can be convenient from time-to-time but we generally recommend to assign proper roles, even if they contain only one permission. This way, you can be more future-proof if you find that you actually need to add a new permission: rather than editing every users one by one, you'll only have to update the role once.
+
+### Revoke a permission
+
+You can revoke a permission from a user by clicking on the trash button in front of the permission you want to remove.
+
+![Revoke permission from user from admin dashboard](/assets/images/admin-users-delete-permission.png)
 
 ## Displaying user fields
 

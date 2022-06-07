@@ -26,6 +26,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] Forgot password process
 * [X] Bring your own database
 * [X] Custom user fields
+* [X] Roles and permissions access control
 * [X] Official Docker image for self-hosting
 * [X] Official Python client with FastAPI and Flask integrations
 * [X] Official JavaScript client with browser and React integrations
@@ -35,7 +36,6 @@ Fief is a **young project** and still has many features to implement and room fo
 
 ### What we'll have in the future?
 
-* [ ] Roles and permissions model
 * [ ] Custom API scopes
 * [ ] Customizable transactional emails
 * [ ] Social authentication (Google, Facebook...)

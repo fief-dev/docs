@@ -1227,20 +1227,21 @@
 </code></pre></div>
 </div>
 <h4 id="validateaccesstoken"><code>validateAccessToken</code><a class="headerlink" href="#validateaccesstoken" title="Permanent link">&para;</a></h4>
-<p>Checks if an access token is valid and optionally that it has a required list of scopes. Returns a <a href="#fiefaccesstokeninfo"><code>FiefAccessTokenInfo</code></a>.</p>
+<p>Checks if an access token is valid and optionally that it has a required list of scopes, or a required list of <a href="../../getting-started/access-control/">permissions</a>. Returns a <a href="#fiefaccesstokeninfo"><code>FiefAccessTokenInfo</code></a>.</p>
 <div class="admonition abstract">
 <p class="admonition-title">Parameters</p>
 <ul>
 <li><code>accessToken: string</code>: The access token to validate.</li>
-<li><code>requireScopes: string[] | undefined</code>: Optional list of scopes to check for.</li>
+<li><code>requiredScopes: string[] | undefined</code>: Optional list of scopes to check for.</li>
+<li><code>requiredPermissions: string[] | undefined</code>: Optional list of permissions to check for.</li>
 </ul>
 </div>
 <div class="admonition example">
-<p class="admonition-title">Example</p>
+<p class="admonition-title">Example: Validate access token with required scopes</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">FiefAccessTokenExpired</span><span class="p">,</span><span class="w"> </span><span class="nx">FiefAccessTokenInvalid</span><span class="p">,</span><span class="w"> </span><span class="nx">FiefAccessTokenMissingScope</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@fief/fief&#39;</span><span class="p">;</span><span class="w"></span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">accessTokenInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">validateAccessToken</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">required_scope</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;required_scope&#39;</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">accessTokenInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">validateAccessToken</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;required_scope&#39;</span><span class="p">]);</span><span class="w"></span>
 <a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accessTokenInfo</span><span class="p">);</span><span class="w"></span>
 <a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">FiefAccessTokenInvalid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
@@ -1253,6 +1254,24 @@
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
+<div class="admonition example">
+<p class="admonition-title">Example: Validate access token with required scopes</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">FiefAccessTokenExpired</span><span class="p">,</span><span class="w"> </span><span class="nx">FiefAccessTokenInvalid</span><span class="p">,</span><span class="w"> </span><span class="nx">FiefAccessTokenMissingPermission</span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@fief/fief&#39;</span><span class="p">;</span><span class="w"></span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">accessTokenInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">validateAccessToken</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">undefined</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;castles:create&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;castles:read&#39;</span><span class="p">]);</span><span class="w"></span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">accessTokenInfo</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">FiefAccessTokenInvalid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Invalid access token&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">FiefAccessTokenExpired</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Expired access token&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="w"> </span><span class="ow">instanceof</span><span class="w"> </span><span class="nx">FiefAccessTokenMissingPermission</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Missing required permission&#39;</span><span class="p">);</span><span class="w"></span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+</div>
 <h4 id="userinfo"><code>userinfo</code><a class="headerlink" href="#userinfo" title="Permanent link">&para;</a></h4>
 <p>Returns fresh <a href="#fiefuserinfo"><code>FiefUserInfo</code></a> from the Fief API using a valid access token.</p>
 <div class="admonition abstract">
@@ -1263,7 +1282,7 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">userinfo</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">userinfo</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">);</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h4 id="updateprofile"><code>updateProfile</code><a class="headerlink" href="#updateprofile" title="Permanent link">&para;</a></h4>
@@ -1277,18 +1296,18 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">Update email address</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">updateProfile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;anne@nantes.city&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">updateProfile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;anne@nantes.city&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Update password</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">updateProfile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hermine1&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">updateProfile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">password</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;hermine1&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 </code></pre></div>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Update user field</p>
 <p>To update <a href="../../getting-started/user-fields/">user field</a> values, you need to nest them into a <code>fields</code> object, indexed by their slug.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">update_profile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fields</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">first_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Anne&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nx">userinfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">update_profile</span><span class="p">(</span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">fields</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">first_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Anne&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">})</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h4 id="getlogouturl"><code>getLogoutURL</code><a class="headerlink" href="#getlogouturl" title="Permanent link">&para;</a></h4>
@@ -1302,9 +1321,9 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">logoutURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">getLogoutURL</span><span class="p">({</span><span class="w"></span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="nx">redirectURI</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">});</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">logoutURL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fief</span><span class="p">.</span><span class="nx">getLogoutURL</span><span class="p">({</span><span class="w"></span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nx">redirectURI</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;http://localhost:8000&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">});</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h3 id="fieftokenresponse"><code>FiefTokenResponse</code><a class="headerlink" href="#fieftokenresponse" title="Permanent link">&para;</a></h3>
@@ -1326,16 +1345,18 @@
 <ul>
 <li><code>id: string</code>: ID of the user</li>
 <li><code>scope: string[]</code>: Array of granted scopes for this access token</li>
+<li><code>permissions: string[]</code>: List of <a href="../../getting-started/access-control/">granted permissions</a> for this user</li>
 <li><code>access_token: string</code>: Access token you can use to call the Fief API</li>
 </ul>
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;aeeb8bfa-e8f4-4724-9427-c3d5af66190e&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;openid&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;required_scope&#39;</span><span class="p">],</span><span class="w"></span>
-<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nx">access_token</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nx">id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;aeeb8bfa-e8f4-4724-9427-c3d5af66190e&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nx">scope</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;openid&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;required_scope&#39;</span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nx">permissions</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;castles:read&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;castles:create&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;castles:update&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;castles:delete&#39;</span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nx">access_token</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ACCESS_TOKEN&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 <h3 id="fiefuserinfo"><code>FiefUserInfo</code><a class="headerlink" href="#fiefuserinfo" title="Permanent link">&para;</a></h3>
@@ -1351,13 +1372,13 @@
 </div>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span><span class="w"></span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="nx">sub</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;aeeb8bfa-e8f4-4724-9427-c3d5af66190e&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;anne@bretagne.duchy&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span><span class="nx">tenant_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;c91ecb7f-359c-4244-8385-51ecd6c0d06b&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">    </span><span class="nx">first_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Anne&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">    </span><span class="nx">last_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;De Bretagne&#39;</span><span class="p">,</span><span class="w"></span>
-<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="nx">sub</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;aeeb8bfa-e8f4-4724-9427-c3d5af66190e&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span><span class="nx">email</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;anne@bretagne.duchy&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="nx">tenant_id</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;c91ecb7f-359c-4244-8385-51ecd6c0d06b&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nx">first_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Anne&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="nx">last_name</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;De Bretagne&#39;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 </div>
 

@@ -996,6 +996,12 @@
 <a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">authenticated</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span> <span class="s2">&quot;required_scope&quot;</span><span class="p">])</span>  <span class="c1"># (7)!</span>
 <a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="k">def</span> <span class="nf">get_authenticated_scope</span><span class="p">():</span>
 <a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">access_token_info</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/authenticated-permissions&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">authenticated</span><span class="p">(</span><span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;castles:read&quot;</span><span class="p">])</span>  <span class="c1"># (8)!</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="k">def</span> <span class="nf">get_authenticated_permissions</span><span class="p">():</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a>    <span class="k">return</span> <span class="n">g</span><span class="o">.</span><span class="n">access_token_info</span>
 </code></pre></div>
 <ol>
 <li>
@@ -1031,7 +1037,12 @@
 <li>
 <p><strong>Check for scopes</strong></p>
 <p>The <code>access_token_info</code> decorator accepts an optional <code>scope</code> argument where you can list the scope required to access this route.</p>
-<p>If the access token doesn't have the required scope, the <code>FiefAuthForbidden</code> is raised.</p>
+<p>If the access token doesn't have the required scope, <code>FiefAuthForbidden</code> error is raised.</p>
+</li>
+<li>
+<p><strong>Check for permissions</strong></p>
+<p>The <code>access_token_info</code> decorator accepts an optional <code>permissions</code> argument where you can list the permissions required to access this route.</p>
+<p>If the user doesn't have the required permissions, <code>FiefAuthForbidden</code> is raised.</p>
 </li>
 </ol>
 <p>And that's about it!</p>
@@ -1236,7 +1247,22 @@
 <p>This <code>user</code> property is a <a href="../#fiefuserinfo"><code>FiefUserInfo</code></a> dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.</p>
 </li>
 </ol>
-<p>That's it! If you run this application and go to <a href="http://localhost:8000/protected">http://localhost:8000/protected</a>, you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.</p>
+<p>That's it! If you run this application and go to <a href="http://localhost:8000/protected">http://localhost:8000/protected</a>, you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.
+of your application, we highly recommend you to read the next example.</p>
+<div class="admonition tip">
+<p class="admonition-title"><code>current_user</code> can also check for scope and permissions</p>
+<p>In a similar way as we shown in the <a href="#api-example">API example</a>, you can also require the access token to be granted a list of <strong>scopes</strong> or the user to be granted a list of <strong>permissions</strong>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">(</span><span class="n">scope</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;openid&quot;</span><span class="p">,</span> <span class="s2">&quot;required_scope&quot;</span><span class="p">])</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="o">...</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">(</span><span class="n">permissions</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;castles:read&quot;</span><span class="p">])</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">def</span> <span class="nf">protected</span><span class="p">():</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="o">...</span>
+</code></pre></div>
+</div>
 
               
             </article>

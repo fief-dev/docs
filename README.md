@@ -19,4 +19,4 @@ For new features and larger improvements, we kindly ask you to [**open a discuss
 
 ## License
 
-Fief is [fair-code](http://faircode.io) distributed under [**MIT with Commons Clause**](https://github.com/fief-dev/fief/blob/main/LICENSE) license.
+Fief is [fair-code](http://faircode.io) distributed under [**Elastic License 2.0 (ELv2)**](https://github.com/fief-dev/fief/blob/main/LICENSE.md).

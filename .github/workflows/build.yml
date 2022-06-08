@@ -22,7 +22,7 @@ jobs:
         pip install -r requirements.txt
     - name: Set Posthog API key
       run: |
-        sed -i 's/__POSTHOG_API_KEY__/${{ secrets.POSTHOG_API_KEY }}/' docs/assets/javascripts/posthog.js
+        sed -i 's/__POSTHOG_API_KEY__/${{ secrets.POSTHOG_API_KEY }}/' docs/overrides/partials/integrations/analytics/posthog.html
     - name: Build
       run: mkdocs build
     - name: Deploy

@@ -89,13 +89,23 @@ Besides, the response does contain the user ID, the list of allowed scopes and t
 
 ### Checking for scopes
 
-Building on the previous example, you can make your endpoint requires the access token to be granted a list of **scopes**. Simply add this list of scopes as a parameter of the `authenticated` dependency.
+Building on the previous example, you can make your endpoint requires the access token to be granted a list of **scopes**. Simply add this list of scopes as a keyword parameter of the `authenticated` dependency.
 
 ```py title="app.py" hl_lines="26"
 --8<-- "examples/python/fastapi/scope.py"
 ```
 
 If one of the required scope is missing on the access token, a `403 Forbidden` error will automatically be returned.
+
+### Checking for permissions
+
+Similary, you can make your endpoint requires the user to be granted a list of [**permissions**](../../getting-started/access-control.md). Simply add this list of permissions as a keyword parameter of the `authenticated` dependency.
+
+```py title="app.py" hl_lines="26"
+--8<-- "examples/python/fastapi/permissions.py"
+```
+
+If one of the required permission is missing on ther user, a `403 Forbidden` error will automatically be returned.
 
 ## Web application example
 
@@ -190,6 +200,23 @@ That's it! If you run this application and go to [http://localhost:8000/protecte
 
 !!! warning "Read the next example for a more optimal implementation"
     In this example, the user information is **not cached**. For the performance of your application, we highly recommend you to read the next example.
+
+!!! tip "`current_user` can also check for scope and permissions"
+    In a similar way as we shown in the [API example](#checking-for-scopes), you can also require the access token to be granted a list of **scopes** or the user to be granted a list of **permissions**.
+
+    ```py
+    async def protected(
+        user: FiefUserInfo = Depends(auth.current_user(scope=["openid", "required_scope"])),
+    ):
+        ...
+    ```
+
+    ```py
+    async def protected(
+        user: FiefUserInfo = Depends(auth.current_user(permissions=["castles:read"])),
+    ):
+        ...
+    ```
 
 ### Caching user information
 

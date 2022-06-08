@@ -65,7 +65,13 @@ In this first example, we won't implement routes to perform the OAuth2 authentic
 
     The `access_token_info` decorator accepts an optional `scope` argument where you can list the scope required to access this route.
 
-    If the access token doesn't have the required scope, the `FiefAuthForbidden` is raised.
+    If the access token doesn't have the required scope, `FiefAuthForbidden` error is raised.
+
+8. **Check for permissions**
+
+    The `access_token_info` decorator accepts an optional `permissions` argument where you can list the permissions required to access this route.
+
+    If the user doesn't have the required permissions, `FiefAuthForbidden` is raised.
 
 And that's about it!
 
@@ -189,3 +195,21 @@ And that's about it!
     This `user` property is a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.
 
 That's it! If you run this application and go to [http://localhost:8000/protected](http://localhost:8000/protected), you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.
+of your application, we highly recommend you to read the next example.
+
+!!! tip "`current_user` can also check for scope and permissions"
+    In a similar way as we shown in the [API example](#api-example), you can also require the access token to be granted a list of **scopes** or the user to be granted a list of **permissions**.
+
+    ```py
+    @app.get("/protected")
+    @auth.current_user(scope=["openid", "required_scope"])
+    def protected():
+        ...
+    ```
+
+    ```py
+    @app.get("/protected")
+    @auth.current_user(permissions=["castles:read"])
+    def protected():
+        ...
+    ```

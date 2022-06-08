@@ -38,3 +38,9 @@ def get_authenticated():
 @auth.authenticated(scope=["openid", "required_scope"])  # (7)!
 def get_authenticated_scope():
     return g.access_token_info
+
+
+@app.get("/authenticated-permissions")
+@auth.authenticated(permissions=["castles:read"])  # (8)!
+def get_authenticated_permissions():
+    return g.access_token_info

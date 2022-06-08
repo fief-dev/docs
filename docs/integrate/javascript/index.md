@@ -113,18 +113,19 @@ Returns fresh [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fi
 
 #### `validateAccessToken`
 
-Checks if an access token is valid and optionally that it has a required list of scopes. Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
+Checks if an access token is valid and optionally that it has a required list of scopes, or a required list of [permissions](../../getting-started/access-control.md). Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
 
 !!! abstract "Parameters"
     * `accessToken: string`: The access token to validate.
-    * `requireScopes: string[] | undefined`: Optional list of scopes to check for.
+    * `requiredScopes: string[] | undefined`: Optional list of scopes to check for.
+    * `requiredPermissions: string[] | undefined`: Optional list of permissions to check for.
 
-!!! example
+!!! example "Example: Validate access token with required scopes"
     ```ts
     import { FiefAccessTokenExpired, FiefAccessTokenInvalid, FiefAccessTokenMissingScope} from '@fief/fief';
 
     try {
-        accessTokenInfo = await fief.validateAccessToken('ACCESS_TOKEN', required_scope=['required_scope']);
+        accessTokenInfo = await fief.validateAccessToken('ACCESS_TOKEN', ['required_scope']);
         console.log(accessTokenInfo);
     } catch (err) {
         if (err instanceof FiefAccessTokenInvalid) {
@@ -133,6 +134,24 @@ Checks if an access token is valid and optionally that it has a required list of
             console.error('Expired access token');
         } else if (err instanceof FiefAccessTokenMissingScope) {
             console.error('Missing required scope');
+        }
+    }
+    ```
+
+!!! example "Example: Validate access token with required scopes"
+    ```ts
+    import { FiefAccessTokenExpired, FiefAccessTokenInvalid, FiefAccessTokenMissingPermission} from '@fief/fief';
+
+    try {
+        accessTokenInfo = await fief.validateAccessToken('ACCESS_TOKEN', undefined, ['castles:create', 'castles:read']);
+        console.log(accessTokenInfo);
+    } catch (err) {
+        if (err instanceof FiefAccessTokenInvalid) {
+            console.error('Invalid access token');
+        } else if (err instanceof FiefAccessTokenExpired) {
+            console.error('Expired access token');
+        } else if (err instanceof FiefAccessTokenMissingPermission) {
+            console.error('Missing required permission');
         }
     }
     ```
@@ -210,6 +229,7 @@ Object containing information about the access token.
 !!! abstract "Structure"
     * `id: string`: ID of the user
     * `scope: string[]`: Array of granted scopes for this access token
+    * `permissions: string[]`: List of [granted permissions](../../getting-started/access-control.md) for this user
     * `access_token: string`: Access token you can use to call the Fief API
 
 
@@ -218,6 +238,7 @@ Object containing information about the access token.
     {
         id: 'aeeb8bfa-e8f4-4724-9427-c3d5af66190e',
         scope: ['openid', 'required_scope'],
+        permissions: ['castles:read', 'castles:create', 'castles:update', 'castles:delete'],
         access_token: 'ACCESS_TOKEN',
     }
     ```

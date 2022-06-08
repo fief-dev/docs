@@ -178,13 +178,14 @@ Returns fresh [`FiefTokenResponse`](#fieftokenresponse) and [`FiefUserInfo`](#fi
 
 #### `validate_access_token`
 
-Checks if an access token is valid and optionally that it has a required list of scopes. Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
+Checks if an access token is valid and optionally that it has a required list of scopes, or a required list of [permissions](../../getting-started/access-control.md). Returns a [`FiefAccessTokenInfo`](#fiefaccesstokeninfo).
 
 !!! abstract "Parameters"
     * `access_token: str`: The access token to validate.
     * `required_scope: Optional[List[str]] = None`: Optional list of scopes to check for.
+    * `required_permissions: Optional[List[str]] = None`: Optional list of permissions to check for.
 
-!!! example
+!!! example "Example: Validate access token with required scopes"
     ```py
     from fief_client import FiefAccessTokenInvalid, FiefAccessTokenExpired, FiefAccessTokenMissingScope
 
@@ -196,6 +197,22 @@ Checks if an access token is valid and optionally that it has a required list of
         print("Expired access token")
     except FiefAccessTokenMissingScope:
         print("Missing required scope")
+
+    print(access_token_info)
+    ```
+
+!!! example "Example: Validate access token with required permissions"
+    ```py
+    from fief_client import FiefAccessTokenInvalid, FiefAccessTokenExpired, FiefAccessTokenMissingPermission
+
+    try:
+        access_token_info = fief.validate_access_token("ACCESS_TOKEN", required_permissions=["castles:create", "castles:read"])
+    except FiefAccessTokenInvalid:
+        print("Invalid access token")
+    except FiefAccessTokenExpired:
+        print("Expired access token")
+    except FiefAccessTokenMissingPermission:
+        print("Missing required permission")
 
     print(access_token_info)
     ```
@@ -270,6 +287,7 @@ Typed dictionary containing information about the access token.
 !!! abstract "Structure"
     * `id: uuid.UUID`: ID of the user
     * `scope: List[str]`: List of granted scopes for this access token
+    * `permissions: List[str]`: List of [granted permissions](../../getting-started/access-control.md) for this user
     * `access_token: str`: Access token you can use to call the Fief API
 
 
@@ -278,6 +296,7 @@ Typed dictionary containing information about the access token.
     {
         "id": "aeeb8bfa-e8f4-4724-9427-c3d5af66190e",
         "scope": ["openid", "required_scope"],
+        "permissions": ["castles:read", "castles:create", "castles:update", "castles:delete"],
         "access_token": "ACCESS_TOKEN",
     }
     ```

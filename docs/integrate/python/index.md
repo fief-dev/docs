@@ -321,3 +321,34 @@ Dictionary containing user information.
         "last_name": "De Bretagne",
     }
     ```
+
+### `pkce` module
+
+This module offers utility function to help with [PKCE process](../../going-further/pkce.md).
+
+#### `get_code_verifier`
+
+Generate a code verifier suitable for PKCE.
+
+!!! example
+    ```py
+    from fief_client import pkce
+
+    code_verifier = pkce.get_code_verifier()
+    ```
+
+#### `get_code_challenge`
+
+Generate the PKCE code challenge for the given code and method.
+
+!!! abstract "Parameters"
+    * `code: str`: The code to generate the challenge for. See [`get_code_verifier`](#get_code_verifier)
+    * `method: Literal["plain", "S256"] = "S256"`: Method used to hash the PKCE code challenge. The default, `S256`, is the recommended and secure method.
+
+!!! example
+    ```py
+    from fief_client import pkce
+
+    code_verifier = pkce.get_code_verifier()
+    code_challenge = pkce.get_code_challenge(code_verifier)
+    ```

@@ -75,6 +75,14 @@ In this first example, we won't implement routes to perform the OAuth2 authentic
 
 And that's about it!
 
+### Optional user
+
+Sometimes, you need to have a route retrieving the user if there is one authenticated, but **still working** if there none. To do this, you can leverage the `optional` parameter of the `authenticated` decorator.
+
+```py title="app.py" hl_lines="32"
+--8<-- "examples/python/flask/optional.py"
+```
+
 ## Web application example
 
 !!! question "This is for you if..."
@@ -212,4 +220,18 @@ of your application, we highly recommend you to read the next example.
     @auth.current_user(permissions=["castles:read"])
     def protected():
         ...
+    ```
+
+!!! tip "You can also optionally require the user"
+    In a similar way as we shown in the [API example](#optional-user), you can leverage the `optional` parameter to make the route works even if no user is authenticated.
+
+    ```py
+    @app.get("/protected")
+    @auth.current_user(optional=True)
+    def protected():
+        user = g.user
+        if user is None:
+            return f"<h1>You are an anonymous user.</h1>"
+        return f"<h1>You are authenticated. Your user email is {user['email']}</h1>"
+
     ```

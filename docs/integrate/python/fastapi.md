@@ -107,6 +107,14 @@ Similary, you can make your endpoint requires the user to be granted a list of [
 
 If one of the required permission is missing on ther user, a `403 Forbidden` error will automatically be returned.
 
+### Optional user
+
+Sometimes, you need to have a route retrieving the user if there is one authenticated, but **still working** if there none. To do this, you can leverage the `optional` parameter of the `authenticated` dependency.
+
+```py title="app.py" hl_lines="28"
+--8<-- "examples/python/fastapi/optional.py"
+```
+
 ## Web application example
 
 !!! question "This is for you if..."
@@ -216,6 +224,23 @@ That's it! If you run this application and go to [http://localhost:8000/protecte
         user: FiefUserInfo = Depends(auth.current_user(permissions=["castles:read"])),
     ):
         ...
+    ```
+
+!!! tip "You can also optionally require the user"
+    In a similar way as we shown in the [API example](#optional-user), you can leverage the `optional` parameter to make the route works even if no user is authenticated.
+
+    ```py
+    @app.get("/protected", name="protected")
+    async def protected(
+        user: Optional[FiefUserInfo] = Depends(auth.current_user(optional=True)),
+    ):
+        if user is None:
+            return HTMLResponse(
+                f"<h1>You are an anonymous user.</h1>"
+            )
+        return HTMLResponse(
+            f"<h1>You are authenticated. Your user email is {user['email']}</h1>"
+        )
     ```
 
 ### Caching user information

@@ -57,7 +57,7 @@ extra:
     - title: About
       href: https://www.fief.dev
     - title: Discussions
-      href: https://github.com/fief-dev/fief/discussions
+      href: https://github.com/orgs/fief-dev/discussions
     - title: Join the beta
       href: https://fief.fief.dev/admin/api/auth/login?screen=register
 

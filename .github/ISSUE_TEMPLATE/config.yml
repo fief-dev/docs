@@ -3,5 +3,5 @@ contact_links:
     url: https://github.com/fief-dev/fief/issues/new?assignees=&labels=bug&template=bug_report.md&title=
     about: I'm sure it's a bug and I want to report it.
   - name: 🤔 I have a question
-    url: https://github.com/fief-dev/fief/discussions/new?category=q-a
+    url: https://github.com/orgs/fief-dev/discussions/new?category=q-a
     about: If you have any question about Fief that's not clearly an error, please open a discussion first.

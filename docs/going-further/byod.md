@@ -58,4 +58,4 @@ Fief maintain a migration table in your database to keep track of changes to the
 
 When you have access to the database, it might be tempting to manually add or modify data. **DON'T DO THIS**. If you make a mistake, you'll probably break your whole Fief workspace and your users won't be able to authenticate anymore.
 
-If you really need to make a special operation on your data, please [ask us first](https://github.com/fief-dev/fief/discussions), we'll help you to do it safely.
+If you really need to make a special operation on your data, please [ask us first](https://github.com/orgs/fief-dev/discussions), we'll help you to do it safely.

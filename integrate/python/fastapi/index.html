@@ -1125,7 +1125,7 @@
 <p>Notice how the interactive documentation passed the access token in the <code>Authorization</code> header of the request!</p>
 <p>Besides, the response does contain the user ID, the list of allowed scopes and the access token itself.</p>
 <h3 id="checking-for-scopes">Checking for scopes<a class="headerlink" href="#checking-for-scopes" title="Permanent link">&para;</a></h3>
-<p>Building on the previous example, you can make your endpoint requires the access token to be granted a list of <strong>scopes</strong>. Simply add this list of scopes as a keyword parameter of the <code>authenticated</code> dependency.</p>
+<p>Building on the previous example, you can make your endpoint require the access token to be granted a list of <strong>scopes</strong>. Simply add this list of scopes as a keyword parameter of the <code>authenticated</code> dependency.</p>
 <div class="highlight"><span class="filename">app.py</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2AuthorizationCodeBearer</span>
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">FiefAccessTokenInfo</span><span class="p">,</span> <span class="n">FiefAsync</span>
@@ -1158,7 +1158,7 @@
 </code></pre></div>
 <p>If one of the required scope is missing on the access token, a <code>403 Forbidden</code> error will automatically be returned.</p>
 <h3 id="checking-for-permissions">Checking for permissions<a class="headerlink" href="#checking-for-permissions" title="Permanent link">&para;</a></h3>
-<p>Similary, you can make your endpoint requires the user to be granted a list of <a href="../../../getting-started/access-control/"><strong>permissions</strong></a>. Simply add this list of permissions as a keyword parameter of the <code>authenticated</code> dependency.</p>
+<p>Similary, you can make your endpoint require the user to be granted a list of <a href="../../../getting-started/access-control/"><strong>permissions</strong></a>. Simply add this list of permissions as a keyword parameter of the <code>authenticated</code> dependency.</p>
 <div class="highlight"><span class="filename">app.py</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kn">from</span> <span class="nn">fastapi.security</span> <span class="kn">import</span> <span class="n">OAuth2AuthorizationCodeBearer</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kn">from</span> <span class="nn">fief_client</span> <span class="kn">import</span> <span class="n">FiefAccessTokenInfo</span><span class="p">,</span> <span class="n">FiefAsync</span>
@@ -1191,7 +1191,7 @@
 </code></pre></div>
 <p>If one of the required permission is missing on ther user, a <code>403 Forbidden</code> error will automatically be returned.</p>
 <h3 id="optional-user">Optional user<a class="headerlink" href="#optional-user" title="Permanent link">&para;</a></h3>
-<p>Sometimes, you need to have a route retrieving the user if there is one authenticated, but <strong>still working</strong> if there none. To do this, you can leverage the <code>optional</code> parameter of the <code>authenticated</code> dependency.</p>
+<p>Sometimes, you need to have a route retrieve the user if there is one authenticated, but <strong>still work</strong> if there is none. To do this, you can leverage the <code>optional</code> parameter of the <code>authenticated</code> dependency.</p>
 <div class="highlight"><span class="filename">app.py</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">FastAPI</span>
@@ -1395,7 +1395,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">You can also optionally require the user</p>
-<p>In a similar way as we shown in the <a href="#optional-user">API example</a>, you can leverage the <code>optional</code> parameter to make the route works even if no user is authenticated.</p>
+<p>In a similar way as we shown in the <a href="#optional-user">API example</a>, you can leverage the <code>optional</code> parameter to make the route work even if no user is authenticated.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/protected&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;protected&quot;</span><span class="p">)</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">async</span> <span class="k">def</span> <span class="nf">protected</span><span class="p">(</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">user</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FiefUserInfo</span><span class="p">]</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">auth</span><span class="o">.</span><span class="n">current_user</span><span class="p">(</span><span class="n">optional</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>

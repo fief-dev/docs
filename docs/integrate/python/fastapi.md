@@ -89,7 +89,7 @@ Besides, the response does contain the user ID, the list of allowed scopes and t
 
 ### Checking for scopes
 
-Building on the previous example, you can make your endpoint requires the access token to be granted a list of **scopes**. Simply add this list of scopes as a keyword parameter of the `authenticated` dependency.
+Building on the previous example, you can make your endpoint require the access token to be granted a list of **scopes**. Simply add this list of scopes as a keyword parameter of the `authenticated` dependency.
 
 ```py title="app.py" hl_lines="26"
 --8<-- "examples/python/fastapi/scope.py"
@@ -99,7 +99,7 @@ If one of the required scope is missing on the access token, a `403 Forbidden` e
 
 ### Checking for permissions
 
-Similary, you can make your endpoint requires the user to be granted a list of [**permissions**](../../getting-started/access-control.md). Simply add this list of permissions as a keyword parameter of the `authenticated` dependency.
+Similary, you can make your endpoint require the user to be granted a list of [**permissions**](../../getting-started/access-control.md). Simply add this list of permissions as a keyword parameter of the `authenticated` dependency.
 
 ```py title="app.py" hl_lines="26"
 --8<-- "examples/python/fastapi/permissions.py"
@@ -109,7 +109,7 @@ If one of the required permission is missing on ther user, a `403 Forbidden` err
 
 ### Optional user
 
-Sometimes, you need to have a route retrieving the user if there is one authenticated, but **still working** if there none. To do this, you can leverage the `optional` parameter of the `authenticated` dependency.
+Sometimes, you need to have a route retrieve the user if there is one authenticated, but **still work** if there is none. To do this, you can leverage the `optional` parameter of the `authenticated` dependency.
 
 ```py title="app.py" hl_lines="28"
 --8<-- "examples/python/fastapi/optional.py"
@@ -227,7 +227,7 @@ That's it! If you run this application and go to [http://localhost:8000/protecte
     ```
 
 !!! tip "You can also optionally require the user"
-    In a similar way as we shown in the [API example](#optional-user), you can leverage the `optional` parameter to make the route works even if no user is authenticated.
+    In a similar way as we shown in the [API example](#optional-user), you can leverage the `optional` parameter to make the route work even if no user is authenticated.
 
     ```py
     @app.get("/protected", name="protected")

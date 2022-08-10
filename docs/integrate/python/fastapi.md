@@ -249,7 +249,7 @@ In the previous example, we didn't set up cache for the user information. It mea
 
 Let's fix this! Fortunately, the client provides you useful tools to help you with this. Building upon the previous example, let's see how we can cache user information.
 
-```py title="app.py" hl_lines="24-32 35 38-39 51 61-63 66 77"
+```py title="app.py" hl_lines="23-31 34 37-38 50 60-62 65 76"
 --8<-- "examples/python/fastapi/web_userinfo_cache.py"
 ```
 

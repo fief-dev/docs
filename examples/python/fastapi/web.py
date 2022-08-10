@@ -18,9 +18,9 @@ class CustomFiefAuth(FiefAuth):  # (1)!
 
 
 fief = FiefAsync(  # (5)!
-    "http://localhost:8000",
-    "UYqvCdUV_gZ7SDaLFEhUf0cQYM-GylulqapLFGRvI3g",
-    "v73jrENx4OIBKmZzNza7WUQQ4qZ2hcDeXwiKtPbIQNU",
+    "https://example.fief.dev",
+    "YOUR_CLIENT_ID",
+    "YOUR_CLIENT_SECRET",
 )
 
 SESSION_COOKIE_NAME = "user_session"

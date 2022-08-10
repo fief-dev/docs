@@ -20,9 +20,9 @@ class CustomFiefAuth(FiefAuth):  # (1)!
 
 
 fief = FiefAsync(  # (5)!
-    "https://example.fief.dev",
-    "YOUR_CLIENT_ID",
-    "YOUR_CLIENT_SECRET",
+    "http://localhost:8000",
+    "UYqvCdUV_gZ7SDaLFEhUf0cQYM-GylulqapLFGRvI3g",
+    "v73jrENx4OIBKmZzNza7WUQQ4qZ2hcDeXwiKtPbIQNU",
 )
 
 SESSION_COOKIE_NAME = "user_session"
@@ -40,7 +40,7 @@ async def auth_callback(request: Request, response: Response, code: str = Query(
     response.set_cookie(  # (11)!
         SESSION_COOKIE_NAME,
         tokens["access_token"],
-        expires=int(datetime.now().timestamp() + tokens["expires_in"]),
+        max_age=tokens["expires_in"],
         httponly=True,  # (12)!
         secure=False,  # ❌ Set this to `True` in production (13)!
     )

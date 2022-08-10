@@ -69,7 +69,7 @@ async def auth_callback(
     response.set_cookie(
         SESSION_COOKIE_NAME,
         tokens["access_token"],
-        expires=int(datetime.now().timestamp() + tokens["expires_in"]),
+        max_age=tokens["expires_in"],
         httponly=True,
         secure=False,
     )

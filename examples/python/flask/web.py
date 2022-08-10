@@ -62,7 +62,7 @@ def auth_callback():
     response.set_cookie(  # (14)!
         SESSION_COOKIE_NAME,
         tokens["access_token"],
-        expires=int(datetime.now().timestamp() + tokens["expires_in"]),
+        max_age=tokens["expires_in"],
         httponly=True,  # (15)!
         secure=False,  # ❌ Set this to `True` in production (16)!
     )

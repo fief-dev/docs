@@ -17,5 +17,8 @@ Other tenants gets a path prefix, like *https://example.fief.dev/other-tenant*.
 !!! tip
     You can copy the base URL directly using the clipboard button in the list.
 
-!!! bug "Limitation"
-    At the moment, new tenants can't be created from the admin dashboard.
+## Create a new tenant
+
+You can create a new tenant by clicking the **Create Tenant** button. A modal will open where you'll be able to input its name. The [base URL](#base-url) is automatically generated from the name.
+
+![Create tenant from admin dashboard](/assets/images/admin-tenants-create.png)

@@ -6,10 +6,15 @@ The Fief Python client provides tools to help you integrate Fief authentication 
 
 ## Install the client
 
-Install the Fief client with the optional FastAPI dependencies:
+Install the Fief client with the optional FastAPI dependencies, using `pip`:
 
 ```bash
 pip install "fief-client[fastapi]"
+```
+
+Or if you work in a `conda-forge` environment, using `mamba` or `conda`:
+```bash
+mamba install fief-client-fastapi -c conda-forge
 ```
 
 ## API example

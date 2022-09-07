@@ -186,13 +186,17 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 --8<-- "reusables/cookie-secure-callout.md"
 
-### Authorization code
+### Authorization codes and tokens
 
 Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md).
 
-| Name                                  | Description                                                                                                                                                                                                              | Default            | Allowed values | Example |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | -------------- | ------- |
-| `AUTHORIZATION_CODE_LIFETIME_SECONDS` | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_ |                |         |
+Access tokens, ID tokens and refresh tokens are generated after a successful [OAuth2 authentication flow](../getting-started/oauth2.md#access-token-and-id-token).
+
+| Name                                  | Description                                                                                                                                                                                                              | Default             | Allowed values | Example |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | -------------- | ------- |
+| `AUTHORIZATION_CODE_LIFETIME_SECONDS` | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_  |                |         |
+| `ACCESS_ID_TOKEN_LIFETIME_SECONDS`    | Lifetime of the access token and ID token in seconds.                                                                                                                                                                    | 3600 _(1 hour)_     |                |         |
+| `REFRESH_TOKEN_LIFETIME_SECONDS`      | Lifetime of the refresh token in seconds.                                                                                                                                                                                | 2592000 _(30 days)_ |                |         |
 
 ### Fief-ception
 

@@ -91,6 +91,7 @@ nav:
     - going-further/byod.md
     - going-further/pkce.md
     - going-further/id-token-encryption.md
+    - going-further/oauth-provider-token.md
   - 'Self-hosting':
     - self-hosting/quickstart.md
     - self-hosting/setup-database.md

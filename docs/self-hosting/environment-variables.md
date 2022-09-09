@@ -103,10 +103,11 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### Secrets
 
-| Name             | Description                                                                     | Default | Allowed values                      | Example |
-| ---------------- | ------------------------------------------------------------------------------- | ------- | ----------------------------------- | ------- |
-| `SECRET`         | Secret value used to sign reset password tokens.                                |         | Any sufficiently long string        |         |
-| `ENCRYPTION_KEY` | Key used to encrypt the external databases credentials inside the main database |         | A valid Fernet key encoded in UTF-8 |         |
+| Name                 | Description                                                                     | Default | Allowed values                      | Example |
+| -------------------- | ------------------------------------------------------------------------------- | ------- | ----------------------------------- | ------- |
+| `SECRET`             | Secret value used to sign reset password tokens.                                |         | Any sufficiently long string        |         |
+| `ENCRYPTION_KEY`     | Key used to encrypt the external databases credentials inside the main database |         | A valid Fernet key encoded in UTF-8 |         |
+| `GENERATED_JWK_SIZE` | Size in bits of the generated RSA key pair used to sign JWT.                    |         | 4096                                |         |
 
 ### Database
 
@@ -118,10 +119,11 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `DATABASE_USERNAME`             | Main database user                                                                                                                                                                                                                          |                           |                           | fief         |
 | `DATABASE_PASSWORD`             | Main database user's password                                                                                                                                                                                                               |                           |                           | fiefpassword |
 | `DATABASE_NAME`                 | Main database name                                                                                                                                                                                                                          | fief.db                   |                           | fief         |
+| `DATABASE_SSL_MODE`             | Main database SSL mode                                                                                                                                                                                                                      |                           | Varies by database type   | require      |
 | `DATABASE_LOCATION`             | For SQLite databases, path where to store the database files                                                                                                                                                                                | Current working directory |                           |              |
-| `DATABASE_URL`                  | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                                                                                                                   |                           |                           |              |
 | `DATABASE_POOL_RECYCLE_SECONDS` | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. [Read more](https://docs.sqlalchemy.org/en/14/core/pooling.html#disconnect-handling-pessimistic). | 600 *(10 minutes)*        |                           |              |
 | `DATABASE_POOL_PRE_PING`        | Whether to always issue a query before returning a database connection to make sure it's alive. [Read more](https://docs.sqlalchemy.org/en/14/core/pooling.html#disconnect-handling-pessimistic).                                           | False                     |                           |              |
+| `DATABASE_URL`                  | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                                                                                                                   |                           |                           |              |
 
 More details about how to setup a database in the dedicated section.
 
@@ -152,10 +154,11 @@ More details about how to setup an email provider in the dedicated section.
 
 To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html) attacks on authentication pages, we use the [double-submit cookie](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html#double-submit-cookie) pattern.
 
-| Name                 | Description                             | Default         | Allowed values | Example |
-| -------------------- | --------------------------------------- | --------------- | -------------- | ------- |
-| `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie           | fief\_csrftoken |                |         |
-| `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie | True            |                |         |
+| Name                 | Description                                                                       | Default         | Allowed values | Example |
+| -------------------- | --------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
+| `CSRF_CHECK_ENABLED` | Whether to enable the CSRF protection. In most cases, this should remain enabled. | True            |                |         |
+| `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie                                                     | fief\_csrftoken |                |         |
+| `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie                                           | True            |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -163,13 +166,35 @@ To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.o
 
 A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.
 
-| Name                          | Description                             | Default              | Allowed values | Example |
-| ----------------------------- | --------------------------------------- | -------------------- | -------------- | ------- |
-| `LOGIN_SESSION_COOKIE_NAME`   | Name of the login session cookie        | fief\_login\_session |                |         |
-| `LOGIN_SESSION_COOKIE_DOMAIN` | Domain of the login session cookie      | _Empty string_       |                |         |
-| `LOGIN_SESSION_COOKIE_SECURE` | Secure flag of the login session cookie | True                 |                |         |
+| Name                             | Description                                     | Default              | Allowed values | Example |
+| -------------------------------- | ----------------------------------------------- | -------------------- | -------------- | ------- |
+| `LOGIN_SESSION_COOKIE_NAME`      | Name of the login session cookie                | fief\_login\_session |                |         |
+| `LOGIN_SESSION_COOKIE_DOMAIN`    | Domain of the login session cookie              | _Empty string_       |                |         |
+| `LOGIN_SESSION_COOKIE_SECURE`    | Secure flag of the login session cookie         | True                 |                |         |
+| `LOGIN_SESSION_LIFETIME_SECONDS` | Lifetime of the login session cookie in seconds | 600 _(10 minutes)_   |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
+
+### Registration session
+
+A registration session is a cookie used to maintain the state of the registration flow of a new user, from the registration page until their account is created.
+
+| Name                                    | Description                                            | Default                     | Allowed values | Example |
+| --------------------------------------- | ------------------------------------------------------ | --------------------------- | -------------- | ------- |
+| `REGISTRATION_SESSION_COOKIE_NAME`      | Name of the registration session cookie                | fief\_registration\_session |                |         |
+| `REGISTRATION_SESSION_COOKIE_DOMAIN`    | Domain of the registration session cookie              | _Empty string_              |                |         |
+| `REGISTRATION_SESSION_COOKIE_SECURE`    | Secure flag of the registration session cookie         | True                        |                |         |
+| `REGISTRATION_SESSION_LIFETIME_SECONDS` | Lifetime of the registration session cookie in seconds | 600 _(10 minutes)_          |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
+
+### OAuth session
+
+An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../getting-started/oauth-providers.md), from the moment they click on the *Sign in with...* button until they're redirected.
+
+| Name                             | Description                              | Default            | Allowed values | Example |
+| -------------------------------- | ---------------------------------------- | ------------------ | -------------- | ------- |
+| `OAUTH_SESSION_LIFETIME_SECONDS` | Lifetime of the OAuth session in seconds | 600 _(10 minutes)_ |                |         |
 
 ### Session
 
@@ -182,7 +207,7 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 | `SESSION_COOKIE_NAME`      | Name of the session cookie                | fief\_session           |                |         |
 | `SESSION_COOKIE_DOMAIN`    | Domain of the session cookie              | _Empty string_          |                |         |
 | `SESSION_COOKIE_SECURE`    | Secure flag of the session cookie         | True                    |                |         |
-| `SESSION_LIFETIME_SECONDS` | Lifetime of the session cookie in seconds | 86400 \* 30 _(30 days_) |                |         |
+| `SESSION_LIFETIME_SECONDS` | Lifetime of the session cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -206,12 +231,14 @@ That's why we necessarily need to create a first workspace and an admin user bef
 
 The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!
 
-| Name                  | Description                                     | Default        | Allowed values | Example             |
-| --------------------- | ----------------------------------------------- | -------------- | -------------- | ------------------- |
-| `FIEF_DOMAIN`         | Domain of your main Fief workspace              | localhost:8000 |                | fief.bretagne.duchy |
-| `FIEF_CLIENT_ID`      | Client ID in your main Fief workspace           |                |                |                     |
-| `FIEF_CLIENT_SECRET`  | Client secret in your main Fief workspace       |                |                |                     |
-| `FIEF_ENCRYPTION_KEY` | Optional RSA key used to encrypt the JWT tokens |                |                |                     |
+| Name                      | Description                                                                                                                                                                                                           | Default        | Allowed values | Example                      |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------- | ---------------------------- |
+| `FIEF_DOMAIN`             | Domain of your main Fief workspace                                                                                                                                                                                    | localhost:8000 |                | fief.bretagne.duchy          |
+| `FIEF_CLIENT_ID`          | Client ID in your main Fief workspace                                                                                                                                                                                 |                |                |                              |
+| `FIEF_CLIENT_SECRET`      | Client secret in your main Fief workspace                                                                                                                                                                             |                |                |                              |
+| `FIEF_ENCRYPTION_KEY`     | Optional RSA key used to encrypt the JWT tokens                                                                                                                                                                       |                |                |                              |
+| `FIEF_MAIN_USER_EMAIL`    | Email address of the first admin user in your main workspace. If provided, the user will be created automatically on startup.                                                                                         |                |                | anne@bretagne.duchy          |
+| `FIEF_MAIN_USER_PASSWORD` | Password of the first admin user in your main workspace. If `FIEF_MAIN_USER_EMAIL` is provided, the user will be created automatically on startup with this password. Otherwise, a random password will be generated. |                |                | SuperSecretAndStrongPassword |
 
 ### Admin session
 

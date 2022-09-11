@@ -32,5 +32,3 @@ Postmark provider will send transactional emails using [Postmark](https://postma
 EMAIL_PROVIDER=POSTMARK
 EMAIL_PROVIDER_PARAMS={"server_token": "XXX-XXX"}
 ```
-
---8<-- "reusables/environment-variables-callout.md"

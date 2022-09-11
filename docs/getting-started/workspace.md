@@ -14,7 +14,7 @@ For example, a workspace named *Bretagne Duchy* will be assigned to the subdomai
 
 ## Step 2: select your type of database
 
-One of the great strength of Fief is that you can **bring your own database** to store your workspace data. This way, you keep in total control of your data. Of course, we also propose you to store your data on our performand and secure cloud database. Your choice!
+One of the great strength of Fief is that you can **bring your own database** to store your workspace data. This way, you keep in total control of your data. Of course, we also propose you to store your data on our performant and secure cloud database. Your choice!
 
 At this step, you can make the choice between the Fief cloud database or configure your own.
 

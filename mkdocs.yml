@@ -46,6 +46,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
   - attr_list
   - tables
   - def_list
@@ -63,6 +65,13 @@ extra:
 
 extra_css:
   - assets/stylesheets/extra.css
+
+extra_javascript:
+  - assets/javascripts/fernet.js
+
+watch:
+- examples
+- reusables
 
 nav:
   - index.md
@@ -94,8 +103,11 @@ nav:
     - going-further/oauth-provider-token.md
   - 'Self-hosting':
     - self-hosting/quickstart.md
-    - self-hosting/setup-database.md
-    - self-hosting/setup-email-provider.md
+    - 'Production deployment':
+      - self-hosting/deployment/docker-compose.md
+      - self-hosting/deployment/render.md
+      - self-hosting/deployment/setup-database.md
+      - self-hosting/deployment/setup-email-provider.md
     - self-hosting/environment-variables.md
   - Miscellaneous:
     - miscellaneous/resources.md

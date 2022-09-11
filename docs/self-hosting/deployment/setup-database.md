@@ -19,8 +19,6 @@ DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
 
---8<-- "reusables/environment-variables-callout.md"
-
 ## Setup MySQL
 
 We'll assume that you have a working MySQL database running, either locally or in the cloud. All you need to do is to set the corresponding environment variables with your database credentials.
@@ -33,8 +31,6 @@ DATABASE_USERNAME=fief
 DATABASE_PASSWORD=fiefpassword
 DATABASE_NAME=fief
 ```
-
---8<-- "reusables/environment-variables-callout.md"
 
 ## Use a connection string
 
@@ -53,7 +49,3 @@ DATABASE_URL=postgresql://fief:fiefpassword@localhost:5432/fief
 
 !!! warning
     This variable will **always** take precedence over the single parameters: if you define `DATABASE_URL`, it'll use this variable to connect to your database, even if other parameters are defined.
-
-## Create main workspace and admin user
-
-Once your database is configured, don't forget to create the main workspace and admin user, as described in the [Quickstart](quickstart.md) section.

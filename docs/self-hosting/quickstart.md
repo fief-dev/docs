@@ -1,15 +1,21 @@
----
-description: Start your local Fief instance in a few minutes.
----
-
 # Quickstart
 
 We provide a [Docker](https://www.docker.com/get-started) image to help you start the Fief server locally in no time!
 
+## Quickstart command
+
 Run the following command:
 
 ```bash
-docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker
+docker run -it --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker
+```
+
+The command will ask you to give an email address for the first **admin user**. It'll be automatically created when starting the server.
+
+```bash
+User email: anne@bretagne.duchy
+User password: XXX
+Repeat for confirmation: XXX
 ```
 
 The result of this command is a complete **`docker run` command** with the required **secrets** generated and environment variables to help you get started. It'll look like the following:
@@ -26,6 +32,8 @@ docker run \
   -e "PORT=8000" \
   -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
+  -e "FIEF_MAIN_USER_EMAIL=anne@bretagne.duchy" \
+  -e "FIEF_MAIN_USER_PASSWORD=XXX" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
@@ -34,45 +42,14 @@ docker run \
 ```
 
 !!! warning "Save those secrets somewhere safe!"
-    If you need restart or recreate your container, you'll probably need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
+    If you need to restart or recreate your container, you'll need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
 
 !!! info
     The container is exposed on the port **8000** of your local machine by default.
 
-## Create main workspace
-
-Next, you'll need to create the main **workspace**. Simply run the following command:
-
-```bash
-docker exec fief-server fief workspaces create-main
-```
-
-You should see the following output:
-
-```
-Main Fief workspace created
-```
-
-## Create admin user
-
-Finally, you need to create an **admin user** for this main workspace that'll have access to the admin dashboard. Run the following command:
-
-```bash
-docker exec -it fief-server fief workspaces create-main-user --user-email anne@bretagne.duchy
-```
-
-!!! tip
-    Of course, make sure to replace `--user-email` value with your own email address!
-
-You'll then be prompted for a password. If everything goes well, you should see the following output:
-
-```
-Main Fief user created
-```
-
 ## Good to go!
 
-At this point, your Fief server should be up-and-running! Open [http://localhost:8000/admin/](http://localhost:8000/admin/) to access the admin dashboard. You'll be redirected to a login page. Authenticate with the user credentials you created in the previous section.
+At this point, your Fief server should be up-and-running! Open [http://localhost:8000/admin/](http://localhost:8000/admin/) to access the admin dashboard. You'll be redirected to a login page. Authenticate with the user credentials you specified in the previous section.
 
 ![Fief login page](/assets/images/fief-login.png)
 
@@ -91,7 +68,7 @@ While quick and convenient, this way of running Fief is **not suitable for produ
 
 The best way is of course to configure a proper PostgreSQL or MySQL database for your Fief server, as described in the dedicated section.
 
-[Setup database](setup-database.md){ .md-button }
+[Setup database](./deployment/setup-database.md){ .md-button }
 {: .buttons }
 
 ### Use a Docker volume to persist SQLite data
@@ -151,6 +128,8 @@ docker run \
   -e "PORT=8000" \
   -e "ROOT_DOMAIN=fief.test:8000" \
   -e "FIEF_DOMAIN=fief.test:8000" \
+  -e "FIEF_MAIN_USER_EMAIL=anne@bretagne.duchy" \
+  -e "FIEF_MAIN_USER_PASSWORD=XXX" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \

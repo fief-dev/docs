@@ -8,7 +8,7 @@ Fief server relies heavily on environment variables for configuration. You'll li
 
 ## Set environment variables
 
-### Using `docker run`
+### Using Docker
 
 When running Fief server with Docker, the most straightforward way is to use the `-e` option on the command line, as shown in the [Quickstart](quickstart.md) section.
 
@@ -58,33 +58,9 @@ docker run \
   ghcr.io/fief-dev/fief:latest
 ```
 
-### Using Docker Compose
+### Other methods of deployment
 
-For more complex setups, you may need to configure a Docker Compose file to help you manage all your containers. You can directly define your environment variables in the Compose file.
-
-You'll find below an example of a Docker Compose file to run the Fief server.
-
-```yaml title="docker-compose.yml"
-version: "3.9"
-
-services:
-  fief:
-    image: ghcr.io/fief-dev/fief:latest
-    ports:
-      - "8000:8000"
-    environment:
-      - SECRET=XXX
-      - FIEF_CLIENT_ID=XXX
-      - FIEF_CLIENT_SECRET=XXX
-      - ENCRYPTION_KEY=XXX
-      - PORT=8000
-      - ROOT_DOMAIN=localhost:8000
-      - FIEF_DOMAIN=localhost:8000
-      - CSRF_COOKIE_SECURE=False
-      - LOGIN_SESSION_COOKIE_SECURE=False
-      - SESSION_COOKIE_SECURE=False
-      - FIEF_ADMIN_SESSION_COOKIE_SECURE=False
-```
+Depending on your method of deployment, the way of setting environment variables will be different. We show you several ways of deploying Fief in production in the previous section.
 
 ## Reference
 
@@ -108,6 +84,8 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `SECRET`             | Secret value used to sign reset password tokens.                                |         | Any sufficiently long string        |         |
 | `ENCRYPTION_KEY`     | Key used to encrypt the external databases credentials inside the main database |         | A valid Fernet key encoded in UTF-8 |         |
 | `GENERATED_JWK_SIZE` | Size in bits of the generated RSA key pair used to sign JWT.                    |         | 4096                                |         |
+
+--8<-- "reusables/fernet-key-generator.md"
 
 ### Database
 
@@ -227,7 +205,7 @@ Access tokens, ID tokens and refresh tokens are generated after a successful [OA
 
 Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief users to the app 🤯
 
-That's why we necessarily need to create a first workspace and an admin user before being able to use Fief, as described in the [Quickstart](quickstart.md) section.
+That's why we set necessary variables to create the main workspace and first admin user, as described in the [Quickstart](quickstart.md) section.
 
 The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!
 

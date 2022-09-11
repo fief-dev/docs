@@ -45,19 +45,19 @@ table td code {
 .fernet-key-generator {
   display: flex;
   width: 100%;
-  height: 2rem;
 }
 
-.fernet-key-generator .output-box {
-  position: relative;
-  display: flex;
+.fernet-key-generator .highlight {
   flex-grow: 1;
 }
 
-.fernet-key-generator .md-input {
-  flex-grow: 1;
-  height: revert;
-  border-bottom: 0;
+.fernet-key-generator .highlight pre {
+  margin: 0;
+  height: 100%;
+}
+
+.fernet-key-generator .highlight pre code {
+  height: 100%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
@@ -65,10 +65,4 @@ table td code {
 .fernet-key-generator .md-button {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
-}
-
-.fernet-key-generator .clipboard-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 }

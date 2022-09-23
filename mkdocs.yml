@@ -48,6 +48,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - attr_list
   - tables
   - def_list
@@ -92,6 +95,7 @@ nav:
       - 'General': integrate/python/index.md
       - integrate/python/fastapi.md
       - integrate/python/flask.md
+      - 'Reference ↗️': https://fief-dev.github.io/fief-python/
     - 'JavaScript':
       - 'General': integrate/javascript/index.md
       - integrate/javascript/browser.md

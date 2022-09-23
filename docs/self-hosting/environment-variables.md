@@ -105,7 +105,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 More details about how to setup a database in the dedicated section.
 
-[Setup database](setup-database.md){ .md-button }
+[Setup database](./deployment/setup-database.md){ .md-button }
 {: .buttons }
 
 ### Redis
@@ -125,7 +125,7 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 
 More details about how to setup an email provider in the dedicated section.
 
-[Setup email provider](setup-email-provider.md){ .md-button }
+[Setup email provider](./deployment/setup-email-provider.md){ .md-button }
 {: .buttons }
 
 ### CSRF cookie

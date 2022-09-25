@@ -100,6 +100,7 @@ nav:
       - 'General': integrate/javascript/index.md
       - integrate/javascript/browser.md
       - integrate/javascript/react.md
+      - 'Reference ↗️': https://fief-dev.github.io/fief-js/
   - 'Going further':
     - going-further/byod.md
     - going-further/pkce.md

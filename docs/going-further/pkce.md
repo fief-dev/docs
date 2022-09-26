@@ -8,7 +8,7 @@ Proof Key for Code Exchange (PKCE) is an extension of the [OAuth2 protocol](http
 
 As we mentioned in a [previous section](../getting-started/clients.md#public-clients), clients are considered **public** when the client secret can't be properly protected. This is usually the case for **JavaScript applications** and **mobile applications**, where the secret could be easily discovered in the source code.
 
-In OAuth2 protocol, when the user has successfully authenticated, they are redirected to your application with with a temporary code, called the **authorization code**. This code is then used by your application to call the Fief API and obtain a valid token in exchange. For this exchange to happen, the protocol requires that you provide the **client secret**, to prove that you are allowed to make such requests.
+In OAuth2 protocol, when the user has successfully authenticated, they are redirected to your application with a temporary code, called the **authorization code**. This code is then used by your application to call the Fief API and obtain a valid token in exchange. For this exchange to happen, the protocol requires that you provide the **client secret**, to prove that you are allowed to make such requests.
 
 However, how could we do that for public clients where we don't have the client secret? That's the purpose of PKCE! In a nutshell, your application will **generate a temporary secret** each time we want to authenticate a user.
 
@@ -43,7 +43,7 @@ In the authorization step, the client only sends the code challenge. The server 
 
 In the token generation step, the client now sends the **code verifier**. The server will then compute the hash the same way the client did and compare it with the challenge it got in the authorization step.
 
-In a way, it's quite similar to how web applications handle user passwords: the server only keep the hashed value, and when the user logs in it computes the hash and compare it with the one it has in database.
+In a way, it's quite similar to how web applications handle user passwords: the server only keep the hashed value, and when the user logs in it computes the hash and compares it with the one in database.
 
 !!! tip "PKCE can also be used with confidential clients"
     While initally designed for public clients, PKCE can also be used with confidential clients, as an extra security layer.

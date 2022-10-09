@@ -127,3 +127,32 @@ In the example below, we show a simple header with navigation links and a login 
     The `FiefAuth` helper takes care of clearing the local session and redirect to the Fief logout page so that the session on Fief's side can also be cleared.
 
     All it needs is the redirect URL where the user will be redirected after a successful logout. Here, we go back to the index route.
+
+### Call an API with an access token
+
+In most cases, you'll have an API backend from which you can read or write data to display to the user in your web application.
+
+To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../python/fastapi.md#api-example) or [Flask](../python/flask.md#api-example) API examples.
+
+From your browser application, you can perform XHR request in JavaScript. All you need is to pass a valid access token in the `Authorization` header of your request.
+
+When a user is authenticated, you can get the current access token using the [`useFiefTokenInfo`](https://fief-dev.github.io/fief-js/functions/react.useFiefTokenInfo.html) hook. We show below an example of an HTTP request made to your backend using [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch):
+
+```ts
+const tokenInfo = useFiefTokenInfo();
+const [data, setData] = useState();
+
+useEffect(() => {
+    const accessToken = tokenInfo.access_token;
+    fetch(
+        'http://localhost:8000/user',
+        {
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+            }
+        }
+    ).then((response) => {
+        setData(response.json());
+    });
+}, [tokenInfo])
+```

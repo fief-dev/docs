@@ -137,3 +137,27 @@ If you click on the **Login** button, you'll be redirected to Fief to authentica
 ![Logged in in browser application](/assets/images/browser-logged-in.png)
 
 You can also try the **Logout** button to see how the session is cleared.
+
+### Call an API with an access token
+
+In most cases, you'll have an API backend from which you can read or write data to display to the user in your web application.
+
+To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../python/fastapi.md#api-example) or [Flask](../python/flask.md#api-example) API examples.
+
+From your browser application, you can perform XHR request in JavaScript. All you need is to pass a valid access token in the `Authorization` header of your request.
+
+When a user is authenticated, you can get the current access token using the [`fiefAuth.getTokenInfo`](https://fief-dev.github.io/fief-js/classes/index.browser.FiefAuth.html#getTokenInfo) method. We show below an example of an HTTP request made to your backend using [`fetch`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch):
+
+```js
+const tokenInfo = fiefAuth.getTokenInfo();
+const accessToken = tokenResponse.access_token;
+const response = await fetch(
+    'http://localhost:8000/user',
+    {
+        headers: {
+            Authorization: `Bearer ${accessToken}`,
+        }
+    }
+);
+data = response.json();
+```

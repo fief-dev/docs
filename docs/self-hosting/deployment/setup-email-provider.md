@@ -8,7 +8,10 @@ description: >-
 
 As you surely now, users management imply a lot of transactional emails, like welcome emails or reset password emails. To be able to send them, Fief needs an email provider.
 
-Currently, Fief only supports [Postmark](https://postmarkapp.com), one of the leading email delivery service on the market, but we may support more in the future.
+Currently, Fief supports the following providers:
+
+* **SMTP** server.
+* **[Postmark](https://postmarkapp.com)**, one of the leading email delivery service on the market.
 
 There are two environment variables to configure the email provider: `EMAIL_PROVIDER`, to set the type of provider and `EMAIL_PROVIDER_PARAMS`, a configuration dictionary containing required configuration keys.
 
@@ -20,13 +23,30 @@ The NULL provider is the default one if you don't set any. It **means that no tr
 EMAIL_PROVIDER=NULL
 ```
 
+## SMTP provider
+
+SMTP provider will send transactional emails through the configured SMTP server.
+
+| Parameter  | Description                                                | Default |
+| ---------- | ---------------------------------------------------------- | ------- |
+| `host`     | Hostname of your SMTP server.                              |         |
+| `username` | Username to authenticate to your SMTP server.              | `None`  |
+| `password` | Password to authenticate to your SMTP server.              | `None`  |
+| `port`     | Port of your SMTP server. Typically, `25`, `485` or `587`. | `587`   |
+| `ssl`      | Whether to use SSL/TLS to connect to your SMTP server.     | `True`  |
+
+```ini
+EMAIL_PROVIDER=SMTP
+EMAIL_PROVIDER_PARAMS={"host": "smtp.bretagne.duchy", "username": "anne", "password": "hermine"}
+```
+
 ## Postmark provider
 
 Postmark provider will send transactional emails using [Postmark](https://postmarkapp.com).
 
-| Parameter      | Description                                                                                     |
-| -------------- | ----------------------------------------------------------------------------------------------- |
-| `server_token` | Your Postmark [Server API token](https://postmarkapp.com/developer/api/overview#authentication) |
+| Parameter      | Description                                                                                     | Default |
+| -------------- | ----------------------------------------------------------------------------------------------- | ------- |
+| `server_token` | Your Postmark [Server API token](https://account.postmarkapp.com/api_tokens). |         |
 
 ```ini
 EMAIL_PROVIDER=POSTMARK

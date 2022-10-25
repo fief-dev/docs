@@ -64,8 +64,9 @@ Our official client comes with all the tools you need to perform PKCE.
 If you need more control you can use the [`crypto` module](https://fief-dev.github.io/fief-js/modules/index.crypto.html) to generate the code verifier and challenge. Then, you can directly pass them to [`getAuthURL`](https://fief-dev.github.io/fief-js/classes/index.Fief.html#getAuthURL) and [`authCallback`](https://fief-dev.github.io/fief-js/classes/index.Fief.html#authCallback).
 
 ```ts
-const codeVerifier = await fief.crypto.generateCodeVerifier();
-const codeChallenge = await fief.crypto.getCodeChallenge(codeVerifier, 'S256');
+const cryptoHelper = fief.crypto.getCrypto();
+const codeVerifier = await cryptoHelper.generateCodeVerifier();
+const codeChallenge = await cryptoHelper.getCodeChallenge(codeVerifier, 'S256');
 const authURL = await fief.getAuthURL({
     redirectURI: 'http://localhost:8000/callback',
     scope: ['openid'],

@@ -30,6 +30,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] Roles and permissions access control
 * [X] Official Docker image for self-hosting
 * [X] Official Python client with FastAPI and Flask integrations
+* [X] Official Node.js Express integration
 * [X] Official JavaScript client with browser and React integrations
 * [X] Admin dashboard
 * [X] ID Token encryption support
@@ -40,7 +41,6 @@ Fief is a **young project** and still has many features to implement and room fo
 * [ ] Custom API scopes
 * [ ] Customizable transactional emails
 * [ ] 2FA authentication with authenticator apps and U2F keys
-* [ ] Official NodeJS Express integration
 * [ ] Official Bubble integration
 
 ...and more 🚀

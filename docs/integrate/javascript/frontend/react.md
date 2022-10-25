@@ -17,9 +17,9 @@ npm install @fief/fief
 
 !!! abstract "Prerequisites"
     - [x] You have a React project setup.
-    - [x] Make sure your Fief Client is [Public](../
+    - [x] Make sure your Fief Client is [Public](../../
     ../getting-started/clients.md#public-clients).
-    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:3000/callback`
+    - [x] Allow the following [Redirect URI](../../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:3000/callback`
 
 In this example, we'll show you how to use the components and hooks provided by Fief to authenticate users and protect routes using [React Router](https://reactrouter.com/).
 
@@ -132,7 +132,7 @@ In the example below, we show a simple header with navigation links and a login 
 
 In most cases, you'll have an API backend from which you can read or write data to display to the user in your web application.
 
-To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../python/fastapi.md#api-example) or [Flask](../python/flask.md#api-example) API examples.
+To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../../python/fastapi.md#api-example) or [Flask](../../python/flask.md#api-example) API examples.
 
 From your browser application, you can perform XHR requests in JavaScript. All you need is to pass a valid access token in the `Authorization` header of your request.
 

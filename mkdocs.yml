@@ -98,8 +98,11 @@ nav:
       - 'Reference ↗️': https://fief-dev.github.io/fief-python/
     - 'JavaScript':
       - 'General': integrate/javascript/index.md
-      - integrate/javascript/browser.md
-      - integrate/javascript/react.md
+      - 'Backend':
+        - integrate/javascript/backend/express.md
+      - 'Frontend':
+        - integrate/javascript/frontend/browser.md
+        - integrate/javascript/frontend/react.md
       - 'Reference ↗️': https://fief-dev.github.io/fief-js/
   - 'Going further':
     - going-further/byod.md

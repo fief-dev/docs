@@ -41,7 +41,7 @@ For third-party applications, like developers from another company who want to i
 
 OAuth2 protocol defines two types of clients, depending on the context they will be used.
 
-* **Confidential**: clients where we can guarantee the safety of the **client secret**. It's suitable for server-based applications like Python or NodeJS web applications.
+* **Confidential**: clients where we can guarantee the safety of the **client secret**. It's suitable for server-based applications like Python or Node.js web applications.
 * **Public**: clients where the **client secret** would be exposed to the end-user. It's the case for browser-based JavaScript applications and mobile applications.
 
 ### Public clients

@@ -37,10 +37,10 @@ However, if you don't use a JavaScript bundler, like Webpack, you can include th
     - [x] You want to handle all the OAuth authentication in the browser.
 
 !!! abstract "Prerequisites"
-    - [x] Make sure your Fief Client is [Public](../
+    - [x] Make sure your Fief Client is [Public](../../
     ../getting-started/clients.md#public-clients).
-    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8080/callback.html`
-    - [x] Install [http-server](https://www.npmjs.com/package/http-server), a simple NodeJS HTTP server: `npm i --global http-server`
+    - [x] Allow the following [Redirect URI](../../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8080/callback.html`
+    - [x] Install [http-server](https://www.npmjs.com/package/http-server), a simple Node.js HTTP server: `npm i --global http-server`
 
 In this example, we'll show you a very simple HTML and JavaScript application to perform the OAuth2 authentication. We'll define two pages:
 
@@ -63,11 +63,11 @@ Let's see the first one:
 
 3. **Fief client instantiation**
 
-    As we showed in the [JavaScript section](./index.md), we instantiate here a Fief client here with the base tenant URL and client credentials.
+    As we showed in the [JavaScript section](../index.md), we instantiate here a Fief client here with the base tenant URL and client credentials.
 
     Notice here that we omit the **Client Secret**. Indeed, the secret can't be kept safe in the browser: the end-user can easily find it in the source code.
 
-    That's why we set the Fief Client as [Public](../
+    That's why we set the Fief Client as [Public](../../
     ../getting-started/clients.md#public-clients): we allow it to make authentication requests without the Client Secret.
 
 4. **Fief helper for the browser**
@@ -82,7 +82,7 @@ Let's see the first one:
 
     We use the `FiefAuth` helper for this. All it needs is the redirect URL where the user will be redirected after a successful authentication on Fief: the `callback.html` page.
 
-    Under the hood, `FiefAuth` takes care of generating a [PKCE code challenge](../../going-further/pkce.md) for maximum security!
+    Under the hood, `FiefAuth` takes care of generating a [PKCE code challenge](../../../going-further/pkce.md) for maximum security!
 
 6. **When the logout button is clicked, clear session and redirect to Fief logout page**
 
@@ -142,7 +142,7 @@ You can also try the **Logout** button to see how the session is cleared.
 
 In most cases, you'll have an API backend from which you can read or write data to display to the user in your web application.
 
-To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../python/fastapi.md#api-example) or [Flask](../python/flask.md#api-example) API examples.
+To secure your API, you can make it require a valid Fief access token, so we are sure the call is made from an authenticated user. This is what we show for example in the [FastAPI](../../python/fastapi.md#api-example) or [Flask](../../python/flask.md#api-example) API examples.
 
 From your browser application, you can perform XHR requests in JavaScript. All you need is to pass a valid access token in the `Authorization` header of your request.
 

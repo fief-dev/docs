@@ -57,7 +57,7 @@ Fief **enforces** the use of PKCE for **public clients**: you must pass the `cod
 Our official client comes with all the tools you need to perform PKCE.
 
 !!! tip "Browser and React integrations do it automatically!"
-    Actually, if you use our [browser](../integrate/javascript/browser.md) or [React](../integrate/javascript/react.md) integration, PKCE is already handled automatically!
+    Actually, if you use our [browser](../integrate/javascript/frontend/browser.md) or [React](../integrate/javascript/frontend/react.md) integration, PKCE is already handled automatically!
 
 ---
 

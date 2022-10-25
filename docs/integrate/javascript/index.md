@@ -50,6 +50,13 @@ JavaScript being a vast ecosystem both for browsers and servers, integration pat
 
 To help you further, we provide you helpers and examples for popular JavaScript frameworks and technologies, like React.
 
-[Integrate in browser with plain JavaScript](browser.md){ .md-button }
-[Integrate with React](react.md){ .md-button }
+### Backend
+
+[Integrate with Express](backend/express.md){ .md-button }
+{: .buttons }
+
+### Frontend
+
+[Integrate in browser with plain JavaScript](frontend/browser.md){ .md-button }
+[Integrate with React](frontend/react.md){ .md-button }
 {: .buttons }

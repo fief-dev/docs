@@ -18,7 +18,6 @@ pip install "fief-client[flask]"
     - [x] Your Flask backend will work as a pure REST API.
     - [x] You have a separate frontend, like a JavaScript or mobile app, that'll take care of the OAuth2 flow.
 
-
 In this first example, we won't implement routes to perform the OAuth2 authentication. The goal here is just to show you **how to protect your API route with a Fief access token**.
 
 ```py title="app.py"
@@ -59,7 +58,7 @@ In this first example, we won't implement routes to perform the OAuth2 authentic
 
     When a valid access token is found in the request, the `access_token_info` decorator will automatically add the `access_token_info` property to the global [`g` application context of Flask](https://flask.palletsprojects.com/en/api/#flask.g).
 
-    This `access_token_info` property is a [`FiefAccessTokenInfo`](./index.md#fiefaccesstokeninfo) dictionary containing the ID of the user, the list of allowed scopes and the raw access token.
+    This `access_token_info` property is a [`FiefAccessTokenInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefAccessTokenInfo) dictionary containing the ID of the user, the list of allowed scopes and permissions and the raw access token.
 
 7. **Check for scopes**
 
@@ -122,7 +121,7 @@ Sometimes, you need to have a route retrieving the user if there is one authenti
 
     As you probably have guessed, we need the other side of the operation: saving user information in cache.
 
-    To do this, we implement a simple function accepting a user ID and a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary as arguments. There, you'll need to store this data in cache.
+    To do this, we implement a simple function accepting a user ID and a [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary as arguments. There, you'll need to store this data in cache.
 
     In this example, we simply use the [Sessions mechanism from Flask](https://flask.palletsprojects.com/en/2.1.x/api/#sessions), but it can be something more complex, like writing to a Redis store.
 
@@ -186,13 +185,13 @@ Sometimes, you need to have a route retrieving the user if there is one authenti
 
     When a user has successfully authenticated, we do not only get the access token: we also get an [ID token](../../getting-started/oauth2.md#access-token-and-id-token) which already contains the user information.
 
-    Hence, we'll take this opportunity to store it in our cache! The ID token is automatically decoded by [`fief.auth_callback`](./index.md#auth_callback) method.
+    Hence, we'll take this opportunity to store it in our cache! The ID token is automatically decoded by [`fief.auth_callback`](https://fief-dev.github.io/fief-python/fief_client.html#Fief.auth_callback) method.
 
     Thus, we just have to use our cache function to store it!
 
 18. **Use the `current_user` decorator**
 
-    This time, we use the `current_user` decorator instead of `authenticated`. Under the hood, it'll stil call `authenticated` and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the data of the user.
+    This time, we use the `current_user` decorator instead of `authenticated`. Under the hood, it'll stil call `authenticated` and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary containing the data of the user.
 
     If the request is not authenticated, an `FiefAuthUnauthorized` error will be raised and the user will be redirected to the Fief login page.
 
@@ -200,10 +199,9 @@ Sometimes, you need to have a route retrieving the user if there is one authenti
 
     If the request is properly authenticated, the `current_user` decorator will automatically add the `user` property to the global [`g` application context of Flask](https://flask.palletsprojects.com/en/api/#flask.g).
 
-    This `user` property is a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.
+    This `user` property is a [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary containing the user data. If it's not available in cache, it's automatically retrieved from the Fief API.
 
 That's it! If you run this application and go to [http://localhost:8000/protected](http://localhost:8000/protected), you'll be redirected to the Fief login page and experience the authentication flow before getting back to this route with a proper authentication cookie.
-of your application, we highly recommend you to read the next example.
 
 !!! tip "`current_user` can also check for scope and permissions"
     In a similar way as we shown in the [API example](#api-example), you can also require the access token to be granted a list of **scopes** or the user to be granted a list of **permissions**.

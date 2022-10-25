@@ -208,7 +208,7 @@ Sometimes, you need to have a route retrieve the user if there is one authentica
 
 14. **Use the `current_user` dependency**
 
-    This time, we use the `current_user` dependency instead of `authenticated`. Under the hood, it'll stil call `authenticated` and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary containing the data of the user.
+    This time, we use the `current_user` dependency instead of `authenticated`. Under the hood, it'll stil call `authenticated` and check if the cookie is available in the request and proceed if everything goes well. However, it'll return you a [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary containing the data of the user.
 
     If the request is not authenticated, our custom `get_unauthorized_response` will be called and the user will be redirected to the Fief login page.
 
@@ -271,17 +271,17 @@ Let's fix this! Fortunately, the client provides you useful tools to help you wi
 
     This is a very simple approach that will just store the data in memory. If your server is rebooted, the cache will be lost.
 
-    It can work quite well when starting, but you'll probably need more robust approaches in the long run. The good thing is that you'll only need to change this class when the time comes!
+    It can work quite well when starting, but you'll probably need more robust approaches in the long run, like writing to a Redis store. The good thing is that you'll only need to change this class when the time comes!
 
 3. **We implement the `.get` method**
 
-    This is the first compulsory method you have to implement in the class. It accepts an user ID as argument and expects you to return a cached [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary or `None` if not available.
+    This is the first compulsory method you have to implement in the class. It accepts an user ID as argument and expects you to return a cached [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary or `None` if not available.
 
     Here, we simply read from our dictionary.
 
 4. **We implement the `.set` method**
 
-    This is the second and last compulsory method you have to implement in the class. It accepts an user ID and a [`FiefUserInfo`](./index.md#fiefuserinfo) dictionary as arguments. There, you'll need to store this data in cache.
+    This is the second and last compulsory method you have to implement in the class. It accepts an user ID and a [`FiefUserInfo`](https://fief-dev.github.io/fief-python/fief_client.html#FiefUserInfo) dictionary as arguments. There, you'll need to store this data in cache.
 
     Here, we simply set the user information into our dictionary.
 
@@ -317,7 +317,7 @@ Let's fix this! Fortunately, the client provides you useful tools to help you wi
 
 9. **We cache the user information**
 
-    The ID token is automatically decoded by [`fief.auth_callback`](./index.md#auth_callback) method.
+    The ID token is automatically decoded by [`fief.auth_callback`](https://fief-dev.github.io/fief-python/fief_client.html#FiefAsync.auth_callback) method.
 
     Thus, we just have to use our cache to store it!
 

@@ -31,6 +31,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] Official Docker image for self-hosting
 * [X] Official Python client with FastAPI and Flask integrations
 * [X] Official Node.js Express integration
+* [X] Official Next.js integration
 * [X] Official JavaScript client with browser and React integrations
 * [X] Admin dashboard
 * [X] ID Token encryption support

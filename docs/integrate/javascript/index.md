@@ -55,6 +55,11 @@ To help you further, we provide you helpers and examples for popular JavaScript 
 [Integrate with Express](backend/express.md){ .md-button }
 {: .buttons }
 
+### Server-Side Rendering (SSR)
+
+[Integrate with Next.js](ssr/nextjs.md){ .md-button }
+{: .buttons }
+
 ### Frontend
 
 [Integrate in browser with plain JavaScript](frontend/browser.md){ .md-button }

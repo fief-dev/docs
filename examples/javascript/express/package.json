@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@fief/fief": "file:../../../../fief-js",
+    "@fief/fief": "*",
     "express": "^4.18.2"
   },
   "devDependencies": {

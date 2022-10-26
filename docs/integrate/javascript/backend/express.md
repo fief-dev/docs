@@ -73,7 +73,7 @@ In this first example, we won't implement routes to perform the OAuth2 authentic
     - [x] Your application is intended to be used in a browser.
 
 !!! abstract "Prerequisites"
-    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:3O00/auth-callback`
+    - [x] Allow the following [Redirect URI](../../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:3O00/auth-callback`
 
 --8<-- "reusables/web-application-motivation.md"
 

@@ -15,7 +15,7 @@ npm install @fief/fief
 However, if you don't use a JavaScript bundler, like Webpack, you can include the package directly in a browser script, thanks to [UNPKG CDN](https://unpkg.com):
 
 ```html
-<script src="https://unpkg.com/@fief/fief"></script> <!-- (1)! -->
+<script src="https://unpkg.com/@fief/fief/build/index.umd.js"></script> <!-- (1)! -->
 <script>
     console.log(fief); // Module is available globally under the `fief` variable
 </script>
@@ -25,10 +25,10 @@ However, if you don't use a JavaScript bundler, like Webpack, you can include th
 
     You should pin the version to avoid problems when we update the client and improve the loading time.
 
-    For example, to load the version `0.6.1`:
+    For example, to load the version `0.10.1`:
 
     ```html
-    <script src="https://unpkg.com/@fief/fief@0.6.1/build/index.umd.js"></script>
+    <script src="https://unpkg.com/@fief/fief@0.10.1/build/index.umd.js"></script>
     ```
 
 ## Application example

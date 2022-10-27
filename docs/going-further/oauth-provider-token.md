@@ -1,6 +1,6 @@
 # OAuth Provider token
 
-When configuring an [OAuth Provider](../getting-started/oauth-providers.md) for your app, you allow users to authenticate using their exisiting account on this particular service.
+When configuring an [OAuth Provider](../getting-started/oauth-providers.md) for your app, you allow users to authenticate using their existing account on this particular service.
 
 But there is more: when you do this, and if you asked for the right [scopes](../getting-started/oauth-providers.md#scopes), you gain access to the API of this provider, so you can make actions **on behalf of the user**. For example, you could build a search engine indexing files from their Google Drive or an application to help manage GitHub issues.
 

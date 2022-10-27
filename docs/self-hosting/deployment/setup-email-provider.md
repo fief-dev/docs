@@ -12,6 +12,7 @@ Currently, Fief supports the following providers:
 
 * **SMTP** server.
 * **[Postmark](https://postmarkapp.com)**, one of the leading email delivery service on the market.
+* **[SendGrid](https://sendgrid.com/)**, another highly popular choice for email delivery.
 
 There are two environment variables to configure the email provider: `EMAIL_PROVIDER`, to set the type of provider and `EMAIL_PROVIDER_PARAMS`, a configuration dictionary containing required configuration keys.
 
@@ -44,11 +45,24 @@ EMAIL_PROVIDER_PARAMS={"host": "smtp.bretagne.duchy", "username": "anne", "passw
 
 Postmark provider will send transactional emails using [Postmark](https://postmarkapp.com).
 
-| Parameter      | Description                                                                                     | Default |
-| -------------- | ----------------------------------------------------------------------------------------------- | ------- |
+| Parameter      | Description                                                                   | Default |
+| -------------- | ----------------------------------------------------------------------------- | ------- |
 | `server_token` | Your Postmark [Server API token](https://account.postmarkapp.com/api_tokens). |         |
 
 ```ini
 EMAIL_PROVIDER=POSTMARK
 EMAIL_PROVIDER_PARAMS={"server_token": "XXX-XXX"}
+```
+
+## SendGrid provider
+
+SendGrid provider will send transactional emails using [SendGrid](https://sendgrid.com/).
+
+| Parameter | Description                                                                          | Default |
+| --------- | ------------------------------------------------------------------------------------ | ------- |
+| `api_key` | Your SendGrid [API key](https://docs.sendgrid.com/ui/account-and-settings/api-keys). |         |
+
+```ini
+EMAIL_PROVIDER=SENDGRID
+EMAIL_PROVIDER_PARAMS={"api_key": "XXX-XXX"}
 ```

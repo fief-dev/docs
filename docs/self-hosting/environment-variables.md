@@ -118,10 +118,10 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 
 ### Email provider
 
-| Name                    | Description                                    | Default | Allowed values | Example                      |
-| ----------------------- | ---------------------------------------------- | ------- | -------------- | ---------------------------- |
-| `EMAIL_PROVIDER`        | Type of email provider                         | NULL    | NULL, SMTP, POSTMARK | POSTMARK                     |
-| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider | {}      |                | {"server\_token": "XXX-XXX"} |
+| Name                    | Description                                    | Default | Allowed values                 | Example                      |
+| ----------------------- | ---------------------------------------------- | ------- | ------------------------------ | ---------------------------- |
+| `EMAIL_PROVIDER`        | Type of email provider                         | NULL    | NULL, SMTP, POSTMARK, SENDGRID | POSTMARK                     |
+| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider | {}      |                                | {"server\_token": "XXX-XXX"} |
 
 More details about how to setup an email provider in the dedicated section.
 

@@ -115,11 +115,13 @@ Currently, Fief supports the following OAuth Providers. You'll find below steps 
      * In **Name**, type a name to recognize this client. For example, **Fief Client**.
      * In **Authorized redirect URIs**, add your **Redirect URI**.
      * Your **Client ID** and **Client Secret** will then appear in a modal. Copy and paste them into Fief.
+ * If not already, you should enable the **People API** in your Google Cloud project. Go to [https://console.developers.google.com/apis/api/people.googleapis.com/overview](https://console.developers.google.com/apis/api/people.googleapis.com/overview) and click on **Enable**.
 
 --8<-- "reusables/oauth-provider-redirect-uri-callout.md"
 
 ![Google OAuth2 client configuration](/assets/images/oauth-providers-configuration-google-client.png)
 ![Google redirect URI OAuth2 client configuration](/assets/images/oauth-providers-configuration-google-redirect-uri.png)
+![Google enable People API](/assets/images/oauth-providers-configuration-google-people-api.png)
 
 !!! tip "Production mode"
     By default, your consent screen is in **testing mode**, so only the test users can use it. When you're ready to go in production, click on the **Publish app** button. Google will require you to provide some explanations about what you're doing with the app and manually review it. They are *picky*, so make sure to add lot of details and videos of how your app works.

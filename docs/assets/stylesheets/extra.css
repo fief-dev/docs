@@ -66,3 +66,15 @@ table td code {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+body[data-md-color-scheme="slate"] .excalidraw  svg  {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+body[data-md-color-scheme="slate"] .excalidraw svg rect {
+  fill: transparent;
+}
+
+.excalidraw {
+  text-align: center;
+}

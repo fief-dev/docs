@@ -37,7 +37,7 @@ This is the name of your user field. It'll be used as **label in the registratio
 
 ### Slug
 
-This will be the **identifier of the field** in the [ID token](./oauth2.md#access-token-and-id-token) and in API responses.
+This will be the **identifier of the field** in the [ID token](../getting-started/oauth2.md#access-token-and-id-token) and in API responses.
 
 By default, it'll be automatically generated from the [name](#name), but you can customize it at will.
 

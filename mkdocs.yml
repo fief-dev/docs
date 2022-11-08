@@ -21,6 +21,7 @@ theme:
     - navigation.instant
     - navigation.expand
     - navigation.sections
+    - navigation.tabs
     - navigation.top
     - search.suggest
     - search.highlight
@@ -81,15 +82,8 @@ nav:
   - 'Getting started':
     - getting-started/introduction.md
     - getting-started/workspace.md
-    - getting-started/admin-dashboard.md
-    - getting-started/tenants.md
-    - getting-started/clients.md
-    - getting-started/oauth-providers.md
-    - getting-started/users.md
-    - getting-started/user-fields.md
-    - getting-started/access-control.md
-    - getting-started/api-keys.md
     - getting-started/oauth2.md
+    - getting-started/try-oauth2.md
   - 'Integrate':
     - 'Python':
       - 'General': integrate/python/index.md
@@ -106,9 +100,19 @@ nav:
         - integrate/javascript/frontend/browser.md
         - integrate/javascript/frontend/react.md
       - 'Reference ↗️': https://fief-dev.github.io/fief-js/
+  - 'Admin dashboard':
+    - 'Presentation': admin-dashboard/index.md
+    - admin-dashboard/tenants.md
+    - admin-dashboard/clients.md
+    - admin-dashboard/oauth-providers.md
+    - admin-dashboard/users.md
+    - admin-dashboard/user-fields.md
+    - admin-dashboard/access-control.md
+    - admin-dashboard/api-keys.md
   - 'Going further':
     - going-further/byod.md
     - going-further/pkce.md
+    - going-further/email-templates.md
     - going-further/id-token-encryption.md
     - going-further/oauth-provider-token.md
   - 'Self-hosting':
@@ -119,5 +123,3 @@ nav:
       - self-hosting/deployment/setup-database.md
       - self-hosting/deployment/setup-email-provider.md
     - self-hosting/environment-variables.md
-  - Miscellaneous:
-    - miscellaneous/resources.md

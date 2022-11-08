@@ -168,7 +168,7 @@ A registration session is a cookie used to maintain the state of the registratio
 
 ### OAuth session
 
-An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../getting-started/oauth-providers.md), from the moment they click on the *Sign in with...* button until they're redirected.
+An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../admin-dashboard/oauth-providers.md), from the moment they click on the *Sign in with...* button until they're redirected.
 
 | Name                             | Description                              | Default            | Allowed values | Example |
 | -------------------------------- | ---------------------------------------- | ------------------ | -------------- | ------- |

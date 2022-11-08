@@ -52,7 +52,7 @@ Fief will allow public clients to make token request **without the client secret
 
 ## Redirect URIs
 
-During an [OAuth2 authentication flow](./oauth2.md), after the user has successfully logged in, Fief will redirect them to your application with a temporary code. At that point, your application will use this temporary code to obtain a valid token.
+During an [OAuth2 authentication flow](../getting-started/oauth2.md), after the user has successfully logged in, Fief will redirect them to your application with a temporary code. At that point, your application will use this temporary code to obtain a valid token.
 
 For security reasons, Fief **won't allow the user to be redirected to any URI**. Instead, you have to explicitly allow every URI you'll need in your applications.
 

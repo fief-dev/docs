@@ -1,14 +1,14 @@
 # OAuth Provider token
 
-When configuring an [OAuth Provider](../getting-started/oauth-providers.md) for your app, you allow users to authenticate using their existing account on this particular service.
+When configuring an [OAuth Provider](../admin-dashboard/oauth-providers.md) for your app, you allow users to authenticate using their existing account on this particular service.
 
-But there is more: when you do this, and if you asked for the right [scopes](../getting-started/oauth-providers.md#scopes), you gain access to the API of this provider, so you can make actions **on behalf of the user**. For example, you could build a search engine indexing files from their Google Drive or an application to help manage GitHub issues.
+But there is more: when you do this, and if you asked for the right [scopes](../admin-dashboard/oauth-providers.md#scopes), you gain access to the API of this provider, so you can make actions **on behalf of the user**. For example, you could build a search engine indexing files from their Google Drive or an application to help manage GitHub issues.
 
 When a user authenticates using their external account, Fief automatically retrieves a valid **access token** that can be used to query the API of the external service.
 
 ## Getting a fresh access token
 
-To help you integrate clever workflows into your application, Fief Admin API allows you to retrieve an access token for a given user and OAuth Provider. All you need is an [Admin API key](../getting-started/api-keys.md), the ID of the OAuth Provider (the one in Fief, not the Client ID) and the ID of the user. Then, you just have to make an HTTP request like this:
+To help you integrate clever workflows into your application, Fief Admin API allows you to retrieve an access token for a given user and OAuth Provider. All you need is an [Admin API key](../admin-dashboard/api-keys.md), the ID of the OAuth Provider (the one in Fief, not the Client ID) and the ID of the user. Then, you just have to make an HTTP request like this:
 
 ```bash
 curl \

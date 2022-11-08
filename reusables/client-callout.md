@@ -3,4 +3,4 @@
 
     Each client has a Client ID and a Client Secret. Those values are used during OAuth2 authentification to recognize the client.
 
-    Each workspace comes with one client, tied to the default [tenant](../getting-started/tenants.md).
+    Each workspace comes with one client, tied to the default [tenant](/admin-dashboard/tenants).

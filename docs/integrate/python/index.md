@@ -13,7 +13,7 @@ pip install fief-client
 ## Create a `Fief` client
 
 !!! abstract "Prerequisites"
-    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/callback`
+    - [x] Allow the following [Redirect URI](../../admin-dashboard/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/callback`
 
 The Fief client provides all the necessary methods to manage OAuth2 authentication, validate access tokens and refresh them.
 
@@ -23,13 +23,13 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
 1. **Base URL of your Fief tenant**
 
-    You can find it in the admin dashboard, in the **Tenants** list. [More info](../../getting-started/tenants.md#base-url)
+    You can find it in the admin dashboard, in the **Tenants** list. [More info](../../admin-dashboard/tenants.md#base-url)
 
     ![Find base URL in admin dashboard](/assets/images/admin-tenants.png)
 
 2. **ID of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../admin-dashboard/clients.md)
 
     ![Find Client ID in admin dashboard](/assets/images/admin-clients-detail.png)
 
@@ -38,7 +38,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
 3. **Secret of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list. [More info](../../getting-started/clients.md)
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../admin-dashboard/clients.md)
 
     ![Find Client Secret in admin dashboard](/assets/images/admin-clients-detail.png)
 

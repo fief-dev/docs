@@ -38,8 +38,8 @@ However, if you don't use a JavaScript bundler, like Webpack, you can include th
 
 !!! abstract "Prerequisites"
     - [x] Make sure your Fief Client is [Public](../../
-    ../getting-started/clients.md#public-clients).
-    - [x] Allow the following [Redirect URI](../../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8080/callback.html`
+    ../admin-dashboard/clients.md#public-clients).
+    - [x] Allow the following [Redirect URI](../../../admin-dashboard/clients.md#redirect-uris) on your Fief Client: `http://localhost:8080/callback.html`
     - [x] Install [http-server](https://www.npmjs.com/package/http-server), a simple Node.js HTTP server: `npm i --global http-server`
 
 In this example, we'll show you a very simple HTML and JavaScript application to perform the OAuth2 authentication. We'll define two pages:
@@ -68,7 +68,7 @@ Let's see the first one:
     Notice here that we omit the **Client Secret**. Indeed, the secret can't be kept safe in the browser: the end-user can easily find it in the source code.
 
     That's why we set the Fief Client as [Public](../../
-    ../getting-started/clients.md#public-clients): we allow it to make authentication requests without the Client Secret.
+    ../admin-dashboard/clients.md#public-clients): we allow it to make authentication requests without the Client Secret.
 
 4. **Fief helper for the browser**
 

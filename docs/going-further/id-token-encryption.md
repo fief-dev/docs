@@ -2,7 +2,7 @@
 
 In [Understand OAuth2](../getting-started/oauth2.md#access-token-and-id-token) section, we said that, after a successful authentication, you get two different tokens: an **access token** and an **ID token**.
 
-The ID token is a value containing all the basic information about the authenticated user, like its id, email and profile information from [user fields](../getting-started/user-fields.md). For security and convenience, this data is encoded as a **JSON Web Token (JWT)**.
+The ID token is a value containing all the basic information about the authenticated user, like its id, email and profile information from [user fields](../admin-dashboard/user-fields.md). For security and convenience, this data is encoded as a **JSON Web Token (JWT)**.
 
 Before showing how to enable its encryption, let's explain how JWT work and why encryption is interesting.
 
@@ -106,7 +106,7 @@ Now, we have the best of both worlds: we can check the **authenticity** of the d
 
 ## Enable ID Token encryption
 
-In Fief, ID Token encryption can be enabled per [client](../getting-started/clients.md). From the admin dashboard, click on the client on which you want to enable ID Token encryption and, in its detail modal, click on the **Generate key** button.
+In Fief, ID Token encryption can be enabled per [client](../admin-dashboard/clients.md). From the admin dashboard, click on the client on which you want to enable ID Token encryption and, in its detail modal, click on the **Generate key** button.
 
 ![Enable ID Token encryption on a client](/assets/images/id-token-encryption-enable.png)
 

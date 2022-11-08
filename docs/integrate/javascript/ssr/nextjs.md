@@ -61,7 +61,7 @@ In Fief implementation, we provide **hooks** allowing you to retrieve the curren
 
 !!! abstract "Prerequisites"
     - [x] Bootstrap a Next.js project as described in [Automatic Setup](https://nextjs.org/docs/getting-started#automatic-setup) section of the Next.js documentation.
-    - [x] Allow the following [Redirect URI](../../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:3O00/auth-callback`
+    - [x] Allow the following [Redirect URI](../../../admin-dashboard/clients.md#redirect-uris) on your Fief Client: `http://localhost:3O00/auth-callback`
 
 ### 1. Create a `fief` module
 
@@ -279,7 +279,7 @@ Now, let's try to go to the [**Castles / Index**](http://localhost:3000/castles)
 
 ![Next.js forbidden page](/assets/images/nextjs-castles-forbidden.png)
 
-If you [assign the correct permission to the user](../../../getting-started/users.md#assign-a-permission) and authenticate again, you'll see the actual page.
+If you [assign the correct permission to the user](../../../admin-dashboard/users.md#assign-a-permission) and authenticate again, you'll see the actual page.
 
 ![Next.js castles page](/assets/images/nextjs-castles.png)
 

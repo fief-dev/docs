@@ -3,4 +3,4 @@
 
     To help you with this, Fief allows you to create custom **user fields**. Each one will have a name, an identifier and a type.
 
-    Each user will have attached its values for those fields. They will be available directly through the [ID token](./oauth2.md#access-token-and-id-token) or through the `/userinfo` endpoint.
+    Each user will have attached its values for those fields. They will be available directly through the [ID token](/getting-started/oauth2#access-token-and-id-token) or through the `/userinfo` endpoint.

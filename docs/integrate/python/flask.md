@@ -89,7 +89,7 @@ Sometimes, you need to have a route retrieving the user if there is one authenti
     - [x] Your application is intended to be used in a browser.
 
 !!! abstract "Prerequisites"
-    - [x] Allow the following [Redirect URI](../../getting-started/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/auth-callback`
+    - [x] Allow the following [Redirect URI](../../admin-dashboard/clients.md#redirect-uris) on your Fief Client: `http://localhost:8000/auth-callback`
 
 --8<-- "reusables/web-application-motivation.md"
 

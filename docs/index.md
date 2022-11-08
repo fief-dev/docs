@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation
+---
+
 # What is Fief?
 
 Fief is an **open-source platform** to manage **users** and **authentication** in your applications. Our goal is to help you manage users and security in a matter of minutes, not days. Key features:
@@ -28,6 +33,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] Bring your own database
 * [X] Custom user fields
 * [X] Roles and permissions access control
+* [X] Customizable transactional emails
 * [X] Official Docker image for self-hosting
 * [X] Official Python client with FastAPI and Flask integrations
 * [X] Official Node.js Express integration
@@ -40,7 +46,6 @@ Fief is a **young project** and still has many features to implement and room fo
 ### What we'll have in the future?
 
 * [ ] Custom API scopes
-* [ ] Customizable transactional emails
 * [ ] 2FA authentication with authenticator apps and U2F keys
 * [ ] Official Bubble integration
 

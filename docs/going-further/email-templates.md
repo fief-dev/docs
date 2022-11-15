@@ -29,11 +29,11 @@ Before the `main` block, notice that we show the name of the tenant.
 
 You can customize the Base template from admin dashboard. On the left menu, click on **Customization** and **Email templates**. You'll see the list of all available templates.
 
-![Email templates from admin dashboard](/assets/images/admin-users.png)
+![Email templates from admin dashboard](/assets/images/admin-email-templates.png)
 
 Click on the **Update** button in the front of the Base template row. An editor will open, with the HTML code on the left and a preview on the right.
 
-![Update email templates from admin dashboard](/assets/images/admin-users.png)
+![Update email templates from admin dashboard](/assets/images/admin-email-templates-edit.png)
 
 ### Context
 

@@ -97,25 +97,25 @@ Currently, Fief supports the following OAuth Providers. You'll find below steps 
 ### Google
 
 * Go to: [https://console.cloud.google.com/apis/credentials/oauthclient](https://console.cloud.google.com/apis/credentials/oauthclient)
-    * If it's the first time you go to the Google Cloud Console, you'll have to create a new project.
+  * If it's the first time you go to the Google Cloud Console, you'll have to create a new project.
 * If you never did it before, you'll be asked to configure your consent screen. Click on **Configure consent screen**.
-    * Select **External** as **User Type**.
-    * In **App name**, type the name of your application/website.
-    * In **User support email**, type your support email address.
-    * You can provide a logo and links to your legal terms.
-    * In **Authorized domains**, add your workspace subdomain, like **fief.dev**.
-    * In **Developer contact information**, type your developer email address.
-    * In **Scopes**, click on **Add or remove scopes** and select the three following scopes:
-          * `/auth/userinfo.email`
-          * `/auth/userinfo.profile`
-          * `openid`
-    * In **Test users**, you can add your own email address and the ones of your colleagues. While the app has not been approved, only those emails will be allowed to used it.
+  * Select **External** as **User Type**.
+  * In **App name**, type the name of your application/website.
+  * In **User support email**, type your support email address.
+  * You can provide a logo and links to your legal terms.
+  * In **Authorized domains**, add the top-level domain of Fief, **fief.dev**.
+  * In **Developer contact information**, type your developer email address.
+  * In **Scopes**, click on **Add or remove scopes** and select the three following scopes:
+    * `/auth/userinfo.email`
+    * `/auth/userinfo.profile`
+    * `openid`
+  * In **Test users**, you can add your own email address and the ones of your colleagues. While the app has not been approved, only those emails will be allowed to use it.
 * Once done, you can go back to [https://console.cloud.google.com/apis/credentials/oauthclient](https://console.cloud.google.com/apis/credentials/oauthclient).
-     * Choose **Web application** as **Application type**.
-     * In **Name**, type a name to recognize this client. For example, **Fief Client**.
-     * In **Authorized redirect URIs**, add your **Redirect URI**.
-     * Your **Client ID** and **Client Secret** will then appear in a modal. Copy and paste them into Fief.
- * If not already, you should enable the **People API** in your Google Cloud project. Go to [https://console.developers.google.com/apis/api/people.googleapis.com/overview](https://console.developers.google.com/apis/api/people.googleapis.com/overview) and click on **Enable**.
+   * Choose **Web application** as **Application type**.
+   * In **Name**, type a name to recognize this client. For example, **Fief Client**.
+   * In **Authorized redirect URIs**, add your **Redirect URI**.
+   * Your **Client ID** and **Client Secret** will then appear in a modal. Copy and paste them into Fief.
+* If not already, you should enable the **People API** in your Google Cloud project. Go to [https://console.developers.google.com/apis/api/people.googleapis.com/overview](https://console.developers.google.com/apis/api/people.googleapis.com/overview) and click on **Enable**.
 
 --8<-- "reusables/oauth-provider-redirect-uri-callout.md"
 

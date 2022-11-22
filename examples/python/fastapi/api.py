@@ -13,15 +13,16 @@ scheme = OAuth2AuthorizationCodeBearer(  # (2)!
     "https://example.fief.dev/authorize",  # (3)!
     "https://example.fief.dev/api/token",  # (4)!
     scopes={"openid": "openid", "offline_access": "offline_access"},
+    auto_error=False,  # (5)!
 )
 
-auth = FiefAuth(fief, scheme)  # (5)!
+auth = FiefAuth(fief, scheme)  # (6)!
 
 app = FastAPI()
 
 
 @app.get("/user")
 async def get_user(
-    access_token_info: FiefAccessTokenInfo = Depends(auth.authenticated()),  # (6)!
+    access_token_info: FiefAccessTokenInfo = Depends(auth.authenticated()),  # (7)!
 ):
     return access_token_info

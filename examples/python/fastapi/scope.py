@@ -13,6 +13,7 @@ scheme = OAuth2AuthorizationCodeBearer(
     "https://example.fief.dev/authorize",
     "https://example.fief.dev/api/token",
     scopes={"openid": "openid", "offline_access": "offline_access"},
+    auto_error=False,
 )
 
 auth = FiefAuth(fief, scheme)

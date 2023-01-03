@@ -6,6 +6,7 @@ theme:
   custom_dir: overrides
   logo: assets/images/fief-logo-white.svg
   favicon: assets/images/favicon.svg
+  language: en
   font:
     text: Inter
   palette:
@@ -26,6 +27,10 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.annotate
+    - content.code.copy
+
+repo_name: fief-dev/fief
+repo_url: https://github.com/fief-dev/fief
 
 plugins:
   - search

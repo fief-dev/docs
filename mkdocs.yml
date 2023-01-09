@@ -71,7 +71,7 @@ extra:
     - title: Discussions
       href: https://github.com/orgs/fief-dev/discussions
     - title: Join the beta
-      href: https://fief.fief.dev/admin/api/auth/login?screen=register
+      href: https://fief.fief.dev/admin/auth/login?screen=register
 
 extra_css:
   - assets/stylesheets/extra.css

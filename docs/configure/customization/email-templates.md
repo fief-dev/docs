@@ -57,7 +57,7 @@ The **context** defines the available variables you can use in the template. The
   * `updated_at` (`datetime`): Last update date of the user.
   * `email` (`str`): Email address of the user.
   * `tenant_id` (`uuid.UUID`): ID of the associated tenant.
-  * `fields` (`dict[str, Any]`): Dictionary giving you the [user fields](../admin-dashboard/user-fields.md) values for this user, indexed by their slug.
+  * `fields` (`dict[str, Any]`): Dictionary giving you the [user fields](../configure/user-fields.md) values for this user, indexed by their slug.
 
 !!! tip "Examples"
 

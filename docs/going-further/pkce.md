@@ -6,7 +6,7 @@ Proof Key for Code Exchange (PKCE) is an extension of the [OAuth2 protocol](http
 
 ## Rationale
 
-As we mentioned in a [previous section](../admin-dashboard/clients.md#public-clients), clients are considered **public** when the client secret can't be properly protected. This is usually the case for **JavaScript applications** and **mobile applications**, where the secret could be easily discovered in the source code.
+As we mentioned in a [previous section](../configure/clients.md#public-clients), clients are considered **public** when the client secret can't be properly protected. This is usually the case for **JavaScript applications** and **mobile applications**, where the secret could be easily discovered in the source code.
 
 In OAuth2 protocol, when the user has successfully authenticated, they are redirected to your application with a temporary code, called the **authorization code**. This code is then used by your application to call the Fief API and obtain a valid token in exchange. For this exchange to happen, the protocol requires that you provide the **client secret**, to prove that you are allowed to make such requests.
 

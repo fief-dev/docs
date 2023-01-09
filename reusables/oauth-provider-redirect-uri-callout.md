@@ -7,4 +7,4 @@
     https://example.fief.dev/oauth/callback
     ```
 
-    This URL is common for **every [tenants](/admin-dashboard/tenants)**. So you don't have to worry about it if you add new tenants, Fief will handle it automatically.
+    This URL is common for **every [tenants](/configure/tenants)**. So you don't have to worry about it if you add new tenants, Fief will handle it automatically.

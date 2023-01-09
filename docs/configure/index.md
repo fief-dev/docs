@@ -12,7 +12,9 @@ The left menu lets you access to the most important aspects of Fief:
 * [Users](./users.md)
 * [User fields](./user-fields.md)
 * [Access control](./access-control.md)
-* [Email templates customization](../going-further/email-templates.md)
+* Customization
+    * [Themes](./customization/themes.md)
+    * [Email templates](./customization/email-templates.md)
 * [API Keys](./api-keys.md)
 
 ## Switch workspace

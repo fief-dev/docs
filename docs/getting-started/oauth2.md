@@ -64,7 +64,7 @@ As we said in introduction, we use the **OpenID Connect** protocol on top of OAu
 !!! tip "First-party clients"
     Since you'll use Fief to authenticate users on your own, official application, we introduced the concept of **first-party** clients. When a user logs in on a client configured as first-party, the consent screen is bypassed and every scopes asked are implicitly granted.
 
-    You can read more about this in the [dedicated section](../admin-dashboard/clients.md#first-party-clients).
+    You can read more about this in the [dedicated section](../configure/clients.md#first-party-clients).
 
 !!! bug "Limitations"
     In the future, you'll be able to create your own set of scopes in Fief.

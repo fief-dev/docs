@@ -20,13 +20,13 @@ const fief = new Fief({
 
 1. **Base URL of your Fief tenant**
 
-    You can find it in the admin dashboard, in the **Tenants** list. [More info](../../admin-dashboard/tenants.md#base-url)
+    You can find it in the admin dashboard, in the **Tenants** list. [More info](../../configure/tenants.md#base-url)
 
     ![Find base URL in admin dashboard](/assets/images/admin-tenants.png)
 
 2. **ID of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list. [More info](../../admin-dashboard/clients.md)
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../configure/clients.md)
 
     ![Find Client ID in admin dashboard](/assets/images/admin-clients-detail.png)
 
@@ -35,7 +35,7 @@ const fief = new Fief({
 
 3. **Secret of your Fief client**
 
-    You can find it in the admin dashboard, in the **Clients** list. [More info](../../admin-dashboard/clients.md)
+    You can find it in the admin dashboard, in the **Clients** list. [More info](../../configure/clients.md)
 
     ![Find Client Secret in admin dashboard](/assets/images/admin-clients-detail.png)
 

@@ -89,4 +89,4 @@ You can now proceed to integrate Fief in your application! We provide libraries 
 [JavaScript](../integrate/javascript/index.md){ .md-button }
 {: .buttons }
 
-Also, be sure to get familiar with **all the features of Fief** by going through the [admin dashboard documentation](../admin-dashboard/index.md).
+Also, be sure to get familiar with **all the features of Fief** by going through the [admin dashboard documentation](../configure/index.md).

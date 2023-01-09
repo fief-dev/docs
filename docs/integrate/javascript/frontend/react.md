@@ -18,8 +18,8 @@ npm install @fief/fief
 !!! abstract "Prerequisites"
     - [x] You have a React project setup.
     - [x] Make sure your Fief Client is [Public](../../
-    ../admin-dashboard/clients.md#public-clients).
-    - [x] Allow the following [Redirect URI](../../../admin-dashboard/clients.md#redirect-uris) on your Fief Client: `http://localhost:3000/callback`
+    ../configure/clients.md#public-clients).
+    - [x] Allow the following [Redirect URI](../../../configure/clients.md#redirect-uris) on your Fief Client: `http://localhost:3000/callback`
 
 In this example, we'll show you how to use the components and hooks provided by Fief to authenticate users and protect routes using [React Router](https://reactrouter.com/).
 

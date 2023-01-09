@@ -60,6 +60,7 @@ markdown_extensions:
   - attr_list
   - tables
   - def_list
+  - md_in_html
 
 extra:
   analytics:
@@ -105,19 +106,21 @@ nav:
         - integrate/javascript/frontend/browser.md
         - integrate/javascript/frontend/react.md
       - 'Reference ↗️': https://fief-dev.github.io/fief-js/
-  - 'Admin dashboard':
-    - 'Presentation': admin-dashboard/index.md
-    - admin-dashboard/tenants.md
-    - admin-dashboard/clients.md
-    - admin-dashboard/oauth-providers.md
-    - admin-dashboard/users.md
-    - admin-dashboard/user-fields.md
-    - admin-dashboard/access-control.md
-    - admin-dashboard/api-keys.md
+  - 'Configure':
+    - configure/index.md
+    - configure/tenants.md
+    - configure/clients.md
+    - configure/oauth-providers.md
+    - configure/users.md
+    - configure/user-fields.md
+    - configure/access-control.md
+    - configure/api-keys.md
+    - 'Customization':
+        - configure/customization/themes.md
+        - configure/customization/email-templates.md
   - 'Going further':
     - going-further/byod.md
     - going-further/pkce.md
-    - going-further/email-templates.md
     - going-further/id-token-encryption.md
     - going-further/oauth-provider-token.md
   - 'Self-hosting':

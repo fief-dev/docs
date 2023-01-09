@@ -20,13 +20,28 @@ Other tenants gets a path prefix, like *https://example.fief.dev/other-tenant*.
 
 ## Create a new tenant
 
-You can create a new tenant by clicking the **Create Tenant** button. A modal will open where you'll be able to input its name. The [base URL](#base-url) is automatically generated from the name.
+You can create a new tenant by clicking the **Create Tenant** button. A modal will open where you'll be able to input:
+
+* Its name.
+* If [user registration is allowed](#disable-user-registration).
+
+The [base URL](#base-url) is automatically generated from the name.
+
+Optionally, you can also set:
+
+* A logo URL that will be shown on the top-left of authentication pages.
+* A [UI theme](./customization/themes.md) to use when users authenticate with this tenant. If left empty, the theme set as default is used.
+
 
 ![Create tenant from admin dashboard](/assets/images/admin-tenants-create.png)
 
 ## Edit an existing tenant
 
-If you click on one of the tenant in the list, you'll see its details on the right and be able to change its properties.
+If you click on one of the tenant in the list, you'll see its details on the right.
+
+![View tenant details from admin dashboard](/assets/images/admin-tenants-view.png)
+
+If you click on the **Edit Tenant** button, you'll be able to update its properties.
 
 ![Edit tenant from admin dashboard](/assets/images/admin-tenants-edit.png)
 

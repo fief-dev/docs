@@ -6,7 +6,7 @@
   --md-accent-fg-color:                #e11d48;
 }
 
-.md-header__link {
+.md-header__link, .md-nav__extra-links-item {
   backface-visibility: hidden;
   display: block;
   font-size: .7rem;
@@ -20,12 +20,30 @@
   padding-right: 0.6rem;
 }
 
+@media screen and (max-width: 59.9375em) {
+  .md-header__link {
+    display: none;
+  }
+}
+
 .md-nav--primary .md-nav__title {
   height: auto;
 }
 
 .md-nav__title .md-nav__button.md-logo img {
   height: 1rem !important;
+}
+
+.md-nav__extra-links {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  margin: 0;
+  list-style: none;
+  padding: .8rem 0;
+}
+
+.md-nav__extra-links .md-nav__extra-links-item {
+  padding: .2rem .8rem;
 }
 
 table td code {

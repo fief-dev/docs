@@ -82,6 +82,7 @@ extra_javascript:
 watch:
 - examples
 - reusables
+- overrides
 
 nav:
   - index.md

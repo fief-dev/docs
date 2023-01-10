@@ -42,6 +42,12 @@
   padding: .8rem 0;
 }
 
+@media screen and (min-width: 76.25em) {
+  .md-nav--lifted > .md-nav__extra-links {
+    display: none;
+  }
+}
+
 .md-nav__extra-links .md-nav__extra-links-item {
   padding: .2rem .8rem;
 }

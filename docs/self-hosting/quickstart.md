@@ -35,6 +35,8 @@ docker run \
   -e "FIEF_MAIN_USER_EMAIL=anne@bretagne.duchy" \
   -e "FIEF_MAIN_USER_PASSWORD=XXX" \
   -e "CSRF_COOKIE_SECURE=False" \
+  -e "SESSION_DATA_COOKIE_SECURE=False" \
+  -e "USER_LOCALE_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
   -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
@@ -97,6 +99,8 @@ docker run \
   -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
   -e "CSRF_COOKIE_SECURE=False" \
+  -e "SESSION_DATA_COOKIE_SECURE=False" \
+  -e "USER_LOCALE_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
   -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
@@ -131,6 +135,8 @@ docker run \
   -e "FIEF_MAIN_USER_EMAIL=anne@bretagne.duchy" \
   -e "FIEF_MAIN_USER_PASSWORD=XXX" \
   -e "CSRF_COOKIE_SECURE=False" \
+  -e "SESSION_DATA_COOKIE_SECURE=False" \
+  -e "USER_LOCALE_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
   -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \
@@ -156,6 +162,8 @@ docker run \
   -e "ROOT_DOMAIN=fief.test:9000" \
   -e "FIEF_DOMAIN=fief.test:9000" \
   -e "CSRF_COOKIE_SECURE=False" \
+  -e "SESSION_DATA_COOKIE_SECURE=False" \
+  -e "USER_LOCALE_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
   -e "SESSION_COOKIE_SECURE=False" \
   -e "FIEF_ADMIN_SESSION_COOKIE_SECURE=False" \

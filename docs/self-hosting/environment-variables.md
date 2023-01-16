@@ -140,6 +140,19 @@ To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.o
 
 --8<-- "reusables/cookie-secure-callout.md"
 
+### User locale cookie
+
+The user locale cookie maintains the language of the user on the authentication pages.
+
+| Name                           | Description                                   | Default                 | Allowed values | Example |
+| ------------------------------ | --------------------------------------------- | ----------------------- | -------------- | ------- |
+| `USER_LOCALE_COOKIE_NAME`      | Name of the user locale cookie                | fief\_locale            |                |         |
+| `USER_LOCALE_COOKIE_DOMAIN`    | Domain of the user locale cookie              | _Empty string_          |                |         |
+| `USER_LOCALE_COOKIE_SECURE`    | Secure flag of user locale cookie             | True                    |                |         |
+| `USER_LOCALE_LIFETIME_SECONDS` | Lifetime of the user locale cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
+
 ### Login session
 
 A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.
@@ -227,5 +240,18 @@ An admin session is a cookie used to maintain the session of a user on the Fief 
 | `FIEF_ADMIN_SESSION_COOKIE_NAME`   | Name of the admin session cookie        | fief\_admin\_session |                |         |
 | `FIEF_ADMIN_SESSION_COOKIE_DOMAIN` | Domain of the admin session cookie      | _Empty string_       |                |         |
 | `FIEF_ADMIN_SESSION_COOKIE_SECURE` | Secure flag of the admin session cookie | True                 |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
+
+### Session data
+
+The admin session data is a mechanism to store temporary data during the session of a user on the Fief admin dashboard.
+
+| Name                                   | Description                                            | Default                 | Allowed values | Example |
+| -------------------------------------- | ------------------------------------------------------ | ----------------------- | -------------- | ------- |
+| `SESSION_DATA_COOKIE_NAME`             | Name of the session data cookie                        | fief\_session\_data     |                |         |
+| `SESSION_DATA_COOKIE_DOMAIN`           | Domain of the session data cookie                      | _Empty string_          |                |         |
+| `SESSION_DATA_COOKIE_SECURE`           | Secure flag of the session data cookie                 | True                    |                |         |
+| `SESSION_DATA_COOKIE_LIFETIME_SECONDS` | Lifetime of the registration session cookie in seconds | `None` (session cookie) |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"

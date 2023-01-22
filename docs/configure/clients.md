@@ -57,3 +57,14 @@ During an [OAuth2 authentication flow](../getting-started/oauth2.md), after the 
 For security reasons, Fief **won't allow the user to be redirected to any URI**. Instead, you have to explicitly allow every URI you'll need in your applications.
 
 For HTTP URIs, they need to use the `https` scheme; `http` URL are not allowed. The only exception to this rule is `localhost`, which can be in `http` for local development purposes.
+
+## Authorization code and tokens lifetime
+
+Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md). Access tokens, ID tokens and refresh tokens are generated after a successful [OAuth2 authentication flow](../getting-started/oauth2.md#access-token-and-id-token).
+
+You can customize the lifetime of each one them by clicking on the **Lifetimes** tab from a client's details.
+
+![Edit tokens lifetimes from admin dashboard](/assets/images/admin-clients-lifetimes.png){ style="height: 500px;" }
+
+!!! warning "Make sure you know what're you doing"
+    The default values provided should be enough for most applications and give a good balance between usability and security. Please make sure you understand all the consequences before modifying those values.

@@ -202,17 +202,17 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 --8<-- "reusables/cookie-secure-callout.md"
 
-### Authorization codes and tokens
+### Authorization codes and tokens lifetimes
 
-Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md).
+Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md). Access tokens, ID tokens and refresh tokens are generated after a successful [OAuth2 authentication flow](../getting-started/oauth2.md#access-token-and-id-token).
 
-Access tokens, ID tokens and refresh tokens are generated after a successful [OAuth2 authentication flow](../getting-started/oauth2.md#access-token-and-id-token).
+The variables below control the default lifetime for each one of them when a [client](../configure/clients.md) is created. Those values can then be customized per client.
 
-| Name                                  | Description                                                                                                                                                                                                              | Default             | Allowed values | Example |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | -------------- | ------- |
-| `AUTHORIZATION_CODE_LIFETIME_SECONDS` | Lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_  |                |         |
-| `ACCESS_ID_TOKEN_LIFETIME_SECONDS`    | Lifetime of the access token and ID token in seconds.                                                                                                                                                                    | 3600 _(1 hour)_     |                |         |
-| `REFRESH_TOKEN_LIFETIME_SECONDS`      | Lifetime of the refresh token in seconds.                                                                                                                                                                                | 2592000 _(30 days)_ |                |         |
+| Name                                          | Description                                                                                                                                                                                                                      | Default             | Allowed values | Example |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- | -------------- | ------- |
+| `DEFAULT_AUTHORIZATION_CODE_LIFETIME_SECONDS` | Default lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification [recommends a value of 10 minutes](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2). | 600 _(10 minutes)_  |                |         |
+| `DEFAULT_ACCESS_ID_TOKEN_LIFETIME_SECONDS`    | Default lifetime of the access token and ID token in seconds.                                                                                                                                                                    | 86400 _(24 hours)_  |                |         |
+| `DEFAULT_REFRESH_TOKEN_LIFETIME_SECONDS`      | Default lifetime of the refresh token in seconds.                                                                                                                                                                                | 2592000 _(30 days)_ |                |         |
 
 ### Fief-ception
 

@@ -64,7 +64,7 @@ Authorization codes are temporary codes generated during the [OAuth2 authenticat
 
 You can customize the lifetime of each one them by clicking on the **Lifetimes** tab from a client's details.
 
-![Edit tokens lifetimes from admin dashboard](/assets/images/admin-clients-lifetimes.png){ style="height: 500px;" }
+![Edit tokens lifetimes from admin dashboard](/assets/images/admin-clients-lifetimes.png)
 
 !!! warning "Make sure you know what're you doing"
     The default values provided should be enough for most applications and give a good balance between usability and security. Please make sure you understand all the consequences before modifying those values.

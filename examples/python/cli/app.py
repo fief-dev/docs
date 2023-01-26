@@ -32,7 +32,7 @@ def hello():
 @click.argument("api_route")
 def call_api(api_route: str):
     try:
-        access_token_info = fief_auth.access_token_info() # (6)!
+        access_token_info = fief_auth.access_token_info()  # (6)!
         access_token = access_token_info["access_token"]
         click.echo(f"Make API call to {api_route} with access token {access_token}...")
     except FiefAuthNotAuthenticatedError as e:

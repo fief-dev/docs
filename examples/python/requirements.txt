@@ -1,8 +1,9 @@
+click
 fastapi
-fief-client[fastapi, flask]
+fief-client[fastapi, flask, cli]
 uvicorn[standard]
 
 black
 mypy
-isort
+ruff
 tryceratops

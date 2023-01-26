@@ -18,7 +18,7 @@ examples-python-install:
   {{examples_python_bin}} -m pip install -U -r examples/python/requirements.txt
 
 examples-python-lint:
-  {{examples_python_bin}} -m isort --profile black examples/python
   {{examples_python_bin}} -m black examples/python
+  {{examples_python_bin}} -m ruff --fix --extend-select I examples/python
   {{examples_python_bin}} -m tryceratops --exclude examples/python/venv/ examples/python
   {{examples_python_bin}} -m mypy --exclude venv/ examples/python

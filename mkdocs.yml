@@ -96,6 +96,7 @@ nav:
       - 'General': integrate/python/index.md
       - integrate/python/fastapi.md
       - integrate/python/flask.md
+      - integrate/python/cli.md
       - 'Reference ↗️': https://fief-dev.github.io/fief-python/
     - 'JavaScript':
       - 'General': integrate/javascript/index.md

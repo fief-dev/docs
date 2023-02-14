@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
       button.addEventListener('click', () => {
         button.disabled = true;
-        fetch('https://fernet-key-generator.deta.dev').then((response) => {
+        fetch('https://fernetgenerator-2-c8847054.deta.app/').then((response) => {
           response.text().then((key) => {
             button.disabled = false;
             output.innerText = key;

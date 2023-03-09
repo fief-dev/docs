@@ -22,6 +22,7 @@ theme:
     - navigation.instant
     - navigation.expand
     - navigation.sections
+    - navigation.indexes
     - navigation.tabs
     - navigation.top
     - search.suggest
@@ -116,6 +117,7 @@ nav:
     - configure/users.md
     - configure/user-fields.md
     - configure/access-control.md
+    - configure/webhooks.md
     - configure/api-keys.md
     - 'Customization':
         - configure/customization/themes.md
@@ -126,6 +128,11 @@ nav:
     - going-further/pkce.md
     - going-further/id-token-encryption.md
     - going-further/oauth-provider-token.md
+  - 'Admin API':
+    - api/index.md
+    - 'Webhooks':
+      - Integration guide: api/webhooks/guide.md
+      - Events: api/webhooks/events.md
   - 'Self-hosting':
     - self-hosting/quickstart.md
     - 'Production deployment':

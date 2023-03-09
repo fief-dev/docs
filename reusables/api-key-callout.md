@@ -1,5 +1,5 @@
 !!! tip "What is an API key?"
-    An API key is a secret token that'll allow you to make authenticated requests to the **Fief Admin API**.
+    An API key is a secret token that'll allow you to make authenticated requests to the [**Fief Admin API**](/api).
 
     It'll be useful if you need, for example, to manage tenants or clients programmatically from your own application.
 

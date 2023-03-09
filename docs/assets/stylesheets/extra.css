@@ -4,6 +4,7 @@
   --md-primary-fg-color--dark:  #e11d48;
 
   --md-accent-fg-color:                #e11d48;
+  --md-mermaid-font-family:            var(--md-text-font-family), sans-serif;
 }
 
 .md-header__link, .md-nav__extra-links-item {

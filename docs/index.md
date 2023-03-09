@@ -11,7 +11,7 @@ Fief is an **open-source platform** to manage **users** and **authentication** i
 * Users management dashboard
 * SDK for the most popular languages and frameworks
 * Integrations for the most popular no-code tools
-* Bring Your Own Database : you can connect to any SQL database so you keep entire control of your data
+* Bring Your Own Database: you can connect to any SQL database so you keep entire control of your data
 
 ## Cloud vs Self-hosted
 
@@ -33,6 +33,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] Customizable authentication pages
 * [X] Customizable transactional emails
 * [X] Bring your own database
+* [X] Event webhooks
 * [X] Custom user fields
 * [X] Roles and permissions access control
 * [X] Official Docker image for self-hosting
@@ -46,10 +47,11 @@ Fief is a **young project** and still has many features to implement and room fo
 
 ### What we'll have in the future?
 
-* [ ] Event webhooks
 * [ ] Custom API scopes
 * [ ] Built-in user profile pages for account management
 * [ ] 2FA authentication with authenticator apps and U2F keys
+* [ ] User invitation process
+* [ ] User groups management
 
 ...and more 🚀
 

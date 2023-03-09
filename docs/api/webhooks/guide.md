@@ -10,6 +10,12 @@ You can create and manage your Webhooks from the admin dashboard. You can read m
 
 They can also be created programmatically using the Admin API, with the `/admin/api/webhooks/` endpoints.
 
+!!! tip "During local development, use a tunnel like Ngrok"
+
+    When developing on your local machine, your server served on `localhost` is not accessible by Fief on the internet.
+
+    To ease testing, you can use a tunnel like [Ngrok](https://ngrok.com/docs/getting-started/) to tunnel your local machine to the internet. You'll get a dedicated URL you can give to Fief so you receive webhook requests directly on your local server.
+
 ## How Webhooks work?
 
 Webhooks are a common technique in web applications to **trigger logic and workflows** across **different applications and processes**.

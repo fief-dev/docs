@@ -31,7 +31,7 @@ Optionally, you can also set:
 
 * A logo URL that will be shown on the top-left of authentication pages.
 * A [UI theme](./customization/themes.md) to use when users authenticate with this tenant. If left empty, the theme set as default is used.
-
+* The list of [OAuth Providers](./oauth-providers.md) allowed to be used on this tenant.
 
 ![Create tenant from admin dashboard](/assets/images/admin-tenants-create.png)
 
@@ -50,3 +50,12 @@ If you click on the **Edit Tenant** button, you'll be able to update its propert
 You can choose to **disable user registration** on a tenant. To do this, you have to uncheck the **Registration allowed** checkbox in the tenant details.
 
 When registration is disabled, users can't access the registration page and create a new account on this tenant.
+
+## Delete a tenant
+
+If one your tenant is not useful anymore, you can delete it by clicking on it on the list and click on the **Delete** button on the right.
+
+![Delete tenant from admin dashboard](/assets/images/admin-tenants-delete.png)
+
+!!! danger "Users and clients will be removed as well"
+    When you delete a tenant, all its associated users and clients will be deleted as well. The data won't be recoverable. Be sure of what you're doing!

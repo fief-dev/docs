@@ -29,6 +29,15 @@ You can edit an existing client by opening its details and click on the **Edit C
 
 ![Edit client from admin dashboard](/assets/images/admin-clients-edit.png)
 
+## Delete a client
+
+If one your client is not useful anymore, you can delete it by clicking on it on the list and click on the **Delete** button on the right.
+
+![Delete client from admin dashboard](/assets/images/admin-clients-delete.png)
+
+!!! danger "Applications using this client won't be able to authenticate users anymore"
+    Since your applications need a Client ID and Secret to authenticate users, be sure you don't need this client anymore before deleting it.
+
 ## First-party clients
 
 You probably noticed that your first client has a **first-party** badge. It means that this client is intended to be used by your own, official application.

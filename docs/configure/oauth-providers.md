@@ -16,6 +16,9 @@ The most important part is the **Client ID** and **Client Secret**: it allows to
 
 ![Create OAuth Provider from admin dashboard](/assets/images/admin-oauth-providers-create.png)
 
+!!! tip "Don't forget to enable it on your tenant"
+    OAuth Providers are enabled per tenant, so you can finely customize which authentication methods can be used on each one. To do so, [edit your tenant](./tenants.md#edit-an-existing-tenant) and enable the OAuth Provider.
+
 ## Edit an existing OAuth Provider
 
 If you click on one of the OAuth Provider in the list, you'll see its details on the right and be able to change its properties.

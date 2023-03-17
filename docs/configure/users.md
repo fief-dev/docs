@@ -21,7 +21,17 @@ You'll also be able to fill the values for your [custom user fields](./user-fiel
 
 If you click on one of the user in the list, you'll see its details on the right and be able to update them.
 
-![Edit users from admin dashboard](/assets/images/admin-users-edit.png)
+![View user details from admin dashboard](/assets/images/admin-users-view.png)
+
+If you click on the **Edit User** button, you'll be able to update its properties.
+
+![Edit user from admin dashboard](/assets/images/admin-users-edit.png)
+
+## Delete a user
+
+You can delete a user by clicking on it on the list and click on the **Delete** button on the right.
+
+![Delete user from admin dashboard](/assets/images/admin-users-delete.png)
 
 ## Assign roles and permissions to a user
 

@@ -30,6 +30,7 @@ Fief is a **young project** and still has many features to implement and room fo
 * [X] User authentication using OAuth2 and OpenID Connect protocols
 * [X] Social authentication (Google, Facebook...)
 * [X] Forgot password process
+* [X] Built-in user profile pages for account management
 * [X] Customizable authentication pages
 * [X] Customizable transactional emails
 * [X] Bring your own database
@@ -47,10 +48,9 @@ Fief is a **young project** and still has many features to implement and room fo
 
 ### What we'll have in the future?
 
-* [ ] Custom API scopes
-* [ ] Built-in user profile pages for account management
 * [ ] 2FA authentication with authenticator apps and U2F keys
 * [ ] User invitation process
+* [ ] Custom API scopes
 * [ ] User groups management
 
 ...and more 🚀

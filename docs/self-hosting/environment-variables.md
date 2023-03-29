@@ -128,6 +128,12 @@ More details about how to setup an email provider in the dedicated section.
 [Setup email provider](./deployment/setup-email-provider.md){ .md-button }
 {: .buttons }
 
+### Webhooks
+
+| Name                    | Description                                                   | Default | Allowed values | Example |
+| ----------------------- | ------------------------------------------------------------- | ------- | -------------- | ------- |
+| `WEBHOOKS_MAX_ATTEMPTS` | Maximum attempts to deliver a webhook event before giving up. | 5       |                |         |
+
 ### CSRF cookie
 
 To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html) attacks on authentication pages, we use the [double-submit cookie](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html#double-submit-cookie) pattern.
@@ -150,6 +156,19 @@ The user locale cookie maintains the language of the user on the authentication 
 | `USER_LOCALE_COOKIE_DOMAIN`    | Domain of the user locale cookie              | _Empty string_          |                |         |
 | `USER_LOCALE_COOKIE_SECURE`    | Secure flag of user locale cookie             | True                    |                |         |
 | `USER_LOCALE_LIFETIME_SECONDS` | Lifetime of the user locale cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
+
+--8<-- "reusables/cookie-secure-callout.md"
+
+### Login hint cookie
+
+The login hint cookie is used to remember the last method a user used to login. Its value can either be an e-mail address or the ID of an [OAuth Provider](../configure/oauth-providers.md) enabled on the user's tenant.
+
+| Name                                 | Description                                  | Default                 | Allowed values | Example |
+| ------------------------------------ | -------------------------------------------- | ----------------------- | -------------- | ------- |
+| `LOGIN_HINT_COOKIE_NAME`             | Name of the login hint cookie                | fief\_login\_hint         |                |         |
+| `LOGIN_HINT_COOKIE_DOMAIN`           | Domain of the login hint cookie              | _Empty string_          |                |         |
+| `LOGIN_HINT_COOKIE_SECURE`           | Secure flag of login hint cookie             | True                    |                |         |
+| `LOGIN_HINT_COOKIE_LIFETIME_SECONDS` | Lifetime of the login hint cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 

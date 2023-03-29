@@ -12,6 +12,10 @@ Occurs whenever a Client is created.
 
 Occurs whenever a Client is updated.
 
+### `client.deleted`
+
+Occurs whenever a Client is deleted.
+
 ## Email template
 
 ### `email_template.created`
@@ -70,6 +74,10 @@ Occurs whenever a Tenant is created.
 
 Occurs whenever a Tenant is updated.
 
+### `tenant.deleted`
+
+Occurs whenever a Tenant is deleted.
+
 ## User
 
 ### `user.created`
@@ -79,6 +87,10 @@ Occurs whenever a User is created.
 ### `user.updated`
 
 Occurs whenever a User is updated.
+
+### `user.deleted`
+
+Occurs whenever a User is deleted.
 
 ### `user.forgot_password_requested`
 

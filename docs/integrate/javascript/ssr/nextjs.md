@@ -61,7 +61,7 @@ In Fief implementation, we provide **hooks** allowing you to retrieve the curren
 
 !!! abstract "Prerequisites"
     - [x] Bootstrap a Next.js project as described in [Automatic Setup](https://nextjs.org/docs/getting-started#automatic-setup) section of the Next.js documentation.
-    - [x] Allow the following [Redirect URI](../../../configure/clients.md#redirect-uris) on your Fief Client: `http://localhost:3O00/auth-callback`
+    - [x] Allow the following [Redirect URI](../../../configure/clients.md#redirect-uris) on your Fief Client: `http://localhost:3000/auth-callback`
 
 ### 1. Create a `fief` module
 
@@ -319,3 +319,52 @@ You're Next.js project is now ready and can easily control the authentication an
 2. If you want to access user information or permissions, use [`useFiefUserinfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefUserinfo.html) and [`useFiefAccessTokenInfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefAccessTokenInfo.html) hooks.
 
 If you want to go further and customize more aspects, like the path to login or logout routes, be sure to check the [library reference](https://fief-dev.github.io/fief-js/modules/nextjs.html).
+
+## Get access token
+
+In somes contexts, you might need to call a separate API backend that will expect a valid access token to authenticate the request. For example, this is what we show in the [FastAPI example](../../python/fastapi.md#api-example).
+
+In this case, your Next.js took care of authenticating the user and has a valid access token in session. Now, you only need to get this access token and set it as `Authorization` header when making requests to your API backend.
+
+With Next.js, you can do this in two contexts:
+
+### 1. From `getServerSideProps`
+
+[`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) is a Next.js feature to fetch data server-side, in a pure SSR approach. It's a good candidate to fetch the data you want to show to the users from your API, like a list of items.
+
+The Fief Middleware takes care of setting the authenticated user id and access token as `X-FiefAuth-User-Id` and `X-FiefAuth-Access-Token` request headers.
+
+```ts
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const userId = context.req.headers['x-fiefauth-user-id'];
+  const accessToken = context.req.headers['x-fiefauth-access-token'];
+  const res = await fetch('https://api.bretagne.duchy', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const data = await res.json()
+  // Pass data to the page via props
+  return { props: { data } }
+}
+```
+
+### 2. From React
+
+Of course, you might need to call your API from the frontend side as well, typically when the user needs to create or update new data.
+
+For this, you can get the access token with the [`useFiefAccessTokenInfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefAccessTokenInfo.html) hook.
+
+```ts
+const accessTokenInfo = useFiefAccessTokenInfo();
+
+const submitData = useCallback(async (data) => {
+  await fetch('https://api.bretagne.duchy', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessTokenInfo?.access_token}`,
+    },
+    body: JSON.stringify(data),
+  });
+}, [accessTokenInfo]);
+```

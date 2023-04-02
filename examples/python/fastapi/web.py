@@ -13,7 +13,7 @@ class CustomFiefAuth(FiefAuth):  # (1)!
         auth_url = await self.client.auth_url(redirect_uri, scope=["openid"])  # (3)!
         raise HTTPException(
             status_code=status.HTTP_307_TEMPORARY_REDIRECT,  # (4)!
-            headers={"Location": auth_url},
+            headers={"Location": str(auth_url)},
         )
 
 

@@ -21,7 +21,7 @@ When you submit the form, a new modal will open with the **Webhook secret**. For
 
 When this is done, Fief will start to send events to your URL. You should now read our Webhook integration guide to understand how to handle it in your application.
 
-[Integrate Webhooks in my app](../api/webhooks.md){ .md-button }
+[Integrate Webhooks in my app](../api/webhooks/guide.md){ .md-button }
 {: .buttons }
 
 ## Edit an existing Webhook

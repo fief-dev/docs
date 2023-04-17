@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "bartosz121",
+      "name": "Bartosz Magiera",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28759224?v=4",
+      "profile": "https://bartoszmagiera.live/",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "docs",
+  "projectOwner": "fief-dev"
+}

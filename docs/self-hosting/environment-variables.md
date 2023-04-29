@@ -70,8 +70,9 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 | Name                  | Description                                                                                                                                             | Default                     | Allowed values                   | Example                      |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
-| `ENVIRONMENT`         | Name of the deployment environment                                                                                                                      | development                 | development, staging, production | production                   |
-| `LOG_LEVEL`           | Log verbosity                                                                                                                                           | INFO                        | DEBUG, INFO, WARNING, ERROR      | INFO                         |
+| `ENVIRONMENT`         | Name of the deployment environment                                                                                                                      | production                  | development, staging, production | production                   |
+| `LOG_LEVEL`           | Log verbosity                                                                                                                                           |                             |                                  |                              |
+| `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                                                                                          | True                        |                                  |                              |
 | `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains.                                                         | localhost:8000              |                                  | bretagne.duchy               |
 | `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                                                                           | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
 | `PORT`                | Internal port on which the Fief server is exposed                                                                                                       | 8000                        |                                  | 8000                         |
@@ -165,7 +166,7 @@ The login hint cookie is used to remember the last method a user used to login. 
 
 | Name                                 | Description                                  | Default                 | Allowed values | Example |
 | ------------------------------------ | -------------------------------------------- | ----------------------- | -------------- | ------- |
-| `LOGIN_HINT_COOKIE_NAME`             | Name of the login hint cookie                | fief\_login\_hint         |                |         |
+| `LOGIN_HINT_COOKIE_NAME`             | Name of the login hint cookie                | fief\_login\_hint       |                |         |
 | `LOGIN_HINT_COOKIE_DOMAIN`           | Domain of the login hint cookie              | _Empty string_          |                |         |
 | `LOGIN_HINT_COOKIE_SECURE`           | Secure flag of login hint cookie             | True                    |                |         |
 | `LOGIN_HINT_COOKIE_LIFETIME_SECONDS` | Lifetime of the login hint cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |

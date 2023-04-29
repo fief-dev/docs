@@ -141,3 +141,4 @@ nav:
       - self-hosting/deployment/setup-database.md
       - self-hosting/deployment/setup-email-provider.md
     - self-hosting/environment-variables.md
+  - Telemetry: telemetry.md

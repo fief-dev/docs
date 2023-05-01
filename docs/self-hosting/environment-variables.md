@@ -68,15 +68,15 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### General
 
-| Name                  | Description                                                                                                                                             | Default                     | Allowed values                   | Example                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
-| `ENVIRONMENT`         | Name of the deployment environment                                                                                                                      | production                  | development, staging, production | production                   |
-| `LOG_LEVEL`           | Log verbosity                                                                                                                                           |                             |                                  |                              |
-| `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                                                                                          | True                        |                                  |                              |
-| `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains.                                                         | localhost:8000              |                                  | bretagne.duchy               |
-| `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                                                                           | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
-| `PORT`                | Internal port on which the Fief server is exposed                                                                                                       | 8000                        |                                  | 8000                         |
-| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. If you serve Fief behind a proxy handling SSL, you'll likely need to set this to value to `*`. | 127.0.0.1                   |                                  |                              |
+| Name                  | Description                                                                                     | Default                     | Allowed values                   | Example                      |
+| --------------------- | ----------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
+| `ENVIRONMENT`         | Name of the deployment environment                                                              | production                  | development, staging, production | production                   |
+| `LOG_LEVEL`           | Log verbosity                                                                                   |                             |                                  |                              |
+| `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                                  | True                        |                                  |                              |
+| `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
+| `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
+| `PORT`                | Internal port on which the Fief server is exposed                                               | 8000                        |                                  | 8000                         |
+| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./deployment/ssl.md)       | 127.0.0.1                   |                                  |                              |
 
 ### Secrets
 

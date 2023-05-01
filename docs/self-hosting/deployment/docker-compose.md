@@ -30,4 +30,4 @@ The `.env` file will contain all the [environment variables](../environment-vari
     You should probably think about a proper **backup method** for those volumes. A convenient solution is to use [`docker-volume-backup`](https://github.com/jareware/docker-volume-backup), a dedicated Docker image capable of archiving Docker volumes and send them to a distant storage.
 
 !!! tip "You'll probably want a reverse proxy"
-    In general, we don't directly expose the web server to the internet. A common pattern is to use a **reverse proxy**, which takes care of routing the incoming requests. It's also a great candidate to manage HTTPS/SSL. A common choice is [Traefik Proxy](https://doc.traefik.io/traefik/), which is very convenient to use with Docker containers.
+    In general, we don't directly expose the web server to the internet. A common pattern is to use a **reverse proxy**, which takes care of routing the incoming requests. It's also a great candidate to manage [HTTPS/SSL](./ssl.md). A common choice is [Traefik Proxy](https://doc.traefik.io/traefik/), which is very convenient to use with Docker containers.

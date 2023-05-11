@@ -38,7 +38,7 @@ SMTP provider will send transactional emails through the configured SMTP server.
 
 ```ini
 EMAIL_PROVIDER=SMTP
-EMAIL_PROVIDER_PARAMS={"host": "smtp.bretagne.duchy", "username": "anne", "password": "hermine"}
+EMAIL_PROVIDER_PARAMS={"host": "smtp.bretagne.duchy", "username": "anne", "password": "herminetincture"}
 ```
 
 ## Postmark provider

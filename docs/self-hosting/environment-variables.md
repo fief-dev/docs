@@ -250,6 +250,7 @@ The variables below are here to configure the Fief server with a proper Fief cli
 | `FIEF_ENCRYPTION_KEY`     | Optional RSA key used to encrypt the JWT tokens                                                                                                                                                                       |                |                |                              |
 | `FIEF_MAIN_USER_EMAIL`    | Email address of the first admin user in your main workspace. If provided, the user will be created automatically on startup.                                                                                         |                |                | anne@bretagne.duchy          |
 | `FIEF_MAIN_USER_PASSWORD` | Password of the first admin user in your main workspace. If `FIEF_MAIN_USER_EMAIL` is provided, the user will be created automatically on startup with this password. Otherwise, a random password will be generated. |                |                | SuperSecretAndStrongPassword |
+| `FIEF_MAIN_ADMIN_API_KEY` | Admin API token to create at server startup                                                                                                                                                                           |                |                | SuperSecretAndStrongToken    |
 
 ### Admin session
 

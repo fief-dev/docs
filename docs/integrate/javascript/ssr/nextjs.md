@@ -249,6 +249,10 @@ Your `/pages/_app.tsx` file should look like this:
 
     This is a simple demo component to show you how to use hooks. We'll detail it in the next sections.
 
+!!! warning "In React context, the import path is `@fief/fief/nextjs/react`"
+
+    For technical reasons, components and hooks need to be imported from `@fief/fief/nextjs/react`, **not** `@fief/fief/nextjs`.
+
 ## Good to go!
 
 Our project is now ready! You can run it with:

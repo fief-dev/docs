@@ -1,4 +1,4 @@
-import { useFiefIsAuthenticated, useFiefUserinfo } from '@fief/fief/nextjs';
+import { useFiefIsAuthenticated, useFiefUserinfo } from '@fief/fief/nextjs/react';
 import Link from 'next/link';
 import React from 'react';
 

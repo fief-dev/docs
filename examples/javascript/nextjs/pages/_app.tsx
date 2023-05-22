@@ -1,4 +1,4 @@
-import { FiefAuthProvider } from '@fief/fief/nextjs';
+import { FiefAuthProvider } from '@fief/fief/nextjs/react';
 import type { AppProps } from 'next/app';
 
 import Header from '../components/Header/Header';

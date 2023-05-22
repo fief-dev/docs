@@ -1,4 +1,4 @@
-import { useFiefUserinfo } from '@fief/fief/nextjs';
+import { useFiefUserinfo } from '@fief/fief/nextjs/react';
 import type { NextPage } from 'next';
 
 const Private: NextPage = () => {

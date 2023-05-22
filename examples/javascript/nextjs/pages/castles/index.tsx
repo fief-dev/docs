@@ -1,4 +1,4 @@
-import { useFiefAccessTokenInfo } from '@fief/fief/nextjs';
+import { useFiefAccessTokenInfo } from '@fief/fief/nextjs/react';
 import type { NextPage } from 'next';
 
 const CastlesIndex: NextPage = () => {

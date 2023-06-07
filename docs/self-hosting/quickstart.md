@@ -47,7 +47,7 @@ docker run \
     If you need to restart or recreate your container, you'll need to set the same secrets again. If you lose them, you'll likely lose access to data or have a bad configuration. [Read more about secrets and environment variables.](environment-variables.md)
 
 !!! info
-    The container is exposed on the port **8000** of your local machine by default.
+    The container is available on the port **8000** of your local machine by default.
 
 ## Good to go!
 
@@ -143,7 +143,7 @@ docker run \
   ghcr.io/fief-dev/fief:latest
 ```
 
-You can also customize the exposed port by using the `--port` parameter of the quickstart command:
+You can also customize the published port by using the `--port` parameter of the quickstart command:
 
 ```bash
 docker run --rm ghcr.io/fief-dev/fief:latest fief quickstart --docker --host fief.test --port 9000

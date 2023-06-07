@@ -4,8 +4,8 @@ services:
   fief-server:
     image: ghcr.io/fief-dev/fief:latest
     command: fief run-server --port 80
-    expose:
-      - 80
+    ports:
+      - 80:80
     env_file:
       - .env
 

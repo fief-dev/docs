@@ -75,7 +75,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                                  | True                        |                                  |                              |
 | `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
 | `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
-| `PORT`                | Internal port on which the Fief server is available                                               | 8000                        |                                  | 8000                         |
+| `PORT`                | Internal port on which the Fief server is available                                             | 8000                        |                                  | 8000                         |
 | `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./deployment/ssl.md)       | 127.0.0.1                   |                                  |                              |
 
 ### Secrets
@@ -119,10 +119,12 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 
 ### Email provider
 
-| Name                    | Description                                    | Default | Allowed values                 | Example                      |
-| ----------------------- | ---------------------------------------------- | ------- | ------------------------------ | ---------------------------- |
-| `EMAIL_PROVIDER`        | Type of email provider                         | NULL    | NULL, SMTP, POSTMARK, SENDGRID | POSTMARK                     |
-| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider | {}      |                                | {"server\_token": "XXX-XXX"} |
+| Name                    | Description                                       | Default          | Allowed values                 | Example                      |
+| ----------------------- | ------------------------------------------------- | ---------------- | ------------------------------ | ---------------------------- |
+| `EMAIL_PROVIDER`        | Type of email provider                            | NULL             | NULL, SMTP, POSTMARK, SENDGRID | POSTMARK                     |
+| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider    | {}               |                                | {"server\_token": "XXX-XXX"} |
+| `DEFAULT_FROM_EMAIL`    | Default transactional emails sender email address | contact@fief.dev |                                | contact@bretagne.duchy       |
+| `DEFAULT_FROM_NAME`     | Default transactional emails sender name          | Fief             |                                | Bretagne                     |
 
 More details about how to setup an email provider in the dedicated section.
 

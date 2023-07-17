@@ -59,3 +59,24 @@ If one your tenant is not useful anymore, you can delete it by clicking on it on
 
 !!! danger "Users and clients will be removed as well"
     When you delete a tenant, all its associated users and clients will be deleted as well. The data won't be recoverable. Be sure of what you're doing!
+
+## Transactional emails
+
+Quite often, Fief needs to **send emails to your users**, like **welcome email** or **forgot password** emails. The layout and content of those emails can be customized, as explained in the [Email templates](./customization/email-templates.md) section.
+
+Of course, those emails need to be sent by a specific email address and name, the **From** part of an email. By default, they will be sent by the address defined globally on the Fief server, i.e. `Fief <contact@fief.dev>` on Fief Cloud. This may not be user-friendly for your users and it'll probably better to send emails from an email address you own matching your brand.
+
+Fortunately, you can customize this in the **Email** tab of a tenant. Fill the **From name** and **From email** with a valid name and email address and click on **Update**.
+
+![Tenant transactional emails settings from admin dashboard](/assets/images/admin-tenants-email.png)
+
+### Domain authentication
+
+To allow the Fief server to send emails on your behalf, you need to **authenticate your email domain**. For this, you'll have to set some DNS records on your domain registrar.
+
+Click on **Manage domain authentication** to see the list of DNS records you need to set. Once done, click on the **Verify** button to validate that you correctly set the DNS records.
+
+![Tenant transactional emails domain authentication](/assets/images/admin-tenants-email-domain-authentication.png)
+
+!!! tip "Note for self-hosted servers"
+    If you self-host your Fief server, please note that only the [SendGrid provider](../self-hosting/deployment/setup-email-provider.md#postmark-provider) supports domain authentication from the admin dashboard. If you use SMTP or Postmark, you should manually authenticate your domain.

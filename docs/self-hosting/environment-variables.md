@@ -164,7 +164,7 @@ The user locale cookie maintains the language of the user on the authentication 
 
 ### Login hint cookie
 
-The login hint cookie is used to remember the last method a user used to login. Its value can either be an e-mail address or the ID of an [OAuth Provider](../configure/oauth-providers.md) enabled on the user's tenant.
+The login hint cookie is used to remember the last method a user used to login. Its value can either be an email address or the ID of an [OAuth Provider](../configure/oauth-providers.md) enabled on the user's tenant.
 
 | Name                                 | Description                                  | Default                 | Allowed values | Example |
 | ------------------------------------ | -------------------------------------------- | ----------------------- | -------------- | ------- |

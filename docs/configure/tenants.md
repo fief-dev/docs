@@ -30,6 +30,7 @@ The [base URL](#base-url) is automatically generated from the name.
 Optionally, you can also set:
 
 * A logo URL that will be shown on the top-left of authentication pages.
+* Your application URL. It's used to show a link going back to your application on the [user dashboard](../user-journey.md#back-to-application).
 * A [UI theme](./customization/themes.md) to use when users authenticate with this tenant. If left empty, the theme set as default is used.
 * The list of [OAuth Providers](./oauth-providers.md) allowed to be used on this tenant.
 

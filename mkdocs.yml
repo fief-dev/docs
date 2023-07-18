@@ -92,6 +92,7 @@ nav:
     - getting-started/workspace.md
     - getting-started/oauth2.md
     - getting-started/try-oauth2.md
+  - user-journey.md
   - 'Integrate':
     - 'Python':
       - 'General': integrate/python/index.md

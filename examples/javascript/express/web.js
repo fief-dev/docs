@@ -23,7 +23,7 @@ class MemoryUserInfoCache {  // (3)!
     this.storage[id] = userinfo;
   }
 
-  async remove() {
+  async remove(id) {
     this.storage[id] = undefined;
   }
 

@@ -30,7 +30,7 @@ If you configured [OAuth Providers](./configure/oauth-providers.md), users may b
 ![Social registration](/assets/images/auth-social-registration.png)
 
 !!! warning "*Sign in with...* and *Sign up with...* doesn't have the same behavior"
-    It's important to bear in mind that the social buttons doesn't have the same behavior if they are used from the register or login page. When used from the registration page, they will go through the registration process. If they already had an account, they will get an error stating that their email adress is already registered.
+    It's important to bear in mind that the social buttons doesn't have the same behavior if they are used from the register or login page. When used from the registration page, they will go through the registration process. If they already had an account, they will get an error stating that their email address is already registered.
 
 ## Login
 
@@ -54,7 +54,7 @@ If you configured [OAuth Providers](./configure/oauth-providers.md), and if they
 
 ## Email verification
 
-Email verification is crucial to make sure the user has correctly entered their adress and that they actually own it. They will automatically receive an **email on their inbox** with a **verification code**. Users will need to input this code in the form to verify their address.
+Email verification is crucial to make sure the user has correctly entered their address and that they actually own it. They will automatically receive an **email on their inbox** with a **verification code**. Users will need to input this code in the form to verify their address.
 
 ![Email verification](/assets/images/auth-email-verification.png)
 

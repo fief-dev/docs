@@ -126,6 +126,7 @@ nav:
   - 'Going further':
     - going-further/byod.md
     - going-further/authorize-url.md
+    - going-further/acr.md
     - going-further/pkce.md
     - going-further/id-token-encryption.md
     - going-further/oauth-provider-token.md

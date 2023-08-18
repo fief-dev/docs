@@ -96,6 +96,43 @@ Using the text input above the code editor, you can customize the **subject** of
 
 The context is the same as for [Base template](#context).
 
+## Verify email template
+
+The **Verify email template** is used to send an email when a **user needs to verify their email address**. It should contain the code the user should input on Fief to verify their email.
+
+The default template looks like this:
+
+```html
+{% extends "BASE" %}
+
+{% block preheader %}Use this code to verify your email address. This code is only valid for 1 hour.{% endblock %}
+
+{% block main %}
+  <h1>Verify your email address</h1>
+  <p>You recently created or updated your email on your {{ tenant.name }}'s account. To verify your email address, please enter the verification code below.</p>
+  <table class="discount" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td align="center">
+        <h1 class="f-fallback discount_heading">{{ code }}</h1>
+        <p class="f-fallback discount_body">This verification code is only valid for the next hour.</p>
+      </td>
+    </tr>
+  </table>
+{% endblock %}
+```
+
+You can see it's very lightweight: all we need to do is to define the **content of each block**. The magic happens thanks to the `{% extends "BASE" %}` instruction which tells Fief to inherit from the [Base template](#base-template).
+
+### Subject
+
+Using the text input above the code editor, you can customize the **subject** of the email. It accepts the same syntax and has the same context.
+
+### Context
+
+The context is the same as for [Base template](#context). It also adds:
+
+* `code` (`str`): The verification code the user should input.
+
 ## Forgot password template
 
 The **Forgot password template** is used to send an email when a user wants to **reset their password**. The main purpose is to send them the link allowing them to change their password.

@@ -201,6 +201,15 @@ A registration session is a cookie used to maintain the state of the registratio
 
 --8<-- "reusables/cookie-secure-callout.md"
 
+### Email verification
+
+Users must verify their email address using a code sent by email. The code is a random string composed of letters and digits, e.g. `ABC123`.
+
+| Name                                  | Description                                  | Default         | Allowed values | Example |
+| ------------------------------------- | -------------------------------------------- | --------------- | -------------- | ------- |
+| `EMAIL_VERIFICATION_CODE_LENGTH`      | Length of the verification code              | 6               |                |         |
+| `EMAIL_VERIFICATION_LIFETIME_SECONDS` | Lifetime of the verification code in seconds | 3600 _(1 hour)_ |                |         |
+
 ### OAuth session
 
 An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../configure/oauth-providers.md), from the moment they click on the *Sign in with...* button until they're redirected.

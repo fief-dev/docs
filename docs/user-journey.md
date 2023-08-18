@@ -47,8 +47,6 @@ Once done, they will be **redirected to your application**, on the redirect URI 
 
 If you configured [OAuth Providers](./configure/oauth-providers.md), and if they used it during [registration](#social-registration), users will be able to login using their social account, like Google or Facebook. They will be taken through the external provider authentication process before being **redirected to your application**.
 
-![Social login](/assets/images/auth-social-login.png)
-
 !!! warning "*Sign in with...* and *Sign up with...* doesn't have the same behavior"
     It's important to bear in mind that the social buttons doesn't have the same behavior if they are used from the register or login page. When used from the login page, Fief will check if an account linked to this social account exists. If not, they will get an error stating that such account does not exist.
 
@@ -93,7 +91,7 @@ To confirm the change, they'll need to verify the email address, in a similar wa
 
 If you configured custom [User Fields](./configure/user-fields.md) on your workspace, users will be able to update them from this page.
 
-![Update profile](/assets/images/auth-update-profile.png)
+![User dashboard](/assets/images/auth-user-dashboard.png)
 
 ### Change password
 
@@ -101,8 +99,8 @@ Users can change their password. To do this, from the **Password** section, they
 
 --8<-- "reusables/password-strength-validation.md"
 
+![Update profile](/assets/images/auth-change-password.png)
+
 ### Back to application
 
 If you configured the [Application URL](./configure/tenants.md) on your tenant, a button is displayed so the user can go back to your application.
-
-![Change email address](/assets/images/auth-user-dashboard.png)

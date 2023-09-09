@@ -233,6 +233,17 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 --8<-- "reusables/cookie-secure-callout.md"
 
+### Client redirect URIs
+
+| Name                               | Description                                                      | Default | Allowed values | Example |
+| ---------------------------------- | ---------------------------------------------------------------- | ------- | -------------- | ------- |
+| `CLIENT_REDIRECT_URI_SSL_REQUIRED` | Whether to enforce the use of HTTPS URL for [Client redirect URIs](../configure/clients.md#redirect-uris) | True    |                |         |
+
+!!! warning "This flag should be `True` in production"
+    Using SSL/HTTPS URLs for the OAuth2 callback is critical for security. Allowing a non-encrypted redirection could enable malicious users to steal the authorization code during the process.
+
+    This flag is provided for convenience when running Fief in development and testing environments.
+
 ### Authorization codes and tokens lifetimes
 
 Authorization codes are temporary codes generated during the [OAuth2 authentication flow](../getting-started/oauth2.md). Access tokens, ID tokens and refresh tokens are generated after a successful [OAuth2 authentication flow](../getting-started/oauth2.md#access-token-and-id-token).

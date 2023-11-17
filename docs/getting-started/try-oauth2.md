@@ -67,12 +67,6 @@ We can now call one of the API! In particular, we'll try the `/api/userinfo` end
 
 Notice how the interactive documentation automatically added the `Authorization` header with the token!
 
-## 5. See your new user in the admin dashboard
-
-Now that you have a user account in your workspace, you can see it from the admin dashboard! Get back to your admin dashboard and, in the left menu, click on **Users**. This is the list of users in your workspace... And you should see the one you just created!
-
-![Users from admin dashboard](/assets/images/admin-users.png)
-
 ## You're now an OAuth2 master 👏
 
 Congratulations! You've performed a full OAuth2 authentication from A to Z. Those concepts are important to have in mind because they'll be at the core of Fief integration in your app. The key things to remember are:

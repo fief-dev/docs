@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 2. Understand OAuth2
 
 Fief uses the [OpenID Connect](https://openid.net/connect/) protocol, an identity layer on top of the well-known [OAuth2 protocol](https://oauth.net/2/) to **securely authenticate users**.

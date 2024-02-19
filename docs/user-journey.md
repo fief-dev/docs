@@ -17,7 +17,7 @@ They'll need to fill a form with the following information:
 * A password
 * The custom [User Fields](./configure/user-fields.md) you configured on your workspace.
 
-![Registration](/assets/images/auth-registration.png)
+![Registration](assets/images/auth-registration.png)
 
 --8<-- "reusables/password-strength-validation.md"
 
@@ -27,7 +27,7 @@ When the user has successfully filled the form, they'll need to [verify their em
 
 If you configured [OAuth Providers](./configure/oauth-providers.md), users may be able to register using their social account, like Google or Facebook. They will be taken through the external provider authentication process before being redirected to the registration form to fill their details.
 
-![Social registration](/assets/images/auth-social-registration.png)
+![Social registration](assets/images/auth-social-registration.png)
 
 !!! warning "*Sign in with...* and *Sign up with...* doesn't have the same behavior"
     It's important to bear in mind that the social buttons doesn't have the same behavior if they are used from the register or login page. When used from the registration page, they will go through the registration process. If they already had an account, they will get an error stating that their email address is already registered.
@@ -36,7 +36,7 @@ If you configured [OAuth Providers](./configure/oauth-providers.md), users may b
 
 When a user comes back to your application, they'll need to login again to their account. They'll need to fill the form with their email address and password.
 
-![Login](/assets/images/auth-login.png)
+![Login](assets/images/auth-login.png)
 
 Once done, they will be **redirected to your application**, on the redirect URI you specified.
 
@@ -54,7 +54,7 @@ If you configured [OAuth Providers](./configure/oauth-providers.md), and if they
 
 Email verification is crucial to make sure the user has correctly entered their address and that they actually own it. They will automatically receive an **email on their inbox** with a **verification code**. Users will need to input this code in the form to verify their address.
 
-![Email verification](/assets/images/auth-email-verification.png)
+![Email verification](assets/images/auth-email-verification.png)
 
 Once done, they will be **redirected to your application**, on the redirect URI you specified.
 
@@ -62,14 +62,14 @@ Once done, they will be **redirected to your application**, on the redirect URI 
 
 It (often) happens that user forget the password they used to register. To solve this situtation, Fief has the classic forgot password mechanism. First, the user needs to input the email address of their account.
 
-![Forgot password](/assets/images/auth-forgot-password.png)
+![Forgot password](assets/images/auth-forgot-password.png)
 
 Then, they receive an **email on their inbox** with a link to reset their password.
 
 !!! warning "This form is always successful"
     Even if the user input an email address that does not exist on the tenant, they will be presented with a success message. This is a security measure to avoid malicious users to enumerate existing accounts.
 
-![Reset password](/assets/images/auth-reset-password.png)
+![Reset password](assets/images/auth-reset-password.png)
 
 --8<-- "reusables/password-strength-validation.md"
 
@@ -83,7 +83,7 @@ Fief has built-in account management pages allowing users to manage their inform
 
 Users can change their email address. To do this, from the **Profile** section, they can click on the **Change** button. A form will show up where they can input their new email address and confirm their password.
 
-![Change email address](/assets/images/auth-change-email-address.png)
+![Change email address](assets/images/auth-change-email-address.png)
 
 To confirm the change, they'll need to verify the email address, in a similar way to what we explain in the [Email verification](#email-verification) section. This new email address is **not saved** until the verification process is done.
 
@@ -91,7 +91,7 @@ To confirm the change, they'll need to verify the email address, in a similar wa
 
 If you configured custom [User Fields](./configure/user-fields.md) on your workspace, users will be able to update them from this page.
 
-![User dashboard](/assets/images/auth-user-dashboard.png)
+![User dashboard](assets/images/auth-user-dashboard.png)
 
 ### Change password
 
@@ -99,7 +99,7 @@ Users can change their password. To do this, from the **Password** section, they
 
 --8<-- "reusables/password-strength-validation.md"
 
-![Update profile](/assets/images/auth-change-password.png)
+![Update profile](assets/images/auth-change-password.png)
 
 ### Back to application
 

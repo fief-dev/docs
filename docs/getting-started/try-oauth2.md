@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 3. Try OAuth2 on your instance
 
 The following exercise is very interesting to see and practice all the aspects of OAuth2 with Fief.

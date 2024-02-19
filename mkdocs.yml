@@ -25,6 +25,7 @@ theme:
     - navigation.indexes
     - navigation.tabs
     - navigation.top
+    - navigation.footer
     - search.suggest
     - search.highlight
     - content.code.annotate
@@ -89,7 +90,7 @@ nav:
   - index.md
   - 'Getting started':
     - getting-started/introduction.md
-    - getting-started/workspace.md
+    - getting-started/local-instance.md
     - getting-started/oauth2.md
     - getting-started/try-oauth2.md
   - user-journey.md
@@ -136,7 +137,7 @@ nav:
       - Integration guide: api/webhooks/guide.md
       - Events: api/webhooks/events.md
   - 'Self-hosting':
-    - self-hosting/quickstart.md
+    - self-hosting/index.md
     - 'Production deployment':
       - self-hosting/deployment/docker-compose.md
       - self-hosting/deployment/render.md

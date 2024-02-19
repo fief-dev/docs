@@ -24,4 +24,4 @@ graph TD
 
 ## Let's get started!
 
-The first thing to do is to create your workspace!
+The first thing to do is to start your Fief instance on your machine!

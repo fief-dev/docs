@@ -11,14 +11,10 @@ Fief is an **open-source platform** to manage **users** and **authentication** i
 * Users management dashboard
 * SDK for the most popular languages and frameworks
 * Integrations for the most popular no-code tools
-* Bring Your Own Database: you can connect to any SQL database so you keep entire control of your data
 
-## Cloud vs Self-hosted
+## Self-hosted
 
-We are offering two ways of using Fief:
-
-1. [Cloud](https://www.fief.dev): fair-priced hosted instance, maintained by the Fief's team;
-2. [Self-hosted](./self-hosting/quickstart.md): you host the service yourself on your own infrastructure, for free.
+Fief is fully open-source and usable for free. You can host it on the server or cloud of your choice!
 
 ## Project roadmap
 

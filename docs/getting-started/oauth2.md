@@ -1,4 +1,4 @@
-# Understand OAuth2
+# 2. Understand OAuth2
 
 Fief uses the [OpenID Connect](https://openid.net/connect/) protocol, an identity layer on top of the well-known [OAuth2 protocol](https://oauth.net/2/) to **securely authenticate users**.
 
@@ -36,7 +36,7 @@ This flow relies a lot on redirections:
 2. If they're not logged in, they are redirected to the Fief login page.
 3. On this login page, the user will input its credentials, typically an email address and a password to authenticate themself.
 
-![Fief consent screen](/assets/images/fief-login.png)
+![Fief consent screen](../assets/images/fief-login.png)
 
 At this point, **we don't have a valid user session yet**. In traditional applications, after a successful login, we do obtain a valid user session. However, in this context, the application needing the user session, your application, is not the same as the one that provides authentication, Fief.
 
@@ -55,7 +55,7 @@ A central part in OAuth2 is the concept of **scopes**. Basically, it determines 
 
 For the user, this translates to the famous **consent screen**: it's a special page after a successful login telling them what the application wants to do with their data.
 
-![Fief consent screen](/assets/images/fief-consent-screen.png)
+![Fief consent screen](../assets/images/fief-consent-screen.png)
 
 Once the access token is generated, it'll be tied to this **specific list of scopes** the user has granted. In your application, you'll be able to limit some actions based on those scopes.
 
@@ -88,4 +88,4 @@ For security reasons, both of them have a **limited lifetime**. At some point, w
 
 ## Let's try it for real!
 
-Before starting to implement Fief in your own application, we'll perform an OAuth2 authentication on your own workspace using the built-in tools of Fief.
+Before starting to implement Fief in your own application, we'll perform an OAuth2 authentication on your own instance using the built-in tools of Fief.

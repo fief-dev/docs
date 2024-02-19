@@ -17,12 +17,8 @@ We collect analytics information about:
     * Its version
     * The type of database used (PostgreSQL, MySQL or SQLite)
     * If it runs on localhost
-* The workspaces:
-    * The server they are created on
     * The number of users
-    * If it uses the [Bring Your Own Database](./going-further/byod.md) feature and, if it does, the database type (PostgreSQL, MySQL or SQLite)
 * The admin dashboard:
-    * Associated server and workspace
     * Page views
     * Page clicks interactions
     * Browser language and version

@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # Introduction
 
 Fief is what is usually called an **identity provider**: it provides and secures user identities to external apps.

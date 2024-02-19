@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # 1. Start your local Fief instance
 
 We provide a [Docker](https://www.docker.com/get-started) image to help you start the Fief server locally in no time!

@@ -1,6 +1,10 @@
 {#-
   This file was automatically generated - do not edit
 -#}
+
+{% import "partials/nav-item.html" as item with context %}
+
+<!-- Determine classes -->
 {% set class = "md-nav md-nav--primary" %}
 {% if "navigation.tabs" in features %}
   {% set class = class ~ " md-nav--lifted" %}
@@ -8,12 +12,28 @@
 {% if "toc.integrate" in features %}
   {% set class = class ~ " md-nav--integrated" %}
 {% endif %}
-<nav class="{{ class }}" aria-label="{{ lang.t('nav.title') }}" data-md-level="0">
+
+<!-- Navigation -->
+<nav
+  class="{{ class }}"
+  aria-label="{{ lang.t('nav') }}"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
   <label class="md-nav__title" for="__drawer">
-    <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-nav__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+    <a
+      href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}"
+      title="{{ config.site_name | e }}"
+      class="md-nav__button md-logo"
+      aria-label="{{ config.site_name }}"
+      data-md-component="logo"
+    >
       {% include "partials/logo.html" %}
     </a>
+    {{ config.site_name }}
   </label>
+
   {% if config.extra.header_links %}
   <ul class="md-nav__extra-links">
     {% for link in config.extra.header_links %}
@@ -25,16 +45,19 @@
     {% endfor %}
   </ul>
   {% endif %}
+
+  <!-- Repository information -->
   {% if config.repo_url %}
     <div class="md-nav__source">
       {% include "partials/source.html" %}
     </div>
   {% endif %}
+
+  <!-- Navigation list -->
   <ul class="md-nav__list" data-md-scrollfix>
     {% for nav_item in nav %}
       {% set path = "__nav_" ~ loop.index %}
-      {% set level = 1 %}
-      {% include "partials/nav-item.html" %}
+      {{ item.render(nav_item, path, 1) }}
     {% endfor %}
   </ul>
 </nav>

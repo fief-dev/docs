@@ -137,7 +137,6 @@ nav:
         - configure/customization/themes.md
         - configure/customization/email-templates.md
   - 'Going further':
-    - going-further/byod.md
     - going-further/authorize-url.md
     - going-further/acr.md
     - going-further/pkce.md

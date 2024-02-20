@@ -157,3 +157,4 @@ nav:
       - self-hosting/deployment/ssl.md
     - self-hosting/environment-variables.md
   - Telemetry: telemetry.md
+  - migration.md

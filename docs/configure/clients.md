@@ -1,6 +1,6 @@
 # Clients
 
-This is where you'll see and manage the clients of your workspace.
+This is where you'll see and manage the clients of your instance.
 
 --8<-- "reusables/client-callout.md"
 
@@ -19,7 +19,7 @@ You can create a new client by clicking the **Create Client** button. A modal wi
 ![Create client from admin dashboard](/assets/images/admin-clients-create.png)
 
 !!! tip "When should I create a new client?"
-    If you have several applications authenticating to your Fief workspace, you should consider creating new clients. Typically, if you have both a web and a mobile application, it's usually a good idea to have a client for each one.
+    If you have several applications authenticating to your Fief instance, you should consider creating new clients. Typically, if you have both a web and a mobile application, it's usually a good idea to have a client for each one.
 
     This way, it's easier to track down where the tokens come from and mitigates the risk of compromising data if one of the application has a security breach.
 

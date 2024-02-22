@@ -18,7 +18,7 @@ class CustomFiefAuth(FiefAuth):  # (1)!
 
 
 fief = FiefAsync(  # (5)!
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
     "YOUR_CLIENT_SECRET",
 )

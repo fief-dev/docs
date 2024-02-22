@@ -8,7 +8,7 @@ from fief_client.integrations.flask import (
 from flask import Flask, g
 
 fief = Fief(  # (1)!
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
     "YOUR_CLIENT_SECRET",
 )

@@ -5,7 +5,7 @@ const express = require('express');
 const PORT = 3000;
 
 const fiefClient = new fief.Fief({  // (1)!
-  baseURL: 'https://example.fief.dev',
+  baseURL: 'https://fief.mydomain.com',
   clientId: 'YOUR_CLIENT_ID',
   clientSecret: 'YOUR_CLIENT_SECRET',
 });

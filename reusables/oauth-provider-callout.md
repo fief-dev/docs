@@ -5,4 +5,4 @@
 
     Basically, since most people already have an account on big social networks or websites like Google, Facebook, Discord or Microsoft, they can use it to sign in to your service without having to create yet another account with yet another password.
 
-    With Fief, you can easily add those authentication methods to your workspace. Corresponding buttons will be shown on the login and registration pages.
+    With Fief, you can easily add those authentication methods to your instance. Corresponding buttons will be shown on the login and registration pages.

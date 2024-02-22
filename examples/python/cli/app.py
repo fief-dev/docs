@@ -3,7 +3,7 @@ from fief_client import Fief
 from fief_client.integrations.cli import FiefAuth, FiefAuthNotAuthenticatedError
 
 fief = Fief(  # (1)!
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
 )
 fief_auth = FiefAuth(fief, "./credentials.json")  # (2)!

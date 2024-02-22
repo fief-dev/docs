@@ -12,7 +12,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
 
 ```js
 const fief = new Fief({
-  baseURL: 'https://example.fief.dev',  // (1)!
+  baseURL: 'https://fief.mydomain.com',  // (1)!
   clientId: 'YOUR_CLIENT_ID',  // (2)!
   clientSecret: 'YOUR_CLIENT_SECRET', // (3)!
 });
@@ -31,7 +31,7 @@ const fief = new Fief({
     ![Find Client ID in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
-        A first client is always created for you when you create your workspace. When getting started, you should use this one.
+        A first client is always created for you when you create your instance. When getting started, you should use this one.
 
 3. **Secret of your Fief client**
 
@@ -40,7 +40,7 @@ const fief = new Fief({
     ![Find Client Secret in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
-        A first client is always created for you when you create your workspace. When getting started, you should use this one.
+        A first client is always created for you when you create your instance. When getting started, you should use this one.
 
 --8<-- "reusables/client-secret-browser-callout.md"
 

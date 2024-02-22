@@ -38,6 +38,4 @@ You can find the reference of those values in the [environment variables](../env
 
 When the deployment is done, you need to link your domain with the `fief-server` service. Open the **Settings** of this service and in the **Custom Domains** section, add your domain.
 
-If you plan to have several workspaces, you can set a **wildcard** domain, like, `*.fief.dev`.
-
 ![Custom domain configuration on Render](/assets/images/deployment-render-domain.png)

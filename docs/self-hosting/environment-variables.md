@@ -22,7 +22,6 @@ docker run \
   -e "FIEF_CLIENT_SECRET=XXX" \
   -e "ENCRYPTION_KEY=XXX" \
   -e "PORT=8000" \
-  -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
   -e "CSRF_COOKIE_SECURE=False" \
   -e "LOGIN_SESSION_COOKIE_SECURE=False" \
@@ -39,7 +38,6 @@ FIEF_CLIENT_ID=XXX
 FIEF_CLIENT_SECRET=XXX
 ENCRYPTION_KEY=XXX
 PORT=8000
-ROOT_DOMAIN=localhost:8000
 FIEF_DOMAIN=localhost:8000
 CSRF_COOKIE_SECURE=False
 LOGIN_SESSION_COOKIE_SECURE=False
@@ -68,15 +66,14 @@ For each variable, we'll try to provide a sensible example value to help you con
 
 ### General
 
-| Name                  | Description                                                                                     | Default                     | Allowed values                   | Example                      |
-| --------------------- | ----------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
-| `ENVIRONMENT`         | Name of the deployment environment                                                              | production                  | development, staging, production | production                   |
-| `LOG_LEVEL`           | Log verbosity                                                                                   |                             |                                  |                              |
-| `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                                  | True                        |                                  |                              |
-| `ROOT_DOMAIN`         | Root domain where your server will be running. Mainly used for generating workspace subdomains. | localhost:8000              |                                  | bretagne.duchy               |
-| `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                   | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
-| `PORT`                | Internal port on which the Fief server is available                                             | 8000                        |                                  | 8000                         |
-| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./deployment/ssl.md)       | 127.0.0.1                   |                                  |                              |
+| Name                  | Description                                                                               | Default                     | Allowed values                   | Example                      |
+| --------------------- | ----------------------------------------------------------------------------------------- | --------------------------- | -------------------------------- | ---------------------------- |
+| `ENVIRONMENT`         | Name of the deployment environment                                                        | production                  | development, staging, production | production                   |
+| `LOG_LEVEL`           | Log verbosity                                                                             |                             |                                  |                              |
+| `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                            | True                        |                                  |                              |
+| `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                             | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
+| `PORT`                | Internal port on which the Fief server is available                                       | 8000                        |                                  | 8000                         |
+| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./deployment/ssl.md) | 127.0.0.1                   |                                  |                              |
 
 ### Secrets
 
@@ -235,8 +232,8 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 ### Client redirect URIs
 
-| Name                               | Description                                                      | Default | Allowed values | Example |
-| ---------------------------------- | ---------------------------------------------------------------- | ------- | -------------- | ------- |
+| Name                               | Description                                                                                               | Default | Allowed values | Example |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- | ------- | -------------- | ------- |
 | `CLIENT_REDIRECT_URI_SSL_REQUIRED` | Whether to enforce the use of HTTPS URL for [Client redirect URIs](../configure/clients.md#redirect-uris) | True    |                |         |
 
 !!! warning "This flag should be `True` in production"
@@ -258,21 +255,21 @@ The variables below control the default lifetime for each one of them when a [cl
 
 ### Fief-ception
 
-Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief users to the app 🤯
+Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief admins 🤯
 
-That's why we set necessary variables to create the main workspace and first admin user, as described in the [Quickstart](quickstart.md) section.
+That's why we set necessary variables to create the main client and first admin user, as described in the [Getting started](../getting-started/local-instance.md) section.
 
 The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!
 
-| Name                      | Description                                                                                                                                                                                                           | Default        | Allowed values | Example                      |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------- | ---------------------------- |
-| `FIEF_DOMAIN`             | Domain of your main Fief workspace                                                                                                                                                                                    | localhost:8000 |                | fief.bretagne.duchy          |
-| `FIEF_CLIENT_ID`          | Client ID in your main Fief workspace                                                                                                                                                                                 |                |                |                              |
-| `FIEF_CLIENT_SECRET`      | Client secret in your main Fief workspace                                                                                                                                                                             |                |                |                              |
-| `FIEF_ENCRYPTION_KEY`     | Optional RSA key used to encrypt the JWT tokens                                                                                                                                                                       |                |                |                              |
-| `FIEF_MAIN_USER_EMAIL`    | Email address of the first admin user in your main workspace. If provided, the user will be created automatically on startup.                                                                                         |                |                | anne@bretagne.duchy          |
-| `FIEF_MAIN_USER_PASSWORD` | Password of the first admin user in your main workspace. If `FIEF_MAIN_USER_EMAIL` is provided, the user will be created automatically on startup with this password. Otherwise, a random password will be generated. |                |                | SuperSecretAndStrongPassword |
-| `FIEF_MAIN_ADMIN_API_KEY` | Admin API token to create at server startup                                                                                                                                                                           |                |                | SuperSecretAndStrongToken    |
+| Name                      | Description                                                                                                                                                                                    | Default        | Allowed values | Example                      |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------------- | ---------------------------- |
+| `FIEF_DOMAIN`             | Domain of your Fief instance                                                                                                                                                                   | localhost:8000 |                | fief.bretagne.duchy          |
+| `FIEF_CLIENT_ID`          | Client ID in your instance                                                                                                                                                                     |                |                |                              |
+| `FIEF_CLIENT_SECRET`      | Client secret in your instance                                                                                                                                                                 |                |                |                              |
+| `FIEF_ENCRYPTION_KEY`     | Optional RSA key used to encrypt the JWT tokens                                                                                                                                                |                |                |                              |
+| `FIEF_MAIN_USER_EMAIL`    | Email address of the first admin user. If provided, the user will be created automatically on startup.                                                                                         |                |                | anne@bretagne.duchy          |
+| `FIEF_MAIN_USER_PASSWORD` | Password of the first admin user. If `FIEF_MAIN_USER_EMAIL` is provided, the user will be created automatically on startup with this password. Otherwise, a random password will be generated. |                |                | SuperSecretAndStrongPassword |
+| `FIEF_MAIN_ADMIN_API_KEY` | Admin API token to create at server startup                                                                                                                                                    |                |                | SuperSecretAndStrongToken    |
 
 ### Admin session
 

@@ -1,6 +1,6 @@
 # OAuth Providers
 
-This is where you'll see and manage the OAuth Providers of your workspace.
+This is where you'll see and manage the OAuth Providers of your instance.
 
 --8<-- "reusables/oauth-provider-callout.md"
 
@@ -106,7 +106,7 @@ Currently, Fief supports the following OAuth Providers. You'll find below steps 
   * In **App name**, type the name of your application/website.
   * In **User support email**, type your support email address.
   * You can provide a logo and links to your legal terms.
-  * In **Authorized domains**, add the top-level domain of Fief, **fief.dev**.
+  * In **Authorized domains**, add the top-level domain of your Fief instance, e.g. **mydomain.com**.
   * In **Developer contact information**, type your developer email address.
   * In **Scopes**, click on **Add or remove scopes** and select the three following scopes:
     * `/auth/userinfo.email`

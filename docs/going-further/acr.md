@@ -36,7 +36,7 @@ After the user has successfully authenticated with their email and password a fi
 If you require a higher ACR level, you can add the `acr_values` parameter to the [Authorize URL](./authorize-url.md). For example:
 
 ```
-https://example.fief.dev/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fcallback&scope=openid&acr_values=1
+https://fief.mydomain.com/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fcallback&scope=openid&acr_values=1
 ```
 
 By doing this, even if there is a valid session on Fief's side, the server will force the user to authenticate again to match the desired ACR level.

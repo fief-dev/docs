@@ -1,6 +1,6 @@
 # Users
 
-This is where you'll see and manage the users of your workspace.
+This is where you'll see and manage the users of your instance.
 
 --8<-- "reusables/user-callout.md"
 

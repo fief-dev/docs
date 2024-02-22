@@ -1,6 +1,6 @@
 # Tenants
 
-This is where you'll see and manage the tenants of your workspace.
+This is where you'll see and manage the tenants of your instance.
 
 --8<-- "reusables/tenant-callout.md"
 
@@ -10,9 +10,9 @@ This is where you'll see and manage the tenants of your workspace.
 
 Each tenant is tied to a **base URL**: each routes, like login or registration, will be derived from this base. When you integrate Fief in your application, you'll need this base URL.
 
-Each workspace has **one default tenant** with a base URL pointing to your root subdomain, like *https://example.fief.dev*.
+Each instance has **one default tenant** with a base URL pointing to your root domain, like *https://fief.mydomain.com*.
 
-Other tenants gets a path prefix, like *https://example.fief.dev/other-tenant*.
+Other tenants gets a path prefix, like *https://fief.mydomain.com/other-tenant*.
 
 !!! tip
     You can copy the base URL directly using the clipboard button in the list.
@@ -65,9 +65,9 @@ If one your tenant is not useful anymore, you can delete it by clicking on it on
 
 Quite often, Fief needs to **send emails to your users**, like **welcome email** or **forgot password** emails. The layout and content of those emails can be customized, as explained in the [Email templates](./customization/email-templates.md) section.
 
-Of course, those emails need to be sent by a specific email address and name, the **From** part of an email. By default, they will be sent by the address defined globally on the Fief server, i.e. `Fief <contact@fief.dev>` on Fief Cloud. This may not be user-friendly for your users and it'll probably better to send emails from an email address you own matching your brand.
+Of course, those emails need to be sent by a specific email address and name, the **From** part of an email. By default, they will be sent by the address [defined globally on your instance](../self-hosting/environment-variables.md#email-provider).
 
-Fortunately, you can customize this in the **Email** tab of a tenant. Fill the **From name** and **From email** with a valid name and email address and click on **Update**.
+You can however customize per tenant this in the **Email** tab of a tenant. Fill the **From name** and **From email** with a valid name and email address and click on **Update**.
 
 ![Tenant transactional emails settings from admin dashboard](/assets/images/admin-tenants-email.png)
 
@@ -79,5 +79,5 @@ Click on **Manage domain authentication** to see the list of DNS records you nee
 
 ![Tenant transactional emails domain authentication](/assets/images/admin-tenants-email-domain-authentication.png)
 
-!!! tip "Note for self-hosted servers"
-    If you self-host your Fief server, please note that only the [SendGrid provider](../self-hosting/deployment/setup-email-provider.md#postmark-provider) supports domain authentication from the admin dashboard. If you use SMTP or Postmark, you should manually authenticate your domain.
+!!! warning "This feature is only supported with SendGrid"
+    If you self-host your Fief server, please note that only the [SendGrid provider](../self-hosting/deployment/setup-email-provider.md#sendgrid-provider) supports domain authentication from the admin dashboard. If you use SMTP or Postmark, you should manually authenticate your domain.

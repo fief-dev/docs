@@ -4,14 +4,14 @@ from fief_client import FiefAccessTokenInfo, FiefAsync
 from fief_client.integrations.fastapi import FiefAuth
 
 fief = FiefAsync(  # (1)!
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
     "YOUR_CLIENT_SECRET",
 )
 
 scheme = OAuth2AuthorizationCodeBearer(  # (2)!
-    "https://example.fief.dev/authorize",  # (3)!
-    "https://example.fief.dev/api/token",  # (4)!
+    "https://fief.mydomain.com/authorize",  # (3)!
+    "https://fief.mydomain.com/api/token",  # (4)!
     scopes={"openid": "openid", "offline_access": "offline_access"},
     auto_error=False,  # (5)!
 )

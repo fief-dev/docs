@@ -2,7 +2,7 @@
 
 Fief comes with its own authentication pages for login, registration and reset password. You can customize them so they match the brand of your application. This is done through a system of **themes**. They can either be set globally, which is the most common case, or you can assign them to a specific [tenant](../tenants.md) if you need to customize the look-and-feel per tenant.
 
-When your workspace is created, Fief will always create a **Default** theme.
+When your instance is created, Fief will always create a **Default** theme.
 
 ![Themes from admin dashboard](/assets/images/admin-themes.png)
 

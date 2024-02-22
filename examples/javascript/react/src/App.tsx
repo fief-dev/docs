@@ -10,7 +10,7 @@ import RequireAuth from './RequireAuth';
 function App() {
   return (
     <FiefAuthProvider // (1)!
-      baseURL="http://localhost:8000"
+      baseURL="https://fief.mydomain.com"
       clientId="NFL8Ycdag-gbvO-5pJezwCmFEouCDRhCG4paUNOaDoI"
     >
       <div className="App">

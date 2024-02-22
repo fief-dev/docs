@@ -1,6 +1,6 @@
 # Access control
 
-This is where you'll see and manage the permissions and roles of your workspace.
+This is where you'll see and manage the permissions and roles of your instance.
 
 --8<-- "reusables/access-control-callout.md"
 
@@ -12,7 +12,7 @@ The first item in the menu is the permissions page, showing you a list of all yo
 
 ### Create a new permission
 
-To create a new permission, fill the fields above the list: the **name** and the **codename** of your permission. The codename is what will be used to identify your permission in the access tokens. It must be **unique across your workspace**.
+To create a new permission, fill the fields above the list: the **name** and the **codename** of your permission. The codename is what will be used to identify your permission in the access tokens. It must be **unique across your instance**.
 
 ![Create permission from admin dashboard](/assets/images/admin-permissions-create.png)
 

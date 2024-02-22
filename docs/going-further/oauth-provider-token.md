@@ -14,7 +14,7 @@ To help you integrate clever workflows into your application, Fief Admin API all
 curl \
 -X GET \
 -H 'Authorization: Bearer FIEF_ADMIN_API_KEY' \
-'https://example.fief.dev/admin/api/oauth-providers/OAUTH_PROVIDER_ID/access-token/USER_ID'
+'https://fief.mydomain.com/admin/api/oauth-providers/OAUTH_PROVIDER_ID/access-token/USER_ID'
 ```
 
 You'll then get a JSON response including a valid access token ready for you to use in the external API:

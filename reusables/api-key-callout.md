@@ -4,4 +4,4 @@
     It'll be useful if you need, for example, to manage tenants or clients programmatically from your own application.
 
 !!! warning "Keep it secret and safe"
-    An API key gives **complete accesss** to your workspace data. Keep it somewhere safe and don't share it with anyone.
+    An API key gives **complete accesss** to your instance data. Keep it somewhere safe and don't share it with anyone.

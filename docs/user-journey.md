@@ -15,7 +15,7 @@ They'll need to fill a form with the following information:
 
 * Their email address
 * A password
-* The custom [User Fields](./configure/user-fields.md) you configured on your workspace.
+* The custom [User Fields](./configure/user-fields.md) you configured on your instance.
 
 ![Registration](assets/images/auth-registration.png)
 
@@ -77,7 +77,7 @@ Once done, they are redirected to the [login](#login) page.
 
 ## User dashboard
 
-Fief has built-in account management pages allowing users to manage their information. It's directly accessing from the [Base URL](./configure/tenants.md#base-url) of your tenant, e.g. `https://example.fief.dev`.
+Fief has built-in account management pages allowing users to manage their information. It's directly accessing from the [Base URL](./configure/tenants.md#base-url) of your tenant, e.g. `https://fief.mydomain.com`.
 
 ### Change email address
 
@@ -89,7 +89,7 @@ To confirm the change, they'll need to verify the email address, in a similar wa
 
 ### Update profile
 
-If you configured custom [User Fields](./configure/user-fields.md) on your workspace, users will be able to update them from this page.
+If you configured custom [User Fields](./configure/user-fields.md) on your instance, users will be able to update them from this page.
 
 ![User dashboard](assets/images/auth-user-dashboard.png)
 

@@ -1,6 +1,6 @@
 # Webhooks
 
-This is where you'll see and manage the webhooks of your workspace.
+This is where you'll see and manage the webhooks of your instance.
 
 --8<-- "reusables/webhook-callout.md"
 

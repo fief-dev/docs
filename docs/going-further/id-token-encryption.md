@@ -12,7 +12,7 @@ JWT is a widely-used standard to secure and encode JSON data. For example, let's
 
 ```json
 {
-    "iss": "https://bretagne.localhost:8000/secondary",
+    "iss": "https://fief.mydomain.com",
     "sub": "6c0e7f94-6af3-47ad-8599-6345a5a193cd",
     "email": "anne@nantes.city",
     "tenant_id": "3a85b89c-a232-4e2c-9d51-62501d8b6248",
@@ -122,7 +122,7 @@ You need now to configure your application so it can decode the ID Token. If you
 
     ```py
     fief = Fief(
-        "https://example.fief.dev",
+        "https://fief.mydomain.com",
         "YOUR_CLIENT_ID",
         "YOUR_CLIENT_SECRET",
         encryption_key="YOUR_ENCRYPTION_KEY",
@@ -133,7 +133,7 @@ You need now to configure your application so it can decode the ID Token. If you
 
     ```ts
     const fief = new Fief({
-        baseURL: 'https://example.fief.dev',
+        baseURL: 'https://fief.mydomain.com',
         clientId: 'YOUR_CLIENT_ID',
         clientSecret: 'YOUR_CLIENT_SECRET',
         encryptionKey: 'YOUR_ENCRYPTION_KEY',

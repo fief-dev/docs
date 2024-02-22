@@ -1,6 +1,6 @@
 # API Keys
 
-This is where you'll see and manage the api keys of your workspace.
+This is where you'll see and manage the api keys of your instance.
 
 --8<-- "reusables/api-key-callout.md"
 

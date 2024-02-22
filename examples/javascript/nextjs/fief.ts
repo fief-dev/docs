@@ -4,7 +4,7 @@ import { FiefAuth, IUserInfoCache } from '@fief/fief/nextjs';
 export const SESSION_COOKIE_NAME = "user_session";  // (1)!
 
 export const fiefClient = new Fief({  // (2)!
-  baseURL: 'https://example.fief.dev',
+  baseURL: 'https://fief.mydomain.com',
   clientId: 'YOUR_CLIENT_ID',
   clientSecret: 'YOUR_CLIENT_SECRET',
 });

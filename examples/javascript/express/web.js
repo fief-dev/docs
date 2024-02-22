@@ -35,7 +35,7 @@ class MemoryUserInfoCache {  // (3)!
 const userInfoCache = new MemoryUserInfoCache();
 
 const fiefClient = new fief.Fief({  // (4)!
-  baseURL: 'https://example.fief.dev',
+  baseURL: 'https://fief.mydomain.com',
   clientId: 'YOUR_CLIENT_ID',
   clientSecret: 'YOUR_CLIENT_SECRET',
 });

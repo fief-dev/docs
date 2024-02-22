@@ -1,7 +1,7 @@
 from fief_client import Fief
 
 fief = Fief(
-    "https://example.fief.dev",  # (1)!
+    "https://fief.mydomain.com",  # (1)!
     "YOUR_CLIENT_ID",  # (2)!
     "YOUR_CLIENT_SECRET",  # (3)!
 )

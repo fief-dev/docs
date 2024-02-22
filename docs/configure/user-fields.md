@@ -1,6 +1,6 @@
 # User fields
 
-This is where you'll see and manage the custom user fields of your workspace.
+This is where you'll see and manage the custom user fields of your instance.
 
 --8<-- "reusables/user-field-callout.md"
 
@@ -41,7 +41,7 @@ This will be the **identifier of the field** in the [ID token](../getting-starte
 
 By default, it'll be automatically generated from the [name](#name), but you can customize it at will.
 
-!!! tip "The slug is unique in a workspace"
+!!! tip "The slug is unique in an instance"
     Each field should have a unique identifier. If you try to create a new user field with a slug that already exists, an error will be raised.
 
 ### Type

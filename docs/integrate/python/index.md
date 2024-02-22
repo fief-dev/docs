@@ -34,7 +34,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
     ![Find Client ID in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
-        A first client is always created for you when you create your workspace. When getting started, you should use this one.
+        A first client is always created for you when you create your instance. When getting started, you should use this one.
 
 3. **Secret of your Fief client**
 
@@ -43,7 +43,7 @@ The Fief client provides all the necessary methods to manage OAuth2 authenticati
     ![Find Client Secret in admin dashboard](/assets/images/admin-clients-detail.png)
 
     !!! info
-        A first client is always created for you when you create your workspace. When getting started, you should use this one.
+        A first client is always created for you when you create your instance. When getting started, you should use this one.
 
 --8<-- "reusables/hardcoded-secrets-callout.md"
 
@@ -83,7 +83,7 @@ python client.py
 You'll get the following output:
 
 ```
-Open this URL in your browser: https://example.fief.dev/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fcallback&scope=openid
+Open this URL in your browser: https://fief.mydomain.com/authorize?response_type=code&client_id=YOUR_CLIENT_ID&redirect_uri=http%3A%2F%2Flocalhost%3A8000%2Fcallback&scope=openid
 Paste the callback code:
 ```
 
@@ -105,7 +105,7 @@ Copy the code value, get back to the command line where the script is running an
 ```
 Paste the callback code: wPEDiSRkoYOtA-4QCJHpsLne0P2PXVYAlW6hcH5OVBg
 Tokens: {'access_token': 'eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiRE9JaGpfNzJIYTlyWWg5dURnbmRTdTYyRVhKdUZmUTVsa2t4MS1rc1VJbyJdLCJhenAiOiJET0loal83MkhhOXJZaDl1RGduZFN1NjJFWEp1RmZRNWxra3gxLWtzVUlvIiwiZXhwIjoxNjQ4MDUwNDIzLCJpYXQiOjE2NDgwNDY4MjMsImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5maWVmLmRldiIsInNjb3BlIjoib3BlbmlkIiwic3ViIjoiYTM4NDZjYzEtN2MwOC00Mzg5LThjOGUtYzBlNzlmNzA3NWZlIn0.R5JnZW9Vq6lWai-FZcqsihYxmtFRbIjZ7D0Ck9XAG0d2YnQQ7ms3bUwtXEAnLhos4C3paGDa0PzQRtXSAx4IH85ZdeVJoBk9GrOj1ZV7E6dtZZSZlvtY2msMeXFC9gNg-A86R9ZU_T0PoROof0u1eJHYVlmo_dv2fodyNqkDB8V6HK3vqf7jaqNQtk8Fg6eHKhwb-3bAtjb5cpWAAWhMSrHZzTWIYUvYsvwAas5ihgenv3UOkpcl_p7b7G9SDhGE5abPQQ7lvyfhYZE7CV1DzVRU6UL4N0D2l4uI3RJNOQoECvltfo2etYzp5viwAwvg9LUS3466Ra1i8beBKXsPFQ', 'id_token': 'eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOlsiRE9JaGpfNzJIYTlyWWg5dURnbmRTdTYyRVhKdUZmUTVsa2t4MS1rc1VJbyJdLCJhenAiOiJET0loal83MkhhOXJZaDl1RGduZFN1NjJFWEp1RmZRNWxra3gxLWtzVUlvIiwiZW1haWwiOiJmcmFuY29pcyt0ZXN0QGZpZWYuZGV2IiwiZXhwIjoxNjQ4MDUwNDIzLCJpYXQiOjE2NDgwNDY4MjMsImlzcyI6Imh0dHBzOi8vZXhhbXBsZS5maWVmLmRldiIsInN1YiI6ImEzODQ2Y2MxLTdjMDgtNDM4OS04YzhlLWMwZTc5ZjcwNzVmZSIsInRlbmFudF9pZCI6IjcwNDEzNWI2LTRiZmQtNGM1NS04MDkwLWM2MzhhNmJhNTNhMiJ9.ULQy7TlgF5_oQwwgA6ydTahTYE31obr4F3olJy-mgyPw67XstoJLM1VwUNawzyz2Iu2QDmgcBrH3OMVfgCkBAFk2sp-QQIDr9arIF1QXNKG65El3zgPQ5-niTTsIuAkemyjNGcpdrcN2b9FaeodzauO5eOjno60h5dTBbcLnqv00V-Jv6sq8lB8_o5JXHKWUoZZA2VFEDox9MXfhDqrvyHcitsIRWIy7XhILKcZ-JG_AMcXnuDcyMnsoy91-gJznvMk7_ty9eNWs8Cm0ZhK3nMqEKML4tXIREmIN-vYUGDtbDWX3O45N98ovu9gJi9S3aVOh-gZQsnwauJmlW82ZQQ', 'token_type': 'bearer', 'expires_in': 3600}
-Userinfo: {'aud': ['YOUR_CLIENT_ID'], 'azp': 'YOUR_CLIENT_ID', 'email': 'anne@bretagne.duchy', 'exp': 1648050423, 'iat': 1648046823, 'iss': 'https://example.fief.dev', 'sub': 'a3846cc1-7c08-4389-8c8e-c0e79f7075fe', 'tenant_id': '704135b6-4bfd-4c55-8090-c638a6ba53a2'}
+Userinfo: {'aud': ['YOUR_CLIENT_ID'], 'azp': 'YOUR_CLIENT_ID', 'email': 'anne@bretagne.duchy', 'exp': 1648050423, 'iat': 1648046823, 'iss': 'https://fief.mydomain.com', 'sub': 'a3846cc1-7c08-4389-8c8e-c0e79f7075fe', 'tenant_id': '704135b6-4bfd-4c55-8090-c638a6ba53a2'}
 ```
 
 As you can see, we obtained a first dictionary `tokens` containing an access token, an ID token and other standard OAuth2 information.

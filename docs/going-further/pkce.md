@@ -68,7 +68,7 @@ const cryptoHelper = fief.crypto.getCrypto();
 const codeVerifier = await cryptoHelper.generateCodeVerifier();
 const codeChallenge = await cryptoHelper.getCodeChallenge(codeVerifier, 'S256');
 const authURL = await fief.getAuthURL({
-    redirectURI: 'http://localhost:8000/callback',
+    redirectURI: 'https://fief.mydomain.com/callback',
     scope: ['openid'],
     codeChallenge,
     codeChallengeMethod: 'S256',
@@ -78,7 +78,7 @@ const authURL = await fief.getAuthURL({
 ```ts
 const [tokens, userinfo] = await fief.authCallback(
     'CODE',
-    'http://localhost:8000/callback',
+    'https://fief.mydomain.com/callback',
     codeVerifier,
 );
 ```
@@ -104,14 +104,14 @@ GET /authorize
     &code_challenge=mvmfsFiKEO7h5OfvxtXxJPeteUmIJpXIWhcauYbgovs
     &code_challenge_method=S256
 HTTP/1.1
-Host: example.fief.dev
+Host: fief.mydomain.com
 ```
 
 Finally, when requesting the token, don't forget to pass `code_verifier`:
 
 ```http
 POST /token HTTP/1.1
-Host: example.fief.dev
+Host: fief.mydomain.com
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 155
 

@@ -15,7 +15,7 @@ SECRET_KEY = "SECRET"  # (1)!
 
 
 fief = Fief(  # (2)!
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
     "YOUR_CLIENT_SECRET",
 )

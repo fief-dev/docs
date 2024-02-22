@@ -5,7 +5,7 @@ Quite often, Fief needs to **send emails to your users**. More precisely, it wil
 * The **Welcome** email, after a successful **user registration**;
 * The **Forgot password** email, when a user asks to reset its password.
 
-By default, your workspace is created with **basic templates**. While they can do the job for getting started, you'll likely want to customize them so it matches your branding.
+By default, your instance is initialized with **basic templates**. While they can do the job for getting started, you'll likely want to customize them so it matches your branding.
 
 Fief comes with a built-in mechanism to **customize email templates**, based on [Jinja templating language](https://jinja.palletsprojects.com/en/3.0.x/templates/).
 

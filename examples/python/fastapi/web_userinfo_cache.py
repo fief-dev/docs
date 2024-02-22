@@ -39,7 +39,7 @@ async def get_memory_userinfo_cache() -> MemoryUserInfoCache:  # (6)!
 
 
 fief = FiefAsync(
-    "https://example.fief.dev",
+    "https://fief.mydomain.com",
     "YOUR_CLIENT_ID",
     "YOUR_CLIENT_SECRET",
 )
@@ -47,7 +47,9 @@ fief = FiefAsync(
 SESSION_COOKIE_NAME = "user_session"
 scheme = APIKeyCookie(name=SESSION_COOKIE_NAME, auto_error=False)
 auth = CustomFiefAuth(
-    fief, scheme, get_userinfo_cache=get_memory_userinfo_cache  # (7)!
+    fief,
+    scheme,
+    get_userinfo_cache=get_memory_userinfo_cache,  # (7)!
 )
 app = FastAPI()
 

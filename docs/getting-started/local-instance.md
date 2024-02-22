@@ -35,7 +35,6 @@ docker run \
   -e "FIEF_CLIENT_SECRET=XXX" \
   -e "ENCRYPTION_KEY=XXX" \
   -e "PORT=8000" \
-  -e "ROOT_DOMAIN=localhost:8000" \
   -e "FIEF_DOMAIN=localhost:8000" \
   -e "FIEF_MAIN_USER_EMAIL=anne@bretagne.duchy" \
   -e "FIEF_MAIN_USER_PASSWORD=XXX" \

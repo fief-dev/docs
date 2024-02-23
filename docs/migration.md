@@ -101,6 +101,43 @@ mv fief.db fief.db.bak  # Backup the old database
 mv 08e952f1-8a79-4672-99f8-ea6919cd4692 fief.db
 ```
 
+### Fief Cloud
+
+For Fief Cloud users, we've created a dedicated tool to export your data: [https://exporter.fief.dev](https://exporter.fief.dev)
+
+!!! warning "Only compatible with PostgreSQL"
+    The exported data will only be importable into a PostgreSQL database, so you'll need to use PostgreSQL when running your Fief instance.
+
+#### 1. Export your data
+
+The [exporter tool](https://exporter.fief.dev) will connect to your Fief's account to show you the list of your workspaces. Select the workspace you want to export and click on **Export data**. Your SQL dump will be downloaded automatically.
+
+![Fief Cloud exporter](./assets/images/migrate-cloud-exporter.png)
+
+#### 2. Import it in your instance
+
+The resulting file is a valid PostgreSQL dump. You can directly import it in your database using `psql`:
+
+```bash
+psql -h localhost -p 5432 -U fief -d fief < ~/fief_dump_Example.sql
+```
+
+Make sure to adapt your *host*, *port*, *username* and *database* to your own database server.
+
+#### 3. Set your encryption key
+
+Some values in the database are encrypted using the Fernet algorithm. You'll find your encryption key **at the top of your dump file**:
+
+```bash
+head -n1 ~/fief_dump_Example.sql
+```
+
+```
+-- ENCRYPTION_KEY=YourEncryptionKeyValue
+```
+
+You should set this value as `ENCRYPTION_KEY` in your [environment variables](./self-hosting/environment-variables.md#secrets).
+
 ## Next steps
 
 On the next startup, the new version of Fief will automatically upgrade the schema while keeping your existing data.

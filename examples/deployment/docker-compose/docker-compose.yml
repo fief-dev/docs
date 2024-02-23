@@ -8,12 +8,18 @@ services:
       - 80:80
     env_file:
       - .env
+    depends_on:
+      - postgres
+      - redis
 
   fief-worker:
     image: ghcr.io/fief-dev/fief:latest
     command: fief run-worker -p 1 -t 1
     env_file:
       - .env
+    depends_on:
+      - postgres
+      - redis
 
   postgres:
     image: postgres:alpine

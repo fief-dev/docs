@@ -101,9 +101,9 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `DATABASE_POOL_PRE_PING`        | Whether to always issue a query before returning a database connection to make sure it's alive. [Read more](https://docs.sqlalchemy.org/en/14/core/pooling.html#disconnect-handling-pessimistic).                                           | False                     |                           |              |
 | `DATABASE_URL`                  | Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.                                                                                                                   |                           |                           |              |
 
-More details about how to setup a database in the dedicated section.
+More details about how to configure a database in the dedicated section.
 
-[Setup database](./deployment/setup-database.md){ .md-button }
+[Configure database](./configuration/database.md){ .md-button }
 {: .buttons }
 
 ### Redis
@@ -123,9 +123,9 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 | `DEFAULT_FROM_EMAIL`    | Default transactional emails sender email address | contact@fief.dev |                                | contact@bretagne.duchy       |
 | `DEFAULT_FROM_NAME`     | Default transactional emails sender name          | Fief             |                                | Bretagne                     |
 
-More details about how to setup an email provider in the dedicated section.
+More details about how to configure an email provider in the dedicated section.
 
-[Setup email provider](./deployment/setup-email-provider.md){ .md-button }
+[Configure email provider](./configuration/email-provider.md){ .md-button }
 {: .buttons }
 
 ### Webhooks

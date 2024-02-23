@@ -4,7 +4,7 @@ description: >-
   emails.
 ---
 
-# Setup email provider
+# Email provider
 
 As you surely now, users management imply a lot of transactional emails, like welcome emails or reset password emails. To be able to send them, Fief needs an email provider.
 

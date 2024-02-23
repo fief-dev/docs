@@ -1,6 +1,6 @@
 # Render
 
-[Render](https://render.com/) is a very popular Platform as a Service (PaaS). It allows to quickly host and serve your applications without worrying about server management. Actually, Fief Cloud is hosted on Render!
+[Render](https://render.com/) is a very popular Platform as a Service (PaaS). It allows to quickly host and serve your applications without worrying about server management.
 
 We provide an official blueprint creating all the services you need to run Fief.
 

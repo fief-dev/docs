@@ -80,4 +80,4 @@ Click on **Manage domain authentication** to see the list of DNS records you nee
 ![Tenant transactional emails domain authentication](/assets/images/admin-tenants-email-domain-authentication.png)
 
 !!! warning "This feature is only supported with SendGrid"
-    If you self-host your Fief server, please note that only the [SendGrid provider](../self-hosting/deployment/setup-email-provider.md#sendgrid-provider) supports domain authentication from the admin dashboard. If you use SMTP or Postmark, you should manually authenticate your domain.
+    If you self-host your Fief server, please note that only the [SendGrid provider](../self-hosting/configuration/email-provider.md#sendgrid-provider) supports domain authentication from the admin dashboard. If you use SMTP or Postmark, you should manually authenticate your domain.

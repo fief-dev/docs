@@ -149,12 +149,13 @@ nav:
       - Events: api/webhooks/events.md
   - 'Self-hosting':
     - self-hosting/index.md
-    - 'Production deployment':
+    - 'Deployment':
       - self-hosting/deployment/docker-compose.md
       - self-hosting/deployment/render.md
-      - self-hosting/deployment/setup-database.md
-      - self-hosting/deployment/setup-email-provider.md
-      - self-hosting/deployment/ssl.md
+    - 'Configuration':
+      - self-hosting/configuration/database.md
+      - self-hosting/configuration/email-provider.md
+      - self-hosting/configuration/ssl.md
     - self-hosting/environment-variables.md
   - Telemetry: telemetry.md
   - migration.md

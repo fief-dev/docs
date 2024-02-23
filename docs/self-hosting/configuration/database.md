@@ -2,7 +2,7 @@
 description: Instructions to configure your Fief server on a PostgreSQL or MySQL database.
 ---
 
-# Setup database
+# Database
 
 For production environments, your Fief server should store its data in a proper database server for better performance and reliability. Fief is compatible with **PostgreSQL** and **MySQL** databases.
 

@@ -22,8 +22,8 @@ We also defined a dedicated database container, PostgreSQL, and a broker for pas
 
 The `.env` file will contain all the [environment variables](../environment-variables.md) for configuring Fief. You can have more details about the configuration of your database and email provider in the dedicated sections.
 
-[Setup database](setup-database.md){ .md-button }
-[Setup email provider](setup-email-provider.md){ .md-button }
+[Configure database](../configuration/database.md){ .md-button }
+[Configure email provider](../configuration/email-provider.md){ .md-button }
 {: .buttons }
 
 !!! warning "Backup the volumes"

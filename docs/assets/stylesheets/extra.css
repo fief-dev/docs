@@ -107,3 +107,7 @@ body[data-md-color-scheme="slate"] .excalidraw svg rect {
 .mermaid {
   text-align: center;
 }
+
+.text-center {
+  text-align: center;
+}

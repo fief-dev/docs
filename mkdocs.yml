@@ -151,6 +151,7 @@ nav:
     - self-hosting/index.md
     - 'Deployment':
       - self-hosting/deployment/docker-compose.md
+      - self-hosting/deployment/railway.md
       - self-hosting/deployment/render.md
     - 'Configuration':
       - self-hosting/configuration/database.md

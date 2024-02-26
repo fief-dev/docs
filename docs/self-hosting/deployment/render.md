@@ -39,3 +39,14 @@ You can find the reference of those values in the [environment variables](../env
 When the deployment is done, you need to link your domain with the `fief-server` service. Open the **Settings** of this service and in the **Custom Domains** section, add your domain.
 
 ![Custom domain configuration on Render](/assets/images/deployment-render-domain.png)
+
+## Cost estimation
+
+Render bills each service individually. Fief needs **four of them**:
+
+* A server process (starting at 7 USD per month)
+* A worker process (starting at 7 USD per month)
+* A PostgreSQL database (starting at 7 USD per month)
+* A Redis database (starting at 10 USD per month)
+
+For a small or medium sized-instance, the cost should hence be around **31 USD per month**.

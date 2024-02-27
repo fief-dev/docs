@@ -75,6 +75,7 @@ markdown_extensions:
   - tables
   - def_list
   - md_in_html
+  - footnotes
 
 extra:
   analytics:
@@ -150,9 +151,9 @@ nav:
   - 'Self-hosting':
     - self-hosting/index.md
     - 'Deployment':
-      - self-hosting/deployment/docker-compose.md
       - self-hosting/deployment/railway.md
       - self-hosting/deployment/render.md
+      - self-hosting/deployment/docker-compose.md
     - 'Configuration':
       - self-hosting/configuration/database.md
       - self-hosting/configuration/email-provider.md

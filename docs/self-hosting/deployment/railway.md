@@ -23,6 +23,9 @@ By default, the project will be assigned a default Railway subdomain, like `serv
 
 To add your domain, follow the instructions on Railway documentation: [https://docs.railway.app/guides/public-networking#custom-domains](https://docs.railway.app/guides/public-networking#custom-domains)
 
+!!! warning "Redeploy the server and worker afterwards"
+    To make sure Fief correctly takes into account the new domain, it's important to trigger a redeploy on the server and worker process.
+
 ## Cost estimation
 
 Railway's pricing is based on memory, CPU and network usage. Thus, the pricing will **highly vary depending on your workload**.

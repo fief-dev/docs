@@ -16,18 +16,28 @@ The quickstart Docker image is an **all-in-one container** launching the Fief se
     --8<-- "examples/deployment/docker-compose/.env"
     ```
 
-We have two Fief containers: one for the **web server** and one for the **worker**.
+## Fief containers
+
+We have two Fief containers: one for the **web server**, `fief-server`, and one for the **worker**, `fief-worker`. Both are required to make Fief working correctly.
+
+## Database and Redis containers
 
 We also defined a dedicated database container, PostgreSQL, and a broker for passing job messages, Redis. Note how we defined and linked a **volume** for both of them. By doing this, we make sure we persist our data in a dedicated Docker volume that will persist even if we delete the containers.
 
-The `.env` file will contain all the [environment variables](../environment-variables.md) for configuring Fief. You can have more details about the configuration of your database and email provider in the dedicated sections.
+## Traefik reverse proxy
 
-[Configure database](../configuration/database.md){ .md-button }
+A reverse proxy is a specialized software able to accept incoming HTTP requests and route them to the underlying applications. It acts as the unique HTTP entrypoint to our system. Here, it'll simply route requests with the domain `fief.mydomain.com` to the `fief-server` container.
+
+It's also in charge for managing **SSL certificates**. In this configuration, Traefik will automatically issue a free [Let's Encrypt](https://letsencrypt.org/) certificate for the domain `fief.mydomain.com`, using the TLS challenge. Traefik supports [other types of challenge](https://doc.traefik.io/traefik/user-guides/docker-compose/acme-tls/) that may be more suitable for your use-case. The volume `letsencrypt-data` is here to store the generated certificates.
+
+We strongly suggest you to read more about how to configure Traefik with Docker Compose: [https://doc.traefik.io/traefik/user-guides/docker-compose/basic-example/](https://doc.traefik.io/traefik/user-guides/docker-compose/basic-example/)
+
+## `.env` file
+
+The `.env` file will contain all the [environment variables](../environment-variables.md) for configuring Fief. You can have more details about the configuration of email provider in the dedicated sections.
+
 [Configure email provider](../configuration/email-provider.md){ .md-button }
 {: .buttons }
 
 !!! warning "Backup the volumes"
     You should probably think about a proper **backup method** for those volumes. A convenient solution is to use [`docker-volume-backup`](https://github.com/jareware/docker-volume-backup), a dedicated Docker image capable of archiving Docker volumes and send them to a distant storage.
-
-!!! tip "You'll probably want a reverse proxy"
-    In general, we don't directly expose the web server to the internet. A common pattern is to use a **reverse proxy**, which takes care of routing the incoming requests. It's also a great candidate to manage [HTTPS/SSL](./ssl.md). A common choice is [Traefik Proxy](https://doc.traefik.io/traefik/), which is very convenient to use with Docker containers.

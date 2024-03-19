@@ -3,14 +3,18 @@ version: "3"
 services:
   fief-server:
     image: ghcr.io/fief-dev/fief:latest
-    command: fief run-server --port 80
-    ports:
-      - 80:80
+    command: fief run-server
     env_file:
       - .env
     depends_on:
       - postgres
       - redis
+    labels:
+      - "traefik.enable=true"
+      # Set your domain name here
+      - "traefik.http.routers.fief.rule=Host(`fief.mydomain.com`)"
+      - "traefik.http.routers.fief.entrypoints=websecure"
+      - "traefik.http.routers.fief.tls.certresolver=myresolver"
 
   fief-worker:
     image: ghcr.io/fief-dev/fief:latest
@@ -36,6 +40,29 @@ services:
     volumes:
       - redis-data:/data
 
+  traefik:
+    image: "traefik:v2.11"
+    container_name: "traefik"
+    command:
+      # Uncomment the lines below to debug and try with a self-signed certificate
+      # - "--log.level=DEBUG"
+      # - "--certificatesresolvers.myresolver.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.websecure.address=:443"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      # Set your email address here
+      - "--certificatesresolvers.myresolver.acme.email=admin@mydomain.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    ports:
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - "letsencrypt-data:/letsencrypt"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+
 volumes:
   redis-data:
   postgres-data:
+  letsencrypt-data:

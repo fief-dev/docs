@@ -10,7 +10,7 @@ Fief server relies heavily on environment variables for configuration. You'll li
 
 ### Using Docker
 
-When running Fief server with Docker, the most straightforward way is to use the `-e` option on the command line, as shown in the [Quickstart](quickstart.md) section.
+When running Fief server with Docker, the most straightforward way is to use the `-e` option on the command line, as shown in [Getting started](../getting-started/introduction.md).
 
 ```bash
 docker run \
@@ -73,7 +73,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `TELEMETRY_ENABLED`   | Whether to enable [telemetry](../telemetry.md)                                            | True                        |                                  |                              |
 | `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                             | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
 | `PORT`                | Internal port on which the Fief server is available                                       | 8000                        |                                  | 8000                         |
-| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./deployment/ssl.md) | 127.0.0.1                   |                                  |                              |
+| `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./configuration/ssl.md) | 127.0.0.1                   |                                  |                              |
 
 ### Secrets
 

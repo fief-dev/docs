@@ -44,4 +44,4 @@ For sure! The interesting parts for telemetry are:
 * [`fief/services/posthog.py`](https://github.com/fief-dev/fief/blob/main/fief/services/posthog.py)
 * [`fief/tasks/heartbeat.py`](https://github.com/fief-dev/fief/blob/main/fief/tasks/heartbeat.py)
 * [`fief/scheduler.py`](https://github.com/fief-dev/fief/blob/main/fief/scheduler.py#L13-L16)
-* [`fief/templates/admin/base.html`](https://github.com/fief-dev/fief/blob/main/fief/templates/admin/base.html#L14-L25)
+* [`fief/templates/admin/base.html`](https://github.com/fief-dev/fief/blob/main/fief/templates/admin/base.html#L17-L28)

@@ -101,6 +101,8 @@ watch:
 
 nav:
   - index.md
+  - Stronghold:
+    - stronghold/index.md
   - 'Getting started':
     - getting-started/introduction.md
     - getting-started/local-instance.md
@@ -160,4 +162,3 @@ nav:
       - self-hosting/configuration/ssl.md
     - self-hosting/environment-variables.md
   - Telemetry: telemetry.md
-  - migration.md

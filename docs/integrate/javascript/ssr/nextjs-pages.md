@@ -1,8 +1,11 @@
-# Next.js
+# Next.js (Pages Router)
 
 [Next.js](https://nextjs.org/) is a highly popular JavaScript framework for Server-Side Rendering. It tries to combine the reactivity of React and the performance of backend technologies. As such, it has many subtelties and comes with very specific challenges, especially regarding user authentication.
 
 To help you with this, the Fief JavaScript client provides tools dedicated to Next.js. Let's see how to use them!
+
+!!! tip "Starting a new Next.js app?"
+    We recommend you to look at the more modern [App Router approach](./nextjs-app.md).
 
 ## Install the client
 
@@ -57,7 +60,7 @@ In Fief implementation, we provide **hooks** allowing you to retrieve the curren
 ## Configure your project
 
 !!! question "This is for you if..."
-    - [x] You'll use Next.js.
+    - [x] You use Next.js with **Pages Router**.
 
 !!! abstract "Prerequisites"
     - [x] Bootstrap a Next.js project as described in [Automatic Setup](https://nextjs.org/docs/getting-started#automatic-setup) section of the Next.js documentation.
@@ -68,7 +71,7 @@ In Fief implementation, we provide **hooks** allowing you to retrieve the curren
 Let's create a `fief.ts` module at the root of the project. It'll contain the basic instantiation of Fief helpers.
 
 ```ts title="fief.ts"
---8<-- "examples/javascript/nextjs/fief.ts"
+--8<-- "examples/javascript/nextjs/pages-router/fief.ts"
 ```
 
 1. **Define a session cookie name constant**
@@ -128,7 +131,7 @@ Let's create a `fief.ts` module at the root of the project. It'll contain the ba
 If not already, create a `middleware.ts` module at the root of the project.
 
 ```ts title="middleware.ts"
---8<-- "examples/javascript/nextjs/middleware.ts"
+--8<-- "examples/javascript/nextjs/pages-router/middleware.ts"
 ```
 
 1. **Import the `fiefAuth` instance from `fief` module**
@@ -206,7 +209,7 @@ If not already, create a `middleware.ts` module at the root of the project.
 In the `/pages/api` directory, create a `current-user.ts` module.
 
 ```ts title="/pages/api/current-user.ts"
---8<-- "examples/javascript/nextjs/pages/api/current-user.ts"
+--8<-- "examples/javascript/nextjs/pages-router/pages/api/current-user.ts"
 ```
 
 1. **Import the `fiefAuth` instance from `fief` module**
@@ -226,7 +229,7 @@ When the user tries to access a page they are not authorized to see, e.g. if the
 You should implement it to show a useful error message to the user. It can be as simple as the following:
 
 ```ts title="/pages/forbidden.tsx"
---8<-- "examples/javascript/nextjs/pages/forbidden.tsx"
+--8<-- "examples/javascript/nextjs/pages-router/pages/forbidden.tsx"
 ```
 
 ### 5. Prepare your React application
@@ -236,7 +239,7 @@ On the React side, we'll need to declare a context so the frontend application c
 Your `/pages/_app.tsx` file should look like this:
 
 ```ts title="/pages/_app.tsx"
---8<-- "examples/javascript/nextjs/pages/_app.tsx"
+--8<-- "examples/javascript/nextjs/pages-router/pages/_app.tsx"
 ```
 
 1. **Wrap `Component` with `FiefAuthProvider`**
@@ -272,7 +275,7 @@ If you click on the [**Private page**](http://localhost:3000/private) link in th
 As you can see, we can **show the email address** of the current user. This is done quite simply using the provided React hooks:
 
 ```ts title="/pages/private.tsx"
---8<-- "examples/javascript/nextjs/pages/private.tsx"
+--8<-- "examples/javascript/nextjs/pages-router/pages/private.tsx"
 ```
 
 1. **`useFiefUserinfo` gives you access to the current user information**
@@ -292,7 +295,7 @@ As you can see, we are able to show the **list of permissions granted to the use
 You can easily access them using the [`useFiefAccessTokenInfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefAccessTokenInfo.html) hook.
 
 ```ts title="/pages/castles/index.tsx"
---8<-- "examples/javascript/nextjs/pages/castles/index.tsx"
+--8<-- "examples/javascript/nextjs/pages-router/pages/castles/index.tsx"
 ```
 
 If you click on [**Logout**](http://localhost:3000/logout), your session will be cleared and you will be redirected to the index page.
@@ -300,7 +303,7 @@ If you click on [**Logout**](http://localhost:3000/logout), your session will be
 Generating links to login, logout and other pages is no different from a standard Next.js links. Just be sure you use the right path!
 
 ```ts title="/components/Header/Header.tsx"
---8<-- "examples/javascript/nextjs/components/Header/Header.tsx"
+--8<-- "examples/javascript/nextjs/pages-router/components/Header/Header.tsx"
 ```
 
 1. **Use `useFiefIsAuthenticated` hook to know if a user is authenticated**
@@ -317,7 +320,7 @@ Generating links to login, logout and other pages is no different from a standar
 
 ## Summary
 
-You're Next.js project is now ready and can easily control the authentication and permissions of your users! Here are the most important things to remember while developing your app:
+Your Next.js project is now ready and can easily control the authentication and permissions of your users! Here are the most important things to remember while developing your app:
 
 1. If you want to protect a page, add it to the `authMiddleware` paths in `middleware.ts`.
 2. If you want to access user information or permissions, use [`useFiefUserinfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefUserinfo.html) and [`useFiefAccessTokenInfo`](https://fief-dev.github.io/fief-js/functions/nextjs.useFiefAccessTokenInfo.html) hooks.
@@ -336,15 +339,17 @@ With Next.js, you can do this in two contexts:
 
 [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props) is a Next.js feature to fetch data server-side, in a pure SSR approach. It's a good candidate to fetch the data you want to show to the users from your API, like a list of items.
 
-The Fief Middleware takes care of setting the authenticated user id and access token as `X-FiefAuth-User-Id` and `X-FiefAuth-Access-Token` request headers.
+Fief's integration allows you to retrieve the user ID and the access token information server-side using the [`getUserId`](https://fief-dev.github.io/fief-js/classes/nextjs.FiefAuth.html#getUserId) and [`getAccessTokenInfo`](https://fief-dev.github.io/fief-js/classes/nextjs.FiefAuth.html#getAccessTokenInfo) methods.
 
 ```ts
+import { fiefAuth } from '../fief';
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const userId = context.req.headers['x-fiefauth-user-id'];
-  const accessToken = context.req.headers['x-fiefauth-access-token'];
+  const userId = await fiefAuth.getUserId(context.req)
+  const accessTokenInfo = await fiefAuth.getAccessTokenInfo(context.req)
   const res = await fetch('https://api.bretagne.duchy', {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessTokenInfo?.access_token}`,
     },
   });
   const data = await res.json()

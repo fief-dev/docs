@@ -121,7 +121,8 @@ nav:
       - 'Backend':
         - integrate/javascript/backend/express.md
       - 'SSR':
-        - integrate/javascript/ssr/nextjs.md
+        - integrate/javascript/ssr/nextjs-app.md
+        - integrate/javascript/ssr/nextjs-pages.md
       - 'Frontend':
         - integrate/javascript/frontend/browser.md
         - integrate/javascript/frontend/react.md

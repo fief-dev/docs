@@ -4,9 +4,10 @@ import { FiefAuth, IUserInfoCache } from '@fief/fief/nextjs';
 export const SESSION_COOKIE_NAME = "user_session";  // (1)!
 
 export const fiefClient = new Fief({  // (2)!
-  baseURL: 'https://fief.mydomain.com',
+  baseURL: 'http://localhost:8000',
   clientId: 'YOUR_CLIENT_ID',
   clientSecret: 'YOUR_CLIENT_SECRET',
+  requestInit: { next: { revalidate: 3600 } },
 });
 
 class MemoryUserInfoCache implements IUserInfoCache {  // (3)!

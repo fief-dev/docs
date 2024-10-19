@@ -10,8 +10,34 @@ Fief Stronghold is the **private edition** of Fief, accessible to our paid backe
 * [X] [Hide Fief branding on authentication pages](#hide-fief-branding)
 * [X] [Override authentication page templates](#override-authentication-page-templates)
 
-[Get access](https://polar.sh/fief-dev){ .md-button }
-{: .buttons }
+<div class="grid cards" markdown>
+
+-   **Knight ($5 *per month*)**
+
+    ---
+
+    Unlock premium content with exclusive tutorials and sneak peeks. As a gesture of appreciation, receive majestic stickers to proudly display your allegiance.
+
+    * [X] Access to Stronghold, the private edition
+    * [X] Stickers delivered to your mailbox
+
+    [Subscribe](https://buy.polar.sh/polar_cl_dR8q40YNYzhNdk2BLJ58WKEWoFQYMr-5XAgISd-RXwE?utm_source=docs.fief.dev&utm_medium=subscribe_link){ .md-button }
+    {: .buttons }
+
+-   **Baron ($20 *per month*)**
+
+    ---
+
+    Revel in exclusive tutorials, sneak peeks, and command priority email support. Your noble journey includes majestic stickers, ensuring your status as a revered patron of Fief.
+
+    * [X] Access to Stronghold, the private edition
+    * [X] Priority email support
+    * [X] Stickers delivered to your mailbox
+
+    [Subscribe](https://buy.polar.sh/polar_cl_ErAMORsiTHNzI1fZId8F3PjWrplP1JBhHnsUMqF3ii4?utm_source=docs.fief.dev&utm_medium=subscribe_link){ .md-button }
+    {: .buttons }
+
+</div>
 
 ## Usage
 

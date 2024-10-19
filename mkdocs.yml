@@ -85,8 +85,8 @@ extra:
       href: https://www.fief.dev
     - title: Discussions
       href: https://github.com/orgs/fief-dev/discussions
-    - title: Subscribe
-      href: https://polar.sh/fief-dev
+    - title: Support us
+      href: https://www.fief.dev/#pricing
 
 extra_css:
   - assets/stylesheets/extra.css

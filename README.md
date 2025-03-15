@@ -6,19 +6,10 @@
     <em>Users and authentication management SaaS</em>
 </p>
 
-<p align="center">
-    <a href="https://polar.sh/fief-dev">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://polar.sh/embed/subscribe.svg?org=fief-dev&darkmode=1">
-      <img alt="Subscribe" src="https://polar.sh/embed/subscribe.svg?org=fief-dev">
-    </picture>
-    </a>
-</p>
-
 ## Getting started
 
-* Official website: [https://www.fief.dev](https://www.fief.dev)
-* Documentation: [https://docs.fief.dev](https://docs.fief.dev)
+- Official website: [https://www.fief.dev](https://www.fief.dev)
+- Documentation: [https://docs.fief.dev](https://docs.fief.dev)
 
 ## Contributing
 

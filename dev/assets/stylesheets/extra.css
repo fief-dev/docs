@@ -1,0 +1,139 @@
+:root > * {
+  --md-primary-fg-color:        #f43f5e;
+  --md-primary-fg-color--light: #fb7185;
+  --md-primary-fg-color--dark:  #e11d48;
+
+  --md-accent-fg-color:                #e11d48;
+  --md-mermaid-font-family:            var(--md-text-font-family), sans-serif;
+}
+
+.md-header__link, .md-nav__extra-links-item {
+  backface-visibility: hidden;
+  display: block;
+  font-size: .7rem;
+  outline-color: var(--md-accent-fg-color);
+  outline-offset: 0.2rem;
+  transition: transform .4s cubic-bezier(.1,.7,.1,1),opacity .25s;
+
+  font-weight: 600;
+
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+@media screen and (max-width: 59.9375em) {
+  .md-header__link {
+    display: none;
+  }
+}
+
+.md-nav--primary .md-nav__title {
+  height: auto;
+}
+
+.md-nav__title .md-nav__button.md-logo img {
+  height: 1rem !important;
+}
+
+.md-nav__extra-links {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  margin: 0;
+  list-style: none;
+  padding: .8rem 0;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-nav--lifted > .md-nav__extra-links {
+    display: none;
+  }
+}
+
+.md-nav__extra-links .md-nav__extra-links-item {
+  padding: .2rem .8rem;
+}
+
+table td code {
+  white-space: nowrap;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons .md-button {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.fernet-key-generator {
+  display: flex;
+  width: 100%;
+}
+
+.fernet-key-generator .highlight {
+  flex-grow: 1;
+}
+
+.fernet-key-generator .highlight pre {
+  margin: 0;
+  height: 100%;
+}
+
+.fernet-key-generator .highlight pre code {
+  height: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.fernet-key-generator .md-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+body[data-md-color-scheme="slate"] .excalidraw  svg  {
+  filter: invert(100%) hue-rotate(180deg);
+}
+
+body[data-md-color-scheme="slate"] .excalidraw svg rect {
+  fill: transparent;
+}
+
+.excalidraw {
+  text-align: center;
+}
+
+.mermaid {
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.badge.badge-success {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.badge.badge-warning {
+  color: #212529;
+  background-color: #ffc107;
+}
+.badge.badge-danger {
+  color: #fff;
+  background-color: #dc3545;
+}

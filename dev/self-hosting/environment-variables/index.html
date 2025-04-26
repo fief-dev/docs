@@ -1,0 +1,4055 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="List of environment variables available and how to set them.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.fief.dev/dev/self-hosting/environment-variables/">
+      
+      
+        <link rel="prev" href="../configuration/ssl/">
+      
+      
+        <link rel="next" href="../../telemetry/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Environment variables - Fief</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#environment-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="header.title">
+    <a href="../.." title="Fief" class="md-header__button md-logo" aria-label="Fief" data-md-component="logo">
+      
+  <img src="../../assets/images/fief-logo-white.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Environment variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="md-header__option">
+      
+        <a href="https://www.fief.dev" class="md-header__link">About</a>
+      
+        <a href="https://github.com/orgs/fief-dev/discussions" class="md-header__link">Discussions</a>
+      
+        <a href="https://www.fief.dev/#pricing" class="md-header__link">Support us</a>
+      
+    </div>
+    
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_3" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_3">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/fief-dev/fief" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fief-dev/fief
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  What is Fief?
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stronghold/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Stronghold
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/introduction/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../user-journey/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  User journey
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../integrate/python/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Integrate
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../configure/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Configure
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../going-further/authorize-url/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Going further
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Admin API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Self-hosting
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../telemetry/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Telemetry
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<!-- Determine classes -->
+
+
+  
+
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary md-nav--lifted"
+  aria-label="Navigation"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title" for="__drawer">
+    <a
+      href="../.."
+      title="Fief"
+      class="md-nav__button md-logo"
+      aria-label="Fief"
+      data-md-component="logo"
+    >
+      
+  <img src="../../assets/images/fief-logo-white.svg" alt="logo">
+
+    </a>
+    Fief
+  </label>
+
+  
+  <ul class="md-nav__extra-links">
+    
+      <li class="md-nav__extra-links-item">
+        <a href="https://www.fief.dev">
+          About
+        </a>
+      </li>
+    
+      <li class="md-nav__extra-links-item">
+        <a href="https://github.com/orgs/fief-dev/discussions">
+          Discussions
+        </a>
+      </li>
+    
+      <li class="md-nav__extra-links-item">
+        <a href="https://www.fief.dev/#pricing">
+          Support us
+        </a>
+      </li>
+    
+  </ul>
+  
+
+  <!-- Repository information -->
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/fief-dev/fief" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    fief-dev/fief
+  </div>
+</a>
+    </div>
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    What is Fief?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../stronghold/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Stronghold
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Stronghold
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/local-instance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Start your local Fief instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/oauth2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Understand OAuth2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/try-oauth2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Try OAuth2 on your instance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-journey/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User journey
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrate
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Integrate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../integrate/python/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Python
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/python/fastapi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FastAPI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/python/flask/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flask
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/python/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CLI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://fief-dev.github.io/fief-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference ↗️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../integrate/javascript/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    JavaScript
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Backend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Backend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/javascript/backend/express/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Express
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_3" id="__nav_5_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SSR
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            SSR
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/javascript/ssr/nextjs-app/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Next.js (App Router)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/javascript/ssr/nextjs-pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Next.js (Pages Router)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4" id="__nav_5_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Frontend
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Frontend
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/javascript/frontend/browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Browser
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integrate/javascript/frontend/react/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    React
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://fief-dev.github.io/fief-js/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference ↗️
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../configure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Configure
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Configure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/tenants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tenants
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/clients/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clients
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/oauth-providers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth Providers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/users/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Users
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/user-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    User fields
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/access-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webhooks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/api-keys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Keys
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_10" id="__nav_6_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Customization
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_10">
+            <span class="md-nav__icon md-icon"></span>
+            Customization
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/customization/themes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Themes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../configure/customization/email-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Going further
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Going further
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/authorize-url/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authorize URL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/acr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ACR
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/pkce/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PKCE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/id-token-encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ID Token encryption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../going-further/oauth-provider-token/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OAuth Provider token
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../api/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Admin API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Admin API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_2" id="__nav_8_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Webhooks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            Webhooks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/webhooks/guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integration guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/webhooks/events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Events
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Self-hosting
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Self-hosting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_2" id="__nav_9_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deployment
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Deployment
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/railway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Railway
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/render/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Render
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_9_3" id="__nav_9_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Configuration
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Configuration
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/email-provider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Email provider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/ssl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SSL and HTTPS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Environment variables
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment variables
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set environment variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set environment variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods-of-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other methods of deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrf-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSRF cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-locale-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      User locale cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-hint-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login hint cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registration-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-redirect-uris" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client redirect URIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-codes-and-tokens-lifetimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization codes and tokens lifetimes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fief-ception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fief-ception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../telemetry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Telemetry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#set-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set environment variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Set environment variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using Docker
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-methods-of-deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other methods of deployment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      General
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      Secrets
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Redis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email provider
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Webhooks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#csrf-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      CSRF cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-locale-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      User locale cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-hint-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login hint cookie
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Login session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#registration-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Registration session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      Email verification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      OAuth session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-redirect-uris" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client redirect URIs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorization-codes-and-tokens-lifetimes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authorization codes and tokens lifetimes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fief-ception" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fief-ception
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-session" class="md-nav__link">
+    <span class="md-ellipsis">
+      Admin session
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Session data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="environment-variables">Environment variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h1>
+<p>Fief server relies heavily on environment variables for configuration. You'll likely need to adjust those settings for your deployment.</p>
+<h2 id="set-environment-variables">Set environment variables<a class="headerlink" href="#set-environment-variables" title="Permanent link">&para;</a></h2>
+<h3 id="using-docker">Using Docker<a class="headerlink" href="#using-docker" title="Permanent link">&para;</a></h3>
+<p>When running Fief server with Docker, the most straightforward way is to use the <code>-e</code> option on the command line, as shown in <a href="../../getting-started/introduction/">Getting started</a>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>--name<span class="w"> </span>fief-server<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;SECRET=XXX&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;FIEF_CLIENT_ID=XXX&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;FIEF_CLIENT_SECRET=XXX&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;ENCRYPTION_KEY=XXX&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;PORT=8000&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;FIEF_DOMAIN=localhost:8000&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;CSRF_COOKIE_SECURE=False&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;LOGIN_SESSION_COOKIE_SECURE=False&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;SESSION_COOKIE_SECURE=False&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span>-e<span class="w"> </span><span class="s2">&quot;FIEF_ADMIN_SESSION_COOKIE_SECURE=False&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span>ghcr.io/fief-dev/fief:latest
+</code></pre></div>
+<p>However, it may become hard to maintain when having lot of variables to set. An alternative way is to use a <code>.env</code> file. It's a simple file where each line consists of a key and a value separated by an equal sign:</p>
+<div class="highlight"><span class="filename">.env</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="na">SECRET</span><span class="o">=</span><span class="s">XXX</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="na">FIEF_CLIENT_ID</span><span class="o">=</span><span class="s">XXX</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="na">FIEF_CLIENT_SECRET</span><span class="o">=</span><span class="s">XXX</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="na">ENCRYPTION_KEY</span><span class="o">=</span><span class="s">XXX</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="na">PORT</span><span class="o">=</span><span class="s">8000</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="na">FIEF_DOMAIN</span><span class="o">=</span><span class="s">localhost:8000</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="na">CSRF_COOKIE_SECURE</span><span class="o">=</span><span class="s">False</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="na">LOGIN_SESSION_COOKIE_SECURE</span><span class="o">=</span><span class="s">False</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="na">SESSION_COOKIE_SECURE</span><span class="o">=</span><span class="s">False</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="na">FIEF_ADMIN_SESSION_COOKIE_SECURE</span><span class="o">=</span><span class="s">False</span>
+</code></pre></div>
+<p>Then, you can reference this file in the Docker command:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>--name<span class="w"> </span>fief-server<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>--env-file<span class="w"> </span>.env<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span>ghcr.io/fief-dev/fief:latest
+</code></pre></div>
+<h3 id="other-methods-of-deployment">Other methods of deployment<a class="headerlink" href="#other-methods-of-deployment" title="Permanent link">&para;</a></h3>
+<p>Depending on your method of deployment, the way of setting environment variables will be different. We show you several ways of deploying Fief in production in the previous section.</p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<p>For each variable, we'll try to provide a sensible example value to help you configure it correctly. Throughout the examples, we'll assume that you host your Fief server on the sub-domain <code>fief.bretagne.duchy</code>.</p>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ENVIRONMENT</code></td>
+<td>Name of the deployment environment</td>
+<td>production</td>
+<td>development, staging, production</td>
+<td>production</td>
+</tr>
+<tr>
+<td><code>LOG_LEVEL</code></td>
+<td>Log verbosity</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>TELEMETRY_ENABLED</code></td>
+<td>Whether to enable <a href="../../telemetry/">telemetry</a></td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>ALLOW_ORIGIN_REGEX</code></td>
+<td>Regex used to control CORS access to your API</td>
+<td>http://.*localhost:[0-9]+</td>
+<td></td>
+<td>https://.*\.bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td>Internal port on which the Fief server is available</td>
+<td>8000</td>
+<td></td>
+<td>8000</td>
+</tr>
+<tr>
+<td><code>FORWARDED_ALLOW_IPS</code></td>
+<td>Comma separated list of IPs to trust with proxy headers. <a href="../configuration/ssl/">Read more</a></td>
+<td>127.0.0.1</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SECRET</code></td>
+<td>Secret value used to sign reset password tokens.</td>
+<td></td>
+<td>Any sufficiently long string</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ENCRYPTION_KEY</code></td>
+<td>Key used to encrypt the external databases credentials inside the main database</td>
+<td></td>
+<td>A valid Fernet key encoded in UTF-8</td>
+<td></td>
+</tr>
+<tr>
+<td><code>GENERATED_JWK_SIZE</code></td>
+<td>Size in bits of the generated RSA key pair used to sign JWT.</td>
+<td></td>
+<td>4096</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Encryption key generator</p>
+<p><div class="fernet-key-generator">
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>
+</code></pre></div>
+    <button class="md-button">Generate key</button>
+</div></p>
+<p>The encryption key should be a valid key for the <a href="https://github.com/fernet/spec/">Fernet encryption algorithm</a>. Use the generator above to get yours! <strong>Keep it secret</strong>.</p>
+</div>
+<h3 id="database">Database<a class="headerlink" href="#database" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_TYPE</code></td>
+<td>Type of the main database</td>
+<td>SQLITE</td>
+<td>POSTGRESQL, MYSQL, SQLITE</td>
+<td>POSTGRESQL</td>
+</tr>
+<tr>
+<td><code>DATABASE_HOST</code></td>
+<td>Host of the main database</td>
+<td></td>
+<td></td>
+<td>localhost</td>
+</tr>
+<tr>
+<td><code>DATABASE_PORT</code></td>
+<td>Listening port of the main database</td>
+<td></td>
+<td></td>
+<td>5432</td>
+</tr>
+<tr>
+<td><code>DATABASE_USERNAME</code></td>
+<td>Main database user</td>
+<td></td>
+<td></td>
+<td>fief</td>
+</tr>
+<tr>
+<td><code>DATABASE_PASSWORD</code></td>
+<td>Main database user's password</td>
+<td></td>
+<td></td>
+<td>fiefpassword</td>
+</tr>
+<tr>
+<td><code>DATABASE_NAME</code></td>
+<td>Main database name</td>
+<td>fief.db</td>
+<td></td>
+<td>fief</td>
+</tr>
+<tr>
+<td><code>DATABASE_SSL_MODE</code></td>
+<td>Main database SSL mode</td>
+<td></td>
+<td>Varies by database type</td>
+<td>require</td>
+</tr>
+<tr>
+<td><code>DATABASE_LOCATION</code></td>
+<td>For SQLite databases, path where to store the database files</td>
+<td>Current working directory</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_POOL_RECYCLE_SECONDS</code></td>
+<td>Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. <a href="https://docs.sqlalchemy.org/en/20/core/pooling.html#disconnect-handling-pessimistic">Read more</a>.</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_POOL_PRE_PING</code></td>
+<td>Whether to always issue a query before returning a database connection to make sure it's alive. <a href="https://docs.sqlalchemy.org/en/20/core/pooling.html#disconnect-handling-pessimistic">Read more</a>.</td>
+<td>False</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_POOL_SIZE</code></td>
+<td>Number of connections to the database to keep alive. <a href="https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.QueuePool.params.pool_size">Read more</a>.</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_POOL_MAX_OVERFLOW</code></td>
+<td>Maximum number of extra database connection to spawn when pool size is reached. <a href="https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.QueuePool.params.max_overflow">Read more</a>.</td>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td>Full database connection string, useful for some cloud providers. It'll take precedence over the single parameters above.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>More details about how to configure a database in the dedicated section.</p>
+<p class="buttons"><a class="md-button" href="../configuration/database/">Configure database</a></p>
+<h3 id="redis">Redis<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h3>
+<p>We use a Redis instance to manage background jobs (send emails, heavy computations...). A Redis instance is already up-and-running in the official Docker image, but you can provide your own one if needed.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REDIS_URL</code></td>
+<td>URL of a Redis server</td>
+<td>redis://localhost:6379</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="email-provider">Email provider<a class="headerlink" href="#email-provider" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EMAIL_PROVIDER</code></td>
+<td>Type of email provider</td>
+<td>NULL</td>
+<td>NULL, SMTP, POSTMARK, SENDGRID</td>
+<td>POSTMARK</td>
+</tr>
+<tr>
+<td><code>EMAIL_PROVIDER_PARAMS</code></td>
+<td>Configuration dictionary of the email provider</td>
+<td>{}</td>
+<td></td>
+<td>{"server_token": "XXX-XXX"}</td>
+</tr>
+<tr>
+<td><code>DEFAULT_FROM_EMAIL</code></td>
+<td>Default transactional emails sender email address</td>
+<td>contact@fief.dev</td>
+<td></td>
+<td>contact@bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>DEFAULT_FROM_NAME</code></td>
+<td>Default transactional emails sender name</td>
+<td>Fief</td>
+<td></td>
+<td>Bretagne</td>
+</tr>
+</tbody>
+</table>
+<p>More details about how to configure an email provider in the dedicated section.</p>
+<p class="buttons"><a class="md-button" href="../configuration/email-provider/">Configure email provider</a></p>
+<h3 id="webhooks">Webhooks<a class="headerlink" href="#webhooks" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>WEBHOOKS_MAX_ATTEMPTS</code></td>
+<td>Maximum attempts to deliver a webhook event before giving up.</td>
+<td>5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="csrf-cookie">CSRF cookie<a class="headerlink" href="#csrf-cookie" title="Permanent link">&para;</a></h3>
+<p>To protect against <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html">Cross-Site-Request-Forgery</a> attacks on authentication pages, we use the <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie">double-submit cookie</a> pattern.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CSRF_CHECK_ENABLED</code></td>
+<td>Whether to enable the CSRF protection. In most cases, this should remain enabled.</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CSRF_COOKIE_NAME</code></td>
+<td>Name of the CSRF token cookie</td>
+<td>fief_csrftoken</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>CSRF_COOKIE_SECURE</code></td>
+<td>Secure flag of the login session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="user-locale-cookie">User locale cookie<a class="headerlink" href="#user-locale-cookie" title="Permanent link">&para;</a></h3>
+<p>The user locale cookie maintains the language of the user on the authentication pages.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>USER_LOCALE_COOKIE_NAME</code></td>
+<td>Name of the user locale cookie</td>
+<td>fief_locale</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>USER_LOCALE_COOKIE_DOMAIN</code></td>
+<td>Domain of the user locale cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>USER_LOCALE_COOKIE_SECURE</code></td>
+<td>Secure flag of user locale cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>USER_LOCALE_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the user locale cookie in seconds</td>
+<td>86400 * 30 <em>(30 days)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="login-hint-cookie">Login hint cookie<a class="headerlink" href="#login-hint-cookie" title="Permanent link">&para;</a></h3>
+<p>The login hint cookie is used to remember the last method a user used to login. Its value can either be an email address or the ID of an <a href="../../configure/oauth-providers/">OAuth Provider</a> enabled on the user's tenant.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LOGIN_HINT_COOKIE_NAME</code></td>
+<td>Name of the login hint cookie</td>
+<td>fief_login_hint</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_HINT_COOKIE_DOMAIN</code></td>
+<td>Domain of the login hint cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_HINT_COOKIE_SECURE</code></td>
+<td>Secure flag of login hint cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_HINT_COOKIE_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the login hint cookie in seconds</td>
+<td>86400 * 30 <em>(30 days)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="login-session">Login session<a class="headerlink" href="#login-session" title="Permanent link">&para;</a></h3>
+<p>A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_NAME</code></td>
+<td>Name of the login session cookie</td>
+<td>fief_login_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the login session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the login session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>LOGIN_SESSION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the login session cookie in seconds</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="registration-session">Registration session<a class="headerlink" href="#registration-session" title="Permanent link">&para;</a></h3>
+<p>A registration session is a cookie used to maintain the state of the registration flow of a new user, from the registration page until their account is created.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>REGISTRATION_SESSION_COOKIE_NAME</code></td>
+<td>Name of the registration session cookie</td>
+<td>fief_registration_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>REGISTRATION_SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the registration session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>REGISTRATION_SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the registration session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>REGISTRATION_SESSION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the registration session cookie in seconds</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="email-verification">Email verification<a class="headerlink" href="#email-verification" title="Permanent link">&para;</a></h3>
+<p>Users must verify their email address using a code sent by email. The code is a random string composed of letters and digits, e.g. <code>ABC123</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EMAIL_VERIFICATION_CODE_LENGTH</code></td>
+<td>Length of the verification code</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>EMAIL_VERIFICATION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the verification code in seconds</td>
+<td>3600 <em>(1 hour)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="oauth-session">OAuth session<a class="headerlink" href="#oauth-session" title="Permanent link">&para;</a></h3>
+<p>An OAuth session is used to maintain the state of an OAuth authentication with an <a href="../../configure/oauth-providers/">OAuth Provider</a>, from the moment they click on the <em>Sign in with...</em> button until they're redirected.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OAUTH_SESSION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the OAuth session in seconds</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="session">Session<a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
+<p>A session is a cookie used to maintain the session of a user <strong>on the Fief authentication pages</strong>. It's different from the session you'll maintain in your own application.</p>
+<p>Its purpose is to allow a user to re-authenticate quickly to your app without having them to input their credentials again.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SESSION_COOKIE_NAME</code></td>
+<td>Name of the session cookie</td>
+<td>fief_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the session cookie in seconds</td>
+<td>86400 * 30 <em>(30 days)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="client-redirect-uris">Client redirect URIs<a class="headerlink" href="#client-redirect-uris" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CLIENT_REDIRECT_URI_SSL_REQUIRED</code></td>
+<td>Whether to enforce the use of HTTPS URL for <a href="../../configure/clients/#redirect-uris">Client redirect URIs</a></td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">This flag should be <code>True</code> in production</p>
+<p>Using SSL/HTTPS URLs for the OAuth2 callback is critical for security. Allowing a non-encrypted redirection could enable malicious users to steal the authorization code during the process.</p>
+<p>This flag is provided for convenience when running Fief in development and testing environments.</p>
+</div>
+<h3 id="authorization-codes-and-tokens-lifetimes">Authorization codes and tokens lifetimes<a class="headerlink" href="#authorization-codes-and-tokens-lifetimes" title="Permanent link">&para;</a></h3>
+<p>Authorization codes are temporary codes generated during the <a href="../../getting-started/oauth2/">OAuth2 authentication flow</a>. Access tokens, ID tokens and refresh tokens are generated after a successful <a href="../../getting-started/oauth2/#access-token-and-id-token">OAuth2 authentication flow</a>.</p>
+<p>The variables below control the default lifetime for each one of them when a <a href="../../configure/clients/">client</a> is created. Those values can then be customized per client.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DEFAULT_AUTHORIZATION_CODE_LIFETIME_SECONDS</code></td>
+<td>Default lifetime of the authorization code in seconds. For security reasons, this value should remain low. OAuth2 specification <a href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.2">recommends a value of 10 minutes</a>.</td>
+<td>600 <em>(10 minutes)</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DEFAULT_ACCESS_ID_TOKEN_LIFETIME_SECONDS</code></td>
+<td>Default lifetime of the access token and ID token in seconds.</td>
+<td>86400 <em>(24 hours)</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>DEFAULT_REFRESH_TOKEN_LIFETIME_SECONDS</code></td>
+<td>Default lifetime of the refresh token in seconds.</td>
+<td>2592000 <em>(30 days)</em></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="fief-ception">Fief-ception<a class="headerlink" href="#fief-ception" title="Permanent link">&para;</a></h3>
+<p>Fief-ception is a mind-fucking concept describing the fact that we actually use Fief to authenticate Fief admins 🤯</p>
+<p>That's why we set necessary variables to create the main client and first admin user, as described in the <a href="../../getting-started/local-instance/">Getting started</a> section.</p>
+<p>The variables below are here to configure the Fief server with a proper Fief client, as you would do in your own application!</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIEF_DOMAIN</code></td>
+<td>Domain of your Fief instance</td>
+<td>localhost:8000</td>
+<td></td>
+<td>fief.bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>FIEF_CLIENT_ID</code></td>
+<td>Client ID in your instance</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_CLIENT_SECRET</code></td>
+<td>Client secret in your instance</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ENCRYPTION_KEY</code></td>
+<td>Optional RSA key used to encrypt the JWT tokens</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_MAIN_USER_EMAIL</code></td>
+<td>Email address of the first admin user. If provided, the user will be created automatically on startup.</td>
+<td></td>
+<td></td>
+<td>anne@bretagne.duchy</td>
+</tr>
+<tr>
+<td><code>FIEF_MAIN_USER_PASSWORD</code></td>
+<td>Password of the first admin user. If <code>FIEF_MAIN_USER_EMAIL</code> is provided, the user will be created automatically on startup with this password. Otherwise, a random password will be generated.</td>
+<td></td>
+<td></td>
+<td>SuperSecretAndStrongPassword</td>
+</tr>
+<tr>
+<td><code>FIEF_MAIN_ADMIN_API_KEY</code></td>
+<td>Admin API token to create at server startup</td>
+<td></td>
+<td></td>
+<td>SuperSecretAndStrongToken</td>
+</tr>
+</tbody>
+</table>
+<h3 id="admin-session">Admin session<a class="headerlink" href="#admin-session" title="Permanent link">&para;</a></h3>
+<p>An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_NAME</code></td>
+<td>Name of the admin session cookie</td>
+<td>fief_admin_session</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_DOMAIN</code></td>
+<td>Domain of the admin session cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>FIEF_ADMIN_SESSION_COOKIE_SECURE</code></td>
+<td>Secure flag of the admin session cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+<h3 id="session-data">Session data<a class="headerlink" href="#session-data" title="Permanent link">&para;</a></h3>
+<p>The admin session data is a mechanism to store temporary data during the session of a user on the Fief admin dashboard.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Allowed values</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SESSION_DATA_COOKIE_NAME</code></td>
+<td>Name of the session data cookie</td>
+<td>fief_session_data</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_DATA_COOKIE_DOMAIN</code></td>
+<td>Domain of the session data cookie</td>
+<td><em>Empty string</em></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_DATA_COOKIE_SECURE</code></td>
+<td>Secure flag of the session data cookie</td>
+<td>True</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>SESSION_DATA_COOKIE_LIFETIME_SECONDS</code></td>
+<td>Lifetime of the registration session cookie in seconds</td>
+<td><code>None</code> (session cookie)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title"><code>_COOKIE_SECURE</code> flag should be <code>True</code> in production</p>
+<p>Browser cookies support the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie#secure"><code>Secure</code> flag</a>, which tells the browser to not forward the cookie if the site is not requested in HTTPS.</p>
+<p>For your convenience when starting Fief on your local machine, the <a href="../../getting-started/local-instance/#quickstart-command">Quickstart</a> command will set those flags to <code>False</code> for every Fief cookies.</p>
+<p>However, for security reasons, it's <strong>strongly recommended</strong> to set those flags to <code>True</code> (the default if not specified) when deploying to production.</p>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../configuration/ssl/" class="md-footer__link md-footer__link--prev" aria-label="Previous: SSL and HTTPS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                SSL and HTTPS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../telemetry/" class="md-footer__link md-footer__link--next" aria-label="Next: Telemetry">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Telemetry
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections", "navigation.indexes", "navigation.tabs", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../assets/javascripts/fernet.js"></script>
+      
+    
+  </body>
+</html>

@@ -74,6 +74,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `ALLOW_ORIGIN_REGEX`  | Regex used to control CORS access to your API                                                | http://.\*localhost:\[0-9]+ |                                  | https://.\*\\.bretagne.duchy |
 | `PORT`                | Internal port on which the Fief server is available                                          | 8000                        |                                  | 8000                         |
 | `FORWARDED_ALLOW_IPS` | Comma separated list of IPs to trust with proxy headers. [Read more](./configuration/ssl.md) | 127.0.0.1                   |                                  |                              |
+| `BRANDING`            | Whether to show Fief branding on authentication pages                                        | True                        | True, False                      |                              |
 
 ### Secrets
 
@@ -97,7 +98,7 @@ For each variable, we'll try to provide a sensible example value to help you con
 | `DATABASE_NAME`                 | Main database name                                                                                                                                                                                                                          | fief.db                   |                           | fief         |
 | `DATABASE_SSL_MODE`             | Main database SSL mode                                                                                                                                                                                                                      |                           | Varies by database type   | require      |
 | `DATABASE_LOCATION`             | For SQLite databases, path where to store the database files                                                                                                                                                                                | Current working directory |                           |              |
-| `DATABASE_POOL_RECYCLE_SECONDS` | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. [Read more](https://docs.sqlalchemy.org/en/20/core/pooling.html#disconnect-handling-pessimistic). | 600 *(10 minutes)*        |                           |              |
+| `DATABASE_POOL_RECYCLE_SECONDS` | Maximum lifetime in seconds of a database connection in the connection pool. Useful for servers cutting idle connections after some time. [Read more](https://docs.sqlalchemy.org/en/20/core/pooling.html#disconnect-handling-pessimistic). | 600 _(10 minutes)_        |                           |              |
 | `DATABASE_POOL_PRE_PING`        | Whether to always issue a query before returning a database connection to make sure it's alive. [Read more](https://docs.sqlalchemy.org/en/20/core/pooling.html#disconnect-handling-pessimistic).                                           | False                     |                           |              |
 | `DATABASE_POOL_SIZE`            | Number of connections to the database to keep alive. [Read more](https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.QueuePool.params.pool_size).                                                                           | 5                         |                           |              |
 | `DATABASE_POOL_MAX_OVERFLOW`    | Maximum number of extra database connection to spawn when pool size is reached. [Read more](https://docs.sqlalchemy.org/en/20/core/pooling.html#sqlalchemy.pool.QueuePool.params.max_overflow).                                             | 10                        |                           |              |
@@ -118,12 +119,12 @@ We use a Redis instance to manage background jobs (send emails, heavy computatio
 
 ### Email provider
 
-| Name                    | Description                                       | Default          | Allowed values                 | Example                      |
-| ----------------------- | ------------------------------------------------- | ---------------- | ------------------------------ | ---------------------------- |
-| `EMAIL_PROVIDER`        | Type of email provider                            | NULL             | NULL, SMTP, POSTMARK, SENDGRID | POSTMARK                     |
-| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider    | {}               |                                | {"server\_token": "XXX-XXX"} |
-| `DEFAULT_FROM_EMAIL`    | Default transactional emails sender email address | contact@fief.dev |                                | contact@bretagne.duchy       |
-| `DEFAULT_FROM_NAME`     | Default transactional emails sender name          | Fief             |                                | Bretagne                     |
+| Name                    | Description                                       | Default          | Allowed values                 | Example                     |
+| ----------------------- | ------------------------------------------------- | ---------------- | ------------------------------ | --------------------------- |
+| `EMAIL_PROVIDER`        | Type of email provider                            | NULL             | NULL, SMTP, POSTMARK, SENDGRID | POSTMARK                    |
+| `EMAIL_PROVIDER_PARAMS` | Configuration dictionary of the email provider    | {}               |                                | {"server_token": "XXX-XXX"} |
+| `DEFAULT_FROM_EMAIL`    | Default transactional emails sender email address | contact@fief.dev |                                | contact@bretagne.duchy      |
+| `DEFAULT_FROM_NAME`     | Default transactional emails sender name          | Fief             |                                | Bretagne                    |
 
 More details about how to configure an email provider in the dedicated section.
 
@@ -138,13 +139,13 @@ More details about how to configure an email provider in the dedicated section.
 
 ### CSRF cookie
 
-To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html) attacks on authentication pages, we use the [double-submit cookie](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site\_Request\_Forgery\_Prevention\_Cheat\_Sheet.html#double-submit-cookie) pattern.
+To protect against [Cross-Site-Request-Forgery](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html) attacks on authentication pages, we use the [double-submit cookie](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#double-submit-cookie) pattern.
 
-| Name                 | Description                                                                       | Default         | Allowed values | Example |
-| -------------------- | --------------------------------------------------------------------------------- | --------------- | -------------- | ------- |
-| `CSRF_CHECK_ENABLED` | Whether to enable the CSRF protection. In most cases, this should remain enabled. | True            |                |         |
-| `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie                                                     | fief\_csrftoken |                |         |
-| `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie                                           | True            |                |         |
+| Name                 | Description                                                                       | Default        | Allowed values | Example |
+| -------------------- | --------------------------------------------------------------------------------- | -------------- | -------------- | ------- |
+| `CSRF_CHECK_ENABLED` | Whether to enable the CSRF protection. In most cases, this should remain enabled. | True           |                |         |
+| `CSRF_COOKIE_NAME`   | Name of the CSRF token cookie                                                     | fief_csrftoken |                |         |
+| `CSRF_COOKIE_SECURE` | Secure flag of the login session cookie                                           | True           |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -154,7 +155,7 @@ The user locale cookie maintains the language of the user on the authentication 
 
 | Name                           | Description                                   | Default                 | Allowed values | Example |
 | ------------------------------ | --------------------------------------------- | ----------------------- | -------------- | ------- |
-| `USER_LOCALE_COOKIE_NAME`      | Name of the user locale cookie                | fief\_locale            |                |         |
+| `USER_LOCALE_COOKIE_NAME`      | Name of the user locale cookie                | fief_locale             |                |         |
 | `USER_LOCALE_COOKIE_DOMAIN`    | Domain of the user locale cookie              | _Empty string_          |                |         |
 | `USER_LOCALE_COOKIE_SECURE`    | Secure flag of user locale cookie             | True                    |                |         |
 | `USER_LOCALE_LIFETIME_SECONDS` | Lifetime of the user locale cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
@@ -167,7 +168,7 @@ The login hint cookie is used to remember the last method a user used to login. 
 
 | Name                                 | Description                                  | Default                 | Allowed values | Example |
 | ------------------------------------ | -------------------------------------------- | ----------------------- | -------------- | ------- |
-| `LOGIN_HINT_COOKIE_NAME`             | Name of the login hint cookie                | fief\_login\_hint       |                |         |
+| `LOGIN_HINT_COOKIE_NAME`             | Name of the login hint cookie                | fief_login_hint         |                |         |
 | `LOGIN_HINT_COOKIE_DOMAIN`           | Domain of the login hint cookie              | _Empty string_          |                |         |
 | `LOGIN_HINT_COOKIE_SECURE`           | Secure flag of login hint cookie             | True                    |                |         |
 | `LOGIN_HINT_COOKIE_LIFETIME_SECONDS` | Lifetime of the login hint cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
@@ -178,12 +179,12 @@ The login hint cookie is used to remember the last method a user used to login. 
 
 A login session is a cookie used to maintain the state of the login flow of a user, from the login page until they're redirected to your application.
 
-| Name                             | Description                                     | Default              | Allowed values | Example |
-| -------------------------------- | ----------------------------------------------- | -------------------- | -------------- | ------- |
-| `LOGIN_SESSION_COOKIE_NAME`      | Name of the login session cookie                | fief\_login\_session |                |         |
-| `LOGIN_SESSION_COOKIE_DOMAIN`    | Domain of the login session cookie              | _Empty string_       |                |         |
-| `LOGIN_SESSION_COOKIE_SECURE`    | Secure flag of the login session cookie         | True                 |                |         |
-| `LOGIN_SESSION_LIFETIME_SECONDS` | Lifetime of the login session cookie in seconds | 600 _(10 minutes)_   |                |         |
+| Name                             | Description                                     | Default            | Allowed values | Example |
+| -------------------------------- | ----------------------------------------------- | ------------------ | -------------- | ------- |
+| `LOGIN_SESSION_COOKIE_NAME`      | Name of the login session cookie                | fief_login_session |                |         |
+| `LOGIN_SESSION_COOKIE_DOMAIN`    | Domain of the login session cookie              | _Empty string_     |                |         |
+| `LOGIN_SESSION_COOKIE_SECURE`    | Secure flag of the login session cookie         | True               |                |         |
+| `LOGIN_SESSION_LIFETIME_SECONDS` | Lifetime of the login session cookie in seconds | 600 _(10 minutes)_ |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -191,12 +192,12 @@ A login session is a cookie used to maintain the state of the login flow of a us
 
 A registration session is a cookie used to maintain the state of the registration flow of a new user, from the registration page until their account is created.
 
-| Name                                    | Description                                            | Default                     | Allowed values | Example |
-| --------------------------------------- | ------------------------------------------------------ | --------------------------- | -------------- | ------- |
-| `REGISTRATION_SESSION_COOKIE_NAME`      | Name of the registration session cookie                | fief\_registration\_session |                |         |
-| `REGISTRATION_SESSION_COOKIE_DOMAIN`    | Domain of the registration session cookie              | _Empty string_              |                |         |
-| `REGISTRATION_SESSION_COOKIE_SECURE`    | Secure flag of the registration session cookie         | True                        |                |         |
-| `REGISTRATION_SESSION_LIFETIME_SECONDS` | Lifetime of the registration session cookie in seconds | 600 _(10 minutes)_          |                |         |
+| Name                                    | Description                                            | Default                   | Allowed values | Example |
+| --------------------------------------- | ------------------------------------------------------ | ------------------------- | -------------- | ------- |
+| `REGISTRATION_SESSION_COOKIE_NAME`      | Name of the registration session cookie                | fief_registration_session |                |         |
+| `REGISTRATION_SESSION_COOKIE_DOMAIN`    | Domain of the registration session cookie              | _Empty string_            |                |         |
+| `REGISTRATION_SESSION_COOKIE_SECURE`    | Secure flag of the registration session cookie         | True                      |                |         |
+| `REGISTRATION_SESSION_LIFETIME_SECONDS` | Lifetime of the registration session cookie in seconds | 600 _(10 minutes)_        |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -211,7 +212,7 @@ Users must verify their email address using a code sent by email. The code is a 
 
 ### OAuth session
 
-An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../configure/oauth-providers.md), from the moment they click on the *Sign in with...* button until they're redirected.
+An OAuth session is used to maintain the state of an OAuth authentication with an [OAuth Provider](../configure/oauth-providers.md), from the moment they click on the _Sign in with..._ button until they're redirected.
 
 | Name                             | Description                              | Default            | Allowed values | Example |
 | -------------------------------- | ---------------------------------------- | ------------------ | -------------- | ------- |
@@ -225,7 +226,7 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 
 | Name                       | Description                               | Default                 | Allowed values | Example |
 | -------------------------- | ----------------------------------------- | ----------------------- | -------------- | ------- |
-| `SESSION_COOKIE_NAME`      | Name of the session cookie                | fief\_session           |                |         |
+| `SESSION_COOKIE_NAME`      | Name of the session cookie                | fief_session            |                |         |
 | `SESSION_COOKIE_DOMAIN`    | Domain of the session cookie              | _Empty string_          |                |         |
 | `SESSION_COOKIE_SECURE`    | Secure flag of the session cookie         | True                    |                |         |
 | `SESSION_LIFETIME_SECONDS` | Lifetime of the session cookie in seconds | 86400 \* 30 _(30 days)_ |                |         |
@@ -239,7 +240,7 @@ Its purpose is to allow a user to re-authenticate quickly to your app without ha
 | `CLIENT_REDIRECT_URI_SSL_REQUIRED` | Whether to enforce the use of HTTPS URL for [Client redirect URIs](../configure/clients.md#redirect-uris) | True    |                |         |
 
 !!! warning "This flag should be `True` in production"
-    Using SSL/HTTPS URLs for the OAuth2 callback is critical for security. Allowing a non-encrypted redirection could enable malicious users to steal the authorization code during the process.
+Using SSL/HTTPS URLs for the OAuth2 callback is critical for security. Allowing a non-encrypted redirection could enable malicious users to steal the authorization code during the process.
 
     This flag is provided for convenience when running Fief in development and testing environments.
 
@@ -277,11 +278,11 @@ The variables below are here to configure the Fief server with a proper Fief cli
 
 An admin session is a cookie used to maintain the session of a user on the Fief admin dashboard.
 
-| Name                               | Description                             | Default              | Allowed values | Example |
-| ---------------------------------- | --------------------------------------- | -------------------- | -------------- | ------- |
-| `FIEF_ADMIN_SESSION_COOKIE_NAME`   | Name of the admin session cookie        | fief\_admin\_session |                |         |
-| `FIEF_ADMIN_SESSION_COOKIE_DOMAIN` | Domain of the admin session cookie      | _Empty string_       |                |         |
-| `FIEF_ADMIN_SESSION_COOKIE_SECURE` | Secure flag of the admin session cookie | True                 |                |         |
+| Name                               | Description                             | Default            | Allowed values | Example |
+| ---------------------------------- | --------------------------------------- | ------------------ | -------------- | ------- |
+| `FIEF_ADMIN_SESSION_COOKIE_NAME`   | Name of the admin session cookie        | fief_admin_session |                |         |
+| `FIEF_ADMIN_SESSION_COOKIE_DOMAIN` | Domain of the admin session cookie      | _Empty string_     |                |         |
+| `FIEF_ADMIN_SESSION_COOKIE_SECURE` | Secure flag of the admin session cookie | True               |                |         |
 
 --8<-- "reusables/cookie-secure-callout.md"
 
@@ -291,7 +292,7 @@ The admin session data is a mechanism to store temporary data during the session
 
 | Name                                   | Description                                            | Default                 | Allowed values | Example |
 | -------------------------------------- | ------------------------------------------------------ | ----------------------- | -------------- | ------- |
-| `SESSION_DATA_COOKIE_NAME`             | Name of the session data cookie                        | fief\_session\_data     |                |         |
+| `SESSION_DATA_COOKIE_NAME`             | Name of the session data cookie                        | fief_session_data       |                |         |
 | `SESSION_DATA_COOKIE_DOMAIN`           | Domain of the session data cookie                      | _Empty string_          |                |         |
 | `SESSION_DATA_COOKIE_SECURE`           | Secure flag of the session data cookie                 | True                    |                |         |
 | `SESSION_DATA_COOKIE_LIFETIME_SECONDS` | Lifetime of the registration session cookie in seconds | `None` (session cookie) |                |         |

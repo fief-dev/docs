@@ -95,71 +95,70 @@ extra_javascript:
   - assets/javascripts/fernet.js
 
 watch:
-- examples
-- reusables
-- overrides
+  - examples
+  - reusables
+  - overrides
 
 nav:
   - index.md
-  - Stronghold:
-    - stronghold/index.md
-  - 'Getting started':
-    - getting-started/introduction.md
-    - getting-started/local-instance.md
-    - getting-started/oauth2.md
-    - getting-started/try-oauth2.md
+  - "Getting started":
+      - getting-started/introduction.md
+      - getting-started/local-instance.md
+      - getting-started/oauth2.md
+      - getting-started/try-oauth2.md
   - user-journey.md
-  - 'Integrate':
-    - 'Python':
-      - 'General': integrate/python/index.md
-      - integrate/python/fastapi.md
-      - integrate/python/flask.md
-      - integrate/python/cli.md
-      - 'Reference ↗️': https://fief-dev.github.io/fief-python/
-    - 'JavaScript':
-      - 'General': integrate/javascript/index.md
-      - 'Backend':
-        - integrate/javascript/backend/express.md
-      - 'SSR':
-        - integrate/javascript/ssr/nextjs-app.md
-        - integrate/javascript/ssr/nextjs-pages.md
-      - 'Frontend':
-        - integrate/javascript/frontend/browser.md
-        - integrate/javascript/frontend/react.md
-      - 'Reference ↗️': https://fief-dev.github.io/fief-js/
-  - 'Configure':
-    - configure/index.md
-    - configure/tenants.md
-    - configure/clients.md
-    - configure/oauth-providers.md
-    - configure/users.md
-    - configure/user-fields.md
-    - configure/access-control.md
-    - configure/webhooks.md
-    - configure/api-keys.md
-    - 'Customization':
-        - configure/customization/themes.md
-        - configure/customization/email-templates.md
-  - 'Going further':
-    - going-further/authorize-url.md
-    - going-further/acr.md
-    - going-further/pkce.md
-    - going-further/id-token-encryption.md
-    - going-further/oauth-provider-token.md
-  - 'Admin API':
-    - api/index.md
-    - 'Webhooks':
-      - Integration guide: api/webhooks/guide.md
-      - Events: api/webhooks/events.md
-  - 'Self-hosting':
-    - self-hosting/index.md
-    - 'Deployment':
-      - self-hosting/deployment/railway.md
-      - self-hosting/deployment/render.md
-      - self-hosting/deployment/docker-compose.md
-    - 'Configuration':
-      - self-hosting/configuration/database.md
-      - self-hosting/configuration/email-provider.md
-      - self-hosting/configuration/ssl.md
-    - self-hosting/environment-variables.md
+  - "Integrate":
+      - "Python":
+          - "General": integrate/python/index.md
+          - integrate/python/fastapi.md
+          - integrate/python/flask.md
+          - integrate/python/cli.md
+          - "Reference ↗️": https://fief-dev.github.io/fief-python/
+      - "JavaScript":
+          - "General": integrate/javascript/index.md
+          - "Backend":
+              - integrate/javascript/backend/express.md
+          - "SSR":
+              - integrate/javascript/ssr/nextjs-app.md
+              - integrate/javascript/ssr/nextjs-pages.md
+          - "Frontend":
+              - integrate/javascript/frontend/browser.md
+              - integrate/javascript/frontend/react.md
+          - "Reference ↗️": https://fief-dev.github.io/fief-js/
+  - "Configure":
+      - configure/index.md
+      - configure/tenants.md
+      - configure/clients.md
+      - configure/oauth-providers.md
+      - configure/users.md
+      - configure/user-fields.md
+      - configure/access-control.md
+      - configure/webhooks.md
+      - configure/api-keys.md
+      - "Customization":
+          - configure/customization/themes.md
+          - "Override templates": configure/customization/override-templates.md
+          - configure/customization/email-templates.md
+  - "Going further":
+      - going-further/authorize-url.md
+      - going-further/acr.md
+      - going-further/pkce.md
+      - going-further/id-token-encryption.md
+      - going-further/oauth-provider-token.md
+  - "Admin API":
+      - api/index.md
+      - "Webhooks":
+          - Integration guide: api/webhooks/guide.md
+          - Events: api/webhooks/events.md
+  - "Self-hosting":
+      - self-hosting/index.md
+      - "Deployment":
+          - self-hosting/deployment/railway.md
+          - self-hosting/deployment/render.md
+          - self-hosting/deployment/docker-compose.md
+      - "Configuration":
+          - self-hosting/configuration/database.md
+          - self-hosting/configuration/email-provider.md
+          - self-hosting/configuration/ssl.md
+      - self-hosting/environment-variables.md
   - Telemetry: telemetry.md
